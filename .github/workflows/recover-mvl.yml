@@ -23,17 +23,15 @@ jobs:
           python3 -m pip install --disable-pip-version-check -q gdown
           mkdir -p work
           gdown "https://drive.google.com/uc?id=1x5AoDsrCh_zFI1WRAHG0coSh7HMBdAV5" -O work/mongvolam_merged_v27.apk
-          ls -lh work/mongvolam_merged_v27.apk
           sha256sum work/mongvolam_merged_v27.apk | tee work/apk.sha256
 
       - name: Download AssetRipper 2.0.0
         run: |
           set -euxo pipefail
           mkdir -p work/assetripper
-          wget -q --show-progress "https://github.com/AssetRipper/AssetRipper/releases/download/2.0.0/AssetRipper_linux_x64.tar.xz" -O work/assetripper.tar.xz
+          wget -q "https://github.com/AssetRipper/AssetRipper/releases/download/2.0.0/AssetRipper_linux_x64.tar.xz" -O work/assetripper.tar.xz
           tar -xJf work/assetripper.tar.xz -C work/assetripper
-          find work/assetripper -maxdepth 2 -type f -printf '%p %s bytes\n' | head -100
-          chmod +x work/assetripper/AssetRipper.GUI.Free || true
+          chmod +x work/assetripper/AssetRipper.GUI.Free
 
       - name: Recover Unity project with AssetRipper
         run: |
@@ -46,13 +44,11 @@ jobs:
 
           "$AR" --headless --port 5454 --log --log-path "$ROOT/work/assetripper.log" > "$ROOT/work/assetripper.stdout.log" 2>&1 &
           AR_PID=$!
-          echo "$AR_PID" > work/assetripper.pid
 
           ok=0
           for i in $(seq 1 90); do
             if curl -fsS "http://127.0.0.1:5454/" >/dev/null; then ok=1; break; fi
             if ! kill -0 "$AR_PID" 2>/dev/null; then
-              echo "AssetRipper exited early"
               cat work/assetripper.stdout.log || true
               exit 1
             fi
@@ -60,60 +56,85 @@ jobs:
           done
           test "$ok" = 1
 
-          echo "Loading APK..."
           curl -fsS -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$APK"             "http://127.0.0.1:5454/LoadFile" -o /dev/null
 
-          echo "Exporting Unity project..."
           curl -fsS -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$OUT"             --data-urlencode "CreateSubfolder=false"             "http://127.0.0.1:5454/Export/UnityProject" -o /dev/null
 
           kill "$AR_PID" || true
           wait "$AR_PID" || true
 
-          echo "Recovered tree:"
-          find "$OUT" -maxdepth 3 -type f | head -300
-          du -sh "$OUT" || true
+          test -d "$OUT/ExportedProject/Assets"
+          test -d "$OUT/ExportedProject/ProjectSettings"
 
-          test -d "$OUT/Assets"
-          test -d "$OUT/ProjectSettings"
-
-      - name: Inventory recovery
-        if: always()
+      - name: Inventory and split archive
         run: |
-          set +e
+          set -euxo pipefail
+          PROJ=work/recovered/ExportedProject
           {
-            echo "## APK"
-            cat work/apk.sha256
-            echo
-            echo "## Recovered size"
-            du -sh work/recovered
-            echo
             echo "## Project version"
-            cat work/recovered/ProjectSettings/ProjectVersion.txt
-            echo
-            echo "## Script count"
-            find work/recovered/Assets -type f -name '*.cs' | wc -l
-            echo
-            echo "## Scene count"
-            find work/recovered/Assets -type f -name '*.unity' | wc -l
-            echo
-            echo "## Prefab count"
-            find work/recovered/Assets -type f -name '*.prefab' | wc -l
-            echo
-            echo "## Model-ish files"
-            find work/recovered/Assets -type f \( -iname '*.fbx' -o -iname '*.obj' -o -iname '*.dae' -o -iname '*.mesh' \) | head -200
+            cat "$PROJ/ProjectSettings/ProjectVersion.txt"
+            echo "## Size"
+            du -sh work/recovered
+            echo "## Scripts"
+            find "$PROJ/Assets" -type f -name '*.cs' | wc -l
+            echo "## Scenes"
+            find "$PROJ/Assets" -type f -name '*.unity' | wc -l
+            echo "## Prefabs"
+            find "$PROJ/Assets" -type f -name '*.prefab' | wc -l
+            echo "## Top-level asset sizes"
+            du -sh "$PROJ/Assets"/* 2>/dev/null | sort -h
           } | tee work/recovery-inventory.txt
 
-      - name: Upload recovered project
-        if: always()
+          tar -C work -czf work/mvl-recovered.tar.gz recovered recovery-inventory.txt apk.sha256
+          mkdir -p work/chunks
+          split -b 80m -d -a 2 work/mvl-recovered.tar.gz work/chunks/part-
+          ls -lh work/chunks
+
+      - name: Upload metadata
         uses: actions/upload-artifact@v4
         with:
-          name: mvl-recovered-unity-project
+          name: mvl-recovery-metadata
           path: |
-            work/recovered
             work/recovery-inventory.txt
             work/assetripper.log
             work/assetripper.stdout.log
             work/apk.sha256
-          include-hidden-files: true
-          compression-level: 6
+          retention-days: 7
+
+      - name: Upload chunk 00
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-recovered-part-00
+          path: work/chunks/part-00
+          compression-level: 0
+          retention-days: 7
+      - name: Upload chunk 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-recovered-part-01
+          path: work/chunks/part-01
+          compression-level: 0
+          retention-days: 7
+      - name: Upload chunk 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-recovered-part-02
+          path: work/chunks/part-02
+          compression-level: 0
+          retention-days: 7
+      - name: Upload chunk 03
+        if: ${{ hashFiles('work/chunks/part-03') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-recovered-part-03
+          path: work/chunks/part-03
+          compression-level: 0
+          retention-days: 7
+      - name: Upload chunk 04
+        if: ${{ hashFiles('work/chunks/part-04') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-recovered-part-04
+          path: work/chunks/part-04
+          compression-level: 0
           retention-days: 7
