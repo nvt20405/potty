@@ -130,6 +130,30 @@ public sealed class WWW : CustomYieldInstruction, IDisposable
     mp=Path(str(p)+'.meta')
     if not mp.exists(): mp.write_text(meta_for(str(p.relative_to(script_dir.parent.parent.parent))),encoding='utf-8')
 
+def fix_case_collisions(assets: Path):
+    groups={}
+    for p in assets.rglob('*'):
+        if not p.is_file() or p.suffix == '.meta':
+            continue
+        groups.setdefault(p.relative_to(assets).as_posix().casefold(), []).append(p)
+    renamed=[]
+    for paths in groups.values():
+        if len(paths) < 2:
+            continue
+        paths=sorted(paths, key=lambda x:x.as_posix())
+        for idx,p in enumerate(paths[1:], start=2):
+            new=p.with_name(f'{p.stem}__case{idx}{p.suffix}')
+            while new.exists():
+                idx += 1
+                new=p.with_name(f'{p.stem}__case{idx}{p.suffix}')
+            old_meta=Path(str(p)+'.meta')
+            new_meta=Path(str(new)+'.meta')
+            p.rename(new)
+            if old_meta.exists():
+                old_meta.rename(new_meta)
+            renamed.append((p,new))
+    return renamed
+
 def migrate(project: Path):
     assets=project/'Assets'
     dummy=assets/'Scripts'/'Assembly-CSharp'
@@ -153,6 +177,7 @@ def migrate(project: Path):
             dll.unlink(); m=Path(str(dll)+'.meta')
             if m.exists(): m.unlink()
 
+    collisions=fix_case_collisions(assets)
     add_www_compat(dummy)
     changed=0
     for p in assets.rglob('*.cs'):
@@ -172,7 +197,7 @@ def migrate(project: Path):
         '- Decompiled Mono source merged over AssetRipper dummy scripts while retaining original script GUIDs.\n'
         '- Unity 4 component shortcuts and scene loading APIs updated.\n'
         '- Legacy WWW calls bridged to UnityWebRequest/UnityWebRequestAssetBundle for cached model/AssetBundle loading.\n',encoding='utf-8')
-    print(f'merged={merged} extra={extra} patched_files={changed}')
+    print(f'merged={merged} extra={extra} patched_files={changed} case_collisions_renamed={len(collisions)}')
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(); ap.add_argument('project',type=Path)
