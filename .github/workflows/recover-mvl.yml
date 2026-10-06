@@ -5,6 +5,8 @@ on:
     branches: [mvl-unity6-recovery]
     paths:
       - ".github/workflows/recover-mvl.yml"
+      - "tools/port_to_unity6.py"
+      - "tools/validate_unity_project.py"
   workflow_dispatch:
 
 permissions:

@@ -48,6 +48,8 @@ def patch_cs(path: Path):
         s=s.replace('gameObject.GetComponent<ParticleSystem>().playbackSpeed = TimeScale;',
                     'var particleMain = gameObject.GetComponent<ParticleSystem>().main;\n\t\t\t\tparticleMain.simulationSpeed = TimeScale;')
     s=s.replace('base.collider', 'GetComponent<Collider>()')
+    if re.search(r'\bNavMesh(?:Agent|Hit|Path|Obstacle|LinkData|BuildSettings|Triangulation)?\b', s):
+        s=ensure_using(s,'UnityEngine.AI')
     if s != orig:
         path.write_text(s,encoding='utf-8')
         return True
@@ -161,17 +163,32 @@ def migrate(project: Path):
     if not real.exists(): raise SystemExit(f'Missing decompiled source: {real}')
     dummy.mkdir(parents=True,exist_ok=True)
     merged=extra=0
-    for src in real.glob('*.cs'):
-        dst=dummy/src.name
+    for src in real.rglob('*.cs'):
+        rel = src.relative_to(real)
+        if src.name == 'AssemblyInfo.cs' and 'Properties' in rel.parts:
+            continue
+        dst = dummy / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
         if dst.exists():
             dst.write_bytes(src.read_bytes()); merged += 1
         else:
-            shutil.copy2(src,dst); extra += 1
-            mp=Path(str(dst)+'.meta')
-            if not mp.exists(): mp.write_text(meta_for(str(dst.relative_to(project))),encoding='utf-8')
+            shutil.copy2(src, dst); extra += 1
+            mp = Path(str(dst) + '.meta')
+            if not mp.exists():
+                mp.write_text(meta_for(str(dst.relative_to(project))), encoding='utf-8')
     shutil.rmtree(real)
     real_meta=assets/'Scripts'/'Assembly-CSharp-patched.meta'
     if real_meta.exists(): real_meta.unlink()
+
+    # Unity generates assembly metadata itself. Decompiled AssemblyInfo files from
+    # multiple original assemblies collide when imported as C# source in Unity 6.
+    for assembly_info in (assets/'Scripts').rglob('AssemblyInfo.cs'):
+        if assembly_info.parent.name == 'Properties':
+            assembly_info.unlink()
+            m = Path(str(assembly_info) + '.meta')
+            if m.exists():
+                m.unlink()
+
     for dll in [assets/'Plugins'/'Assembly-CSharp-patched.dll',assets/'Plugins'/'Assembly-CSharp.dll']:
         if dll.exists():
             dll.unlink(); m=Path(str(dll)+'.meta')
