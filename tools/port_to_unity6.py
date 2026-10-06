@@ -79,7 +79,7 @@ def patch_cs(path: Path):
         'GUIManager.instance.homeCity.mainAvatar',
         'GUIManager.instance.homeCity.dongNhanAvatar3D',
         'btnThuocTinh1', 'btnThuocTinh2', 'btnThuocTinh3',
-        'mBG', 'mFG', 'thumb'
+        'mBG', 'mFG', 'background', 'foreground', 'thumb'
     ]
     for expr in legacy_collider_exprs:
         s=s.replace(expr + '.collider', expr + '.GetComponent<Collider>()')
@@ -98,6 +98,40 @@ def patch_cs(path: Path):
         s=s.replace('Application.platform == RuntimePlatform.WindowsWebPlayer || ', '')
     if path.name == 'UICamera.cs':
         s=s.replace(' || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.BB10Player', '')
+
+    # Preserve the old NGUI art/layout while keeping anchored controls clear of
+    # notches and display cutouts on modern Android devices.
+    if path.name == 'UIAnchor.cs':
+        s=s.replace(
+            '\tpublic bool runOnlyOnce;\n',
+            '\tpublic bool runOnlyOnce;\n\n\tpublic bool respectSafeArea = true;\n')
+        s=s.replace(
+'''				float num = ((!(mRoot != null)) ? 0.5f : ((float)mRoot.activeHeight / (float)Screen.height * 0.5f));
+				mRect.xMin = (float)(-Screen.width) * num;
+				mRect.yMin = (float)(-Screen.height) * num;
+				mRect.xMax = 0f - mRect.xMin;
+				mRect.yMax = 0f - mRect.yMin;''',
+'''				float num = ((!(mRoot != null)) ? 0.5f : ((float)mRoot.activeHeight / (float)Screen.height * 0.5f));
+				Rect safe = (respectSafeArea && Application.isPlaying) ? Screen.safeArea : new Rect(0f, 0f, Screen.width, Screen.height);
+				float scale = num * 2f;
+				mRect.xMin = (safe.xMin - Screen.width * 0.5f) * scale;
+				mRect.yMin = (safe.yMin - Screen.height * 0.5f) * scale;
+				mRect.xMax = (safe.xMax - Screen.width * 0.5f) * scale;
+				mRect.yMax = (safe.yMax - Screen.height * 0.5f) * scale;''')
+        s=s.replace(
+'''			flag = true;
+			mRect = uiCamera.pixelRect;''',
+'''			flag = true;
+			mRect = uiCamera.pixelRect;
+			if (respectSafeArea && Application.isPlaying)
+			{
+				Rect safe = Screen.safeArea;
+				mRect = Rect.MinMaxRect(
+					Mathf.Max(mRect.xMin, safe.xMin),
+					Mathf.Max(mRect.yMin, safe.yMin),
+					Mathf.Min(mRect.xMax, safe.xMax),
+					Mathf.Min(mRect.yMax, safe.yMax));
+			}''')
     resource_call = re.compile(r'((?:Resources\.Load(?:Async)?(?:<[^>]+>)?|EGResourceAsyncLoader\.Load)\(\s*")([^"]+)(")')
     s=resource_call.sub(lambda m: m.group(1) + normalize_resource_literal(m.group(2)) + m.group(3), s)
     if re.search(r'\bNavMesh(?:Agent|Hit|Path|Obstacle|LinkData|BuildSettings|Triangulation)?\b', s):
