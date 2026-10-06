@@ -40,7 +40,14 @@ def normalize_resource_literal(path: str) -> str:
     for i in range(stop):
         if parts[i]:
             parts[i] = parts[i].lower()
-    return '/'.join(parts)
+    normalized = '/'.join(parts)
+    # Two recovered prefab names differ only by historical capitalization.
+    # Android Resources lookup is case-sensitive, so preserve the asset's exact leaf case.
+    aliases = {
+        'popup/PopupCheckKNB': 'popup/PopUpCheckKNB',
+        'popup/PopUpBanTrangBi': 'popup/PopupBanTrangBi',
+    }
+    return aliases.get(normalized, normalized)
 
 def patch_cs(path: Path):
     s=path.read_text(encoding='utf-8-sig',errors='replace')
