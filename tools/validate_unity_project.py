@@ -52,11 +52,12 @@ def main(project: Path):
     if missing_costume: issues.append(f'costume model prefabs missing: {len(missing_costume)}')
     if missing_weapon: warnings.append(f'weapon config entries using hidden/default fallback rather than same-name prefab: {len(missing_weapon)}')
 
-    resource_paths=set()
+    resource_paths=set(); resource_exact={}
     for p in res.rglob('*'):
         if p.is_file() and p.suffix!='.meta':
-            rel=p.relative_to(res).as_posix(); resource_paths.add(str(Path(rel).with_suffix('')).casefold())
-    literals=[]; missing_literals=[]
+            rel=p.relative_to(res).as_posix(); noext=str(Path(rel).with_suffix(''))
+            resource_paths.add(noext.casefold()); resource_exact[noext.casefold()] = noext
+    literals=[]; missing_literals=[]; case_mismatch_literals=[]
     rx=re.compile(r'(?:Resources\.Load(?:<[^>]+>)?|EGResourceAsyncLoader\.Load)\(\s*"([^"]+)"')
     for p in assets.rglob('*.cs'):
         text=p.read_text(errors='ignore')
@@ -66,8 +67,12 @@ def main(project: Path):
             if val.endswith('/') or val.endswith('_') or re.match(r'\s*\+', after):
                 continue
             literals.append((p,val))
-            if val.casefold() not in resource_paths and not any(x.startswith(val.casefold()+'/') for x in resource_paths):
+            key=val.casefold()
+            if key in resource_exact and resource_exact[key] != val:
+                case_mismatch_literals.append((str(p.relative_to(project)),val,resource_exact[key]))
+            if key not in resource_paths and not any(x.startswith(key+'/') for x in resource_paths):
                 missing_literals.append((str(p.relative_to(project)),val))
+    if case_mismatch_literals: issues.append(f'literal Resources path case mismatches: {len(case_mismatch_literals)}')
     if missing_literals: warnings.append(f'literal Resources paths not found: {len(missing_literals)}')
 
     print('=== UNITY PROJECT VALIDATION ===')
@@ -76,7 +81,9 @@ def main(project: Path):
     for name,folder,ne,na,missing,extra in checks:
         print(f'{name}: expected={ne} local_prefabs={na} missing={len(missing)} extra={len(extra)}')
         if missing: print('  missing:',', '.join(missing[:30]))
-    print('literal resource loads:',len(literals),'missing:',len(missing_literals))
+    print('literal resource loads:',len(literals),'case_mismatches:',len(case_mismatch_literals),'missing:',len(missing_literals))
+    if case_mismatch_literals:
+        for f,got,want in case_mismatch_literals[:40]: print('  resource-case:',f,'=>',got,'expected',want)
     if missing_literals:
         for f,v in missing_literals[:40]: print('  resource-miss:',f,'=>',v)
     if collisions:
