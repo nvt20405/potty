@@ -68,7 +68,7 @@ public class PopupVoCong : MonoBehaviour
 	private static void Create(UserInfo ref_user_info, UserInfo.VoCongData data, int level)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupVoCong"))).GetComponent<PopupVoCong>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupVoCong"))).GetComponent<PopupVoCong>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(ref_user_info, data, level);
@@ -78,7 +78,7 @@ public class PopupVoCong : MonoBehaviour
 	private static void CreateByConfigData(CfgVoCong cfg)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupVoCong"))).GetComponent<PopupVoCong>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupVoCong"))).GetComponent<PopupVoCong>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.RefUserInfo = GameManager.instance.m_GameClient.UserInfo;
@@ -160,7 +160,7 @@ public class PopupVoCong : MonoBehaviour
 	public static void CreateByVoLamPhoScreen(CfgVoCong vcData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupVoCong"))).GetComponent<PopupVoCong>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupVoCong"))).GetComponent<PopupVoCong>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.RefUserInfo = GameManager.instance.m_GameClient.UserInfo;

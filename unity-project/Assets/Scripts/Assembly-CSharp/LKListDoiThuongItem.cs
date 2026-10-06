@@ -27,7 +27,7 @@ public class LKListDoiThuongItem : MonoBehaviour
 		{
 			buttonLabel.text = Localization.instance.Get("LuanKiemDoiThuongLabel");
 		}
-		buttonLabel.transform.parent.collider.enabled = isActive;
+		buttonLabel.transform.parent.GetComponent<Collider>().enabled = isActive;
 		code = codeDoiThuong;
 		this.isLinhThuong = isLinhThuong;
 	}

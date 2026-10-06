@@ -36,7 +36,7 @@ public class PopupGamerInCity : MonoBehaviour
 	public static PopupGamerInCity Create(int gid, string uName, string nvName, bool isOnline)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupGamerInCity"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupGamerInCity"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupGamerInCity>();
 		PopupManager.instance.Add(gameObject);
@@ -89,7 +89,7 @@ public class PopupGamerInCity : MonoBehaviour
 				}
 			}
 		}
-		btnAddFriend.collider.enabled = !flag;
+		btnAddFriend.GetComponent<Collider>().enabled = !flag;
 		btnBatCoc.gameObject.SetActive(!isOnline);
 		btnMoiRuou.gameObject.SetActive(isOnline);
 	}

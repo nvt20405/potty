@@ -47,7 +47,7 @@ public class ThuCuoiInfo : MonoBehaviour
 			item.SetActive(false);
 		}
 		OtherCfg.ThuCuoiCfg thuCuoiCfg = ConfigManager.instance.OtherConfig.ThuCuoiConfig[thuCuoiName];
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("ThuCuoi/" + thuCuoiCfg.CodeName, typeof(GameObject)));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("thucuoi/" + thuCuoiCfg.CodeName, typeof(GameObject)));
 		ThuCuoiModel = (GameObject)((obj is GameObject) ? obj : null);
 		ThuCuoiModel.transform.parent = ThuCuoi3DRoot.transform;
 		ThuCuoiModel.transform.localScale = 0.5f * Vector3.one;
@@ -255,7 +255,7 @@ public class ThuCuoiInfo : MonoBehaviour
 		}
 		UserInfo.ThuCuoiData thuCuoiData = GameManager.instance.m_GameClient.UserInfo.ThuCuoi.ThuCuoiList.Find((UserInfo.ThuCuoiData e) => e.ID == id);
 		OtherCfg.ThuCuoiCfg thuCuoiCfg = ConfigManager.instance.OtherConfig.ThuCuoiConfig[thuCuoiData.CodeName];
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("ThuCuoi/" + thuCuoiCfg.CodeName, typeof(GameObject)));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("thucuoi/" + thuCuoiCfg.CodeName, typeof(GameObject)));
 		ThuCuoiModel = (GameObject)((obj is GameObject) ? obj : null);
 		ThuCuoiModel.transform.parent = ThuCuoi3DRoot.transform;
 		ThuCuoiModel.transform.localScale = 0.5f * Vector3.one;

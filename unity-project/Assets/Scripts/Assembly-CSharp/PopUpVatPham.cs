@@ -34,7 +34,7 @@ public class PopUpVatPham : MonoBehaviour
 	public static void Create(UserInfo.VatPhamTieuThuData data)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupVatPham"))).GetComponent<PopUpVatPham>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupVatPham"))).GetComponent<PopUpVatPham>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(data);
@@ -43,7 +43,7 @@ public class PopUpVatPham : MonoBehaviour
 	public static void CreateByConfigData(VatPhamTieuThuCfg data)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupVatPham"))).GetComponent<PopUpVatPham>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupVatPham"))).GetComponent<PopUpVatPham>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.SetByConfig(data);

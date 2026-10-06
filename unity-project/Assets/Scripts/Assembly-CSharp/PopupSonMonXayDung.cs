@@ -19,7 +19,7 @@ public class PopupSonMonXayDung : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSonMonXayDung"))).GetComponent<PopupSonMonXayDung>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSonMonXayDung"))).GetComponent<PopupSonMonXayDung>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.BaseItem.gameObject.SetActive(false);

@@ -14,7 +14,7 @@ public class PopupLinhDuocActivity : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/LinhDuocActivityPopup"));
+		Object obj = Object.Instantiate(Resources.Load("popup/LinhDuocActivityPopup"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupLinhDuocActivity>();
 		PopupManager.instance.Add(gameObject);

@@ -278,7 +278,7 @@ public class ScreenLienMinhMain : ScreenBase
 				return listPlayerLienMinhInfo[i];
 			}
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/LienMinh/PlayerLienMinhInfo"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("prefabs/lienminh/PlayerLienMinhInfo"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		gameObject.transform.parent = HUDPanel.transform;
 		gameObject.transform.localScale = Vector3.one;

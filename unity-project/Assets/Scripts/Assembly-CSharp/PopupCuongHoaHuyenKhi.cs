@@ -60,7 +60,7 @@ public class PopupCuongHoaHuyenKhi : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupCuongHoaHuyenKhi"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupCuongHoaHuyenKhi"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		gameObject.transform.localScale = Vector3.one;

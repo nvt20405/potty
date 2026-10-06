@@ -49,7 +49,7 @@ public class UIFollowTarget : MonoBehaviour
 	private void Update()
 	{
 		Vector3 position = gameCamera.WorldToViewportPoint(target.position);
-		bool flag = (gameCamera.isOrthoGraphic || position.z > 0f) && (!disableIfInvisible || (position.x > 0f && position.x < 1f && position.y > 0f && position.y < 1f));
+		bool flag = (gameCamera.orthographic || position.z > 0f) && (!disableIfInvisible || (position.x > 0f && position.x < 1f && position.y > 0f && position.y < 1f));
 		if (mIsVisible != flag)
 		{
 			SetVisible(flag);

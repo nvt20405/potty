@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
 	{
 		_entryCls = UnityEngine.Object.FindObjectOfType<EntryClient>();
 		_gameCls = UnityEngine.Object.FindObjectOfType<GameClient>();
-		TextAsset textAsset = (TextAsset)Resources.Load("Config/Host", typeof(TextAsset));
+		TextAsset textAsset = (TextAsset)Resources.Load("config/Host", typeof(TextAsset));
 		StringReader stringReader = new StringReader(textAsset.text);
 		m_serverIP = stringReader.ReadLine();
 		Trailer = false;

@@ -63,7 +63,7 @@ public class PopUpKyNgoDanhBac : MonoBehaviour
 	public static void Create(int index, int VoCongOrTrangBiID)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupKyNgoDanhBac"))).GetComponent<PopUpKyNgoDanhBac>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupKyNgoDanhBac"))).GetComponent<PopUpKyNgoDanhBac>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.currentIndex = index;

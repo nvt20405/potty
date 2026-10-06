@@ -102,7 +102,7 @@ public class PopupChienHon : MonoBehaviour
 	public static void Create(UserInfo ref_user_info, UserInfo.ChienHon data, UserInfo.HeroData hero)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupChienHon"))).GetComponent<PopupChienHon>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupChienHon"))).GetComponent<PopupChienHon>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.RefUserInfo = ref_user_info;
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);

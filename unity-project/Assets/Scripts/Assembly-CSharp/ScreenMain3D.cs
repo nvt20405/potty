@@ -99,7 +99,7 @@ public class ScreenMain3D : MonoBehaviour
 			Object.Destroy(NienThuAvatar3D);
 		}
 		IsFightingNienThu = true;
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/NienThu"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/NienThu"));
 		NienThuAvatar3D = (GameObject)((obj is GameObject) ? obj : null);
 		if (NienThuAvatar3D != null)
 		{
@@ -148,7 +148,7 @@ public class ScreenMain3D : MonoBehaviour
 		{
 			Object.Destroy(dongNhanAvatar3D);
 		}
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/TayDocAvatar"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/TayDocAvatar"));
 		dongNhanAvatar3D = (GameObject)((obj is GameObject) ? obj : null);
 		if (dongNhanAvatar3D != null)
 		{
@@ -526,7 +526,7 @@ public class ScreenMain3D : MonoBehaviour
 		Vector3 movePoint2 = GetMovePoint(vector2, vector, mainAvatar.transform.localPosition, 4f);
 		if (!IsPointInCamera(vector2))
 		{
-			Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/DeVang"));
+			Object obj = Object.Instantiate(Resources.Load("prefabs/home/DeVang"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			gameObject.transform.parent = base.transform;
 			gameObject.transform.position = vector2;
@@ -818,7 +818,7 @@ public class ScreenMain3D : MonoBehaviour
 
 	public GameObject SpawnPlayerAvatar(string userName, string codeName, string vukhi, string bophap, string noicong, Vector3 pos, string thuCuoi, string costume, string thanthu, UserInfo.PetInfo.PetQuality thanthuQuality, string ghiChuTrongNgay, UserInfo.GamerData.TonHieuType tonHieuType, int level, int countGH)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/MainAvatar"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/MainAvatar"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -862,7 +862,7 @@ public class ScreenMain3D : MonoBehaviour
 
 	public NPCAvatar SpawnNPCAvatar(int gid, string userName, string codeName, string vukhi, Vector3 pos, float rotation)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/NPCAvatar"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/NPCAvatar"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		NPCAvatar nPCAvatar = null;
 		if (gameObject != null)
@@ -891,7 +891,7 @@ public class ScreenMain3D : MonoBehaviour
 
 	public GameObject SpawnOtherAvatar(int gid, string userName, string codeName, string vukhi, string bophap, string noicong, Vector3 pos, bool isOnline, string thuCuoi = "", string costume = "", string thanthu = "", UserInfo.PetInfo.PetQuality thanthuQuality = UserInfo.PetInfo.PetQuality.PHO_THONG, string ghiChuTrongNgay = "", UserInfo.GamerData.TonHieuType typeDanhHieu = UserInfo.GamerData.TonHieuType.LEVEL, int level = 1, int countGH = 1)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/PlayerAvatar"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/PlayerAvatar"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{

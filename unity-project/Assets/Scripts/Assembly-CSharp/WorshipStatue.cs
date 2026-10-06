@@ -76,7 +76,7 @@ public class WorshipStatue : MonoBehaviour
 				material2.SetTextureScale("_MainTex", material.mainTextureScale);
 				material2.SetTextureOffset("_MainTex", material.mainTextureOffset);
 				Material material3 = material2;
-				Object obj = Resources.Load("EGShader/Stone_texture");
+				Object obj = Resources.Load("egshader/Stone_texture");
 				material3.SetTexture("_StoneTex", (Texture)((obj is Texture) ? obj : null));
 				material2.SetTextureScale("_StoneTex", Vector2.one);
 				material2.SetTextureOffset("_StoneTex", Vector2.zero);

@@ -38,7 +38,7 @@ public class CT2Rune3D : MonoBehaviour
 			{
 				Object.Destroy(particle);
 			}
-			Object obj4 = Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_NGOAI_SYMBOL"));
+			Object obj4 = Object.Instantiate(Resources.Load("fx/prefabs/RUNES_NGOAI_SYMBOL"));
 			particle = (GameObject)((obj4 is GameObject) ? obj4 : null);
 			particle.transform.parent = base.transform;
 			particle.transform.localPosition = Vector3.zero;
@@ -51,7 +51,7 @@ public class CT2Rune3D : MonoBehaviour
 			{
 				Object.Destroy(particle);
 			}
-			Object obj3 = Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_MENH_SYMBOL"));
+			Object obj3 = Object.Instantiate(Resources.Load("fx/prefabs/RUNES_MENH_SYMBOL"));
 			particle = (GameObject)((obj3 is GameObject) ? obj3 : null);
 			particle.transform.parent = base.transform;
 			particle.transform.localPosition = Vector3.zero;
@@ -64,7 +64,7 @@ public class CT2Rune3D : MonoBehaviour
 			{
 				Object.Destroy(particle);
 			}
-			Object obj2 = Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_KHI_SYMBOL"));
+			Object obj2 = Object.Instantiate(Resources.Load("fx/prefabs/RUNES_KHI_SYMBOL"));
 			particle = (GameObject)((obj2 is GameObject) ? obj2 : null);
 			particle.transform.parent = base.transform;
 			particle.transform.localPosition = Vector3.zero;
@@ -77,7 +77,7 @@ public class CT2Rune3D : MonoBehaviour
 			{
 				Object.Destroy(particle);
 			}
-			Object obj = Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_THAN_SYMBOL"));
+			Object obj = Object.Instantiate(Resources.Load("fx/prefabs/RUNES_THAN_SYMBOL"));
 			particle = (GameObject)((obj is GameObject) ? obj : null);
 			particle.transform.parent = base.transform;
 			particle.transform.localPosition = Vector3.zero;

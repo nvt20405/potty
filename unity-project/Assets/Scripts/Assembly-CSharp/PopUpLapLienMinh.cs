@@ -14,7 +14,7 @@ public class PopUpLapLienMinh : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupLapLienMinh"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupLapLienMinh"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopUpLapLienMinh>();
 		instance.Set();

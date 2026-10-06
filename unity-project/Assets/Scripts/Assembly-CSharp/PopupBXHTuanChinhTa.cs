@@ -20,7 +20,7 @@ public class PopupBXHTuanChinhTa : MonoBehaviour
 	private static PopupBXHTuanChinhTa Create(CT2BXHTuanResponse response)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupBXHTuanChinhTa"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupBXHTuanChinhTa"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupBXHTuanChinhTa>();
 		instance.SetInfo(response);
@@ -68,7 +68,7 @@ public class PopupBXHTuanChinhTa : MonoBehaviour
 			}
 			else
 			{
-				Object obj = Object.Instantiate(Resources.Load("Popup/BXHTuanChinhTaRow"));
+				Object obj = Object.Instantiate(Resources.Load("popup/BXHTuanChinhTaRow"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = clipPanel.transform;
 				gameObject.transform.localScale = Vector3.one;

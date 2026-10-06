@@ -22,7 +22,7 @@ public class PopupKetThucBangChien : MonoBehaviour
 	public static void Create(bool thanhCong, string message)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupKetThucBangChien"))).GetComponent<PopupKetThucBangChien>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupKetThucBangChien"))).GetComponent<PopupKetThucBangChien>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.spriteKetQua.spriteName = ((!thanhCong) ? "thua_cuoc" : "chien_thang");

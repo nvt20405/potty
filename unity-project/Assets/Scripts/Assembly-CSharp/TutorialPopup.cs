@@ -189,12 +189,12 @@ public class TutorialPopup : MonoBehaviour
 	public static void Create(string tutName)
 	{
 		Release();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/TutorialPopup"))).GetComponent<TutorialPopup>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/TutorialPopup"))).GetComponent<TutorialPopup>();
 		instance.root = Object.FindObjectOfType(typeof(UIRoot)) as UIRoot;
 		instance.transform.parent = GUIManager.instance.popUpContainer.transform;
 		instance.transform.localPosition = new Vector3(0f, 0f, -600f);
 		instance.transform.localScale = Vector3.one;
-		Object obj = Resources.Load("Config/Tutorial");
+		Object obj = Resources.Load("config/Tutorial");
 		string json = ((TextAsset)((obj is TextAsset) ? obj : null)).ToString();
 		instance.m_dicTutorial = JsonMapper.ToObject<Dictionary<string, List<TutorialCfgItem>>>(json);
 		instance.CurrentTut = tutName;

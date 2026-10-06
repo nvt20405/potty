@@ -68,13 +68,13 @@ public class DanhSonItem : MonoBehaviour
 			if (giangHoIdxFromDanhSonIdx < 30)
 			{
 				UITexture uITexture = bgTexture;
-				Object obj = Resources.Load("TextureGUI/DVL_worldmap");
+				Object obj = Resources.Load("texturegui/DVL_worldmap");
 				uITexture.mainTexture = (Texture)((obj is Texture) ? obj : null);
 			}
 			else
 			{
 				UITexture uITexture2 = bgTexture;
-				Object obj2 = Resources.Load("TextureGUI/DVL_worldmap_2");
+				Object obj2 = Resources.Load("texturegui/DVL_worldmap_2");
 				uITexture2.mainTexture = (Texture)((obj2 is Texture) ? obj2 : null);
 			}
 			float num = scaleXFactor * GUIManager.instance.GameFrame.transform.localScale.x;

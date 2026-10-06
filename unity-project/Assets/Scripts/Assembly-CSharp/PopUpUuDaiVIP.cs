@@ -26,7 +26,7 @@ public class PopUpUuDaiVIP : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupUuDaiVIP"))).GetComponent<PopUpUuDaiVIP>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupUuDaiVIP"))).GetComponent<PopUpUuDaiVIP>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.getListVIP();

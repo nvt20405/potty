@@ -116,7 +116,7 @@ public class PopupNhanVat : MonoBehaviour
 	private static void Create(UserInfo ref_user_info, UserInfo.HeroData data, bool isOpenByScreenDoiHinh, bool isActiveDuyen = false, bool isShowAnother = false, bool isOpenByBatQuai = false, int indexInDoiHinhBQ = -1)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNhanVat"))).GetComponent<PopupNhanVat>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNhanVat"))).GetComponent<PopupNhanVat>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.RefUserInfo = ref_user_info;
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -793,7 +793,7 @@ public class PopupNhanVat : MonoBehaviour
 	public static void CreateByNhanVatAvatar(NhanVatCfg cfgData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNhanVat"))).GetComponent<PopupNhanVat>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNhanVat"))).GetComponent<PopupNhanVat>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.RefUserInfo = GameManager.instance.m_GameClient.UserInfo;
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -806,7 +806,7 @@ public class PopupNhanVat : MonoBehaviour
 	public static void CreateByVoLamPhoScreen(NhanVatCfg cfgData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNhanVat"))).GetComponent<PopupNhanVat>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNhanVat"))).GetComponent<PopupNhanVat>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.RefUserInfo = GameManager.instance.m_GameClient.UserInfo;
 		instance.isOpenByVoLamPho = true;

@@ -26,7 +26,7 @@ public class PopupDangNhapNhanThuongTet : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupDangNhapNhanThuongTet"))).GetComponent<PopupDangNhapNhanThuongTet>();
+		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("popup/PopupDangNhapNhanThuongTet"))).GetComponent<PopupDangNhapNhanThuongTet>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.displayListPhanThuong();

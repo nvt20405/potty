@@ -26,7 +26,7 @@ public class PopUpMessageBase : FormBase
 	{
 		if (!(instance != null))
 		{
-			GameObject gameObject = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("GUI/Controls/PopUpMessageBase"));
+			GameObject gameObject = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("gui/controls/PopUpMessageBase"));
 			gameObject.transform.parent = GUIManager.instance.popUpContainer.transform;
 			gameObject.transform.localScale = Vector3.one;
 			gameObject.transform.localPosition = Vector3.zero;

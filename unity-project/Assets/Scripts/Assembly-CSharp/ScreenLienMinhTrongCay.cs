@@ -59,7 +59,7 @@ public class ScreenLienMinhTrongCay : ScreenBase
 		base.OnActive();
 		if (child3Dscreen == null)
 		{
-			child3Dscreen = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("GUI/Screens3D/ScreenTrongCay3D"));
+			child3Dscreen = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("gui/screens3d/ScreenTrongCay3D"));
 			child3Dscreen.transform.parent = GUIManager.instance.ScreenContainer3D.transform;
 			child3Dscreen.SetActive(true);
 		}
@@ -385,7 +385,7 @@ public class ScreenLienMinhTrongCay : ScreenBase
 
 	public GameObject GetLinhDuocPrefab(string Codename, int state)
 	{
-		return (GameObject)Resources.Load("Prefabs/TrongCay/" + Codename + state);
+		return (GameObject)Resources.Load("prefabs/trongcay/" + Codename + state);
 	}
 
 	public void ShowLinhDuocActivity()

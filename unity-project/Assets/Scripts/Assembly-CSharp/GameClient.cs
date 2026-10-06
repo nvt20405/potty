@@ -290,9 +290,9 @@ public class GameClient : MonoBehaviour
 		{
 			yield break;
 		}
-		TextAsset giangHoTxt = (TextAsset)Resources.Load("Config/GiangHo", typeof(TextAsset));
+		TextAsset giangHoTxt = (TextAsset)Resources.Load("config/GiangHo", typeof(TextAsset));
 		yield return null;
-		TextAsset giangHo1Txt = (TextAsset)Resources.Load("Config/GiangHo1", typeof(TextAsset));
+		TextAsset giangHo1Txt = (TextAsset)Resources.Load("config/GiangHo1", typeof(TextAsset));
 		yield return null;
 		if (!ConfigManager.instance.IsGiangHoReady)
 		{
@@ -318,8 +318,8 @@ public class GameClient : MonoBehaviour
 	{
 		if (!ConfigManager.instance.IsGiangHoReady)
 		{
-			TextAsset textAsset = (TextAsset)Resources.Load("Config/GiangHo", typeof(TextAsset));
-			TextAsset textAsset2 = (TextAsset)Resources.Load("Config/GiangHo1", typeof(TextAsset));
+			TextAsset textAsset = (TextAsset)Resources.Load("config/GiangHo", typeof(TextAsset));
+			TextAsset textAsset2 = (TextAsset)Resources.Load("config/GiangHo1", typeof(TextAsset));
 			ConfigManager.instance.ReadGiangHoConfig((textAsset != null) ? textAsset.text : null);
 			ConfigManager.instance.ReadGiangHoTinhAnhConfig((textAsset2 != null) ? textAsset2.text : null);
 			ConfigManager.instance.MarkGiangHoReady();
@@ -10414,7 +10414,7 @@ public class GameClient : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1f);
 		MessagePopup.Create(data);
-		UnityEngine.Object rs = Resources.Load("FX/Prefabs/MISC_FIREWORK");
+		UnityEngine.Object rs = Resources.Load("fx/prefabs/MISC_FIREWORK");
 		UnityEngine.Object.Instantiate(rs, GUIManager.instance.ScreenContainer3D.GetComponentInChildren<ScreenMain3D>().mainAvatar.transform.position, Quaternion.identity);
 	}
 
@@ -10552,7 +10552,7 @@ public class GameClient : MonoBehaviour
 		{
 			if (banPhaoHoaResponse.ErrorCode == ERROR_CODE.OK)
 			{
-				UnityEngine.Object obj = Resources.Load("FX/Prefabs/MISC_FIREWORK");
+				UnityEngine.Object obj = Resources.Load("fx/prefabs/MISC_FIREWORK");
 				HomeResponse.Position3D position3D = JsonMapper.ToObject<HomeResponse.Position3D>(banPhaoHoaResponse.pos);
 				if (obj != null && (DateTime.Now - LastTimeBanPhaoHoa).TotalSeconds > 3.0)
 				{

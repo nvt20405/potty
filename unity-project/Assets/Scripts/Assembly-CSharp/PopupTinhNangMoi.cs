@@ -16,7 +16,7 @@ public class PopupTinhNangMoi : MonoBehaviour
 
 	public static void CreateByLevel(int level)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupTinhNangMoi"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupTinhNangMoi"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupTinhNangMoi component = gameObject.GetComponent<PopupTinhNangMoi>();
 		PopupManager.instance.Add(gameObject);
@@ -33,7 +33,7 @@ public class PopupTinhNangMoi : MonoBehaviour
 
 	public static void CreateByGiangHo(int giang_ho)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupTinhNangMoi"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupTinhNangMoi"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupTinhNangMoi component = gameObject.GetComponent<PopupTinhNangMoi>();
 		PopupManager.instance.Add(gameObject);
@@ -50,7 +50,7 @@ public class PopupTinhNangMoi : MonoBehaviour
 
 	public static void CreateByCamDia(int cam_dia)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupTinhNangMoi"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupTinhNangMoi"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupTinhNangMoi component = gameObject.GetComponent<PopupTinhNangMoi>();
 		PopupManager.instance.Add(gameObject);

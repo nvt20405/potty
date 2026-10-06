@@ -46,7 +46,7 @@ public class PopupDuyenNhanVat : MonoBehaviour
 	public static void Create(UserInfo ref_user_info, UserInfo.HeroData data)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDuyenNhanVat"))).GetComponent<PopupDuyenNhanVat>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDuyenNhanVat"))).GetComponent<PopupDuyenNhanVat>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.RefUserInfo = ref_user_info;
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -56,7 +56,7 @@ public class PopupDuyenNhanVat : MonoBehaviour
 	public static void Create(NhanVatCfg cfgData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDuyenNhanVat"))).GetComponent<PopupDuyenNhanVat>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDuyenNhanVat"))).GetComponent<PopupDuyenNhanVat>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(cfgData);

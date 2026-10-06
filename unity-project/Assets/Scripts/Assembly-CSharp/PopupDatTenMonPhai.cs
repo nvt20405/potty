@@ -33,7 +33,7 @@ public class PopupDatTenMonPhai : MonoBehaviour
 	public static void CreateDatTenLanDau()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDatTenMonPhai"))).GetComponent<PopupDatTenMonPhai>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDatTenMonPhai"))).GetComponent<PopupDatTenMonPhai>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.IsDatTenLanDau = true;
@@ -44,7 +44,7 @@ public class PopupDatTenMonPhai : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDatTenMonPhai"))).GetComponent<PopupDatTenMonPhai>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDatTenMonPhai"))).GetComponent<PopupDatTenMonPhai>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.IsDatTenLanDau = false;

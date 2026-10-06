@@ -23,7 +23,7 @@ public class PopupDoiTenBang : MonoBehaviour
 	public static void CreateDatTenLanDau()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDoiTenBang"))).GetComponent<PopupDoiTenBang>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDoiTenBang"))).GetComponent<PopupDoiTenBang>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set();
@@ -32,7 +32,7 @@ public class PopupDoiTenBang : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDoiTenBang"))).GetComponent<PopupDoiTenBang>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDoiTenBang"))).GetComponent<PopupDoiTenBang>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set();

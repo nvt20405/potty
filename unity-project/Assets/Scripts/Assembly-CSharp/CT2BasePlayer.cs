@@ -103,7 +103,7 @@ public class CT2BasePlayer : MonoBehaviour
 			{
 			case ChienTruongChinhTa.RuneType.Khi:
 			{
-				UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_KHI_AURA"));
+				UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/RUNES_KHI_AURA"));
 				runeParticle = (GameObject)((obj3 is GameObject) ? obj3 : null);
 				runeParticle.transform.parent = base.transform;
 				runeParticle.transform.localScale = Vector3.one;
@@ -112,7 +112,7 @@ public class CT2BasePlayer : MonoBehaviour
 			}
 			case ChienTruongChinhTa.RuneType.Ngoai:
 			{
-				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_NGOAI_AURA"));
+				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/RUNES_NGOAI_AURA"));
 				runeParticle = (GameObject)((obj2 is GameObject) ? obj2 : null);
 				runeParticle.transform.parent = base.transform;
 				runeParticle.transform.localScale = Vector3.one;
@@ -121,7 +121,7 @@ public class CT2BasePlayer : MonoBehaviour
 			}
 			case ChienTruongChinhTa.RuneType.Than:
 			{
-				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/RUNES_THAN_AURA"));
+				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/RUNES_THAN_AURA"));
 				runeParticle = (GameObject)((obj is GameObject) ? obj : null);
 				runeParticle.transform.parent = base.transform;
 				runeParticle.transform.localScale = Vector3.one;
@@ -200,7 +200,7 @@ public class CT2BasePlayer : MonoBehaviour
 
 	public void InitGUI()
 	{
-		UnityEngine.Object obj = Resources.Load("Prefabs/ChienTruong/PlayerGUIPanel", typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("prefabs/chientruong/PlayerGUIPanel", typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{

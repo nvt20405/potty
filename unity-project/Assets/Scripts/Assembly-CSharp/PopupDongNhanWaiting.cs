@@ -63,7 +63,7 @@ public class PopupDongNhanWaiting : MonoBehaviour
 	public static void Create(DateTime timeEnd, int numVang)
 	{
 		DestroyPopup();
-		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupDongNhanWaiting"))).GetComponent<PopupDongNhanWaiting>();
+		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("popup/PopupDongNhanWaiting"))).GetComponent<PopupDongNhanWaiting>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.timeEndWaiting = timeEnd;

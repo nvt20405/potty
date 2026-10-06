@@ -16,7 +16,7 @@ public class PopupAutoDoiThuongULinh : MonoBehaviour
 	public static PopupAutoDoiThuongULinh Create(ULinhInfoResponse response)
 	{
 		DestroyPopup();
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupAutoDoiThuongULinh"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/PopupAutoDoiThuongULinh"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupAutoDoiThuongULinh>();
 		PopupManager.instance.Add(gameObject);

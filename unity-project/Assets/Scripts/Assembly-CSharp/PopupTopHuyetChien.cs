@@ -18,7 +18,7 @@ public class PopupTopHuyetChien : MonoBehaviour
 	public static void Create(HuyetChienTopResponse response)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupTopHuyetChien"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupTopHuyetChien"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		gameObject.transform.localScale = Vector3.one;
@@ -29,7 +29,7 @@ public class PopupTopHuyetChien : MonoBehaviour
 		vector2 = new Vector3(0f, -144f, 0f);
 		for (int i = 0; i < response.TopList.Count; i++)
 		{
-			Object obj2 = Object.Instantiate(Resources.Load("Popup/HuyetChienTopMonPhai"));
+			Object obj2 = Object.Instantiate(Resources.Load("popup/HuyetChienTopMonPhai"));
 			GameObject gameObject2 = (GameObject)((obj2 is GameObject) ? obj2 : null);
 			gameObject2.transform.parent = instance.panel.transform;
 			gameObject2.transform.localPosition = vector;

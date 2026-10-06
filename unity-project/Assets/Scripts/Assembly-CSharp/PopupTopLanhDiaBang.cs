@@ -18,7 +18,7 @@ public class PopupTopLanhDiaBang : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTopLanhDiaBang"))).GetComponent<PopupTopLanhDiaBang>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTopLanhDiaBang"))).GetComponent<PopupTopLanhDiaBang>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.Set();

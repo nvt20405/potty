@@ -9,7 +9,7 @@ public class PopupChuocThan : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupChuocThan"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupChuocThan"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupChuocThan>();
 		int level = GameManager.instance.m_GameClient.UserInfo.Gamer.Level;

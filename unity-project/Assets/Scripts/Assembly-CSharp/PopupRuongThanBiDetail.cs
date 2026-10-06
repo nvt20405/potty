@@ -45,7 +45,7 @@ public class PopupRuongThanBiDetail : MonoBehaviour
 	public static void Create(UserInfo.VatPhamTieuThuData vpRuongThanBi, UserInfo.ServerData.EventRuongThanBiCfg cfgRuong, bool isOpenToUse = false)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupRuongThanBiDetail"))).GetComponent<PopupRuongThanBiDetail>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupRuongThanBiDetail"))).GetComponent<PopupRuongThanBiDetail>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(vpRuongThanBi, cfgRuong, isOpenToUse);

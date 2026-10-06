@@ -24,7 +24,7 @@ public class PopUpSendMail : MonoBehaviour
 	public static void Create(int id, string targetName)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSendMail"))).GetComponent<PopUpSendMail>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSendMail"))).GetComponent<PopUpSendMail>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.lbSendTo.text = Localization.instance.Get("SendMailToLabel") + " " + targetName;

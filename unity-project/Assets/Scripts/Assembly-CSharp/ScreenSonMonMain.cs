@@ -76,7 +76,7 @@ public class ScreenSonMonMain : ScreenBase
 	private IEnumerator SpawnScreen3D(UserInfo.SonMonInfo sonmon, bool isReadOnly = false)
 	{
 		PopupLoading.Create();
-		EGResourceAsyncLoader loader = EGResourceAsyncLoader.Load("GUI/Screens3D/ScreenSonMon3D");
+		EGResourceAsyncLoader loader = EGResourceAsyncLoader.Load("gui/screens3d/ScreenSonMon3D");
 		loader.OnLoading = (float e) =>
 		{
 			if (PopupLoading.instance != null)

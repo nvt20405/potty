@@ -101,7 +101,7 @@ public class ScreenBanhChung3D : MonoBehaviour
 			Vector3 randomBaoGaoPos = GetRandomBaoGaoPos();
 			if (baoGao == null)
 			{
-				Object obj = Object.Instantiate(Resources.Load("Prefabs/BanhChung/Bao_Thoc"));
+				Object obj = Object.Instantiate(Resources.Load("prefabs/banhchung/Bao_Thoc"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = base.transform;
 				gameObject.transform.position = randomBaoGaoPos;
@@ -117,7 +117,7 @@ public class ScreenBanhChung3D : MonoBehaviour
 			Vector3 randomLonSuaPos = GetRandomLonSuaPos();
 			if (buiDong == null)
 			{
-				Object obj = Object.Instantiate(Resources.Load("Prefabs/BanhChung/Bui_La_Dong"));
+				Object obj = Object.Instantiate(Resources.Load("prefabs/banhchung/Bui_La_Dong"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = base.transform;
 				gameObject.transform.position = randomLonSuaPos;
@@ -134,7 +134,7 @@ public class ScreenBanhChung3D : MonoBehaviour
 			Vector3 vector = randomLonSuaPos;
 			if (lon_sua == null)
 			{
-				Object obj = Object.Instantiate(Resources.Load("Prefabs/BanhChung/LonSua"));
+				Object obj = Object.Instantiate(Resources.Load("prefabs/banhchung/LonSua"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = base.transform;
 				gameObject.transform.position = vector;
@@ -146,7 +146,7 @@ public class ScreenBanhChung3D : MonoBehaviour
 
 	public GameObject SpawnPlayerAvatar(NguoiNauBanh nguoiChoi, HomeResponse.Gamer3DInfo playerInfo)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/BanhChungMainPlayer"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/BanhChungMainPlayer"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -190,7 +190,7 @@ public class ScreenBanhChung3D : MonoBehaviour
 
 	public GameObject SpawnOtherAvatar(HomeResponse.Gamer3DInfo avatar)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/Home/BanhChungPlayer"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/home/BanhChungPlayer"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{

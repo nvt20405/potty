@@ -79,7 +79,7 @@ public class GiangHoPopup : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/GiangHoPopup"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/GiangHoPopup"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<GiangHoPopup>();
 		instance.cfg = giangHoCfg;
@@ -97,19 +97,19 @@ public class GiangHoPopup : MonoBehaviour
 		if (ghIdx < 30)
 		{
 			UITexture uITexture = instance.bgTitle;
-			UnityEngine.Object obj2 = Resources.Load("TextureGUI/DVL_worldmap");
+			UnityEngine.Object obj2 = Resources.Load("texturegui/DVL_worldmap");
 			uITexture.mainTexture = (Texture)((obj2 is Texture) ? obj2 : null);
 		}
 		else if (ghIdx < 60)
 		{
 			UITexture uITexture2 = instance.bgTitle;
-			UnityEngine.Object obj3 = Resources.Load("TextureGUI/DVL_worldmap_2");
+			UnityEngine.Object obj3 = Resources.Load("texturegui/DVL_worldmap_2");
 			uITexture2.mainTexture = (Texture)((obj3 is Texture) ? obj3 : null);
 		}
 		else
 		{
 			UITexture uITexture3 = instance.bgTitle;
-			UnityEngine.Object obj4 = Resources.Load("TextureGUI/DVL_worldmap_3");
+			UnityEngine.Object obj4 = Resources.Load("texturegui/DVL_worldmap_3");
 			uITexture3.mainTexture = (Texture)((obj4 is Texture) ? obj4 : null);
 		}
 		float x = GUIManager.instance.GameFrame.transform.localScale.x;
@@ -244,7 +244,7 @@ public class GiangHoPopup : MonoBehaviour
 
 	private void CreateParticlePhanThuong()
 	{
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_NEWITEM"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_NEWITEM"));
 		particlePhanThuong = (GameObject)((obj is GameObject) ? obj : null);
 		particlePhanThuong.transform.parent = base.transform;
 		particlePhanThuong.transform.position = reward.transform.position;
@@ -319,12 +319,12 @@ public class GiangHoPopup : MonoBehaviour
 		SetStars(GetStarGiangHo(giangHo, cfg));
 		UserInfo userInfo = GameManager.instance.m_GameClient.UserInfo;
 		gioDanhNhanh = userInfo.GiaTriThoiGian.LastTimeDanhNhanhGH + ConfigManager.GetTimeWaitForResetLuotDanhNhanhByVip(userInfo.Gamer.Vip);
-		anGaBtn.collider.enabled = giangHo != null && giangHo.HoanThanh == 2;
+		anGaBtn.GetComponent<Collider>().enabled = giangHo != null && giangHo.HoanThanh == 2;
 		UIButton[] components = anGaBtn.GetComponents<UIButton>();
 		UIButton[] array = components;
 		foreach (UIButton uIButton in array)
 		{
-			uIButton.UpdateColor(anGaBtn.collider.enabled, true);
+			uIButton.UpdateColor(anGaBtn.GetComponent<Collider>().enabled, true);
 		}
 		if (giangHo != null && giangHo.HoanThanh > 2)
 		{
@@ -418,14 +418,14 @@ public class GiangHoPopup : MonoBehaviour
 
 	private GH_NhiemVuItem InstantiateNVItem()
 	{
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("GiangHo/GH_NhiemVuItem"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("giangho/GH_NhiemVuItem"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		return gameObject.GetComponent<GH_NhiemVuItem>();
 	}
 
 	private GH_ChiTietNhiemVuItem InstantiateNVDetail(UserInfo.GiangHoData.NhiemVuRecord nvRecord, GiangHoCfg.NhiemVu nvCfg, int idx, bool isGHTA)
 	{
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("GiangHo/GH_ChiTietNhiemVuItem"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("giangho/GH_ChiTietNhiemVuItem"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		GH_ChiTietNhiemVuItem component = gameObject.GetComponent<GH_ChiTietNhiemVuItem>();
 		int num = nvCfg.SoLuot1Ngay;

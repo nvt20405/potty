@@ -60,7 +60,7 @@ public class PopupTranHinh : MonoBehaviour
 	public static void Create(bool isReadOnly, UserInfo info)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTranHinh"))).GetComponent<PopupTranHinh>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTranHinh"))).GetComponent<PopupTranHinh>();
 		instance.ReadOnly = isReadOnly;
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);

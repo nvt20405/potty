@@ -16,7 +16,7 @@ public class PopUpCheckKNB : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupCheckKNB"))).GetComponent<PopUpCheckKNB>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopUpCheckKNB"))).GetComponent<PopUpCheckKNB>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 	}

@@ -21,7 +21,7 @@ public class PopupYes : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupYes"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/PopupYes"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupYes>();
 		instance.SetInfo(message, yesTxt, yesAction);

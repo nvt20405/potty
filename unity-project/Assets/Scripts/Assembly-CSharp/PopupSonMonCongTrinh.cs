@@ -46,7 +46,7 @@ public class PopupSonMonCongTrinh : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSonMonCongTrinh"))).GetComponent<PopupSonMonCongTrinh>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSonMonCongTrinh"))).GetComponent<PopupSonMonCongTrinh>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.CurCongTrinh = congTrinh;

@@ -22,7 +22,7 @@ public class PopupChonHatGiong : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/ChonHatGiongPopup"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/ChonHatGiongPopup"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupChonHatGiong>();
 		PopupManager.instance.Add(gameObject);

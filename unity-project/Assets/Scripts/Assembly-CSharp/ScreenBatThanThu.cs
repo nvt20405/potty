@@ -134,7 +134,7 @@ public class ScreenBatThanThu : ScreenBase
 	private IEnumerator SpawnScreen3D()
 	{
 		PopupLoading.Create();
-		EGResourceAsyncLoader loader = EGResourceAsyncLoader.Load("GUI/Screens3D/ScreenBatThu3D");
+		EGResourceAsyncLoader loader = EGResourceAsyncLoader.Load("gui/screens3d/ScreenBatThu3D");
 		loader.OnLoading = (float e) =>
 		{
 			if (PopupLoading.instance != null)

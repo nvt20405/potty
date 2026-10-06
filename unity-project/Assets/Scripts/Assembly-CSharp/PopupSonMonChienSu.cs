@@ -23,7 +23,7 @@ public class PopupSonMonChienSu : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSonMonChienSu"))).GetComponent<PopupSonMonChienSu>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSonMonChienSu"))).GetComponent<PopupSonMonChienSu>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.SetSonMon();

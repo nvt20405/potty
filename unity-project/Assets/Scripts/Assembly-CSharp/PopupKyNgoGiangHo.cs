@@ -13,7 +13,7 @@ public class PopupKyNgoGiangHo : MonoBehaviour
 	public static PopupKyNgoGiangHo Create(PhanThuongResponse.PhanThuong pt)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupKyNgoGiangHo"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupKyNgoGiangHo"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		PopupKyNgoGiangHo component = gameObject.GetComponent<PopupKyNgoGiangHo>();

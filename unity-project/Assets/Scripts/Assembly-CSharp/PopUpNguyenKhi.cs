@@ -36,7 +36,7 @@ public class PopUpNguyenKhi : MonoBehaviour
 	public static void CreateByNormalScreen(UserInfo.NguyenKhiData nkData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNguyenKhi"))).GetComponent<PopUpNguyenKhi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNguyenKhi"))).GetComponent<PopUpNguyenKhi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.groupButtonDoiHinh.gameObject.SetActive(false);
@@ -47,7 +47,7 @@ public class PopUpNguyenKhi : MonoBehaviour
 	public static void CreateByScreenDoiHinh(UserInfo.NguyenKhiData nkData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNguyenKhi"))).GetComponent<PopUpNguyenKhi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNguyenKhi"))).GetComponent<PopUpNguyenKhi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.groupButtonDoiHinh.gameObject.SetActive(true);
@@ -58,7 +58,7 @@ public class PopUpNguyenKhi : MonoBehaviour
 	public static void CreateByConfig(OtherCfg.NguyenKhiCfg nkConfig)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNguyenKhi"))).GetComponent<PopUpNguyenKhi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNguyenKhi"))).GetComponent<PopUpNguyenKhi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.groupButtonDoiHinh.gameObject.SetActive(false);

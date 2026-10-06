@@ -76,7 +76,7 @@ public class PopupAutoTayDoc : MonoBehaviour
 	public static PopupAutoTayDoc Create()
 	{
 		Release();
-		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupAutoTayDoc"))).GetComponent<PopupAutoTayDoc>();
+		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("popup/PopupAutoTayDoc"))).GetComponent<PopupAutoTayDoc>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.StartAutoDongNhan();

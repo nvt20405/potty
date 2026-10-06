@@ -36,7 +36,7 @@ public class PopUpKhaiQuangTrangBi : MonoBehaviour
 	public static void Create(UserInfo.TrangBiData TrangBi)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopUpKhaiQuangTrangBi"))).GetComponent<PopUpKhaiQuangTrangBi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopUpKhaiQuangTrangBi"))).GetComponent<PopUpKhaiQuangTrangBi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.isStartChoice = true;

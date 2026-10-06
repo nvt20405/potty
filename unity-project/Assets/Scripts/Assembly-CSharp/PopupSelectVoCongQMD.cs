@@ -15,7 +15,7 @@ public class PopupSelectVoCongQMD : MonoBehaviour
 	public static PopupSelectVoCongQMD Create(QMDInfo info)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSelectVoCongQMD"))).GetComponent<PopupSelectVoCongQMD>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSelectVoCongQMD"))).GetComponent<PopupSelectVoCongQMD>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(info);

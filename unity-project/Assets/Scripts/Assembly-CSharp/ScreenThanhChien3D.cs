@@ -104,7 +104,7 @@ public class ScreenThanhChien3D : MonoBehaviour
 
 	public GameObject SpawnOtherAvatar(NguoiChoiBangChien nguoiChoi)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/LienMinh/BangChienPlayer"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/lienminh/BangChienPlayer"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -138,7 +138,7 @@ public class ScreenThanhChien3D : MonoBehaviour
 
 	public GameObject SpawnPlayerAvatar(NguoiChoiBangChien nguoiChoi)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/LienMinh/BangChienMainPlayer"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/lienminh/BangChienMainPlayer"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{

@@ -95,7 +95,7 @@ public class ScreenLuanKiem : ScreenBase
 		}
 		for (int i = 0; i < list.Count; i++)
 		{
-			Object obj = Object.Instantiate(Resources.Load("GUI/ScreenLuanKiem/ListLuanKiemItem"));
+			Object obj = Object.Instantiate(Resources.Load("gui/screenluankiem/ListLuanKiemItem"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			gameObject.transform.parent = listLuanKiem.transform;
 			gameObject.transform.localScale = UnityEngine.Vector3.one;
@@ -121,7 +121,7 @@ public class ScreenLuanKiem : ScreenBase
 		}
 		for (int i = 0; i < list.Count; i++)
 		{
-			Object obj = Object.Instantiate(Resources.Load("GUI/ScreenLuanKiem/ListLuanKiemItem"));
+			Object obj = Object.Instantiate(Resources.Load("gui/screenluankiem/ListLuanKiemItem"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			gameObject.transform.parent = listTop10.transform;
 			gameObject.transform.localScale = UnityEngine.Vector3.one;
@@ -150,7 +150,7 @@ public class ScreenLuanKiem : ScreenBase
 		}
 		for (int i = 0; i < list.Count; i++)
 		{
-			Object obj = Object.Instantiate(Resources.Load("GUI/ScreenLuanKiem/ListDoiThuongItem"));
+			Object obj = Object.Instantiate(Resources.Load("gui/screenluankiem/ListDoiThuongItem"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			gameObject.transform.parent = listDoiThuong.transform;
 			gameObject.transform.localScale = UnityEngine.Vector3.one;

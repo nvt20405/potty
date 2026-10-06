@@ -63,7 +63,7 @@ public class PopupCamCungBiBaoInfo : MonoBehaviour
 	public static void Create(PhanThuongResponse.PhanThuong ptName, QuayCamCungType soLuongPhiThien, int LuotQuay)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupCamCungBiBaoInfo"))).GetComponent<PopupCamCungBiBaoInfo>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupCamCungBiBaoInfo"))).GetComponent<PopupCamCungBiBaoInfo>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.curType = soLuongPhiThien;

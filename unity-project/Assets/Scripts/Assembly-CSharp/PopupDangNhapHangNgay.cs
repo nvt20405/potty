@@ -59,7 +59,7 @@ public class PopupDangNhapHangNgay : MonoBehaviour
 		DestroyPopup();
 		if (!(TutorialPopup.instance != null))
 		{
-			instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupDangNhapHangNgay"))).GetComponent<PopupDangNhapHangNgay>();
+			instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupDangNhapHangNgay"))).GetComponent<PopupDangNhapHangNgay>();
 			PopupManager.instance.Add(instance.gameObject);
 			instance.transform.localScale = new Vector3(1f, 1f, 1f);
 			instance.setView();

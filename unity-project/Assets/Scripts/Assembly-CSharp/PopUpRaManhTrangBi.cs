@@ -127,7 +127,7 @@ public class PopUpRaManhTrangBi : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupRaManhTrangBi"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/PopupRaManhTrangBi"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		gameObject.transform.localScale = Vector3.one;

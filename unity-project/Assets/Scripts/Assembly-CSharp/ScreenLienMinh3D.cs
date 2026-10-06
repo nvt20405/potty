@@ -55,7 +55,7 @@ public class ScreenLienMinh3D : MonoBehaviour
 			if (thanhVien.Online)
 			{
 				int index = Random.Range(0, list.Count);
-				Object obj = Object.Instantiate(Resources.Load<GameObject>("Prefabs/LienMinhAvatar3D"));
+				Object obj = Object.Instantiate(Resources.Load<GameObject>("prefabs/LienMinhAvatar3D"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = base.transform;
 				gameObject.transform.localScale = Vector3.one;
@@ -167,7 +167,7 @@ public class ScreenLienMinh3D : MonoBehaviour
 		{
 			tunghiaLvl = 10;
 		}
-		EGResourceAsyncLoader TuNghiaDuongRes = EGResourceAsyncLoader.Load("Prefabs/LienMinh/Tu_Nghia_Sanh_" + tunghiaLvl, true, OnFinishLoadingTuNghiaDuong3D, OnLoadingScene3D);
+		EGResourceAsyncLoader TuNghiaDuongRes = EGResourceAsyncLoader.Load("prefabs/lienminh/Tu_Nghia_Sanh_" + tunghiaLvl, true, OnFinishLoadingTuNghiaDuong3D, OnLoadingScene3D);
 		yield return null;
 		while (!TuNghiaDuongRes.IsDone)
 		{
@@ -177,7 +177,7 @@ public class ScreenLienMinh3D : MonoBehaviour
 
 	private IEnumerator LoadSceneThienHaLau3D()
 	{
-		EGResourceAsyncLoader ThienHaLauRes = EGResourceAsyncLoader.Load("Prefabs/LienMinh/Thien_Ha_Lau_lv" + ((GameManager.instance.m_GameClient.UserInfo.LienMinh.ThienHaLauLevel <= 1) ? 1 : (GameManager.instance.m_GameClient.UserInfo.LienMinh.ThienHaLauLevel / 2)), true, OnFinishLoadingThienHaLau3D, OnLoadingScene3D);
+		EGResourceAsyncLoader ThienHaLauRes = EGResourceAsyncLoader.Load("prefabs/lienminh/Thien_Ha_Lau_lv" + ((GameManager.instance.m_GameClient.UserInfo.LienMinh.ThienHaLauLevel <= 1) ? 1 : (GameManager.instance.m_GameClient.UserInfo.LienMinh.ThienHaLauLevel / 2)), true, OnFinishLoadingThienHaLau3D, OnLoadingScene3D);
 		yield return null;
 		while (!ThienHaLauRes.IsDone)
 		{
@@ -187,7 +187,7 @@ public class ScreenLienMinh3D : MonoBehaviour
 
 	private IEnumerator LoadSceneTangKiemCac3D()
 	{
-		EGResourceAsyncLoader TangKiemCacRes = EGResourceAsyncLoader.Load("Prefabs/LienMinh/Tang_Kiem_Cac_" + GameManager.instance.m_GameClient.UserInfo.LienMinh.TangKiemCacLevel, true, OnFinishLoadingTangKiemCac3D, OnLoadingScene3D);
+		EGResourceAsyncLoader TangKiemCacRes = EGResourceAsyncLoader.Load("prefabs/lienminh/Tang_Kiem_Cac_" + GameManager.instance.m_GameClient.UserInfo.LienMinh.TangKiemCacLevel, true, OnFinishLoadingTangKiemCac3D, OnLoadingScene3D);
 		yield return null;
 		while (!TangKiemCacRes.IsDone)
 		{
@@ -202,7 +202,7 @@ public class ScreenLienMinh3D : MonoBehaviour
 			LuaTraiObject.gameObject.SetActive(true);
 			return;
 		}
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/LienMinh/LuaTrai"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/lienminh/LuaTrai"));
 		LuaTraiObject = (GameObject)((obj is GameObject) ? obj : null);
 		LuaTraiObject.transform.parent = base.transform;
 		LuaTraiObject.transform.localScale = Vector3.one;

@@ -69,7 +69,7 @@ public class PopUpMua : MonoBehaviour
 	public static void Create(string _vpName, string tenHienThi, int giaVang, TabOpenByScreen curTab)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopUpMua"))).GetComponent<PopUpMua>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopUpMua"))).GetComponent<PopUpMua>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.vpName = _vpName;

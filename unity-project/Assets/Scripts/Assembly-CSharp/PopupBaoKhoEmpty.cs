@@ -23,7 +23,7 @@ public class PopupBaoKhoEmpty : MonoBehaviour
 	public static void Create(UserInfo.BaoKhoInfo info)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupBaoKhoEmpty"))).GetComponent<PopupBaoKhoEmpty>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupBaoKhoEmpty"))).GetComponent<PopupBaoKhoEmpty>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.setInfo(info);

@@ -17,7 +17,7 @@ public class MessagePopup : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/MessagePopup"));
+		Object obj = Object.Instantiate(Resources.Load("popup/MessagePopup"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		gameObject.transform.parent = GUIManager.instance.popUpContainer.transform;
 		gameObject.transform.localPosition = new Vector3(0f, 340f, -700f);

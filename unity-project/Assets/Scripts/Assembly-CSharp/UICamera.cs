@@ -524,7 +524,7 @@ public class UICamera : MonoBehaviour
 	{
 		mList.Add(this);
 		cachedCamera.eventMask = 0;
-		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.BB10Player)
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
 		{
 			useMouse = false;
 			useTouch = true;

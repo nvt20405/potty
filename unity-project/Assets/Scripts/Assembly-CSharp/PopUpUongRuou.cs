@@ -29,7 +29,7 @@ public class PopUpUongRuou : MonoBehaviour
 	public static void Create(UserInfo.HeroData data, int timeLuc)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupUongRuou"))).GetComponent<PopUpUongRuou>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupUongRuou"))).GetComponent<PopUpUongRuou>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(data, timeLuc);

@@ -58,7 +58,7 @@ public class ScreenChienTruong3D : MonoBehaviour
 	public void SpawnPlayer1(ChienTruongChinhTa.NguoiChoi info)
 	{
 		MainPlayerInfo = info;
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/ChienTruong/CT2Player1Avatar"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/chientruong/CT2Player1Avatar"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -104,7 +104,7 @@ public class ScreenChienTruong3D : MonoBehaviour
 				return;
 			}
 		}
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/ChienTruong/CT2Rune"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/chientruong/CT2Rune"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -118,7 +118,7 @@ public class ScreenChienTruong3D : MonoBehaviour
 
 	public void SpawnPlayer3(ChienTruongChinhTa.NguoiChoi info)
 	{
-		Object obj = Object.Instantiate(Resources.Load("Prefabs/ChienTruong/CT2Player3Avatar"));
+		Object obj = Object.Instantiate(Resources.Load("prefabs/chientruong/CT2Player3Avatar"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{

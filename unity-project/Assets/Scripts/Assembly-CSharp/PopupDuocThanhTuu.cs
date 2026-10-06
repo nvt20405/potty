@@ -17,7 +17,7 @@ public class PopupDuocThanhTuu : MonoBehaviour
 	private static PopupDuocThanhTuu CreatePopup()
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupDuocThanhTuu"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupDuocThanhTuu"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupDuocThanhTuu>();
 		PopupManager.instance.Add(gameObject);

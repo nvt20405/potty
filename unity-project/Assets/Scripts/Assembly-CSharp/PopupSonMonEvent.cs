@@ -28,7 +28,7 @@ public class PopupSonMonEvent : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSonMonEvent"))).GetComponent<PopupSonMonEvent>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSonMonEvent"))).GetComponent<PopupSonMonEvent>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.BaseItem.gameObject.SetActive(false);

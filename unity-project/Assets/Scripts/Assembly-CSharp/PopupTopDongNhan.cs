@@ -23,7 +23,7 @@ public class PopupTopDongNhan : MonoBehaviour
 			{
 				DestroyPopup();
 			}
-			Object obj = Object.Instantiate(Resources.Load("Popup/PopupTopDongNhan"));
+			Object obj = Object.Instantiate(Resources.Load("popup/PopupTopDongNhan"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			PopupManager.instance.Add(gameObject);
 			gameObject.transform.localScale = Vector3.one;
@@ -34,7 +34,7 @@ public class PopupTopDongNhan : MonoBehaviour
 			vector2 = new Vector3(0f, -84f, 0f);
 			for (int i = 0; i < response.LastTop10.Count; i++)
 			{
-				Object obj2 = Object.Instantiate(Resources.Load("Prefabs/DongNhan/DongNhanTopMonPhai"));
+				Object obj2 = Object.Instantiate(Resources.Load("prefabs/dongnhan/DongNhanTopMonPhai"));
 				GameObject gameObject2 = (GameObject)((obj2 is GameObject) ? obj2 : null);
 				gameObject2.transform.parent = instance.panel.transform;
 				gameObject2.transform.localPosition = vector;

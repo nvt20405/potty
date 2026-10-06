@@ -64,32 +64,32 @@ public class SonMonBuilding : MonoBehaviour
 		info = congTrinhInfo;
 		if (congTrinhInfo == null && base.gameObject.name != "Slot10")
 		{
-			GameObject gameObject = (GameObject)Object.Instantiate(Resources.Load("Prefabs/SonMon/Terrain_nho_" + ((Random.Range(0, 2) != 0) ? "B" : "A")), base.transform.position, Quaternion.identity);
+			GameObject gameObject = (GameObject)Object.Instantiate(Resources.Load("prefabs/sonmon/Terrain_nho_" + ((Random.Range(0, 2) != 0) ? "B" : "A")), base.transform.position, Quaternion.identity);
 			gameObject.transform.parent = base.transform;
 			gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 		else if (congTrinhInfo == null)
 		{
 			Debug.LogWarning("chinh sanh info null");
-			GameObject gameObject2 = (GameObject)Object.Instantiate(Resources.Load("Prefabs/SonMon/Terrain_to"), base.transform.position, Quaternion.identity);
+			GameObject gameObject2 = (GameObject)Object.Instantiate(Resources.Load("prefabs/sonmon/Terrain_to"), base.transform.position, Quaternion.identity);
 			gameObject2.transform.parent = base.transform;
 			gameObject2.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 		else if (congTrinhInfo.LoaiCongTrinh != UserInfo.SonMonBuildingInfo.SonMonBuildingType.NULL_CT)
 		{
-			GameObject gameObject3 = (GameObject)Object.Instantiate(Resources.Load("Prefabs/SonMon/" + ConfigManager.instance.SonMonConfig.CongTrinhCfg[congTrinhInfo.LoaiCongTrinh.ToString()][congTrinhInfo.Level - 1].Model), base.transform.position, Quaternion.identity);
+			GameObject gameObject3 = (GameObject)Object.Instantiate(Resources.Load("prefabs/sonmon/" + ConfigManager.instance.SonMonConfig.CongTrinhCfg[congTrinhInfo.LoaiCongTrinh.ToString()][congTrinhInfo.Level - 1].Model), base.transform.position, Quaternion.identity);
 			gameObject3.transform.parent = base.transform;
 			gameObject3.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 		else if (congTrinhInfo.Slot == 10)
 		{
-			GameObject gameObject4 = (GameObject)Object.Instantiate(Resources.Load("Prefabs/SonMon/Terrain_to"), base.transform.position, Quaternion.identity);
+			GameObject gameObject4 = (GameObject)Object.Instantiate(Resources.Load("prefabs/sonmon/Terrain_to"), base.transform.position, Quaternion.identity);
 			gameObject4.transform.parent = base.transform;
 			gameObject4.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 		else
 		{
-			GameObject gameObject5 = (GameObject)Object.Instantiate(Resources.Load("Prefabs/SonMon/Terrain_nho_" + ((Random.Range(0, 2) != 0) ? "B" : "A")), base.transform.position, Quaternion.identity);
+			GameObject gameObject5 = (GameObject)Object.Instantiate(Resources.Load("prefabs/sonmon/Terrain_nho_" + ((Random.Range(0, 2) != 0) ? "B" : "A")), base.transform.position, Quaternion.identity);
 			gameObject5.transform.parent = base.transform;
 			gameObject5.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 		}

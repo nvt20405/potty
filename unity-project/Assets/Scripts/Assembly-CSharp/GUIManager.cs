@@ -337,7 +337,7 @@ public class GUIManager : MonoBehaviour
 		UnityEngine.Object o;
 		if (string.IsNullOrEmpty(costume))
 		{
-			l = EGResourceAsyncLoader.Load("NhanVat/" + codeName, false);
+			l = EGResourceAsyncLoader.Load("nhanvat/" + codeName, false);
 			while (!l.IsDone)
 			{
 				yield return null;
@@ -350,7 +350,7 @@ public class GUIManager : MonoBehaviour
 			if (ConfigManager.instance.m_dicCostumeCfg.TryGetValue(costume, out costumeCfg))
 			{
 				EGDebug.Log("Load Costume " + costume);
-				l = EGResourceAsyncLoader.Load("Costumes/" + costume, false);
+				l = EGResourceAsyncLoader.Load("costumes/" + costume, false);
 				while (!l.IsDone)
 				{
 					yield return null;
@@ -360,7 +360,7 @@ public class GUIManager : MonoBehaviour
 			else
 			{
 				EGDebug.Log("Costume " + costume + " invalid");
-				l = EGResourceAsyncLoader.Load("NhanVat/" + codeName, false);
+				l = EGResourceAsyncLoader.Load("nhanvat/" + codeName, false);
 				while (!l.IsDone)
 				{
 					yield return null;
@@ -445,7 +445,7 @@ public class GUIManager : MonoBehaviour
 
 	private IEnumerator LoadAvatar3DWithBattleAnim(Avatar3D avatar3D, string codeName, string vuKhi, string bophap, string noicong)
 	{
-		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("NhanVat/" + codeName, false);
+		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("nhanvat/" + codeName, false);
 		while (!l.IsDone)
 		{
 			yield return null;
@@ -556,7 +556,7 @@ public class GUIManager : MonoBehaviour
 		UnityEngine.Object o;
 		if (string.IsNullOrEmpty(costume))
 		{
-			l = EGResourceAsyncLoader.Load("NhanVat/" + codeName, false);
+			l = EGResourceAsyncLoader.Load("nhanvat/" + codeName, false);
 			while (!l.IsDone)
 			{
 				yield return null;
@@ -569,7 +569,7 @@ public class GUIManager : MonoBehaviour
 			if (ConfigManager.instance.m_dicCostumeCfg.TryGetValue(costume, out costumeCfg))
 			{
 				EGDebug.Log("Load Costume " + costume);
-				l = EGResourceAsyncLoader.Load("Costumes/" + costume, false);
+				l = EGResourceAsyncLoader.Load("costumes/" + costume, false);
 				while (!l.IsDone)
 				{
 					yield return null;
@@ -579,7 +579,7 @@ public class GUIManager : MonoBehaviour
 			else
 			{
 				EGDebug.Log("Costume " + costume + " invalid");
-				l = EGResourceAsyncLoader.Load("NhanVat/" + codeName, false);
+				l = EGResourceAsyncLoader.Load("nhanvat/" + codeName, false);
 				while (!l.IsDone)
 				{
 					yield return null;
@@ -643,7 +643,7 @@ public class GUIManager : MonoBehaviour
 			{
 				animSex = "female";
 			}
-			EGResourceAsyncLoader l4 = EGResourceAsyncLoader.Load("FX/Anim/NV_NPC_" + animSex);
+			EGResourceAsyncLoader l4 = EGResourceAsyncLoader.Load("fx/anim/NV_NPC_" + animSex);
 			while (!l4.IsDone)
 			{
 				yield return null;
@@ -701,7 +701,7 @@ public class GUIManager : MonoBehaviour
 		{
 			EGDebug.LogError("Nhan Vat Code Invalid - " + codeName);
 		}
-		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("NhanVat/" + codeName, false);
+		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("nhanvat/" + codeName, false);
 		while (!l.IsDone)
 		{
 			yield return null;
@@ -762,7 +762,7 @@ public class GUIManager : MonoBehaviour
 			{
 				animSex = "female";
 			}
-			EGResourceAsyncLoader l4 = EGResourceAsyncLoader.Load("FX/Anim/NV_NPC_" + animSex);
+			EGResourceAsyncLoader l4 = EGResourceAsyncLoader.Load("fx/anim/NV_NPC_" + animSex);
 			while (!l4.IsDone)
 			{
 				yield return null;
@@ -841,7 +841,7 @@ public class GUIManager : MonoBehaviour
 
 	private ScreenBase LoadScreen(GAME_SCREEN screenName)
 	{
-		UnityEngine.Object obj = (screenName.ToString().Contains("LienMinh") ? Resources.Load("GUI/Screens/ScreenLienMinh/" + screenName) : ((!screenName.ToString().Contains("ThanThu")) ? Resources.Load("GUI/Screens/" + screenName) : Resources.Load("GUI/Screens/ScreenThanThu/" + screenName)));
+		UnityEngine.Object obj = (screenName.ToString().Contains("LienMinh") ? Resources.Load("gui/screens/screenlienminh/" + screenName) : ((!screenName.ToString().Contains("ThanThu")) ? Resources.Load("gui/screens/" + screenName) : Resources.Load("gui/screens/screenthanthu/" + screenName)));
 		if (obj == null)
 		{
 			return null;
@@ -914,7 +914,7 @@ public class GUIManager : MonoBehaviour
 
 	private IEnumerator LoadScene3D()
 	{
-		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("GUI/Screens3D/ScreenMain3D", true, OnFinishLoadingScene3D, OnLoadingScene3D);
+		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("gui/screens3d/ScreenMain3D", true, OnFinishLoadingScene3D, OnLoadingScene3D);
 		yield return null;
 		while (!l.IsDone)
 		{
@@ -924,7 +924,7 @@ public class GUIManager : MonoBehaviour
 
 	public IEnumerator LoadSceneLienMinh3D()
 	{
-		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("GUI/Screens3D/ScreenLienMinh3D", true, OnFinishLoadingSceneLienMinh3D, OnLoadingSceneLienMinh3D);
+		EGResourceAsyncLoader l = EGResourceAsyncLoader.Load("gui/screens3d/ScreenLienMinh3D", true, OnFinishLoadingSceneLienMinh3D, OnLoadingSceneLienMinh3D);
 		yield return null;
 		while (!l.IsDone)
 		{

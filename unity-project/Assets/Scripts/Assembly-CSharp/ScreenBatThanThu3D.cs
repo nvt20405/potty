@@ -108,7 +108,7 @@ public class ScreenBatThanThu3D : MonoBehaviour
 			SpawnPlayer(new Vector2(mob.X, mob.Y));
 			return;
 		}
-		ThanThuDaoObject component = ((GameObject)Object.Instantiate(Resources.Load("GUI/Screens/ScreenThanThu/" + mob.codeName))).GetComponent<ThanThuDaoObject>();
+		ThanThuDaoObject component = ((GameObject)Object.Instantiate(Resources.Load("gui/screens/screenthanthu/" + mob.codeName))).GetComponent<ThanThuDaoObject>();
 		component.transform.parent = base.transform;
 		component.mobData = mob;
 		component.position.x = mob.X;
@@ -150,7 +150,7 @@ public class ScreenBatThanThu3D : MonoBehaviour
 			{
 				costume = GameManager.instance.m_GameClient.UserInfo.CostumeList.Find((UserInfo.CostumeData c) => c.ID == hero.CostumeID).CodeName;
 			}
-			((GameObject)Object.Instantiate(Resources.Load("FX/Prefabs/MISC_BAT_THU_SPAWN_NV"), player.transform.position, Quaternion.identity)).transform.parent = player.transform;
+			((GameObject)Object.Instantiate(Resources.Load("fx/prefabs/MISC_BAT_THU_SPAWN_NV"), player.transform.position, Quaternion.identity)).transform.parent = player.transform;
 			player.guiPanel.SetActive(true);
 			Avatar3D avatar3D = GUIManager.instance.InstantiateAvatar3D(hero.Name, empty, string.Empty, string.Empty, null, null, string.Empty, costume, string.Empty);
 			avatar3D.transform.parent = player.transform;
@@ -284,7 +284,7 @@ public class ScreenBatThanThu3D : MonoBehaviour
 
 	private IEnumerator MobVS(ThanThuDaoObject mob)
 	{
-		GameObject fx = (GameObject)Object.Instantiate(Resources.Load("FX/Prefabs/MISC_BAT_THU_GIAO_CHIEN"), mob.transform.position, Quaternion.identity);
+		GameObject fx = (GameObject)Object.Instantiate(Resources.Load("fx/prefabs/MISC_BAT_THU_GIAO_CHIEN"), mob.transform.position, Quaternion.identity);
 		MovingCount++;
 		yield return new WaitForSeconds(1f);
 		MovingCount--;
@@ -301,7 +301,7 @@ public class ScreenBatThanThu3D : MonoBehaviour
 
 	private IEnumerator IEGameOver()
 	{
-		GameObject fx = (GameObject)Object.Instantiate(Resources.Load("FX/Prefabs/MISC_BAT_THU_GIAO_CHIEN"), player.transform.position, Quaternion.identity);
+		GameObject fx = (GameObject)Object.Instantiate(Resources.Load("fx/prefabs/MISC_BAT_THU_GIAO_CHIEN"), player.transform.position, Quaternion.identity);
 		MovingCount++;
 		yield return new WaitForSeconds(1f);
 		MovingCount--;

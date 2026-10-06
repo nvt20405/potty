@@ -27,7 +27,7 @@ public class PopupLanhDiaInfo : MonoBehaviour
 	{
 		if (instance == null)
 		{
-			instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupLanhDiaInfo"))).GetComponent<PopupLanhDiaInfo>();
+			instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("popup/PopupLanhDiaInfo"))).GetComponent<PopupLanhDiaInfo>();
 		}
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;

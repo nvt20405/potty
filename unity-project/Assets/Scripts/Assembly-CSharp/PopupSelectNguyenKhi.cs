@@ -131,7 +131,7 @@ public class PopupSelectNguyenKhi : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupSelectNguyenKhi"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/PopupSelectNguyenKhi"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		gameObject.transform.localScale = Vector3.one;

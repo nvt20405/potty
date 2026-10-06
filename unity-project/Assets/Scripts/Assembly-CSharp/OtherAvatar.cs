@@ -383,7 +383,7 @@ public class OtherAvatar : MonoBehaviour
 		}
 		if (code.StartsWith("VC_") && !code.EndsWith("_SS") && lvl == 10)
 		{
-			UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_VC10"));
+			UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_VC10"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			if (gameObject != null)
 			{
@@ -414,7 +414,7 @@ public class OtherAvatar : MonoBehaviour
 		}
 		if (code.StartsWith("VC_") && code.EndsWith("_SS"))
 		{
-			UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_VOCONGCOPHO"));
+			UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_VOCONGCOPHO"));
 			GameObject gameObject2 = (GameObject)((obj2 is GameObject) ? obj2 : null);
 			if (gameObject2 != null)
 			{
@@ -449,7 +449,7 @@ public class OtherAvatar : MonoBehaviour
 		}
 		if (isShowDungLuyen)
 		{
-			UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_DUNGLUYENITEM"));
+			UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_DUNGLUYENITEM"));
 			GameObject gameObject3 = (GameObject)((obj3 is GameObject) ? obj3 : null);
 			if (gameObject3 != null)
 			{
@@ -489,15 +489,15 @@ public class OtherAvatar : MonoBehaviour
 		GameObject gameObject4 = null;
 		if (HoangKim == 1)
 		{
-			gameObject4 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI1")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI1_02")) as GameObject));
+			gameObject4 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI1")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI1_02")) as GameObject));
 		}
 		if (HoangKim == 2)
 		{
-			gameObject4 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI2")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI2_02")) as GameObject));
+			gameObject4 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI2")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI2_02")) as GameObject));
 		}
 		if (HoangKim == 3)
 		{
-			gameObject4 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI3")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI3_02")) as GameObject));
+			gameObject4 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI3")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI3_02")) as GameObject));
 		}
 		if (gameObject4 != null)
 		{
@@ -794,7 +794,7 @@ public class OtherAvatar : MonoBehaviour
 		}
 		if (isShowDungLuyen)
 		{
-			UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_DUNGLUYENITEM"));
+			UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_DUNGLUYENITEM"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			if (gameObject != null)
 			{
@@ -824,15 +824,15 @@ public class OtherAvatar : MonoBehaviour
 			GameObject gameObject2 = null;
 			if (HoangKim == 1)
 			{
-				gameObject2 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI1")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI1_02")) as GameObject));
+				gameObject2 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI1")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI1_02")) as GameObject));
 			}
 			if (HoangKim == 2)
 			{
-				gameObject2 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI2")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI2_02")) as GameObject));
+				gameObject2 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI2")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI2_02")) as GameObject));
 			}
 			if (HoangKim == 3)
 			{
-				gameObject2 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI3")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_HOANGKIMTRANGBI3_02")) as GameObject));
+				gameObject2 = ((!(base.transform.localScale == new Vector3(1.2f, 1.2f, 1f))) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI3")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_HOANGKIMTRANGBI3_02")) as GameObject));
 			}
 			if (gameObject2 != null)
 			{

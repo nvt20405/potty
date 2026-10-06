@@ -52,7 +52,7 @@ public class PopupNangCapThienMaLenhResult : MonoBehaviour
 	public static void Create(UserInfo.ThienMaLenhInfo currentLvlData, UserInfo.ThienMaLenhInfo nextLevelData, int curSlot, ThienMaAction type)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNangCapThienMaLenhResult"))).GetComponent<PopupNangCapThienMaLenhResult>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNangCapThienMaLenhResult"))).GetComponent<PopupNangCapThienMaLenhResult>();
 		instance.ThienMaType = type;
 		instance.btnCuongHoa.SetActive(false);
 		instance.btnNhan.SetActive(false);

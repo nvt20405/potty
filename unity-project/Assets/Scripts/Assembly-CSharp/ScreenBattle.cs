@@ -477,7 +477,7 @@ public class ScreenBattle : ScreenBase
 		string value = e.Name;
 		if (!string.IsNullOrEmpty(value))
 		{
-			UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Battle/Hero"));
+			UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("battle/Hero"));
 			GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 			m_charObjPrefabList.Add(gameObject);
 			gameObject.transform.parent = Container3D.transform;
@@ -923,7 +923,7 @@ public class ScreenBattle : ScreenBase
 					UnityEngine.Object.Destroy(m_GoParDauNC);
 				}
 				m_GoParDauNC = null;
-				UnityEngine.Object obj = Resources.Load("FX/Prefabs/MIS_DAU_NOI_CONG_END", typeof(GameObject));
+				UnityEngine.Object obj = Resources.Load("fx/prefabs/MIS_DAU_NOI_CONG_END", typeof(GameObject));
 				GameObject goDauNC = (GameObject)((obj is GameObject) ? obj : null);
 				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(goDauNC);
 				m_GoParDauNC = (GameObject)((obj2 is GameObject) ? obj2 : null);
@@ -1035,7 +1035,7 @@ public class ScreenBattle : ScreenBase
 		{
 			return;
 		}
-		UnityEngine.Object obj = Resources.Load("FX/Prefabs/MIS_DAU_NOI_CONG", typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("fx/prefabs/MIS_DAU_NOI_CONG", typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(gameObject);
 		m_GoParDauNC = (GameObject)((obj2 is GameObject) ? obj2 : null);
@@ -1380,20 +1380,20 @@ public class ScreenBattle : ScreenBase
 
 	private void PreloadVCEff()
 	{
-		Resources.Load("FX/Prefabs/EFF_CHOANG");
-		Resources.Load("FX/Prefabs/EFF_DINH_THAN");
-		Resources.Load("FX/Prefabs/EFF_XUAT_HUYET");
-		Resources.Load("FX/Prefabs/EFF_TRUNG_DOC");
-		Resources.Load("FX/Prefabs/EFF_PHONG_CHIEU");
-		Resources.Load("FX/Prefabs/EFF_SUY_NHUOC");
-		Resources.Load("FX/Prefabs/EFF_TRIET_PHONG");
-		Resources.Load("FX/Prefabs/EFF_TAU_HOA");
-		Resources.Load("FX/Prefabs/EFF_PHONG_THAN_PHAP");
-		Resources.Load("FX/Prefabs/EFF_PHE_THU_PHAP");
-		Resources.Load("FX/Prefabs/EFF_PHE_BO_PHAP");
-		Resources.Load("FX/Prefabs/EFF_THU_HUT");
-		Resources.Load("FX/Prefabs/EFF_TANG_CONG");
-		Resources.Load("FX/Prefabs/EFF_NE");
-		Resources.Load("FX/Prefabs/EFF_BAO_KICH");
+		Resources.Load("fx/prefabs/EFF_CHOANG");
+		Resources.Load("fx/prefabs/EFF_DINH_THAN");
+		Resources.Load("fx/prefabs/EFF_XUAT_HUYET");
+		Resources.Load("fx/prefabs/EFF_TRUNG_DOC");
+		Resources.Load("fx/prefabs/EFF_PHONG_CHIEU");
+		Resources.Load("fx/prefabs/EFF_SUY_NHUOC");
+		Resources.Load("fx/prefabs/EFF_TRIET_PHONG");
+		Resources.Load("fx/prefabs/EFF_TAU_HOA");
+		Resources.Load("fx/prefabs/EFF_PHONG_THAN_PHAP");
+		Resources.Load("fx/prefabs/EFF_PHE_THU_PHAP");
+		Resources.Load("fx/prefabs/EFF_PHE_BO_PHAP");
+		Resources.Load("fx/prefabs/EFF_THU_HUT");
+		Resources.Load("fx/prefabs/EFF_TANG_CONG");
+		Resources.Load("fx/prefabs/EFF_NE");
+		Resources.Load("fx/prefabs/EFF_BAO_KICH");
 	}
 }

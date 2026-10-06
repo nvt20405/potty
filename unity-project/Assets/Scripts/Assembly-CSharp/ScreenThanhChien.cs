@@ -498,7 +498,7 @@ public class ScreenThanhChien : ScreenBase
 
 	private void SpawnScreen3D()
 	{
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("GUI/Screens3D/ScreenThanhChien3D"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("gui/screens3d/ScreenThanhChien3D"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		gameObject.transform.parent = GUIManager.instance.ScreenContainer3D;
 		gameObject.transform.localScale = Vector3.one;

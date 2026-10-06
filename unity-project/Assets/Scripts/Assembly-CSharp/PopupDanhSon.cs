@@ -55,7 +55,7 @@ public class PopupDanhSon : MonoBehaviour
 	public static PopupDanhSon Create(UserInfo.DanhSonData ds)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupDanhSon"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupDanhSon"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupDanhSon>();
 		instance.SetInfo(ds);
@@ -413,7 +413,7 @@ public class PopupDanhSon : MonoBehaviour
 			UserInfo.BanBeData banBeData = list2[j];
 			if (banBeData.Status == UserInfo.BanBeData.BanBeStatus.CONFIRMED)
 			{
-				Object obj = Object.Instantiate(Resources.Load("Prefabs/DanhSon/DanhSonFriendItem"));
+				Object obj = Object.Instantiate(Resources.Load("prefabs/danhson/DanhSonFriendItem"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = FriendsPanel.transform;
 				gameObject.transform.localPosition = vector;

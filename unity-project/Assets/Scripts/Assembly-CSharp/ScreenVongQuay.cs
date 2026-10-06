@@ -239,7 +239,7 @@ public class ScreenVongQuay : ScreenBase
 		foreach (PhanThuongResponse re in res)
 		{
 			num2++;
-			PhanThuongItem component = ((GameObject)Object.Instantiate(Resources.Load("Prefabs/PhanThuongItem"))).GetComponent<PhanThuongItem>();
+			PhanThuongItem component = ((GameObject)Object.Instantiate(Resources.Load("prefabs/PhanThuongItem"))).GetComponent<PhanThuongItem>();
 			component.transform.parent = ItemRoot.transform;
 			component.transform.localScale = Vector3.one;
 			component.transform.localPosition = ptPivots[num2 - 1].transform.localPosition - ptPivots[num2 - 1].transform.localPosition.z * Vector3.forward;

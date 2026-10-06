@@ -134,11 +134,11 @@ public class UIScrollBar : MonoBehaviour
 				localScale.y = x;
 				transform.localScale = localScale;
 				ForceUpdate();
-				if (mBG.collider != null)
+				if (mBG.GetComponent<Collider>() != null)
 				{
 					NGUITools.AddWidgetCollider(mBG.gameObject);
 				}
-				if (mFG.collider != null)
+				if (mFG.GetComponent<Collider>() != null)
 				{
 					NGUITools.AddWidgetCollider(mFG.gameObject);
 				}

@@ -21,7 +21,7 @@ public class PopupLoading : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupLoading"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupLoading"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupLoading>();
 		PopupManager.instance.Add(gameObject);

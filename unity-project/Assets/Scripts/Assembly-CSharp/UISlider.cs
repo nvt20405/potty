@@ -119,13 +119,13 @@ public class UISlider : IgnoreTimeScale
 	{
 		mTrans = base.transform;
 		Collider collider = GetComponent<Collider>();
-		mCol = (BoxCollider)((collider is BoxCollider) ? collider : null);
+		mCol = (BoxCollider)((GetComponent<Collider>() is BoxCollider) ? GetComponent<Collider>() : null);
 	}
 
 	private void Start()
 	{
 		Init();
-		if (Application.isPlaying && thumb != null && thumb.collider != null)
+		if (Application.isPlaying && thumb != null && thumb.GetComponent<Collider>() != null)
 		{
 			UIEventListener uIEventListener = UIEventListener.Get(thumb.gameObject);
 			uIEventListener.onPress = (UIEventListener.BoolDelegate)Delegate.Combine(uIEventListener.onPress, new UIEventListener.BoolDelegate(OnPressThumb));

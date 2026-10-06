@@ -155,7 +155,7 @@ public class PopupSelectNhanVat : MonoBehaviour
 		{
 			TutorialPopup.instance.ShowNextTutorial();
 		}
-		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupSelectNhanVat"));
+		UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("popup/PopupSelectNhanVat"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		gameObject.transform.localScale = Vector3.one;

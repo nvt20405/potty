@@ -38,7 +38,7 @@ public class PopUpManhTrangBi : MonoBehaviour
 	public static void Create(string codeName, int soLuongCo)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupManhTrangBi"))).GetComponent<PopUpManhTrangBi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupManhTrangBi"))).GetComponent<PopUpManhTrangBi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(codeName, soLuongCo);

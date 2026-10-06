@@ -17,7 +17,7 @@ public class PopupTopNienThu : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTopNienThu"))).GetComponent<PopupTopNienThu>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTopNienThu"))).GetComponent<PopupTopNienThu>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.Set(LienMinhList, ScoreList);

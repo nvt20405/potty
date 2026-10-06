@@ -91,7 +91,7 @@ public class PopupTrangBi : MonoBehaviour
 	private static void Create(UserInfo.TrangBiData data, bool isDisplayHieuUng = false)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(data, isDisplayHieuUng);
@@ -543,7 +543,7 @@ public class PopupTrangBi : MonoBehaviour
 	public static void CreateByNormalScreen(TrangBiCfg cfgData)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(cfgData);
@@ -557,7 +557,7 @@ public class PopupTrangBi : MonoBehaviour
 	public static void CreateByNormalScreen(UserInfo.TrangBiData data, bool isDisplayHieuUng = false)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(data, isDisplayHieuUng);
@@ -569,7 +569,7 @@ public class PopupTrangBi : MonoBehaviour
 	public static void CreateByThuCuoiInfo(UserInfo.ThuCuoiData data)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupTrangBi"))).GetComponent<PopupTrangBi>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(data);

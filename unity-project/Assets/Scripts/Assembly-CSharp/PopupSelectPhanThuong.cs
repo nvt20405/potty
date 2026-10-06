@@ -67,7 +67,7 @@ public class PopupSelectPhanThuong : MonoBehaviour
 	public static PopupSelectPhanThuong Create(string popuptext, string desctext, PhanThuongResponse res, UserInfo.VatPhamTieuThuData vpData)
 	{
 		Release();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSelectPhanThuong"))).GetComponent<PopupSelectPhanThuong>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSelectPhanThuong"))).GetComponent<PopupSelectPhanThuong>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.VatPhamData = vpData;

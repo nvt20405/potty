@@ -270,7 +270,7 @@ public class BattleHero : ClipEntity
 			}
 			if (obj == null && clip.ParamStr1.Contains("_IMPACT"))
 			{
-				obj = Resources.Load("FX/Prefabs/VC_IMPACT");
+				obj = Resources.Load("fx/prefabs/VC_IMPACT");
 			}
 			if (!(obj != null))
 			{
@@ -370,7 +370,7 @@ public class BattleHero : ClipEntity
 			{
 				return;
 			}
-			UnityEngine.Object obj5 = Resources.Load("FX/Prefabs/" + value.YeuCauVuKhi, typeof(GameObject));
+			UnityEngine.Object obj5 = Resources.Load("fx/prefabs/" + value.YeuCauVuKhi, typeof(GameObject));
 			GameObject gameObject = (GameObject)((obj5 is GameObject) ? obj5 : null);
 			if (gameObject != null)
 			{
@@ -419,7 +419,7 @@ public class BattleHero : ClipEntity
 				UnityEngine.Object obj7 = Resources.Load(path);
 				audioSource.clip = (AudioClip)((obj7 is AudioClip) ? obj7 : null);
 				m_AudioSource.volume = 1f;
-				m_AudioSource.panLevel = 0f;
+				m_AudioSource.spatialBlend = 0f;
 				m_AudioSource.loop = false;
 				m_AudioSource.Play();
 			}
@@ -430,11 +430,11 @@ public class BattleHero : ClipEntity
 				clip.GoTanAnh.transform.localScale = Vector3.one * m_spawnInfo.TyLeModel;
 				clip.GoTanAnh.transform.position = m_avatar.transform.position;
 				clip.GoTanAnh.transform.eulerAngles = m_avatar.transform.eulerAngles;
-				clip.GoTanAnh.AddComponent("TanAnhHero");
+				clip.GoTanAnh.AddComponent<TanAnhHero>();
 			}
 			else if (clip.Name == "play_remove")
 			{
-				base.gameObject.AddComponent("TanAnhHero");
+				base.gameObject.AddComponent<TanAnhHero>();
 			}
 		}
 	}
@@ -644,7 +644,7 @@ public class BattleHero : ClipEntity
 
 	private void LoadAnimVuKhi()
 	{
-		UnityEngine.Object obj = Resources.Load("FX/Anim/" + m_spawnInfo.AnimVK, typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("fx/anim/" + m_spawnInfo.AnimVK, typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (!(gameObject != null))
 		{
@@ -720,7 +720,7 @@ public class BattleHero : ClipEntity
 
 	private void LoadAnimVC()
 	{
-		UnityEngine.Object obj = Resources.Load("FX/Anim/" + SkillFileStr, typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("fx/anim/" + SkillFileStr, typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject == null)
 		{
@@ -773,7 +773,7 @@ public class BattleHero : ClipEntity
 	private void LoadAnimLengthDic()
 	{
 		AnimLengthDic.Clear();
-		UnityEngine.Object obj = Resources.Load("FX/Anim/" + m_spawnInfo.AnimVK, typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("fx/anim/" + m_spawnInfo.AnimVK, typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (!(gameObject != null))
 		{
@@ -789,7 +789,7 @@ public class BattleHero : ClipEntity
 
 	public void Init()
 	{
-		UnityEngine.Object obj = Resources.Load("Battle/HeroGUIPanel", typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("battle/HeroGUIPanel", typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -810,8 +810,8 @@ public class BattleHero : ClipEntity
 			GUIPanel.gameObject.SetActive(SpawnInfo.DHPri);
 		}
 		m_AudioSource = base.gameObject.AddComponent<AudioSource>();
-		m_avatar.AddComponent("AnimKeyFrameEvent");
-		m_avatar.AddComponent("AnimationController");
+		m_avatar.AddComponent<AnimKeyFrameEvent>();
+		m_avatar.AddComponent<AnimationController>();
 		m_animationController = m_avatar.GetComponent<AnimationController>();
 		if (!m_spawnInfo.Name.StartsWith("NC_DONG_NHAN"))
 		{
@@ -854,7 +854,7 @@ public class BattleHero : ClipEntity
 	private void LoadVuKhi()
 	{
 		GameObject gameObject = null;
-		UnityEngine.Object obj = Resources.Load("VuKhi/" + m_spawnInfo.VK, typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("vukhi/" + m_spawnInfo.VK, typeof(GameObject));
 		gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject != null)
 		{
@@ -869,7 +869,7 @@ public class BattleHero : ClipEntity
 
 	private void AddEventTanAnh()
 	{
-		UnityEngine.Object obj = Resources.Load("FX/Anim/" + SkillFileStr, typeof(GameObject));
+		UnityEngine.Object obj = Resources.Load("fx/anim/" + SkillFileStr, typeof(GameObject));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		if (gameObject == null)
 		{
@@ -975,7 +975,7 @@ public class BattleHero : ClipEntity
 		NhanVatCfg value;
 		ConfigManager.instance.m_dicNhanVats.TryGetValue(SpawnInfo.Name, out value);
 		UnityEngine.Object obj = null;
-		obj = ((!string.IsNullOrEmpty(SpawnInfo.Costume)) ? Resources.Load("Costumes/" + SpawnInfo.Costume) : Resources.Load("NhanVat/" + SpawnInfo.Name));
+		obj = ((!string.IsNullOrEmpty(SpawnInfo.Costume)) ? Resources.Load("costumes/" + SpawnInfo.Costume) : Resources.Load("nhanvat/" + SpawnInfo.Name));
 		if (obj != null)
 		{
 			UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(obj);
@@ -983,12 +983,12 @@ public class BattleHero : ClipEntity
 		}
 		else if (value.Sex == NhanVatCfg.GioiTinh.Nam)
 		{
-			UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("NhanVat/NV_LY_TAM_HOAN"));
+			UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("nhanvat/NV_LY_TAM_HOAN"));
 			m_avatar = (GameObject)((obj3 is GameObject) ? obj3 : null);
 		}
 		else
 		{
-			UnityEngine.Object obj4 = UnityEngine.Object.Instantiate(Resources.Load("NhanVat/NV_LAM_TRIEU_ANH"));
+			UnityEngine.Object obj4 = UnityEngine.Object.Instantiate(Resources.Load("nhanvat/NV_LAM_TRIEU_ANH"));
 			m_avatar = (GameObject)((obj4 is GameObject) ? obj4 : null);
 		}
 		m_avatar.transform.parent = base.gameObject.transform;
@@ -2001,13 +2001,13 @@ public class BattleHero : ClipEntity
 
 	private void SyncLoad()
 	{
-		Resources.Load("FX/Prefabs/VC_IMPACT");
-		Resources.Load("FX/Sound/CanChien");
-		Resources.Load("FX/Sound/DanhChieu");
-		Resources.Load("FX/Sound/DanhXa");
-		Resources.Load("FX/Sound/DauNoiCong");
-		Resources.Load("VuKhi/" + m_spawnInfo.VK);
-		Resources.Load("FX/Anim/" + SkillFileStr);
+		Resources.Load("fx/prefabs/VC_IMPACT");
+		Resources.Load("fx/sound/CanChien");
+		Resources.Load("fx/sound/DanhChieu");
+		Resources.Load("fx/sound/DanhXa");
+		Resources.Load("fx/sound/DauNoiCong");
+		Resources.Load("vukhi/" + m_spawnInfo.VK);
+		Resources.Load("fx/anim/" + SkillFileStr);
 		if (m_spawnInfo.Type != HeroType.NhanVat)
 		{
 			return;
@@ -2023,9 +2023,9 @@ public class BattleHero : ClipEntity
 			}
 			if (value.m_Class == VCClass.CHIEU_THUC)
 			{
-				Resources.Load("FX/Prefabs/" + text);
-				Resources.Load("FX/Prefabs/" + text + "_IMPACT");
-				Resources.Load("FX/Prefabs/" + text + "_PROJECTILE");
+				Resources.Load("fx/prefabs/" + text);
+				Resources.Load("fx/prefabs/" + text + "_IMPACT");
+				Resources.Load("fx/prefabs/" + text + "_PROJECTILE");
 				continue;
 			}
 			if (text.EndsWith("_S") || text.EndsWith("_A") || text.EndsWith("_B"))
@@ -2036,19 +2036,19 @@ public class BattleHero : ClipEntity
 			{
 				text = text.Substring(0, text.Length - 3);
 			}
-			Resources.Load("FX/Prefabs/" + text);
+			Resources.Load("fx/prefabs/" + text);
 		}
 	}
 
 	private void AsyncLoad()
 	{
-		EGResourceAsyncLoader.Load("FX/Prefabs/VC_IMPACT");
-		EGResourceAsyncLoader.Load("FX/Sound/CanChien");
-		EGResourceAsyncLoader.Load("FX/Sound/DanhChieu");
-		EGResourceAsyncLoader.Load("FX/Sound/DanhXa");
-		EGResourceAsyncLoader.Load("FX/Sound/DauNoiCong");
-		EGResourceAsyncLoader.Load("VuKhi/" + m_spawnInfo.VK);
-		EGResourceAsyncLoader.Load("FX/Anim/" + SkillFileStr);
+		EGResourceAsyncLoader.Load("fx/prefabs/VC_IMPACT");
+		EGResourceAsyncLoader.Load("fx/sound/CanChien");
+		EGResourceAsyncLoader.Load("fx/sound/DanhChieu");
+		EGResourceAsyncLoader.Load("fx/sound/DanhXa");
+		EGResourceAsyncLoader.Load("fx/sound/DauNoiCong");
+		EGResourceAsyncLoader.Load("vukhi/" + m_spawnInfo.VK);
+		EGResourceAsyncLoader.Load("fx/anim/" + SkillFileStr);
 		if (m_spawnInfo.Type != HeroType.NhanVat)
 		{
 			return;
@@ -2064,9 +2064,9 @@ public class BattleHero : ClipEntity
 			}
 			if (value.m_Class == VCClass.CHIEU_THUC)
 			{
-				EGResourceAsyncLoader.Load("FX/Prefabs/" + text);
-				EGResourceAsyncLoader.Load("FX/Prefabs/" + text + "_IMPACT");
-				EGResourceAsyncLoader.Load("FX/Prefabs/" + text + "_PROJECTILE");
+				EGResourceAsyncLoader.Load("fx/prefabs/" + text);
+				EGResourceAsyncLoader.Load("fx/prefabs/" + text + "_IMPACT");
+				EGResourceAsyncLoader.Load("fx/prefabs/" + text + "_PROJECTILE");
 				continue;
 			}
 			if (text.EndsWith("_S") || text.EndsWith("_A") || text.EndsWith("_B"))
@@ -2077,7 +2077,7 @@ public class BattleHero : ClipEntity
 			{
 				text = text.Substring(0, text.Length - 3);
 			}
-			EGResourceAsyncLoader.Load("FX/Prefabs/" + text);
+			EGResourceAsyncLoader.Load("fx/prefabs/" + text);
 		}
 	}
 

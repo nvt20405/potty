@@ -34,7 +34,7 @@ public class PopupVongQuay : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupVongQuay"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupVongQuay"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupVongQuay>();
 		instance.Set(id, header, GameManager.instance.m_GameClient.UserInfo.ServerInfo.VongQuayInfo.PhanThuongVongQuay);
@@ -150,7 +150,7 @@ public class PopupVongQuay : MonoBehaviour
 		foreach (PhanThuongResponse re in res)
 		{
 			num++;
-			PhanThuongItem component = ((GameObject)Object.Instantiate(Resources.Load("Prefabs/PhanThuongItem"))).GetComponent<PhanThuongItem>();
+			PhanThuongItem component = ((GameObject)Object.Instantiate(Resources.Load("prefabs/PhanThuongItem"))).GetComponent<PhanThuongItem>();
 			component.transform.parent = ItemRoot.transform;
 			component.transform.localScale = Vector3.one;
 			component.transform.localPosition = itemPos;

@@ -22,7 +22,7 @@ public class PopupThachDau : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupThachDau"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupThachDau"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupThachDau>();
 		instance.SetInfo(enemyId, enemyName, level);

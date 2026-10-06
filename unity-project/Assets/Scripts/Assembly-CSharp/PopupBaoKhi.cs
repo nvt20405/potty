@@ -38,7 +38,7 @@ public class PopupBaoKhi : MonoBehaviour
 	public static void Create(UserInfo.ThienMaLenhInfo thienMaData, bool isDiffUserView = false, int slot = -1)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupBaoKhi"))).GetComponent<PopupBaoKhi>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupBaoKhi"))).GetComponent<PopupBaoKhi>();
 		instance.thienmaData = thienMaData;
 		instance.displayInfoResult(thienMaData);
 		instance.currSlotThienMa = slot;

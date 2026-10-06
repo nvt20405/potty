@@ -64,7 +64,7 @@ public class PopupThanThuInfo : MonoBehaviour
 	public static void Create(UserInfo.PetInfo thanthu, bool isOwner)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupThanThuInfo"))).GetComponent<PopupThanThuInfo>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupThanThuInfo"))).GetComponent<PopupThanThuInfo>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.Set(thanthu, isOwner);

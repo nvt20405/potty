@@ -30,7 +30,7 @@ public class PopupThienMaThuongPhong : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupThienMaThuongPhong"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupThienMaThuongPhong"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupThienMaThuongPhong>();
 		instance.btnCheTac.gameObject.SetActive(false);

@@ -19,7 +19,7 @@ public class PopUpNewMess : MonoBehaviour
 	public static void Create(ChatItem newMess)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNewMess"))).GetComponent<PopUpNewMess>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNewMess"))).GetComponent<PopUpNewMess>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.lbMess.text = newMess.Name + ": " + newMess.Content;

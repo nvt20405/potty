@@ -111,10 +111,10 @@ public static class Utils
 			LightmapData lightmapData = new LightmapData();
 			LightmapData lightmapData2 = lightmapData;
 			UnityEngine.Object obj = Resources.Load(path + "LightmapFar-" + i, typeof(Texture2D));
-			lightmapData2.lightmapFar = (Texture2D)((obj is Texture2D) ? obj : null);
+			lightmapData2.lightmapColor = (Texture2D)((obj is Texture2D) ? obj : null);
 			LightmapData lightmapData3 = lightmapData;
 			UnityEngine.Object obj2 = Resources.Load(path + "LightmapNear-" + i, typeof(Texture2D));
-			lightmapData3.lightmapNear = (Texture2D)((obj2 is Texture2D) ? obj2 : null);
+			lightmapData3.lightmapDir = (Texture2D)((obj2 is Texture2D) ? obj2 : null);
 			array[i] = lightmapData;
 		}
 		LightmapSettings.lightmaps = array;
@@ -127,9 +127,9 @@ public static class Utils
 		{
 			LightmapData lightmapData = new LightmapData();
 			LightmapData lightmapData2 = lightmapData;
-			UnityEngine.Object obj = Resources.Load("Lightmap/Gray/" + name, typeof(Texture2D));
-			lightmapData2.lightmapFar = (Texture2D)((obj is Texture2D) ? obj : null);
-			lightmapData.lightmapNear = null;
+			UnityEngine.Object obj = Resources.Load("lightmap/gray/" + name, typeof(Texture2D));
+			lightmapData2.lightmapColor = (Texture2D)((obj is Texture2D) ? obj : null);
+			lightmapData.lightmapDir = null;
 			lightmaps[i] = lightmapData;
 		}
 		LightmapSettings.lightmaps = lightmaps;

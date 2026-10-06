@@ -23,7 +23,7 @@ public class PopupChat : MonoBehaviour
 	public static void Create(ChatType _type)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupChat"))).GetComponent<PopupChat>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupChat"))).GetComponent<PopupChat>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.m_ChatType = _type;

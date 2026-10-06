@@ -325,7 +325,7 @@ public class ScreenWorldmap : ScreenBase
 		{
 			if (newKyNgoParticle == null)
 			{
-				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_KYNGOBUTTON"));
+				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_KYNGOBUTTON"));
 				newKyNgoParticle = (GameObject)((obj is GameObject) ? obj : null);
 				newKyNgoParticle.transform.parent = base.transform;
 				newKyNgoParticle.transform.position = kyNgoBtn.transform.position;
@@ -353,12 +353,12 @@ public class ScreenWorldmap : ScreenBase
 		{
 			if (checkGiangHoTinhAnh())
 			{
-				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_GIANGHO_TINHANH_BUTTON"));
+				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_GIANGHO_TINHANH_BUTTON"));
 				lastBtnGHParticle = (GameObject)((obj is GameObject) ? obj : null);
 			}
 			else
 			{
-				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_GIANGHOBUTTON"));
+				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_GIANGHOBUTTON"));
 				lastBtnGHParticle = (GameObject)((obj2 is GameObject) ? obj2 : null);
 			}
 			lastBtnGHParticle.transform.parent = lastBtn.transform;

@@ -20,7 +20,7 @@ public class PopupLenLevel : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupLenLevel"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupLenLevel"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupLenLevel>();
 		instance.Set(level);

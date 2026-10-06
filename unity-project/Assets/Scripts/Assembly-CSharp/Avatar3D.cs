@@ -128,7 +128,7 @@ public class Avatar3D : MonoBehaviour
 			}
 			if (!string.IsNullOrEmpty(text))
 			{
-				EGResourceAsyncLoader.Load("FX/Prefabs/" + text, true, OnFinishLoadNoiCongParticle);
+				EGResourceAsyncLoader.Load("fx/prefabs/" + text, true, OnFinishLoadNoiCongParticle);
 			}
 			NoiCongName = text;
 		}
@@ -150,7 +150,7 @@ public class Avatar3D : MonoBehaviour
 			}
 			if (!string.IsNullOrEmpty(text))
 			{
-				EGResourceAsyncLoader.Load("FX/Prefabs/" + text, true, OnFinishLoadBoPhapParticle);
+				EGResourceAsyncLoader.Load("fx/prefabs/" + text, true, OnFinishLoadBoPhapParticle);
 			}
 			BoPhapName = text;
 		}
@@ -166,7 +166,7 @@ public class Avatar3D : MonoBehaviour
 		AnimationController component = AvatarGO.GetComponent<AnimationController>();
 		if (thucuoiGO == null)
 		{
-			Object obj = Resources.Load("ThuCuoi/" + ThuCuoiName, typeof(GameObject));
+			Object obj = Resources.Load("thucuoi/" + ThuCuoiName, typeof(GameObject));
 			thucuoiGO = ((obj is GameObject) ? obj : null);
 		}
 		if (!(thucuoiGO != null))
@@ -213,7 +213,7 @@ public class Avatar3D : MonoBehaviour
 		AnimationController component = AvatarGO.GetComponent<AnimationController>();
 		if (vuKhiGO == null)
 		{
-			Object obj = Resources.Load("VuKhi/" + ConfigManager.GetVuKhiMacDinhTheoAnim(value.Anim), typeof(GameObject));
+			Object obj = Resources.Load("vukhi/" + ConfigManager.GetVuKhiMacDinhTheoAnim(value.Anim), typeof(GameObject));
 			vuKhiGO = ((obj is GameObject) ? obj : null);
 		}
 		if (!(vuKhiGO != null))
@@ -270,7 +270,7 @@ public class Avatar3D : MonoBehaviour
 			OtherCfg.ThuCuoiCfg value;
 			if (ConfigManager.instance.OtherConfig.ThuCuoiConfig != null && ConfigManager.instance.OtherConfig.ThuCuoiConfig.TryGetValue(thuCuoiName, out value))
 			{
-				EGResourceAsyncLoader eGResourceAsyncLoader = EGResourceAsyncLoader.Load("ThuCuoi/" + thuCuoiName, true, OnFinishLoadThuCuoiPrefabs);
+				EGResourceAsyncLoader eGResourceAsyncLoader = EGResourceAsyncLoader.Load("thucuoi/" + thuCuoiName, true, OnFinishLoadThuCuoiPrefabs);
 			}
 		}
 	}
@@ -306,7 +306,7 @@ public class Avatar3D : MonoBehaviour
 			}
 			ThanThuName = codename;
 			ThanThuQuality = quality;
-			ThanThuGO = (GameObject)Object.Instantiate(Resources.Load("ThanThu/" + codename + text));
+			ThanThuGO = (GameObject)Object.Instantiate(Resources.Load("thanthu/" + codename + text));
 			if (GUIManager.instance.CurrentScreen == GAME_SCREEN.ScreenCT2)
 			{
 				ThanThuGO.transform.parent = base.transform.parent.parent;
@@ -367,7 +367,7 @@ public class Avatar3D : MonoBehaviour
 			}
 			else
 			{
-				EGResourceAsyncLoader eGResourceAsyncLoader = EGResourceAsyncLoader.Load("VuKhi/" + vkName, true, OnFinishLoadVKPrefabs);
+				EGResourceAsyncLoader eGResourceAsyncLoader = EGResourceAsyncLoader.Load("vukhi/" + vkName, true, OnFinishLoadVKPrefabs);
 			}
 		}
 	}

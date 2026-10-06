@@ -63,7 +63,7 @@ public class ThanThuInfo : MonoBehaviour
 		{
 			text = "_04";
 		}
-		Object obj = Object.Instantiate(Resources.Load("ThanThu/" + thanthu.codename + text, typeof(GameObject)));
+		Object obj = Object.Instantiate(Resources.Load("thanthu/" + thanthu.codename + text, typeof(GameObject)));
 		ThanThuModel = (GameObject)((obj is GameObject) ? obj : null);
 		if (ThanThuModel != null)
 		{

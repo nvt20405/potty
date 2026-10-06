@@ -20,7 +20,7 @@ public class PopupUser1Tr : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupUser1Tr"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupUser1Tr"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupUser1Tr>();
 		instance.Set(isSpecial, count, phanthuong);

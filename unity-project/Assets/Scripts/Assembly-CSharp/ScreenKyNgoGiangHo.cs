@@ -171,7 +171,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 		{
 			if (dateTime <= dateTime3 && dateTime <= dateTime2 && dateTime <= dateTime4 && dateTime <= dateTime5)
 			{
-				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/CaoNhanPage"));
+				UnityEngine.Object obj = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/CaoNhanPage"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				if (gameObject != null)
 				{
@@ -184,7 +184,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 					pagesDictionary.Add(k, gameObject.GetComponent<EGGUIPage>());
 					component.SetInfo(uInfo.Gamer.KyNgoCaoNhan[minKyNgoCaoNhan], minKyNgoCaoNhan);
 				}
-				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/KyNgoAvatar"));
+				UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/KyNgoAvatar"));
 				GameObject gameObject2 = (GameObject)((obj2 is GameObject) ? obj2 : null);
 				gameObject2.transform.parent = topBanner;
 				gameObject2.transform.localPosition = k * vector + new Vector3(0f, 0f, -3f);
@@ -198,7 +198,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 			}
 			else if (dateTime2 <= dateTime3 && dateTime2 <= dateTime && dateTime2 <= dateTime4 && dateTime2 <= dateTime5)
 			{
-				UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/BanDoPage"));
+				UnityEngine.Object obj3 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/BanDoPage"));
 				GameObject gameObject3 = (GameObject)((obj3 is GameObject) ? obj3 : null);
 				if (gameObject3 != null)
 				{
@@ -211,7 +211,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 					pagesDictionary.Add(k, gameObject3.GetComponent<EGGUIPage>());
 					component3.SetInfo(uInfo.Gamer.KyNgoBanDo[minKyNgoBanDo], minKyNgoBanDo);
 				}
-				UnityEngine.Object obj4 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/KyNgoAvatar"));
+				UnityEngine.Object obj4 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/KyNgoAvatar"));
 				GameObject gameObject4 = (GameObject)((obj4 is GameObject) ? obj4 : null);
 				gameObject4.transform.parent = topBanner;
 				gameObject4.transform.localPosition = k * vector + new Vector3(0f, 0f, -3f);
@@ -225,7 +225,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 			}
 			else if (dateTime3 <= dateTime2 && dateTime3 <= dateTime && dateTime3 <= dateTime4 && dateTime3 <= dateTime5)
 			{
-				UnityEngine.Object obj5 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/BangHuuPage"));
+				UnityEngine.Object obj5 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/BangHuuPage"));
 				GameObject gameObject5 = (GameObject)((obj5 is GameObject) ? obj5 : null);
 				if (gameObject5 != null)
 				{
@@ -238,7 +238,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 					pagesDictionary.Add(k, gameObject5.GetComponent<EGGUIPage>());
 					component5.SetInfo(uInfo.Gamer.KyNgoBangHuu[minKyNgoBangHuu], minKyNgoBangHuu);
 				}
-				UnityEngine.Object obj6 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/KyNgoAvatar"));
+				UnityEngine.Object obj6 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/KyNgoAvatar"));
 				GameObject gameObject6 = (GameObject)((obj6 is GameObject) ? obj6 : null);
 				gameObject6.transform.parent = topBanner;
 				gameObject6.transform.localPosition = k * vector + new Vector3(0f, 0f, -3f);
@@ -252,7 +252,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 			}
 			else if (dateTime4 <= dateTime2 && dateTime4 <= dateTime && dateTime4 <= dateTime3 && dateTime4 <= dateTime5)
 			{
-				UnityEngine.Object obj7 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/ThuongNhanPage"));
+				UnityEngine.Object obj7 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/ThuongNhanPage"));
 				GameObject gameObject7 = (GameObject)((obj7 is GameObject) ? obj7 : null);
 				if (gameObject7 != null)
 				{
@@ -265,7 +265,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 					pagesDictionary.Add(k, gameObject7.GetComponent<EGGUIPage>());
 					component7.SetInfo(uInfo.Gamer.KyNgoThuongNhan[minKyNgoThuongNhan], minKyNgoThuongNhan);
 				}
-				UnityEngine.Object obj8 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/KyNgoAvatar"));
+				UnityEngine.Object obj8 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/KyNgoAvatar"));
 				GameObject gameObject8 = (GameObject)((obj8 is GameObject) ? obj8 : null);
 				gameObject8.transform.parent = topBanner;
 				gameObject8.transform.localPosition = k * vector + new Vector3(0f, 0f, -3f);
@@ -279,7 +279,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 			}
 			else
 			{
-				UnityEngine.Object obj9 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/TyThiPage"));
+				UnityEngine.Object obj9 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/TyThiPage"));
 				GameObject gameObject9 = (GameObject)((obj9 is GameObject) ? obj9 : null);
 				if (gameObject9 != null)
 				{
@@ -292,7 +292,7 @@ public class ScreenKyNgoGiangHo : ScreenBase
 					pagesDictionary.Add(k, gameObject9.GetComponent<EGGUIPage>());
 					gameObject9.GetComponent<KyNgoTyThiPage>().SetInfo(uInfo.Gamer.KyNgoTyThi[minKyNgoTyThi], minKyNgoTyThi);
 				}
-				UnityEngine.Object obj10 = UnityEngine.Object.Instantiate(Resources.Load("Prefabs/KyNgo/KyNgoAvatar"));
+				UnityEngine.Object obj10 = UnityEngine.Object.Instantiate(Resources.Load("prefabs/kyngo/KyNgoAvatar"));
 				GameObject gameObject10 = (GameObject)((obj10 is GameObject) ? obj10 : null);
 				gameObject10.transform.parent = topBanner;
 				gameObject10.transform.localPosition = k * vector + new Vector3(0f, 0f, -3f);

@@ -61,7 +61,7 @@ public class PopupActionWaitForSeconds : MonoBehaviour
 	public static void Create(DateTime timeEnd, Action onTimeAction)
 	{
 		DestroyPopup();
-		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupActionWaitForSeconds"))).GetComponent<PopupActionWaitForSeconds>();
+		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("popup/PopupActionWaitForSeconds"))).GetComponent<PopupActionWaitForSeconds>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.timeEndWaiting = timeEnd;

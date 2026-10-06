@@ -77,7 +77,7 @@ public class PopupCostume : MonoBehaviour
 		{
 			DestroyPopup();
 		}
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupCostume"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupCostume"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		PopupManager.instance.Add(gameObject);
 		gameObject.transform.localScale = Vector3.one;

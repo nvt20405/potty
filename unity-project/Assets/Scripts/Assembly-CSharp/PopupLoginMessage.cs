@@ -37,7 +37,7 @@ public class PopupLoginMessage : MonoBehaviour
 		DestroyPopup();
 		if (!(TutorialPopup.instance != null))
 		{
-			instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupLoginMessage"))).GetComponent<PopupLoginMessage>();
+			instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupLoginMessage"))).GetComponent<PopupLoginMessage>();
 			PopupManager.instance.Add(instance.gameObject);
 			instance.transform.localScale = new Vector3(1f, 1f, 1f);
 			instance.Set(data);

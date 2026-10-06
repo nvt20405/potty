@@ -199,7 +199,7 @@ public class ScreenDongNhan : ScreenBase
 	{
 		if (GUIManager.instance != null && GUIManager.instance.homeCity != null && GUIManager.instance.homeCity.mainAvatar != null && GUIManager.instance.homeCity.dongNhanAvatar3D != null)
 		{
-			if (GUIManager.instance.homeCity.mainAvatar.collider.bounds.Intersects(GUIManager.instance.homeCity.dongNhanAvatar3D.collider.bounds))
+			if (GUIManager.instance.homeCity.mainAvatar.GetComponent<Collider>().bounds.Intersects(GUIManager.instance.homeCity.dongNhanAvatar3D.GetComponent<Collider>().bounds))
 			{
 				OnDanhBtnClick();
 				return;

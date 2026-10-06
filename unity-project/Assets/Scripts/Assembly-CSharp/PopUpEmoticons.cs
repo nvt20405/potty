@@ -37,7 +37,7 @@ public class PopUpEmoticons : MonoBehaviour
 	public static void CreateByChat()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupEmoticons"))).GetComponent<PopUpEmoticons>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupEmoticons"))).GetComponent<PopUpEmoticons>();
 		PopupManager.instance.Add(instance.gameObject, new Vector3(0f, 380f, 0f));
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.displayListEmo();
@@ -46,7 +46,7 @@ public class PopUpEmoticons : MonoBehaviour
 	public static void CreateByMail()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupEmoticons"))).GetComponent<PopUpEmoticons>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupEmoticons"))).GetComponent<PopUpEmoticons>();
 		PopupManager.instance.Add(instance.gameObject, new Vector3(0f, 380f, 0f));
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.displayListEmo();

@@ -19,14 +19,14 @@ public class PopupDanhNhanhGiangHo : MonoBehaviour
 	public static PopupDanhNhanhGiangHo Create(List<UserInfo.HeroData> listDeTu, GiangHoDanhNhanhResponse response)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupDanhNhanhGiangHo"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupDanhNhanhGiangHo"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupDanhNhanhGiangHo>();
 		Vector3 vector = default(Vector3);
 		vector = new Vector3(0f, 312f, 0f);
 		for (int i = 0; i < response.PhanThuong.Count; i++)
 		{
-			Object obj2 = Object.Instantiate(Resources.Load("GiangHo/DanhNhanhGHItem"));
+			Object obj2 = Object.Instantiate(Resources.Load("giangho/DanhNhanhGHItem"));
 			GameObject gameObject2 = (GameObject)((obj2 is GameObject) ? obj2 : null);
 			DanhNhanhGHItem component = gameObject2.GetComponent<DanhNhanhGHItem>();
 			component.transform.parent = instance.panel.transform;

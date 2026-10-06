@@ -71,7 +71,7 @@ public class PopupNetworkLoading : MonoBehaviour
 	public static void Create(string str, float time = 30f, bool showMsg = true)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupNetworkLoading"))).GetComponent<PopupNetworkLoading>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupNetworkLoading"))).GetComponent<PopupNetworkLoading>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.loadingLabel.text = str;

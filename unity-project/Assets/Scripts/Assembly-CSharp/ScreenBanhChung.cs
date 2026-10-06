@@ -64,7 +64,7 @@ public class ScreenBanhChung : ScreenBase
 	private IEnumerator SpawnScreen3D()
 	{
 		PopupLoading.Create();
-		EGResourceAsyncLoader loader = EGResourceAsyncLoader.Load("GUI/Screens3D/ScreenBanhChung3D");
+		EGResourceAsyncLoader loader = EGResourceAsyncLoader.Load("gui/screens3d/ScreenBanhChung3D");
 		loader.OnLoading = (float e) =>
 		{
 			if (PopupLoading.instance != null)

@@ -28,7 +28,7 @@ public class PopupBXHChinhTa : MonoBehaviour
 	public static PopupBXHChinhTa Create(CT2BXHHienTaiResponse response, int teamWinner)
 	{
 		DestroyPopup();
-		Object obj = Object.Instantiate(Resources.Load("Popup/PopupBXHChinhTa"));
+		Object obj = Object.Instantiate(Resources.Load("popup/PopupBXHChinhTa"));
 		GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 		instance = gameObject.GetComponent<PopupBXHChinhTa>();
 		instance.SetInfo(response, teamWinner);
@@ -66,7 +66,7 @@ public class PopupBXHChinhTa : MonoBehaviour
 			}
 			else
 			{
-				Object obj = Object.Instantiate(Resources.Load("Popup/BXHChinhTaRow"));
+				Object obj = Object.Instantiate(Resources.Load("popup/BXHChinhTaRow"));
 				GameObject gameObject = (GameObject)((obj is GameObject) ? obj : null);
 				gameObject.transform.parent = clipPanel.transform;
 				gameObject.transform.localScale = Vector3.one;

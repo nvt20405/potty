@@ -54,7 +54,7 @@ public class PopUpCheckTheLuc : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopUpCheckTheLuc"))).GetComponent<PopUpCheckTheLuc>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopUpCheckTheLuc"))).GetComponent<PopUpCheckTheLuc>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 	}

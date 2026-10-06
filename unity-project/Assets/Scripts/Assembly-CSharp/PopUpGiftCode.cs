@@ -18,7 +18,7 @@ public class PopUpGiftCode : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupGiftCode"))).GetComponent<PopUpGiftCode>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupGiftCode"))).GetComponent<PopUpGiftCode>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 	}

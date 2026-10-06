@@ -245,7 +245,7 @@ public class NhanVatAvatar : MonoBehaviour
 		if (chuyensinh > 0)
 		{
 			GameObject gameObject2 = null;
-			gameObject2 = ((!(base.transform.localScale.x < 1f)) ? (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_CHUYENSINHAVATAR")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("FX/Prefabs/GUI_CHUYENSINHAVATAR_SMALL")) as GameObject));
+			gameObject2 = ((!(base.transform.localScale.x < 1f)) ? (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_CHUYENSINHAVATAR")) as GameObject) : (UnityEngine.Object.Instantiate(Resources.Load("fx/prefabs/GUI_CHUYENSINHAVATAR_SMALL")) as GameObject));
 			if (gameObject2 != null)
 			{
 				gameObject2.transform.parent = goChuyenSinh.transform;

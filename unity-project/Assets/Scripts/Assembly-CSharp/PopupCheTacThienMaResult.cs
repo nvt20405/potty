@@ -28,7 +28,7 @@ public class PopupCheTacThienMaResult : MonoBehaviour
 	public static void Create()
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupCheTacThienMaResult"))).GetComponent<PopupCheTacThienMaResult>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupCheTacThienMaResult"))).GetComponent<PopupCheTacThienMaResult>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.displayInfoResult();

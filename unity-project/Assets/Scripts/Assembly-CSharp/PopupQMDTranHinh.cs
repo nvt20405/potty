@@ -56,7 +56,7 @@ public class PopupQMDTranHinh : MonoBehaviour
 	public static void Create(bool isReadOnly, QMDInfo info)
 	{
 		DestroyPopup();
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupQMDTranHinh"))).GetComponent<PopupQMDTranHinh>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupQMDTranHinh"))).GetComponent<PopupQMDTranHinh>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = new Vector3(1f, 1f, 1f);
 		instance.SyncWithNetworkData(info);

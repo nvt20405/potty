@@ -37,7 +37,7 @@ public class PopupSonMonBattle : MonoBehaviour
 		{
 			Object.Destroy(instance.gameObject);
 		}
-		instance = ((GameObject)Object.Instantiate(Resources.Load("Popup/PopupSonMonBattle"))).GetComponent<PopupSonMonBattle>();
+		instance = ((GameObject)Object.Instantiate(Resources.Load("popup/PopupSonMonBattle"))).GetComponent<PopupSonMonBattle>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.ScoreBoard[0].text = "0";

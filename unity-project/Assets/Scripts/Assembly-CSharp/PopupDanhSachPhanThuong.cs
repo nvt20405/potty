@@ -40,7 +40,7 @@ public class PopupDanhSachPhanThuong : MonoBehaviour
 	public static PopupDanhSachPhanThuong Create(string popuptext, string desctext, PhanThuongResponse res, Action onRelease = null)
 	{
 		Release();
-		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("Popup/PopupDanhSachPhanThuong"))).GetComponent<PopupDanhSachPhanThuong>();
+		instance = ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("popup/PopupDanhSachPhanThuong"))).GetComponent<PopupDanhSachPhanThuong>();
 		PopupManager.instance.Add(instance.gameObject);
 		instance.transform.localScale = Vector3.one;
 		instance.onRelease = onRelease;
