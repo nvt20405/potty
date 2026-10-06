@@ -58,6 +58,39 @@ def patch_cs(path: Path):
         s=s.replace('gameObject.GetComponent<ParticleSystem>().playbackSpeed = TimeScale;',
                     'var particleMain = gameObject.GetComponent<ParticleSystem>().main;\n\t\t\t\tparticleMain.simulationSpeed = TimeScale;')
     s=s.replace('base.collider', 'GetComponent<Collider>()')
+    # Unity 4 APIs removed or renamed in modern Unity.
+    s=s.replace('.panLevel', '.spatialBlend')
+    s=s.replace('.isOrthoGraphic', '.orthographic')
+    s=s.replace('.lightmapFar', '.lightmapColor')
+    s=s.replace('.lightmapNear', '.lightmapDir')
+    s=re.sub(r'\.AddComponent\("([A-Za-z_]\w*)"\)', r'.AddComponent<\1>()', s)
+
+    # Legacy Component.collider shortcut was removed. Keep RaycastHit.collider intact
+    # by only rewriting the concrete expressions seen in the recovered game/NGUI code.
+    legacy_collider_exprs = [
+        'anGaBtn', 'buttonLabel.transform.parent', 'btnAddFriend',
+        'GUIManager.instance.homeCity.mainAvatar',
+        'GUIManager.instance.homeCity.dongNhanAvatar3D',
+        'btnThuocTinh1', 'btnThuocTinh2', 'btnThuocTinh3',
+        'mBG', 'mFG', 'thumb'
+    ]
+    for expr in legacy_collider_exprs:
+        s=s.replace(expr + '.collider', expr + '.GetComponent<Collider>()')
+    s=re.sub(r'ItemList\[i\]\.collider', r'ItemList[i].GetComponent<Collider>()', s)
+    if path.name == 'UISlider.cs':
+        s=s.replace('((collider is BoxCollider) ? collider : null)',
+                    '((GetComponent<Collider>() is BoxCollider) ? GetComponent<Collider>() : null)')
+
+    # Obsolete platform enum values were removed after Unity 5.
+    if path.name == 'NGUITools.cs':
+        s=s.replace('return Application.platform != RuntimePlatform.WindowsWebPlayer && Application.platform != RuntimePlatform.OSXWebPlayer;',
+                    'return Application.platform != RuntimePlatform.WebGLPlayer;')
+    if path.name in {'NGUIMath.cs', 'UIAnchor.cs', 'UIPanel.cs'}:
+        s=s.replace(' || platform == RuntimePlatform.WindowsWebPlayer', '')
+        s=s.replace(' || Application.platform == RuntimePlatform.WindowsWebPlayer', '')
+        s=s.replace('Application.platform == RuntimePlatform.WindowsWebPlayer || ', '')
+    if path.name == 'UICamera.cs':
+        s=s.replace(' || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.BB10Player', '')
     resource_call = re.compile(r'((?:Resources\.Load(?:Async)?(?:<[^>]+>)?|EGResourceAsyncLoader\.Load)\(\s*")([^"]+)(")')
     s=resource_call.sub(lambda m: m.group(1) + normalize_resource_literal(m.group(2)) + m.group(3), s)
     if re.search(r'\bNavMesh(?:Agent|Hit|Path|Obstacle|LinkData|BuildSettings|Triangulation)?\b', s):
@@ -144,6 +177,169 @@ public sealed class WWW : CustomYieldInstruction, IDisposable
     mp=Path(str(p)+'.meta')
     if not mp.exists(): mp.write_text(meta_for(str(p.relative_to(script_dir.parent.parent.parent))),encoding='utf-8')
 
+
+def add_editor_build_tools(project: Path):
+    editor = project/'Assets'/'Editor'
+    editor.mkdir(parents=True, exist_ok=True)
+
+    build = editor/'MVLUnity6Build.cs'
+    build.write_text(r'''#if UNITY_EDITOR
+using System;
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
+using UnityEngine;
+
+public static class MVLUnity6Build
+{
+    public static void BuildAndroid()
+    {
+        MVLUnity6Validation.ValidateOrThrow();
+
+        PlayerSettings.companyName = "HikerGames";
+        PlayerSettings.productName = "Mộng Võ Lâm";
+        PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "vn.shg.mobi.mongvolam");
+        PlayerSettings.bundleVersion = "6.0.0";
+        PlayerSettings.Android.bundleVersionCode = Math.Max(PlayerSettings.Android.bundleVersionCode, 600000);
+        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel23;
+        PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
+        PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
+
+        string[] scenes = EditorBuildSettings.scenes
+            .Where(s => s.enabled && File.Exists(s.path))
+            .Select(s => s.path)
+            .ToArray();
+
+        if (scenes.Length == 0)
+        {
+            string[] fallback = { "Assets/AndroidObbLoader.unity", "Assets/GameClient.unity" };
+            scenes = fallback.Where(File.Exists).ToArray();
+        }
+        if (scenes.Length == 0)
+            throw new BuildFailedException("No buildable scenes were recovered.");
+
+        Directory.CreateDirectory("Builds");
+        var opts = new BuildPlayerOptions
+        {
+            scenes = scenes,
+            locationPathName = Path.GetFullPath("Builds/MongVoLam_Unity6.apk"),
+            target = BuildTarget.Android,
+            targetGroup = BuildTargetGroup.Android,
+            options = BuildOptions.None
+        };
+
+        BuildReport report = BuildPipeline.BuildPlayer(opts);
+        if (report.summary.result != BuildResult.Succeeded)
+            throw new BuildFailedException("Android build failed: " + report.summary.result);
+
+        Debug.Log("[MVL] APK built: " + opts.locationPathName);
+    }
+}
+#endif
+''', encoding='utf-8')
+
+    validation = editor/'MVLUnity6Validation.cs'
+    validation.write_text(r'''#if UNITY_EDITOR
+using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+using UnityEditor.Build;
+using UnityEngine;
+
+public static class MVLUnity6Validation
+{
+    public static void ValidateOrThrow()
+    {
+        var errors = new List<string>();
+        CheckConfig("Assets/Resources/config/NhanVat.json", "Assets/Resources/nhanvat", errors);
+        CheckConfig("Assets/Resources/config/Costume.json", "Assets/Resources/costumes", errors);
+
+        CheckPrefab("Assets/Resources/nhanvat/NV_VUONG_TRUNG_DUONG.prefab", errors);
+        CheckPrefab("Assets/Resources/nhanvat/NV_HOANG_DUNG.prefab", errors);
+
+        if (!File.Exists("Assets/GameClient.unity"))
+            errors.Add("Missing main scene: Assets/GameClient.unity");
+
+        if (errors.Count != 0)
+        {
+            foreach (string e in errors)
+                Debug.LogError("[MVL] " + e);
+            throw new BuildFailedException("MVL model/scene validation failed: " + errors.Count + " error(s)");
+        }
+
+        Debug.Log("[MVL] Model/scene validation passed.");
+    }
+
+    private static void CheckPrefab(string path, List<string> errors)
+    {
+        if (AssetDatabase.LoadAssetAtPath<GameObject>(path) == null)
+            errors.Add("Missing or unimportable prefab: " + path);
+    }
+
+    private static void CheckConfig(string config, string folder, List<string> errors)
+    {
+        if (!File.Exists(config))
+        {
+            errors.Add("Missing config: " + config);
+            return;
+        }
+
+        int count = 0;
+        foreach (string key in TopLevelKeys(File.ReadAllText(config)))
+        {
+            count++;
+            CheckPrefab(folder + "/" + key + ".prefab", errors);
+        }
+        if (count == 0)
+            errors.Add("No model keys parsed from " + config);
+    }
+
+    private static IEnumerable<string> TopLevelKeys(string json)
+    {
+        var result = new List<string>();
+        int depth = 0;
+        bool quoted = false, escaped = false;
+        int start = -1;
+
+        for (int i = 0; i < json.Length; i++)
+        {
+            char c = json[i];
+            if (quoted)
+            {
+                if (escaped) { escaped = false; continue; }
+                if (c == '\\') { escaped = true; continue; }
+                if (c == '"')
+                {
+                    quoted = false;
+                    if (depth == 1 && start >= 0)
+                    {
+                        int j = i + 1;
+                        while (j < json.Length && char.IsWhiteSpace(json[j])) j++;
+                        if (j < json.Length && json[j] == ':')
+                            result.Add(json.Substring(start, i - start));
+                    }
+                    start = -1;
+                }
+                continue;
+            }
+
+            if (c == '{') { depth++; continue; }
+            if (c == '}') { depth--; continue; }
+            if (c == '"') { quoted = true; if (depth == 1) start = i + 1; }
+        }
+        return result;
+    }
+}
+#endif
+''', encoding='utf-8')
+
+    for p in (build, validation):
+        mp = Path(str(p) + '.meta')
+        if not mp.exists():
+            mp.write_text(meta_for(str(p.relative_to(project))), encoding='utf-8')
+
 def fix_case_collisions(assets: Path):
     groups={}
     for p in assets.rglob('*'):
@@ -211,6 +407,8 @@ def migrate(project: Path):
     changed=0
     for p in assets.rglob('*.cs'):
         if patch_cs(p): changed+=1
+
+    add_editor_build_tools(project)
 
     ps=project/'ProjectSettings'/'ProjectVersion.txt'
     ps.write_text(f'm_EditorVersion: {TARGET_VERSION}\nm_EditorVersionWithRevision: {TARGET_VERSION} ({TARGET_REVISION})\n',encoding='utf-8')
