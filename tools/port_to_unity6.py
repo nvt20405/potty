@@ -98,7 +98,7 @@ public sealed class WWW : CustomYieldInstruction, IDisposable
 
     public WWW(string url, WWWForm form)
     {
-        request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST);
+        request = new UnityWebRequest(url, "POST");
         request.downloadHandler = new DownloadHandlerBuffer();
         request.uploadHandler = new UploadHandlerRaw(form.data);
         foreach (var kv in form.headers)
