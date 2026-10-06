@@ -31,6 +31,8 @@ public class UIAnchor : MonoBehaviour
 
 	public bool runOnlyOnce;
 
+	public bool respectSafeArea = true;
+
 	public Vector2 relativeOffset = Vector2.zero;
 
 	public Vector2 pixelOffset = Vector2.zero;
@@ -76,10 +78,12 @@ public class UIAnchor : MonoBehaviour
 			if (panelContainer.clipping == UIDrawCall.Clipping.None)
 			{
 				float num = ((!(mRoot != null)) ? 0.5f : ((float)mRoot.activeHeight / (float)Screen.height * 0.5f));
-				mRect.xMin = (float)(-Screen.width) * num;
-				mRect.yMin = (float)(-Screen.height) * num;
-				mRect.xMax = 0f - mRect.xMin;
-				mRect.yMax = 0f - mRect.yMin;
+				Rect safe = (respectSafeArea && Application.isPlaying) ? Screen.safeArea : new Rect(0f, 0f, Screen.width, Screen.height);
+				float scale = num * 2f;
+				mRect.xMin = (safe.xMin - Screen.width * 0.5f) * scale;
+				mRect.yMin = (safe.yMin - Screen.height * 0.5f) * scale;
+				mRect.xMax = (safe.xMax - Screen.width * 0.5f) * scale;
+				mRect.yMax = (safe.yMax - Screen.height * 0.5f) * scale;
 			}
 			else
 			{
@@ -113,6 +117,15 @@ public class UIAnchor : MonoBehaviour
 			}
 			flag = true;
 			mRect = uiCamera.pixelRect;
+			if (respectSafeArea && Application.isPlaying)
+			{
+				Rect safe = Screen.safeArea;
+				mRect = Rect.MinMaxRect(
+					Mathf.Max(mRect.xMin, safe.xMin),
+					Mathf.Max(mRect.yMin, safe.yMin),
+					Mathf.Min(mRect.xMax, safe.xMax),
+					Mathf.Min(mRect.yMax, safe.yMax));
+			}
 		}
 		float x = (mRect.xMin + mRect.xMax) * 0.5f;
 		float y = (mRect.yMin + mRect.yMax) * 0.5f;
