@@ -1,0 +1,64 @@
+name: Decompile MVL Mono Scripts
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - ".github/workflows/decompile-mvl.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  decompile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Download APK and extract managed assemblies
+        run: |
+          set -euxo pipefail
+          python3 -m pip install --disable-pip-version-check -q gdown
+          mkdir -p work/managed
+          gdown "https://drive.google.com/uc?id=1x5AoDsrCh_zFI1WRAHG0coSh7HMBdAV5" -O work/game.apk
+          unzip -q work/game.apk 'assets/bin/Data/Managed/*' -d work/apk
+          cp work/apk/assets/bin/Data/Managed/*.dll work/managed/
+          ls -lh work/managed
+
+      - name: Install ILSpy command line
+        run: |
+          set -euxo pipefail
+          dotnet tool install --global ilspycmd
+          ilspycmd --version
+
+      - name: Decompile game assemblies
+        run: |
+          set -euxo pipefail
+          mkdir -p work/decompiled/Assembly-CSharp work/decompiled/Assembly-CSharp-firstpass work/decompiled/Assembly-UnityScript
+          ilspycmd -p -o work/decompiled/Assembly-CSharp work/managed/Assembly-CSharp.dll
+          ilspycmd -p -o work/decompiled/Assembly-CSharp-firstpass work/managed/Assembly-CSharp-firstpass.dll
+          ilspycmd -p -o work/decompiled/Assembly-UnityScript work/managed/Assembly-UnityScript.dll
+
+          {
+            echo "Assembly-CSharp files: $(find work/decompiled/Assembly-CSharp -type f -name '*.cs' | wc -l)"
+            echo "Firstpass files: $(find work/decompiled/Assembly-CSharp-firstpass -type f -name '*.cs' | wc -l)"
+            echo "UnityScript-to-CSharp files: $(find work/decompiled/Assembly-UnityScript -type f -name '*.cs' | wc -l)"
+            echo
+            echo "AssetBundle/model loader hits:"
+            grep -RniE 'LoadFromCacheOrDownload|AssetBundle|LoadAvatar3D|downloadAssetBundle|BundleLinkAndroid' work/decompiled/Assembly-CSharp --include='*.cs' | head -300 || true
+          } | tee work/decompile-report.txt
+
+      - name: Upload decompiled scripts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-decompiled-mono-scripts
+          path: |
+            work/decompiled
+            work/decompile-report.txt
+          retention-days: 7
