@@ -1,0 +1,36 @@
+name: Probe Unity 6 Compiler
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - ".github/workflows/probe-unity-compiler.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull Unity 6 editor image
+        run: docker pull unityci/editor:ubuntu-6000.3.25f1-android-3
+      - name: Inventory compiler and reference assemblies
+        run: |
+          IMAGE=unityci/editor:ubuntu-6000.3.25f1-android-3
+          docker run --rm --entrypoint bash "$IMAGE" -lc '
+            set -e
+            echo "== dotnet/csc =="
+            find /opt/unity/Editor/Data -maxdepth 5 -type f \( -name "dotnet" -o -name "csc.dll" -o -name "csc.exe" \) 2>/dev/null | head -100
+            echo "== managed roots =="
+            find /opt/unity/Editor/Data/Managed -maxdepth 2 -type f -name "*.dll" 2>/dev/null | sort | head -300
+            echo "== netstandard refs =="
+            find /opt/unity/Editor/Data -maxdepth 5 -type f \( -name "netstandard.dll" -o -name "mscorlib.dll" -o -name "System.dll" \) 2>/dev/null | sort | head -200
+            echo "== android editor dll =="
+            find /opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer -maxdepth 4 -type f -name "*.dll" 2>/dev/null | sort | head -200
+          ' | tee unity-compiler-layout.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unity-compiler-layout
+          path: unity-compiler-layout.txt
+          retention-days: 7
