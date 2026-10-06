@@ -61,10 +61,10 @@ jobs:
           test "$ok" = 1
 
           echo "Loading APK..."
-          curl -fsS -L -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$APK"             "http://127.0.0.1:5454/LoadFile" -o /dev/null
+          curl -fsS -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$APK"             "http://127.0.0.1:5454/LoadFile" -o /dev/null
 
           echo "Exporting Unity project..."
-          curl -fsS -L -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$OUT"             --data-urlencode "CreateSubfolder=false"             "http://127.0.0.1:5454/Export/UnityProject" -o /dev/null
+          curl -fsS -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$OUT"             --data-urlencode "CreateSubfolder=false"             "http://127.0.0.1:5454/Export/UnityProject" -o /dev/null
 
           kill "$AR_PID" || true
           wait "$AR_PID" || true
