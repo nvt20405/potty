@@ -41,9 +41,9 @@ jobs:
         run: |
           set -euxo pipefail
           mkdir -p work/decompiled/Assembly-CSharp work/decompiled/Assembly-CSharp-firstpass work/decompiled/Assembly-UnityScript
-          ilspycmd -p -o work/decompiled/Assembly-CSharp work/managed/Assembly-CSharp.dll
-          ilspycmd -p -o work/decompiled/Assembly-CSharp-firstpass work/managed/Assembly-CSharp-firstpass.dll
-          ilspycmd -p -o work/decompiled/Assembly-UnityScript work/managed/Assembly-UnityScript.dll
+          ilspycmd -lv CSharp9_0 -p -o work/decompiled/Assembly-CSharp work/managed/Assembly-CSharp.dll
+          ilspycmd -lv CSharp9_0 -p -o work/decompiled/Assembly-CSharp-firstpass work/managed/Assembly-CSharp-firstpass.dll
+          ilspycmd -lv CSharp9_0 -p -o work/decompiled/Assembly-UnityScript work/managed/Assembly-UnityScript.dll
 
           {
             echo "Assembly-CSharp files: $(find work/decompiled/Assembly-CSharp -type f -name '*.cs' | wc -l)"
