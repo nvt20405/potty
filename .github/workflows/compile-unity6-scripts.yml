@@ -48,7 +48,7 @@ jobs:
               echo "-define:UNITY_6000_3_OR_NEWER,UNITY_6000_0_OR_NEWER,UNITY_ANDROID,UNITY_64,ENABLE_MONO,NET_4_6"
               echo "-out:/tmp/Assembly-CSharp-check.dll"
               cat /tmp/refs.rsp
-              sed "s#^#\"#; s#$#\"#" /tmp/sources-abs.txt
+              cat /tmp/sources-abs.txt
             } > /tmp/compile.rsp
 
             set +e
