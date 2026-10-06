@@ -58,7 +58,7 @@ def patch_cs(path: Path):
         s=s.replace('gameObject.GetComponent<ParticleSystem>().playbackSpeed = TimeScale;',
                     'var particleMain = gameObject.GetComponent<ParticleSystem>().main;\n\t\t\t\tparticleMain.simulationSpeed = TimeScale;')
     s=s.replace('base.collider', 'GetComponent<Collider>()')
-    resource_call = re.compile(r'((?:Resources\\.Load(?:Async)?(?:<[^>]+>)?|EGResourceAsyncLoader\\.Load)\\(\\s*")([^"]+)(")')
+    resource_call = re.compile(r'((?:Resources\.Load(?:Async)?(?:<[^>]+>)?|EGResourceAsyncLoader\.Load)\(\s*")([^"]+)(")')
     s=resource_call.sub(lambda m: m.group(1) + normalize_resource_literal(m.group(2)) + m.group(3), s)
     if re.search(r'\bNavMesh(?:Agent|Hit|Path|Obstacle|LinkData|BuildSettings|Triangulation)?\b', s):
         s=ensure_using(s,'UnityEngine.AI')
