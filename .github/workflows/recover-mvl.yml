@@ -56,6 +56,15 @@ jobs:
           done
           test "$ok" = 1
 
+          echo "Switching AssetRipper to decompiled source mode"
+          curl -fsS -X POST \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            --data-urlencode "ScriptContentLevel=Level2" \
+            --data-urlencode "ScriptExportMode=Decompiled" \
+            --data-urlencode "EnableStaticMeshSeparation=on" \
+            --data-urlencode "PreferOriginalTextureExtension=on" \
+            "http://127.0.0.1:5454/Settings/Update" -o /dev/null
+
           curl -fsS -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$APK"             "http://127.0.0.1:5454/LoadFile" -o /dev/null
 
           curl -fsS -X POST             -H "Content-Type: application/x-www-form-urlencoded"             --data-urlencode "Path=$OUT"             --data-urlencode "CreateSubfolder=false"             "http://127.0.0.1:5454/Export/UnityProject" -o /dev/null
