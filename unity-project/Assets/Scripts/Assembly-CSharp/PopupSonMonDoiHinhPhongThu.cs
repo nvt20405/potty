@@ -72,7 +72,7 @@ public class PopupSonMonDoiHinhPhongThu : MonoBehaviour
 		for (int i = 0; i < ItemList.Count; i++)
 		{
 			ItemList[i].ShowSwap(true);
-			ItemList[i].GetComponent<Collider>().enabled = false;
+			ItemList[i].collider.enabled = false;
 		}
 		item.GetComponent<PopupSonMonDoiHinhItem>().ShowSwap(false);
 		SelectedItem = item.GetComponent<PopupSonMonDoiHinhItem>();
@@ -84,7 +84,7 @@ public class PopupSonMonDoiHinhPhongThu : MonoBehaviour
 		for (int i = 0; i < ItemList.Count; i++)
 		{
 			ItemList[i].ShowSwap(false);
-			ItemList[i].GetComponent<Collider>().enabled = true;
+			ItemList[i].collider.enabled = true;
 		}
 		if (!(item == null))
 		{

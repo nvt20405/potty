@@ -1,66 +1,528 @@
-using UnityEngine;
+using System.Collections.Generic;
 
 namespace HTMLEngine.Core
 {
-	public class DeviceChunkCollection : MonoBehaviour
+	internal class DeviceChunkCollection : PoolableObject
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private readonly List<DeviceChunkLine> list = new List<DeviceChunkLine>();
 
-		1. No dll files were provided to AssetRipper.
+		internal readonly Stack<HtFont> fontStack = new Stack<HtFont>();
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		internal readonly Stack<HtColor> colorStack = new Stack<HtColor>();
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private readonly Stack<TextAlign> alignStack = new Stack<TextAlign>();
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private readonly Stack<VertAlign> valignStack = new Stack<VertAlign>();
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public Dictionary<DeviceChunk, string> Links = new Dictionary<DeviceChunk, string>();
 
-		3. Assembly Reconstruction has not been implemented.
+		public List<DeviceChunkLine> Lines
+		{
+			get
+			{
+				return list;
+			}
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		internal override void OnAcquire()
+		{
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		internal override void OnRelease()
+		{
+			Clear();
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public void Clear(bool releaseItems = true)
+		{
+			if (releaseItems)
+			{
+				foreach (DeviceChunkLine item in list)
+				{
+					item.Dispose();
+				}
+			}
+			Links.Clear();
+			list.Clear();
+			fontStack.Clear();
+			colorStack.Clear();
+			alignStack.Clear();
+			valignStack.Clear();
+		}
 
-		5. Script Content Level 0
+		private DeviceChunkDrawText AcquireDeviceChunkDrawText(string id, string text, HtFont font, HtColor color, DrawTextDeco deco, bool decoStop, bool prevIsWord)
+		{
+			DeviceChunkDrawText deviceChunkDrawText = OP<DeviceChunkDrawText>.Acquire();
+			deviceChunkDrawText.Id = id;
+			deviceChunkDrawText.Text = text;
+			deviceChunkDrawText.Font = font;
+			deviceChunkDrawText.Color = color;
+			deviceChunkDrawText.Deco = deco;
+			deviceChunkDrawText.DecoStop = decoStop;
+			deviceChunkDrawText.PrevIsWord = prevIsWord;
+			deviceChunkDrawText.MeasureSize();
+			return deviceChunkDrawText;
+		}
 
-			AssetRipper was set to not load any script information.
+		private DeviceChunkDrawTextEffect AcquireDeviceChunkDrawTextEffect(string id, string text, HtFont font, HtColor color, DrawTextDeco deco, bool decoStop, DrawTextEffect effect, int effectAmount, HtColor effectColor, bool prevIsWord)
+		{
+			DeviceChunkDrawTextEffect deviceChunkDrawTextEffect = OP<DeviceChunkDrawTextEffect>.Acquire();
+			deviceChunkDrawTextEffect.Id = id;
+			deviceChunkDrawTextEffect.Text = text;
+			deviceChunkDrawTextEffect.Font = font;
+			deviceChunkDrawTextEffect.Color = color;
+			deviceChunkDrawTextEffect.Deco = deco;
+			deviceChunkDrawTextEffect.DecoStop = decoStop;
+			deviceChunkDrawTextEffect.Effect = effect;
+			deviceChunkDrawTextEffect.EffectAmount = effectAmount;
+			deviceChunkDrawTextEffect.EffectColor = effectColor;
+			deviceChunkDrawTextEffect.PrevIsWord = prevIsWord;
+			deviceChunkDrawTextEffect.MeasureSize();
+			return deviceChunkDrawTextEffect;
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public void Parse(IEnumerator<HtmlChunk> htmlChunks, int viewportWidth, string id = null, HtFont font = null, HtColor color = default(HtColor), TextAlign align = TextAlign.Left, VertAlign valign = VertAlign.Bottom)
+		{
+			Clear();
+			HtFont htFont = HtEngine.Device.LoadFont(HtEngine.DefaultFontFace, HtEngine.DefaultFontSize, false, false);
+			font = ((font != null) ? font : htFont);
+			color = ((color.R != 0 || color.G != 0 || color.B != 0 || color.A != 0) ? color : HtEngine.DefaultColor);
+			DrawTextDeco drawTextDeco = DrawTextDeco.None;
+			DrawTextEffect drawTextEffect = DrawTextEffect.None;
+			HtColor effectColor = HtEngine.DefaultColor;
+			int result = 1;
+			string text = null;
+			bool prevIsWord = false;
+			DeviceChunkLine deviceChunkLine = null;
+			DeviceChunkDrawText deviceChunkDrawText = null;
+			while (htmlChunks.MoveNext())
+			{
+				HtmlChunk current = htmlChunks.Current;
+				HtmlChunkWord htmlChunkWord = current as HtmlChunkWord;
+				if (htmlChunkWord != null)
+				{
+					if (deviceChunkLine == null)
+					{
+						deviceChunkLine = NewLine(null, viewportWidth, align, valign);
+					}
+					deviceChunkDrawText = ((drawTextEffect != DrawTextEffect.None) ? AcquireDeviceChunkDrawTextEffect(id, htmlChunkWord.Text, font, color, drawTextDeco, deviceChunkDrawText != null && deviceChunkDrawText.Deco != drawTextDeco, drawTextEffect, result, effectColor, prevIsWord) : AcquireDeviceChunkDrawText(id, htmlChunkWord.Text, font, color, drawTextDeco, deviceChunkDrawText != null && deviceChunkDrawText.Deco != drawTextDeco, prevIsWord));
+					if (text != null && !Links.ContainsKey(deviceChunkDrawText))
+					{
+						Links.Add(deviceChunkDrawText, text);
+					}
+					if (!deviceChunkLine.AddChunk(deviceChunkDrawText, prevIsWord))
+					{
+						prevIsWord = true;
+						string text2 = deviceChunkDrawText.Text;
+						deviceChunkDrawText.Dispose();
+						deviceChunkDrawText = null;
+						bool decoStop = deviceChunkDrawText != null && deviceChunkDrawText.Deco != drawTextDeco;
+						int num = 0;
+						int num2 = viewportWidth;
+						while (num < text2.Length)
+						{
+							num2 -= font.Measure(text2[num].ToString()).Width;
+							if (num2 < 0)
+							{
+								string text3 = text2.Substring(0, num);
+								DeviceChunkDrawText deviceChunkDrawText2 = ((drawTextEffect != DrawTextEffect.None) ? AcquireDeviceChunkDrawTextEffect(id, text3, font, color, drawTextDeco, decoStop, drawTextEffect, result, effectColor, prevIsWord) : AcquireDeviceChunkDrawText(id, text3, font, color, drawTextDeco, decoStop, prevIsWord));
+								deviceChunkLine = NewLine(deviceChunkLine, viewportWidth, align, valign);
+								deviceChunkLine.AddChunk(deviceChunkDrawText2, prevIsWord);
+								if (text != null && !Links.ContainsKey(deviceChunkDrawText2))
+								{
+									Links.Add(deviceChunkDrawText2, text);
+								}
+								text2 = text2.Substring(num);
+								num = 0;
+								num2 = viewportWidth;
+							}
+							else
+							{
+								num++;
+							}
+						}
+						if (!string.IsNullOrEmpty(text2))
+						{
+							deviceChunkDrawText = ((drawTextEffect != DrawTextEffect.None) ? AcquireDeviceChunkDrawTextEffect(id, text2, font, color, drawTextDeco, decoStop, drawTextEffect, result, effectColor, prevIsWord) : AcquireDeviceChunkDrawText(id, text2, font, color, drawTextDeco, decoStop, prevIsWord));
+							deviceChunkLine = NewLine(deviceChunkLine, viewportWidth, align, valign);
+							deviceChunkLine.AddChunk(deviceChunkDrawText, prevIsWord);
+							if (text != null && !Links.ContainsKey(deviceChunkDrawText))
+							{
+								Links.Add(deviceChunkDrawText, text);
+							}
+						}
+					}
+					prevIsWord = true;
+				}
+				else
+				{
+					prevIsWord = false;
+				}
+				HtmlChunkTag htmlChunkTag = current as HtmlChunkTag;
+				if (htmlChunkTag == null)
+				{
+					continue;
+				}
+				string tag = htmlChunkTag.Tag;
+				if (1 == 0)
+				{
+					continue;
+				}
+				switch (tag)
+				{
+				case "spin":
+				{
+					if (htmlChunkTag.IsSingle)
+					{
+						break;
+					}
+					if (htmlChunkTag.IsClosing)
+					{
+						id = null;
+						FinishLine(deviceChunkLine, align, valign);
+						return;
+					}
+					id = htmlChunkTag.GetAttr("id");
+					ExctractAligns(htmlChunkTag, ref align, ref valign);
+					DeviceChunkDrawCompiled deviceChunkDrawCompiled = OP<DeviceChunkDrawCompiled>.Acquire();
+					deviceChunkDrawCompiled.Font = font;
+					string s = htmlChunkTag.GetAttr("width") ?? "0";
+					int result6 = 0;
+					if (!int.TryParse(s, out result6))
+					{
+						result6 = 0;
+					}
+					if (result6 == 0)
+					{
+						result6 = ((deviceChunkLine != null) ? (deviceChunkLine.AvailWidth - font.WhiteSize) : viewportWidth);
+					}
+					if (result6 > 0)
+					{
+						if (result6 > viewportWidth)
+						{
+							result6 = viewportWidth;
+						}
+						deviceChunkDrawCompiled.Parse(htmlChunks, result6, id, font, color, align, valign);
+						deviceChunkDrawCompiled.MeasureSize();
+						if (deviceChunkLine == null)
+						{
+							deviceChunkLine = NewLine(null, viewportWidth, align, valign);
+						}
+						if (!deviceChunkLine.AddChunk(deviceChunkDrawCompiled, prevIsWord))
+						{
+							deviceChunkLine.IsFull = true;
+							deviceChunkLine = NewLine(deviceChunkLine, viewportWidth, align, valign);
+							if (!deviceChunkLine.AddChunk(deviceChunkDrawCompiled, prevIsWord))
+							{
+								HtEngine.Log(HtLogLevel.Error, "Could not fit spin into line. Word is too big: {0}", deviceChunkDrawText);
+								deviceChunkDrawCompiled.Dispose();
+								deviceChunkDrawCompiled = null;
+							}
+						}
+					}
+					else
+					{
+						HtEngine.Log(HtLogLevel.Warning, "spin width is not given");
+					}
+					break;
+				}
+				case "effect":
+				{
+					if (htmlChunkTag.IsSingle)
+					{
+						break;
+					}
+					if (htmlChunkTag.IsClosing)
+					{
+						drawTextEffect = DrawTextEffect.None;
+						break;
+					}
+					string text4 = htmlChunkTag.GetAttr("name") ?? "outline";
+					string text5 = text4;
+					if (!(text5 == "shadow"))
+					{
+						if (text5 == "outline")
+						{
+							drawTextEffect = DrawTextEffect.Outline;
+							result = 1;
+							effectColor = HtColor.RGBA(byte.MaxValue, byte.MaxValue, byte.MaxValue, 80);
+						}
+					}
+					else
+					{
+						drawTextEffect = DrawTextEffect.Shadow;
+						result = 1;
+						effectColor = HtColor.RGBA(0, 0, 0, 80);
+					}
+					string attr7 = htmlChunkTag.GetAttr("amount");
+					if (attr7 != null && !int.TryParse(attr7, out result))
+					{
+						HtEngine.Log(HtLogLevel.Error, "Invalid numeric value: " + attr7);
+					}
+					string attr8 = htmlChunkTag.GetAttr("color");
+					if (attr8 != null)
+					{
+						effectColor = HtColor.Parse(attr8);
+					}
+					break;
+				}
+				case "u":
+					if (!htmlChunkTag.IsSingle)
+					{
+						drawTextDeco = ((!htmlChunkTag.IsClosing) ? (drawTextDeco | DrawTextDeco.Underline) : (drawTextDeco & ~DrawTextDeco.Underline));
+					}
+					break;
+				case "s":
+				case "strike":
+					if (!htmlChunkTag.IsSingle)
+					{
+						drawTextDeco = ((!htmlChunkTag.IsClosing) ? (drawTextDeco | DrawTextDeco.Strike) : (drawTextDeco & ~DrawTextDeco.Strike));
+					}
+					break;
+				case "code":
+					if (!htmlChunkTag.IsSingle)
+					{
+						if (htmlChunkTag.IsClosing)
+						{
+							font = ((fontStack.Count <= 0) ? htFont : fontStack.Pop());
+							break;
+						}
+						fontStack.Push(font);
+						int size = font.Size;
+						bool bold2 = font.Bold;
+						bool italic2 = font.Italic;
+						font = HtEngine.Device.LoadFont("code", size, bold2, italic2);
+					}
+					break;
+				case "b":
+					if (!htmlChunkTag.IsSingle)
+					{
+						if (htmlChunkTag.IsClosing)
+						{
+							font = ((fontStack.Count <= 0) ? htFont : fontStack.Pop());
+							break;
+						}
+						fontStack.Push(font);
+						string face2 = font.Face;
+						int size2 = font.Size;
+						bool italic3 = font.Italic;
+						font = HtEngine.Device.LoadFont(face2, size2, true, italic3);
+					}
+					break;
+				case "i":
+					if (!htmlChunkTag.IsSingle)
+					{
+						if (htmlChunkTag.IsClosing)
+						{
+							font = ((fontStack.Count <= 0) ? htFont : fontStack.Pop());
+							break;
+						}
+						fontStack.Push(font);
+						string face3 = font.Face;
+						int size3 = font.Size;
+						bool bold3 = font.Bold;
+						font = HtEngine.Device.LoadFont(face3, size3, bold3, true);
+					}
+					break;
+				case "a":
+					if (htmlChunkTag.IsSingle)
+					{
+						break;
+					}
+					if (htmlChunkTag.IsClosing)
+					{
+						id = null;
+						if (colorStack.Count > 0)
+						{
+							color = colorStack.Pop();
+						}
+						text = null;
+					}
+					else
+					{
+						id = htmlChunkTag.GetAttr("id");
+						text = htmlChunkTag.GetAttr("href");
+						colorStack.Push(color);
+						color = HtEngine.DefaultLinkColor;
+					}
+					break;
+				case "font":
+				{
+					if (htmlChunkTag.IsSingle)
+					{
+						break;
+					}
+					if (htmlChunkTag.IsClosing)
+					{
+						font = ((fontStack.Count <= 0) ? htFont : fontStack.Pop());
+						color = ((colorStack.Count <= 0) ? HtEngine.DefaultColor : colorStack.Pop());
+						break;
+					}
+					fontStack.Push(font);
+					colorStack.Push(color);
+					string face = htmlChunkTag.GetAttr("face") ?? font.Face;
+					string attr6 = htmlChunkTag.GetAttr("size");
+					int result5;
+					if (attr6 == null || !int.TryParse(attr6, out result5))
+					{
+						result5 = font.Size;
+					}
+					bool bold = font.Bold;
+					bool italic = font.Italic;
+					font = HtEngine.Device.LoadFont(face, result5, bold, italic);
+					color = HtColor.Parse(htmlChunkTag.GetAttr("color"), color);
+					break;
+				}
+				case "br":
+					deviceChunkLine = NewLine(deviceChunkLine, viewportWidth, align, valign);
+					deviceChunkLine.Height = font.LineSpacing;
+					break;
+				case "img":
+				{
+					if (htmlChunkTag.IsClosing)
+					{
+						break;
+					}
+					string attr = htmlChunkTag.GetAttr("src");
+					string attr2 = htmlChunkTag.GetAttr("width");
+					string attr3 = htmlChunkTag.GetAttr("height");
+					string attr4 = htmlChunkTag.GetAttr("fps");
+					string attr5 = htmlChunkTag.GetAttr("id");
+					int result2;
+					if (attr2 == null || !int.TryParse(attr2, out result2))
+					{
+						result2 = -1;
+					}
+					int result3;
+					if (attr3 == null || !int.TryParse(attr3, out result3))
+					{
+						result3 = -1;
+					}
+					int result4;
+					if (attr4 == null || !int.TryParse(attr4, out result4))
+					{
+						result4 = -1;
+					}
+					HtImage htImage = HtEngine.Device.LoadImage(attr, result4);
+					if (result2 < 0)
+					{
+						result2 = htImage.Width;
+					}
+					if (result3 < 0)
+					{
+						result3 = htImage.Height;
+					}
+					DeviceChunkDrawImage deviceChunkDrawImage = OP<DeviceChunkDrawImage>.Acquire();
+					if (deviceChunkLine == null)
+					{
+						deviceChunkLine = NewLine(null, viewportWidth, align, valign);
+					}
+					deviceChunkDrawImage.Image = htImage;
+					deviceChunkDrawImage.Rect.Width = result2;
+					deviceChunkDrawImage.Rect.Height = result3;
+					deviceChunkDrawImage.Font = font;
+					deviceChunkDrawImage.Id = attr5;
+					if (text != null && !Links.ContainsKey(deviceChunkDrawImage))
+					{
+						Links.Add(deviceChunkDrawImage, text);
+					}
+					if (!deviceChunkLine.AddChunk(deviceChunkDrawImage, prevIsWord))
+					{
+						deviceChunkLine.IsFull = true;
+						deviceChunkLine = NewLine(deviceChunkLine, viewportWidth, align, valign);
+						if (!deviceChunkLine.AddChunk(deviceChunkDrawImage, prevIsWord))
+						{
+							HtEngine.Log(HtLogLevel.Error, "Could not fit image into line. Image is too big: {0}", deviceChunkDrawImage);
+							deviceChunkDrawImage.Dispose();
+						}
+					}
+					break;
+				}
+				case "p":
+					if (htmlChunkTag.IsClosing)
+					{
+						id = null;
+						break;
+					}
+					id = htmlChunkTag.GetAttr("id");
+					deviceChunkLine = NewLine(deviceChunkLine, viewportWidth, align, valign);
+					ExctractAligns(htmlChunkTag, ref align, ref valign);
+					break;
+				default:
+					HtEngine.Log(HtLogLevel.Error, "Unsupported html tag {0}", htmlChunkTag);
+					break;
+				}
+			}
+			FinishLine(deviceChunkLine, align, valign);
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private static void ExctractAligns(HtmlChunkTag tag, ref TextAlign align, ref VertAlign valign)
+		{
+			string attr = tag.GetAttr("ALIGN");
+			if (attr != null)
+			{
+				switch (attr.ToUpperInvariant())
+				{
+				case "CENTER":
+					align = TextAlign.Center;
+					break;
+				case "JUSTIFY":
+					align = TextAlign.Justify;
+					break;
+				case "RIGHT":
+					align = TextAlign.Right;
+					break;
+				case "LEFT":
+					align = TextAlign.Left;
+					break;
+				default:
+					HtEngine.Log(HtLogLevel.Warning, "Invalid attribute align: '{0}'", attr);
+					align = TextAlign.Left;
+					break;
+				}
+			}
+			attr = tag.GetAttr("VALIGN");
+			if (attr != null)
+			{
+				switch (attr.ToUpperInvariant())
+				{
+				case "MIDDLE":
+					valign = VertAlign.Middle;
+					return;
+				case "TOP":
+					valign = VertAlign.Top;
+					return;
+				case "BOTTOM":
+					valign = VertAlign.Bottom;
+					return;
+				}
+				HtEngine.Log(HtLogLevel.Warning, "Invalid attribute valign: '{0}'", attr);
+				valign = VertAlign.Bottom;
+			}
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		internal DeviceChunkLine NewLine(DeviceChunkLine prevLine, int viewPortWidth, TextAlign prevAlign, VertAlign prevVAlign)
+		{
+			int y = 0;
+			if (prevLine != null)
+			{
+				FinishLine(prevLine, prevAlign, prevVAlign);
+				y = prevLine.Y + prevLine.Height;
+			}
+			DeviceChunkLine deviceChunkLine = OP<DeviceChunkLine>.Acquire();
+			deviceChunkLine.MaxWidth = viewPortWidth;
+			deviceChunkLine.Y = y;
+			list.Add(deviceChunkLine);
+			return deviceChunkLine;
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		internal void FinishLine(DeviceChunkLine line, TextAlign align, VertAlign valign)
+		{
+			if (line != null)
+			{
+				line.HorzAlign(align);
+				line.VertAlign(valign);
+			}
+		}
 	}
 }

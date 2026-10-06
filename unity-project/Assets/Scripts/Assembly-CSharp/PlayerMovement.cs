@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
 	public const float RunMaxSpeed = 3.5f;

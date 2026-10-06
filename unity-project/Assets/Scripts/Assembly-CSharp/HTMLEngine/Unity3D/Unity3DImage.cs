@@ -1,66 +1,83 @@
+using System;
 using UnityEngine;
 
 namespace HTMLEngine.Unity3D
 {
-	public class Unity3DImage : MonoBehaviour
+	public class Unity3DImage : HtImage
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private readonly bool isTime;
 
-		1. No dll files were provided to AssetRipper.
+		private readonly GUIStyle timeStyle;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public readonly Texture2D Texture;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public override int Width
+		{
+			get
+			{
+				if (isTime)
+				{
+					return 120;
+				}
+				return (Texture == null) ? 1 : Texture.width;
+			}
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public override int Height
+		{
+			get
+			{
+				if (isTime)
+				{
+					return 20;
+				}
+				return (Texture == null) ? 1 : Texture.height;
+			}
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public Unity3DImage(string source)
+		{
+			if ("#time".Equals(source, StringComparison.InvariantCultureIgnoreCase))
+			{
+				isTime = true;
+				timeStyle = new GUIStyle();
+				GUIStyle gUIStyle = timeStyle;
+				UnityEngine.Object obj = Resources.Load("fonts/code");
+				gUIStyle.font = (Font)((obj is Font) ? obj : null);
+				timeStyle.fontSize = 16;
+				timeStyle.fontStyle = FontStyle.Normal;
+				timeStyle.normal.textColor = Color.white;
+				timeStyle.alignment = TextAnchor.MiddleCenter;
+			}
+			else
+			{
+				UnityEngine.Object obj2 = Resources.Load(source, typeof(Texture2D));
+				Texture = (Texture2D)((obj2 is Texture2D) ? obj2 : null);
+				if (Texture == null)
+				{
+					Debug.LogError("Could not load html image from " + source);
+				}
+			}
+		}
 
-		3. Assembly Reconstruction has not been implemented.
-
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
-
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
-
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public override void Draw(string id, HtRect rect, HtColor color, string linkText, object userData)
+		{
+			if (isTime)
+			{
+				DateTime now = DateTime.Now;
+				timeStyle.Draw(new Rect(rect.X, rect.Y, rect.Width, rect.Height), string.Format("{0:D2}:{1:D2}:{2:D2}.{3:D3}", now.Hour, now.Minute, now.Second, now.Millisecond), false, false, false, false);
+			}
+			else if (Texture != null)
+			{
+				Color color2 = GUI.color;
+				if (!string.IsNullOrEmpty(id))
+				{
+					GUI.SetNextControlName(id);
+				}
+				GUI.color = new Color32(color.R, color.G, color.B, color.A);
+				GUI.DrawTexture(new Rect(rect.X, rect.Y, rect.Width, rect.Height), Texture);
+				GUI.color = color2;
+			}
+		}
 	}
 }

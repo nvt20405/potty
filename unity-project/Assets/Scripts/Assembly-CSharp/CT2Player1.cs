@@ -2,6 +2,7 @@ using System;
 using Nettention.Proud;
 using UnityEngine;
 
+using UnityEngine.AI;
 public class CT2Player1 : CT2BasePlayer
 {
 	private RaycastHit mousePoint;

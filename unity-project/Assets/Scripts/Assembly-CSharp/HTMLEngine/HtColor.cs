@@ -1,66 +1,190 @@
-using UnityEngine;
+using System.Globalization;
 
 namespace HTMLEngine
 {
-	public class HtColor : MonoBehaviour
+	public struct HtColor
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public static readonly HtColor transparent = RGBA(0, 0, 0, 0);
 
-		1. No dll files were provided to AssetRipper.
+		public static readonly HtColor _error = RGBA(byte.MaxValue, 0, 0);
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public static readonly HtColor maroon = Parse("#800000");
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public static readonly HtColor red = Parse("#FF0000");
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public static readonly HtColor orange = Parse("#FFA500");
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public static readonly HtColor yellow = Parse("#FFFF00");
 
-		3. Assembly Reconstruction has not been implemented.
+		public static readonly HtColor olive = Parse("#808000");
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public static readonly HtColor purple = Parse("#800080");
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public static readonly HtColor fuchsia = Parse("#FF00FF");
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public static readonly HtColor white = Parse("#FFFFFF");
 
-		5. Script Content Level 0
+		public static readonly HtColor lime = Parse("#00FF00");
 
-			AssetRipper was set to not load any script information.
+		public static readonly HtColor green = Parse("#008000");
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public static readonly HtColor navy = Parse("#000080");
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static readonly HtColor blue = Parse("#0000FF");
 
-		7. An incorrect path was provided to AssetRipper.
+		public static readonly HtColor aqua = Parse("#00FFFF");
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public static readonly HtColor teal = Parse("#008080");
 
-		*/
+		public static readonly HtColor black = Parse("#000000");
+
+		public static readonly HtColor silver = Parse("#C0C0C0");
+
+		public static readonly HtColor gray = Parse("#808080");
+
+		public byte R;
+
+		public byte G;
+
+		public byte B;
+
+		public byte A;
+
+		public bool IsTransparent
+		{
+			get
+			{
+				return A == 0;
+			}
+		}
+
+		public static HtColor RGBA(byte r, byte g, byte b, byte a = byte.MaxValue)
+		{
+			return new HtColor
+			{
+				R = r,
+				G = g,
+				B = b,
+				A = a
+			};
+		}
+
+		private static bool TryParse(string rs, string gs, string bs, ref byte r, ref byte g, ref byte b)
+		{
+			return byte.TryParse(rs, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out r) && byte.TryParse(gs, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out g) && byte.TryParse(bs, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out b);
+		}
+
+		private static bool TryParse(string rs, string gs, string bs, string aa, ref byte r, ref byte g, ref byte b, ref byte a)
+		{
+			return byte.TryParse(rs, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out r) && byte.TryParse(gs, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out g) && byte.TryParse(bs, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out b) && byte.TryParse(aa, NumberStyles.HexNumber, NumberFormatInfo.InvariantInfo, out a);
+		}
+
+		public static HtColor Parse(string text)
+		{
+			return Parse(text, _error);
+		}
+
+		public static HtColor Parse(string text, HtColor onError)
+		{
+			if (string.IsNullOrEmpty(text))
+			{
+				return onError;
+			}
+			if (text.StartsWith("#"))
+			{
+				byte r = 0;
+				byte g = 0;
+				byte b = 0;
+				switch (text.Length)
+				{
+				case 4:
+				{
+					string text2 = text.Substring(1, 1);
+					text2 += text2;
+					string text3 = text.Substring(2, 1);
+					text3 += text3;
+					string text4 = text.Substring(3, 1);
+					text4 += text4;
+					if (TryParse(text2, text3, text4, ref r, ref g, ref b))
+					{
+						return RGBA(r, g, b);
+					}
+					break;
+				}
+				case 7:
+				{
+					string rs2 = text.Substring(1, 2);
+					string gs2 = text.Substring(3, 2);
+					string bs2 = text.Substring(5, 2);
+					if (TryParse(rs2, gs2, bs2, ref r, ref g, ref b))
+					{
+						return RGBA(r, g, b);
+					}
+					break;
+				}
+				case 9:
+				{
+					string rs = text.Substring(1, 2);
+					string gs = text.Substring(3, 2);
+					string bs = text.Substring(5, 2);
+					byte a = byte.MaxValue;
+					string aa = text.Substring(7, 2);
+					if (TryParse(rs, gs, bs, aa, ref r, ref g, ref b, ref a))
+					{
+						return RGBA(r, g, b, a);
+					}
+					break;
+				}
+				}
+			}
+			else
+			{
+				switch (text)
+				{
+				case "transparent":
+					return transparent;
+				case "maroon":
+					return maroon;
+				case "red":
+					return red;
+				case "orange":
+					return orange;
+				case "yellow":
+					return yellow;
+				case "olive":
+					return olive;
+				case "purple":
+					return purple;
+				case "fuchsia":
+					return fuchsia;
+				case "white":
+					return white;
+				case "lime":
+					return lime;
+				case "green":
+					return green;
+				case "navy":
+					return navy;
+				case "blue":
+					return blue;
+				case "aqua":
+					return aqua;
+				case "teal":
+					return teal;
+				case "black":
+					return black;
+				case "silver":
+					return silver;
+				case "gray":
+					return gray;
+				}
+			}
+			return onError;
+		}
+
+		public override string ToString()
+		{
+			return string.Format("{0:X2}{1:X2}{2:X2}({3:X2})", R, G, B, A);
+		}
 	}
 }

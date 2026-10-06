@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using UnityEngine.AI;
 public class BunnyController : MonoBehaviour
 {
 	public const float RunMaxSpeed = 2.8f;

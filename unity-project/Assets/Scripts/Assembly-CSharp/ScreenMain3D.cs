@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LitJson;
 using UnityEngine;
 
+using UnityEngine.AI;
 public class ScreenMain3D : MonoBehaviour
 {
 	public Camera cam;

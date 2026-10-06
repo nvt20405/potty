@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+using UnityEngine.AI;
 public class BangChienPlayer : MonoBehaviour
 {
 	public const float RunMaxSpeed = 3.5f;

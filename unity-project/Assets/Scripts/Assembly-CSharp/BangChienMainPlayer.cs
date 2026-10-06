@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+using UnityEngine.AI;
 public class BangChienMainPlayer : BangChienPlayer
 {
 	private const float updatePosInterval = 1f;

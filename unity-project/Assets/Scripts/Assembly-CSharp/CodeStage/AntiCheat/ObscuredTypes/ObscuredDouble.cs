@@ -1,66 +1,282 @@
-using UnityEngine;
+using System;
+using System.Runtime.InteropServices;
+using CodeStage.AntiCheat.Detectors;
 
 namespace CodeStage.AntiCheat.ObscuredTypes
 {
-	public class ObscuredDouble : MonoBehaviour
+	[Serializable]
+	public struct ObscuredDouble : IFormattable, IEquatable<ObscuredDouble>
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		[StructLayout(LayoutKind.Explicit)]
+		private struct DoubleLongBytesUnion
+		{
+			[FieldOffset(0)]
+			public double d;
 
-		1. No dll files were provided to AssetRipper.
+			[FieldOffset(0)]
+			public long l;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			[FieldOffset(0)]
+			public byte b1;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			[FieldOffset(1)]
+			public byte b2;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			[FieldOffset(2)]
+			public byte b3;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			[FieldOffset(3)]
+			public byte b4;
 
-		3. Assembly Reconstruction has not been implemented.
+			[FieldOffset(4)]
+			public byte b5;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			[FieldOffset(5)]
+			public byte b6;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			[FieldOffset(6)]
+			public byte b7;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			[FieldOffset(7)]
+			public byte b8;
+		}
 
-		5. Script Content Level 0
+		private static long cryptoKey = 210987L;
 
-			AssetRipper was set to not load any script information.
+		private long currentCryptoKey;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private byte[] hiddenValue;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private double fakeValue;
 
-		7. An incorrect path was provided to AssetRipper.
+		private bool inited;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private ObscuredDouble(byte[] value)
+		{
+			currentCryptoKey = cryptoKey;
+			hiddenValue = value;
+			fakeValue = 0.0;
+			inited = true;
+		}
 
-		*/
+		public static void SetNewCryptoKey(long newKey)
+		{
+			cryptoKey = newKey;
+		}
+
+		public void ApplyNewCryptoKey()
+		{
+			if (currentCryptoKey != cryptoKey)
+			{
+				hiddenValue = InternalEncrypt(InternalDecrypt(), cryptoKey);
+				currentCryptoKey = cryptoKey;
+			}
+		}
+
+		public static long Encrypt(double value)
+		{
+			return Encrypt(value, cryptoKey);
+		}
+
+		public static long Encrypt(double value, long key)
+		{
+			DoubleLongBytesUnion doubleLongBytesUnion = new DoubleLongBytesUnion
+			{
+				d = value
+			};
+			doubleLongBytesUnion.l ^= key;
+			return doubleLongBytesUnion.l;
+		}
+
+		private static byte[] InternalEncrypt(double value)
+		{
+			return InternalEncrypt(value, 0L);
+		}
+
+		private static byte[] InternalEncrypt(double value, long key)
+		{
+			long num = key;
+			if (num == 0)
+			{
+				num = cryptoKey;
+			}
+			DoubleLongBytesUnion doubleLongBytesUnion = new DoubleLongBytesUnion
+			{
+				d = value
+			};
+			doubleLongBytesUnion.l ^= num;
+			return new byte[8] { doubleLongBytesUnion.b1, doubleLongBytesUnion.b2, doubleLongBytesUnion.b3, doubleLongBytesUnion.b4, doubleLongBytesUnion.b5, doubleLongBytesUnion.b6, doubleLongBytesUnion.b7, doubleLongBytesUnion.b8 };
+		}
+
+		public static double Decrypt(long value)
+		{
+			return Decrypt(value, cryptoKey);
+		}
+
+		public static double Decrypt(long value, long key)
+		{
+			DoubleLongBytesUnion doubleLongBytesUnion = new DoubleLongBytesUnion
+			{
+				l = (value ^ key)
+			};
+			return doubleLongBytesUnion.d;
+		}
+
+		public long GetEncrypted()
+		{
+			ApplyNewCryptoKey();
+			DoubleLongBytesUnion doubleLongBytesUnion = new DoubleLongBytesUnion
+			{
+				b1 = hiddenValue[0],
+				b2 = hiddenValue[1],
+				b3 = hiddenValue[2],
+				b4 = hiddenValue[3],
+				b5 = hiddenValue[4],
+				b6 = hiddenValue[5],
+				b7 = hiddenValue[6],
+				b8 = hiddenValue[7]
+			};
+			return doubleLongBytesUnion.l;
+		}
+
+		public void SetEncrypted(long encrypted)
+		{
+			inited = true;
+			DoubleLongBytesUnion doubleLongBytesUnion = new DoubleLongBytesUnion
+			{
+				l = encrypted
+			};
+			hiddenValue = new byte[8] { doubleLongBytesUnion.b1, doubleLongBytesUnion.b2, doubleLongBytesUnion.b3, doubleLongBytesUnion.b4, doubleLongBytesUnion.b5, doubleLongBytesUnion.b6, doubleLongBytesUnion.b7, doubleLongBytesUnion.b8 };
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				fakeValue = InternalDecrypt();
+			}
+		}
+
+		private double InternalDecrypt()
+		{
+			if (!inited)
+			{
+				currentCryptoKey = cryptoKey;
+				hiddenValue = InternalEncrypt(0.0);
+				fakeValue = 0.0;
+				inited = true;
+			}
+			long num = cryptoKey;
+			if (currentCryptoKey != cryptoKey)
+			{
+				num = currentCryptoKey;
+			}
+			DoubleLongBytesUnion doubleLongBytesUnion = new DoubleLongBytesUnion
+			{
+				b1 = hiddenValue[0],
+				b2 = hiddenValue[1],
+				b3 = hiddenValue[2],
+				b4 = hiddenValue[3],
+				b5 = hiddenValue[4],
+				b6 = hiddenValue[5],
+				b7 = hiddenValue[6],
+				b8 = hiddenValue[7]
+			};
+			doubleLongBytesUnion.l ^= num;
+			double d = doubleLongBytesUnion.d;
+			if (ObscuredCheatingDetector.isRunning && fakeValue != 0.0 && Math.Abs(d - fakeValue) > 1E-06)
+			{
+				ObscuredCheatingDetector.Instance.OnCheatingDetected();
+			}
+			return d;
+		}
+
+		public override string ToString()
+		{
+			return InternalDecrypt().ToString();
+		}
+
+		public string ToString(string format)
+		{
+			return InternalDecrypt().ToString(format);
+		}
+
+		public string ToString(IFormatProvider provider)
+		{
+			return InternalDecrypt().ToString(provider);
+		}
+
+		public string ToString(string format, IFormatProvider provider)
+		{
+			return InternalDecrypt().ToString(format, provider);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj is ObscuredDouble)
+			{
+				ObscuredDouble obscuredDouble = (ObscuredDouble)obj;
+				if (true)
+				{
+					double num = obscuredDouble.InternalDecrypt();
+					double num2 = InternalDecrypt();
+					if (num == num2)
+					{
+						return true;
+					}
+					return double.IsNaN(num) && double.IsNaN(num2);
+				}
+			}
+			return false;
+		}
+
+		public bool Equals(ObscuredDouble obj)
+		{
+			double num = obj.InternalDecrypt();
+			double num2 = InternalDecrypt();
+			if (num == num2)
+			{
+				return true;
+			}
+			return double.IsNaN(num) && double.IsNaN(num2);
+		}
+
+		public override int GetHashCode()
+		{
+			return InternalDecrypt().GetHashCode();
+		}
+
+		public static implicit operator ObscuredDouble(double value)
+		{
+			ObscuredDouble result = new ObscuredDouble(InternalEncrypt(value));
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				result.fakeValue = value;
+			}
+			return result;
+		}
+
+		public static implicit operator double(ObscuredDouble value)
+		{
+			return value.InternalDecrypt();
+		}
+
+		public static ObscuredDouble operator ++(ObscuredDouble input)
+		{
+			double value = input.InternalDecrypt() + 1.0;
+			input.hiddenValue = InternalEncrypt(value, input.currentCryptoKey);
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				input.fakeValue = value;
+			}
+			return input;
+		}
+
+		public static ObscuredDouble operator --(ObscuredDouble input)
+		{
+			double value = input.InternalDecrypt() - 1.0;
+			input.hiddenValue = InternalEncrypt(value, input.currentCryptoKey);
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				input.fakeValue = value;
+			}
+			return input;
+		}
 	}
 }

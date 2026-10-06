@@ -1,66 +1,194 @@
-using UnityEngine;
+using System.Collections.Generic;
+using HTMLEngine.Core;
 
 namespace HTMLEngine
 {
-	public class HtCompiler : MonoBehaviour
+	public class HtCompiler : PoolableObject
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private readonly Reader reader = new Reader();
 
-		1. No dll files were provided to AssetRipper.
+		private DeviceChunkCollection d;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public int CompiledWidth { get; private set; }
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public int CompiledHeight { get; private set; }
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		internal override void OnAcquire()
+		{
+			d = OP<DeviceChunkCollection>.Acquire();
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		internal override void OnRelease()
+		{
+			d.Dispose();
+			d = null;
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		public string GetLink(int x, int y)
+		{
+			if (d != null)
+			{
+				foreach (KeyValuePair<DeviceChunk, string> link in d.Links)
+				{
+					if (link.Key.Contains(x, y))
+					{
+						return link.Value;
+					}
+				}
+			}
+			return null;
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public void Compile(string source, int width)
+		{
+			reader.SetSource(source);
+			using (HtmlChunkCollection htmlChunkCollection = OP<HtmlChunkCollection>.Acquire())
+			{
+				htmlChunkCollection.Read(reader);
+				Compile(htmlChunkCollection.GetEnumerator(), width);
+			}
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		internal void Compile(IEnumerator<HtmlChunk> source, int width, string id = null, HtFont font = null, HtColor color = default(HtColor), TextAlign align = TextAlign.Left, VertAlign valign = VertAlign.Bottom)
+		{
+			d.Clear();
+			CompiledWidth = width;
+			d.Parse(source, width, id, font, color, align, valign);
+			MergeSameTextChunks();
+			UpdateHeight();
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private void UpdateHeight()
+		{
+			if (d.Lines.Count > 0)
+			{
+				DeviceChunkLine deviceChunkLine = d.Lines[d.Lines.Count - 1];
+				CompiledHeight = deviceChunkLine.Y + deviceChunkLine.Height;
+			}
+			else
+			{
+				CompiledHeight = 0;
+			}
+		}
 
-		5. Script Content Level 0
+		private void MergeSameTextChunks()
+		{
+			if (d == null)
+			{
+				return;
+			}
+			for (int i = 0; i < d.Lines.Count; i++)
+			{
+				DeviceChunkLine deviceChunkLine = d.Lines[i];
+				DeviceChunk deviceChunk = null;
+				int num = 0;
+				while (num < deviceChunkLine.Chunks.Count)
+				{
+					DeviceChunk deviceChunk2 = deviceChunkLine.Chunks[num];
+					if (deviceChunk == null)
+					{
+						deviceChunk = deviceChunk2;
+						num++;
+						continue;
+					}
+					string value;
+					d.Links.TryGetValue(deviceChunk, out value);
+					string value2;
+					d.Links.TryGetValue(deviceChunk2, out value2);
+					if (string.Equals(value, value2))
+					{
+						DeviceChunkDrawTextEffect deviceChunkDrawTextEffect = deviceChunk as DeviceChunkDrawTextEffect;
+						DeviceChunkDrawTextEffect deviceChunkDrawTextEffect2 = deviceChunk2 as DeviceChunkDrawTextEffect;
+						if (deviceChunkDrawTextEffect != null && deviceChunkDrawTextEffect2 != null)
+						{
+							if (deviceChunkDrawTextEffect.Font.Equals(deviceChunkDrawTextEffect2.Font) && deviceChunkDrawTextEffect.Deco == deviceChunkDrawTextEffect2.Deco && deviceChunkDrawTextEffect.Color.R == deviceChunkDrawTextEffect2.Color.R && deviceChunkDrawTextEffect.Color.G == deviceChunkDrawTextEffect2.Color.G && deviceChunkDrawTextEffect.Color.B == deviceChunkDrawTextEffect2.Color.B && deviceChunkDrawTextEffect.Color.A == deviceChunkDrawTextEffect2.Color.A && (deviceChunkDrawTextEffect.DecoStop || (!deviceChunkDrawTextEffect.DecoStop && !deviceChunkDrawTextEffect2.DecoStop)) && deviceChunkDrawTextEffect.Effect == deviceChunkDrawTextEffect2.Effect && deviceChunkDrawTextEffect.EffectColor.R == deviceChunkDrawTextEffect2.EffectColor.R && deviceChunkDrawTextEffect.EffectColor.G == deviceChunkDrawTextEffect2.EffectColor.G && deviceChunkDrawTextEffect.EffectColor.B == deviceChunkDrawTextEffect2.EffectColor.B && deviceChunkDrawTextEffect.EffectColor.A == deviceChunkDrawTextEffect2.EffectColor.A && deviceChunkDrawTextEffect.EffectAmount == deviceChunkDrawTextEffect2.EffectAmount)
+							{
+								if (deviceChunkDrawTextEffect2.PrevIsWord)
+								{
+									deviceChunkDrawTextEffect.Text = string.Concat(deviceChunkDrawTextEffect, " ", deviceChunkDrawTextEffect2.Text);
+									deviceChunkDrawTextEffect.Rect.Width += deviceChunkDrawTextEffect.Font.WhiteSize + deviceChunkDrawTextEffect2.Rect.Width;
+								}
+								else
+								{
+									deviceChunkDrawTextEffect.Text = string.Concat(deviceChunkDrawTextEffect, deviceChunkDrawTextEffect2.Text);
+									deviceChunkDrawTextEffect.Rect.Width += deviceChunkDrawTextEffect2.Rect.Width;
+								}
+								deviceChunkLine.Chunks.RemoveAt(num);
+								deviceChunkDrawTextEffect2.Dispose();
+								deviceChunkDrawTextEffect2 = null;
+								continue;
+							}
+						}
+						else if (deviceChunkDrawTextEffect == null && deviceChunkDrawTextEffect2 == null)
+						{
+							DeviceChunkDrawText deviceChunkDrawText = deviceChunk as DeviceChunkDrawText;
+							DeviceChunkDrawText deviceChunkDrawText2 = deviceChunk2 as DeviceChunkDrawText;
+							if (deviceChunkDrawText != null && deviceChunkDrawText2 != null && deviceChunkDrawText.Font.Equals(deviceChunkDrawText2.Font) && deviceChunkDrawText.Deco == deviceChunkDrawText2.Deco && deviceChunkDrawText.Color.R == deviceChunkDrawText2.Color.R && deviceChunkDrawText.Color.G == deviceChunkDrawText2.Color.G && deviceChunkDrawText.Color.B == deviceChunkDrawText2.Color.B && deviceChunkDrawText.Color.A == deviceChunkDrawText2.Color.A && (deviceChunkDrawText.DecoStop || (!deviceChunkDrawText.DecoStop && !deviceChunkDrawText2.DecoStop)))
+							{
+								if (deviceChunkDrawText2.PrevIsWord)
+								{
+									deviceChunkDrawText.Text = string.Concat(deviceChunkDrawText, " ", deviceChunkDrawText2.Text);
+									deviceChunkDrawText.Rect.Width += deviceChunkDrawText.Font.WhiteSize + deviceChunkDrawText2.Rect.Width;
+								}
+								else
+								{
+									deviceChunkDrawText.Text = string.Concat(deviceChunkDrawText, deviceChunkDrawText2.Text);
+									deviceChunkDrawText.Rect.Width += deviceChunkDrawText2.Rect.Width;
+								}
+								deviceChunkLine.Chunks.RemoveAt(num);
+								deviceChunkDrawText2.Dispose();
+								deviceChunkDrawText2 = null;
+								continue;
+							}
+						}
+					}
+					deviceChunk = deviceChunk2;
+					num++;
+				}
+			}
+		}
 
-			AssetRipper was set to not load any script information.
+		public void Draw(float deltaTime, object userData = null)
+		{
+			if (d == null)
+			{
+				return;
+			}
+			for (int i = 0; i < d.Lines.Count; i++)
+			{
+				DeviceChunkLine deviceChunkLine = d.Lines[i];
+				for (int j = 0; j < deviceChunkLine.Chunks.Count; j++)
+				{
+					DeviceChunk deviceChunk = deviceChunkLine.Chunks[j];
+					string value;
+					if (d.Links.TryGetValue(deviceChunk, out value))
+					{
+						deviceChunk.Draw(deltaTime, value, userData);
+					}
+					else
+					{
+						deviceChunk.Draw(deltaTime, null, userData);
+					}
+				}
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public void Offset(int dx, int dy)
+		{
+			if (d == null)
+			{
+				return;
+			}
+			for (int i = 0; i < d.Lines.Count; i++)
+			{
+				DeviceChunkLine deviceChunkLine = d.Lines[i];
+				for (int j = 0; j < deviceChunkLine.Chunks.Count; j++)
+				{
+					DeviceChunk deviceChunk = deviceChunkLine.Chunks[j];
+					deviceChunk.Rect.X += dx;
+					deviceChunk.Rect.Y += dy;
+				}
+			}
+		}
 	}
 }

@@ -1,66 +1,166 @@
+using System;
+using CodeStage.AntiCheat.Detectors;
 using UnityEngine;
 
 namespace CodeStage.AntiCheat.ObscuredTypes
 {
-	public class ObscuredBool : MonoBehaviour
+	[Serializable]
+	public struct ObscuredBool : IEquatable<ObscuredBool>
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private static byte cryptoKey = 215;
 
-		1. No dll files were provided to AssetRipper.
+		[SerializeField]
+		private byte currentCryptoKey;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		[SerializeField]
+		private int hiddenValue;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		[SerializeField]
+		private bool fakeValue;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		[SerializeField]
+		private bool fakeValueChanged;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		[SerializeField]
+		private bool inited;
 
-		3. Assembly Reconstruction has not been implemented.
+		private ObscuredBool(int value)
+		{
+			currentCryptoKey = cryptoKey;
+			hiddenValue = value;
+			fakeValue = false;
+			fakeValueChanged = false;
+			inited = true;
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public static void SetNewCryptoKey(byte newKey)
+		{
+			cryptoKey = newKey;
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public void ApplyNewCryptoKey()
+		{
+			if (currentCryptoKey != cryptoKey)
+			{
+				hiddenValue = Encrypt(InternalDecrypt(), cryptoKey);
+				currentCryptoKey = cryptoKey;
+			}
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public static int Encrypt(bool value)
+		{
+			return Encrypt(value, 0);
+		}
 
-		5. Script Content Level 0
+		public static int Encrypt(bool value, byte key)
+		{
+			if (key == 0)
+			{
+				key = cryptoKey;
+			}
+			int num = ((!value) ? 181 : 213);
+			return num ^ key;
+		}
 
-			AssetRipper was set to not load any script information.
+		public static bool Decrypt(int value)
+		{
+			return Decrypt(value, 0);
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public static bool Decrypt(int value, byte key)
+		{
+			if (key == 0)
+			{
+				key = cryptoKey;
+			}
+			value ^= key;
+			return value != 181;
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public int GetEncrypted()
+		{
+			ApplyNewCryptoKey();
+			return hiddenValue;
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		public void SetEncrypted(int encrypted)
+		{
+			inited = true;
+			hiddenValue = encrypted;
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				fakeValue = InternalDecrypt();
+				fakeValueChanged = true;
+			}
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private bool InternalDecrypt()
+		{
+			if (!inited)
+			{
+				currentCryptoKey = cryptoKey;
+				hiddenValue = Encrypt(false);
+				fakeValue = false;
+				fakeValueChanged = true;
+				inited = true;
+			}
+			byte b = cryptoKey;
+			if (currentCryptoKey != cryptoKey)
+			{
+				b = currentCryptoKey;
+			}
+			int num = hiddenValue;
+			num ^= b;
+			bool flag = num != 181;
+			if (ObscuredCheatingDetector.isRunning && fakeValueChanged && flag != fakeValue)
+			{
+				ObscuredCheatingDetector.Instance.OnCheatingDetected();
+			}
+			return flag;
+		}
 
-		*/
+		public override bool Equals(object obj)
+		{
+			if (obj is ObscuredBool)
+			{
+				ObscuredBool obscuredBool = (ObscuredBool)obj;
+				if (true)
+				{
+					return hiddenValue == obscuredBool.hiddenValue;
+				}
+			}
+			return false;
+		}
+
+		public bool Equals(ObscuredBool obj)
+		{
+			return hiddenValue == obj.hiddenValue;
+		}
+
+		public override int GetHashCode()
+		{
+			return InternalDecrypt().GetHashCode();
+		}
+
+		public override string ToString()
+		{
+			return InternalDecrypt().ToString();
+		}
+
+		public static implicit operator ObscuredBool(bool value)
+		{
+			ObscuredBool result = new ObscuredBool(Encrypt(value));
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				result.fakeValue = value;
+				result.fakeValueChanged = true;
+			}
+			return result;
+		}
+
+		public static implicit operator bool(ObscuredBool value)
+		{
+			return value.InternalDecrypt();
+		}
 	}
 }

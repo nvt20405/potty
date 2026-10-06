@@ -1,66 +1,447 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Text;
 
 namespace LitJson
 {
-	public class JsonWriter : MonoBehaviour
+	public class JsonWriter
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private static NumberFormatInfo number_format;
 
-		1. No dll files were provided to AssetRipper.
+		private WriterContext context;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private Stack<WriterContext> ctx_stack;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private bool has_reached_end;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private char[] hex_seq;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private int indentation;
 
-		3. Assembly Reconstruction has not been implemented.
+		private int indent_value;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private StringBuilder inst_string_builder;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private bool pretty_print;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private bool validate;
 
-		5. Script Content Level 0
+		private TextWriter writer;
 
-			AssetRipper was set to not load any script information.
+		public int IndentValue
+		{
+			get
+			{
+				return indent_value;
+			}
+			set
+			{
+				indentation = indentation / indent_value * value;
+				indent_value = value;
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public bool PrettyPrint
+		{
+			get
+			{
+				return pretty_print;
+			}
+			set
+			{
+				pretty_print = value;
+			}
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public TextWriter TextWriter
+		{
+			get
+			{
+				return writer;
+			}
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		public bool Validate
+		{
+			get
+			{
+				return validate;
+			}
+			set
+			{
+				validate = value;
+			}
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public JsonWriter()
+		{
+			inst_string_builder = new StringBuilder();
+			writer = new StringWriter(inst_string_builder);
+			Init();
+		}
 
-		*/
+		public JsonWriter(StringBuilder sb)
+			: this(new StringWriter(sb))
+		{
+		}
+
+		public JsonWriter(TextWriter writer)
+		{
+			if (writer == null)
+			{
+				throw new ArgumentNullException("writer");
+			}
+			this.writer = writer;
+			Init();
+		}
+
+		static JsonWriter()
+		{
+			number_format = NumberFormatInfo.InvariantInfo;
+		}
+
+		private void DoValidation(Condition cond)
+		{
+			if (!context.ExpectingValue)
+			{
+				context.Count++;
+			}
+			if (!validate)
+			{
+				return;
+			}
+			if (has_reached_end)
+			{
+				throw new JsonException("A complete JSON symbol has already been written");
+			}
+			switch (cond)
+			{
+			case Condition.InArray:
+				if (!context.InArray)
+				{
+					throw new JsonException("Can't close an array here");
+				}
+				break;
+			case Condition.InObject:
+				if (!context.InObject || context.ExpectingValue)
+				{
+					throw new JsonException("Can't close an object here");
+				}
+				break;
+			case Condition.NotAProperty:
+				if (context.InObject && !context.ExpectingValue)
+				{
+					throw new JsonException("Expected a property");
+				}
+				break;
+			case Condition.Property:
+				if (!context.InObject || context.ExpectingValue)
+				{
+					throw new JsonException("Can't add a property here");
+				}
+				break;
+			case Condition.Value:
+				if (!context.InArray && (!context.InObject || !context.ExpectingValue))
+				{
+					if (ctx_stack.Count != 1 || context.Count != 1)
+					{
+						throw new JsonException("Can't add a value here");
+					}
+					has_reached_end = true;
+				}
+				break;
+			}
+		}
+
+		private void Init()
+		{
+			has_reached_end = false;
+			hex_seq = new char[4];
+			indentation = 0;
+			indent_value = 4;
+			pretty_print = false;
+			validate = true;
+			ctx_stack = new Stack<WriterContext>();
+			context = new WriterContext();
+			ctx_stack.Push(context);
+		}
+
+		private static void IntToHex(int n, char[] hex)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				int num = n % 16;
+				if (num < 10)
+				{
+					hex[3 - i] = (char)(48 + num);
+				}
+				else
+				{
+					hex[3 - i] = (char)(65 + (num - 10));
+				}
+				n >>= 4;
+			}
+		}
+
+		private void Indent()
+		{
+			if (pretty_print)
+			{
+				indentation += indent_value;
+			}
+		}
+
+		private void Put(string str)
+		{
+			if (pretty_print && !context.ExpectingValue)
+			{
+				for (int i = 0; i < indentation; i++)
+				{
+					writer.Write(' ');
+				}
+			}
+			writer.Write(str);
+		}
+
+		private void PutNewline()
+		{
+			PutNewline(true);
+		}
+
+		private void PutNewline(bool add_comma)
+		{
+			if (add_comma && !context.ExpectingValue && context.Count > 1)
+			{
+				writer.Write(',');
+			}
+			if (pretty_print && !context.ExpectingValue)
+			{
+				writer.Write('\n');
+			}
+		}
+
+		private void PutString(string str)
+		{
+			Put(string.Empty);
+			writer.Write('"');
+			int length = str.Length;
+			for (int i = 0; i < length; i++)
+			{
+				switch (str[i])
+				{
+				case '\n':
+					writer.Write("\\n");
+					continue;
+				case '\r':
+					writer.Write("\\r");
+					continue;
+				case '\t':
+					writer.Write("\\t");
+					continue;
+				case '"':
+				case '\\':
+					writer.Write('\\');
+					writer.Write(str[i]);
+					continue;
+				case '\f':
+					writer.Write("\\f");
+					continue;
+				case '\b':
+					writer.Write("\\b");
+					continue;
+				}
+				if (str[i] >= ' ' && str[i] <= '~')
+				{
+					writer.Write(str[i]);
+					continue;
+				}
+				IntToHex(str[i], hex_seq);
+				writer.Write("\\u");
+				writer.Write(hex_seq);
+			}
+			writer.Write('"');
+		}
+
+		private void Unindent()
+		{
+			if (pretty_print)
+			{
+				indentation -= indent_value;
+			}
+		}
+
+		public override string ToString()
+		{
+			if (inst_string_builder == null)
+			{
+				return string.Empty;
+			}
+			return inst_string_builder.ToString();
+		}
+
+		public void Reset()
+		{
+			has_reached_end = false;
+			ctx_stack.Clear();
+			context = new WriterContext();
+			ctx_stack.Push(context);
+			if (inst_string_builder != null)
+			{
+				inst_string_builder.Remove(0, inst_string_builder.Length);
+			}
+		}
+
+		public void Write(bool boolean)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			Put((!boolean) ? "false" : "true");
+			context.ExpectingValue = false;
+		}
+
+		public void Write(decimal number)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			Put(Convert.ToString(number, number_format));
+			context.ExpectingValue = false;
+		}
+
+		public void Write(double number)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			string text = Convert.ToString(number, number_format);
+			Put(text);
+			if (text.IndexOf('.') == -1 && text.IndexOf('E') == -1)
+			{
+				writer.Write(".0");
+			}
+			context.ExpectingValue = false;
+		}
+
+		public void Write(int number)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			Put(Convert.ToString(number, number_format));
+			context.ExpectingValue = false;
+		}
+
+		public void Write(long number)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			Put(Convert.ToString(number, number_format));
+			context.ExpectingValue = false;
+		}
+
+		public void Write(string str)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			if (str == null)
+			{
+				Put("null");
+			}
+			else
+			{
+				PutString(str);
+			}
+			context.ExpectingValue = false;
+		}
+
+		[CLSCompliant(false)]
+		public void Write(ulong number)
+		{
+			DoValidation(Condition.Value);
+			PutNewline();
+			Put(Convert.ToString(number, number_format));
+			context.ExpectingValue = false;
+		}
+
+		public void WriteArrayEnd()
+		{
+			DoValidation(Condition.InArray);
+			PutNewline(false);
+			ctx_stack.Pop();
+			if (ctx_stack.Count == 1)
+			{
+				has_reached_end = true;
+			}
+			else
+			{
+				context = ctx_stack.Peek();
+				context.ExpectingValue = false;
+			}
+			Unindent();
+			Put("]");
+		}
+
+		public void WriteArrayStart()
+		{
+			DoValidation(Condition.NotAProperty);
+			PutNewline();
+			Put("[");
+			context = new WriterContext();
+			context.InArray = true;
+			ctx_stack.Push(context);
+			Indent();
+		}
+
+		public void WriteObjectEnd()
+		{
+			DoValidation(Condition.InObject);
+			PutNewline(false);
+			ctx_stack.Pop();
+			if (ctx_stack.Count == 1)
+			{
+				has_reached_end = true;
+			}
+			else
+			{
+				context = ctx_stack.Peek();
+				context.ExpectingValue = false;
+			}
+			Unindent();
+			Put("}");
+		}
+
+		public void WriteObjectStart()
+		{
+			DoValidation(Condition.NotAProperty);
+			PutNewline();
+			Put("{");
+			context = new WriterContext();
+			context.InObject = true;
+			ctx_stack.Push(context);
+			Indent();
+		}
+
+		public void WritePropertyName(string property_name)
+		{
+			DoValidation(Condition.Property);
+			PutNewline();
+			PutString(property_name);
+			if (pretty_print)
+			{
+				if (property_name.Length > context.Padding)
+				{
+					context.Padding = property_name.Length;
+				}
+				for (int num = context.Padding - property_name.Length; num >= 0; num--)
+				{
+					writer.Write(' ');
+				}
+				writer.Write(": ");
+			}
+			else
+			{
+				writer.Write(':');
+			}
+			context.ExpectingValue = true;
+		}
 	}
 }

@@ -1,66 +1,242 @@
+using System;
+using CodeStage.AntiCheat.Detectors;
 using UnityEngine;
 
 namespace CodeStage.AntiCheat.ObscuredTypes
 {
-	public class ObscuredString : MonoBehaviour
+	[Serializable]
+	public sealed class ObscuredString
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private static string cryptoKey = "4441";
 
-		1. No dll files were provided to AssetRipper.
+		[SerializeField]
+		private string currentCryptoKey;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		[SerializeField]
+		private byte[] hiddenValue;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		[SerializeField]
+		private string fakeValue;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		[SerializeField]
+		private bool inited;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private ObscuredString()
+		{
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		private ObscuredString(byte[] value)
+		{
+			currentCryptoKey = cryptoKey;
+			hiddenValue = value;
+			fakeValue = null;
+			inited = true;
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public static void SetNewCryptoKey(string newKey)
+		{
+			cryptoKey = newKey;
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public void ApplyNewCryptoKey()
+		{
+			if (currentCryptoKey != cryptoKey)
+			{
+				hiddenValue = InternalEncrypt(InternalDecrypt());
+				currentCryptoKey = cryptoKey;
+			}
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public static string EncryptDecrypt(string value)
+		{
+			return EncryptDecrypt(value, string.Empty);
+		}
 
-		5. Script Content Level 0
+		public static string EncryptDecrypt(string value, string key)
+		{
+			if (string.IsNullOrEmpty(value))
+			{
+				return string.Empty;
+			}
+			if (string.IsNullOrEmpty(key))
+			{
+				key = cryptoKey;
+			}
+			int length = key.Length;
+			int length2 = value.Length;
+			char[] array = new char[length2];
+			for (int i = 0; i < length2; i++)
+			{
+				array[i] = (char)(value[i] ^ key[i % length]);
+			}
+			return new string(array);
+		}
 
-			AssetRipper was set to not load any script information.
+		public string GetEncrypted()
+		{
+			ApplyNewCryptoKey();
+			return GetString(hiddenValue);
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public void SetEncrypted(string encrypted)
+		{
+			inited = true;
+			hiddenValue = GetBytes(encrypted);
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				fakeValue = InternalDecrypt();
+			}
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private static byte[] InternalEncrypt(string value)
+		{
+			return GetBytes(EncryptDecrypt(value, cryptoKey));
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		private string InternalDecrypt()
+		{
+			if (!inited)
+			{
+				currentCryptoKey = cryptoKey;
+				hiddenValue = InternalEncrypt(string.Empty);
+				fakeValue = string.Empty;
+				inited = true;
+			}
+			string text = cryptoKey;
+			if (currentCryptoKey != cryptoKey)
+			{
+				text = currentCryptoKey;
+			}
+			if (string.IsNullOrEmpty(text))
+			{
+				text = cryptoKey;
+			}
+			string text2 = EncryptDecrypt(GetString(hiddenValue), text);
+			if (ObscuredCheatingDetector.isRunning && !string.IsNullOrEmpty(fakeValue) && text2 != fakeValue)
+			{
+				ObscuredCheatingDetector.Instance.OnCheatingDetected();
+			}
+			return text2;
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public override string ToString()
+		{
+			return InternalDecrypt();
+		}
 
-		*/
+		public override bool Equals(object obj)
+		{
+			ObscuredString obscuredString = obj as ObscuredString;
+			string objB = null;
+			if (obscuredString != null)
+			{
+				objB = GetString(obscuredString.hiddenValue);
+			}
+			return object.Equals(hiddenValue, objB);
+		}
+
+		public bool Equals(ObscuredString value)
+		{
+			byte[] a = null;
+			if (value != null)
+			{
+				a = value.hiddenValue;
+			}
+			return ArraysEquals(hiddenValue, a);
+		}
+
+		public bool Equals(ObscuredString value, StringComparison comparisonType)
+		{
+			string b = null;
+			if (value != null)
+			{
+				b = value.InternalDecrypt();
+			}
+			return string.Equals(InternalDecrypt(), b, comparisonType);
+		}
+
+		public override int GetHashCode()
+		{
+			return InternalDecrypt().GetHashCode();
+		}
+
+		private static byte[] GetBytes(string str)
+		{
+			byte[] array = new byte[str.Length * 2];
+			Buffer.BlockCopy(str.ToCharArray(), 0, array, 0, array.Length);
+			return array;
+		}
+
+		private static string GetString(byte[] bytes)
+		{
+			char[] array = new char[bytes.Length / 2];
+			Buffer.BlockCopy(bytes, 0, array, 0, bytes.Length);
+			return new string(array);
+		}
+
+		private static bool ArraysEquals(byte[] a1, byte[] a2)
+		{
+			if (a1 == a2)
+			{
+				return true;
+			}
+			if (a1 != null && a2 != null)
+			{
+				if (a1.Length != a2.Length)
+				{
+					return false;
+				}
+				for (int i = 0; i < a1.Length; i++)
+				{
+					if (a1[i] != a2[i])
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+			return false;
+		}
+
+		public static implicit operator ObscuredString(string value)
+		{
+			if (value == null)
+			{
+				return null;
+			}
+			ObscuredString obscuredString = new ObscuredString(InternalEncrypt(value));
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				obscuredString.fakeValue = value;
+			}
+			return obscuredString;
+		}
+
+		public static implicit operator string(ObscuredString value)
+		{
+			if (value == null)
+			{
+				return null;
+			}
+			return value.InternalDecrypt();
+		}
+
+		public static bool operator ==(ObscuredString a, ObscuredString b)
+		{
+			if ((object)a == b)
+			{
+				return true;
+			}
+			if ((object)a == null || (object)b == null)
+			{
+				return false;
+			}
+			return ArraysEquals(a.hiddenValue, b.hiddenValue);
+		}
+
+		public static bool operator !=(ObscuredString a, ObscuredString b)
+		{
+			return !(a == b);
+		}
 	}
 }

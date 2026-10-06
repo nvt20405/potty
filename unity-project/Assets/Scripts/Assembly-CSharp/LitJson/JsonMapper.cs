@@ -1,66 +1,779 @@
-using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Reflection;
 
 namespace LitJson
 {
-	public class JsonMapper : MonoBehaviour
+	public class JsonMapper
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private static int max_nesting_depth;
 
-		1. No dll files were provided to AssetRipper.
+		private static IFormatProvider datetime_format;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private static IDictionary<Type, ExporterFunc> base_exporters_table;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private static IDictionary<Type, ExporterFunc> custom_exporters_table;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private static IDictionary<Type, IDictionary<Type, ImporterFunc>> base_importers_table;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private static IDictionary<Type, IDictionary<Type, ImporterFunc>> custom_importers_table;
 
-		3. Assembly Reconstruction has not been implemented.
+		private static IDictionary<Type, ArrayMetadata> array_metadata;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private static readonly object array_metadata_lock;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private static IDictionary<Type, IDictionary<Type, MethodInfo>> conv_ops;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private static readonly object conv_ops_lock;
 
-		5. Script Content Level 0
+		private static IDictionary<Type, ObjectMetadata> object_metadata;
 
-			AssetRipper was set to not load any script information.
+		private static readonly object object_metadata_lock;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private static IDictionary<Type, IList<PropertyMetadata>> type_properties;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private static readonly object type_properties_lock;
 
-		7. An incorrect path was provided to AssetRipper.
+		private static JsonWriter static_writer;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private static readonly object static_writer_lock;
 
-		*/
+		static JsonMapper()
+		{
+			array_metadata_lock = new object();
+			conv_ops_lock = new object();
+			object_metadata_lock = new object();
+			type_properties_lock = new object();
+			static_writer_lock = new object();
+			max_nesting_depth = 100;
+			array_metadata = new Dictionary<Type, ArrayMetadata>();
+			conv_ops = new Dictionary<Type, IDictionary<Type, MethodInfo>>();
+			object_metadata = new Dictionary<Type, ObjectMetadata>();
+			type_properties = new Dictionary<Type, IList<PropertyMetadata>>();
+			static_writer = new JsonWriter();
+			datetime_format = DateTimeFormatInfo.InvariantInfo;
+			base_exporters_table = new Dictionary<Type, ExporterFunc>();
+			custom_exporters_table = new Dictionary<Type, ExporterFunc>();
+			base_importers_table = new Dictionary<Type, IDictionary<Type, ImporterFunc>>();
+			custom_importers_table = new Dictionary<Type, IDictionary<Type, ImporterFunc>>();
+			RegisterBaseExporters();
+			RegisterBaseImporters();
+		}
+
+		private static void AddArrayMetadata(Type type)
+		{
+			if (array_metadata.ContainsKey(type))
+			{
+				return;
+			}
+			ArrayMetadata value = new ArrayMetadata
+			{
+				IsArray = type.IsArray
+			};
+			if (type.GetInterface("System.Collections.IList", true) != null)
+			{
+				value.IsList = true;
+			}
+			PropertyInfo[] properties = type.GetProperties();
+			PropertyInfo[] array = properties;
+			foreach (PropertyInfo propertyInfo in array)
+			{
+				if (!(propertyInfo.Name != "Item"))
+				{
+					ParameterInfo[] indexParameters = propertyInfo.GetIndexParameters();
+					if (indexParameters.Length == 1 && indexParameters[0].ParameterType == typeof(int))
+					{
+						value.ElementType = propertyInfo.PropertyType;
+					}
+				}
+			}
+			lock (array_metadata_lock)
+			{
+				try
+				{
+					array_metadata.Add(type, value);
+				}
+				catch (ArgumentException)
+				{
+				}
+			}
+		}
+
+		private static void AddObjectMetadata(Type type)
+		{
+			if (object_metadata.ContainsKey(type))
+			{
+				return;
+			}
+			ObjectMetadata value = default(ObjectMetadata);
+			if (type.GetInterface("System.Collections.IDictionary", true) != null)
+			{
+				value.IsDictionary = true;
+			}
+			value.Properties = new Dictionary<string, PropertyMetadata>();
+			PropertyInfo[] properties = type.GetProperties();
+			PropertyInfo[] array = properties;
+			foreach (PropertyInfo propertyInfo in array)
+			{
+				if (propertyInfo.Name == "Item")
+				{
+					ParameterInfo[] indexParameters = propertyInfo.GetIndexParameters();
+					if (indexParameters.Length == 1 && indexParameters[0].ParameterType == typeof(string))
+					{
+						value.ElementType = propertyInfo.PropertyType;
+					}
+				}
+				else
+				{
+					PropertyMetadata value2 = new PropertyMetadata
+					{
+						Info = propertyInfo,
+						Type = propertyInfo.PropertyType
+					};
+					value.Properties.Add(propertyInfo.Name, value2);
+				}
+			}
+			FieldInfo[] fields = type.GetFields();
+			FieldInfo[] array2 = fields;
+			foreach (FieldInfo fieldInfo in array2)
+			{
+				PropertyMetadata value3 = new PropertyMetadata
+				{
+					Info = fieldInfo,
+					IsField = true,
+					Type = fieldInfo.FieldType
+				};
+				value.Properties.Add(fieldInfo.Name, value3);
+			}
+			lock (object_metadata_lock)
+			{
+				try
+				{
+					object_metadata.Add(type, value);
+				}
+				catch (ArgumentException)
+				{
+				}
+			}
+		}
+
+		private static void AddTypeProperties(Type type)
+		{
+			if (type_properties.ContainsKey(type))
+			{
+				return;
+			}
+			IList<PropertyMetadata> list = new List<PropertyMetadata>();
+			PropertyInfo[] properties = type.GetProperties();
+			PropertyInfo[] array = properties;
+			foreach (PropertyInfo propertyInfo in array)
+			{
+				if (!(propertyInfo.Name == "Item"))
+				{
+					list.Add(new PropertyMetadata
+					{
+						Info = propertyInfo,
+						IsField = false
+					});
+				}
+			}
+			FieldInfo[] fields = type.GetFields();
+			FieldInfo[] array2 = fields;
+			foreach (FieldInfo info in array2)
+			{
+				list.Add(new PropertyMetadata
+				{
+					Info = info,
+					IsField = true
+				});
+			}
+			lock (type_properties_lock)
+			{
+				try
+				{
+					type_properties.Add(type, list);
+				}
+				catch (ArgumentException)
+				{
+				}
+			}
+		}
+
+		private static MethodInfo GetConvOp(Type t1, Type t2)
+		{
+			lock (conv_ops_lock)
+			{
+				if (!conv_ops.ContainsKey(t1))
+				{
+					conv_ops.Add(t1, new Dictionary<Type, MethodInfo>());
+				}
+			}
+			if (conv_ops[t1].ContainsKey(t2))
+			{
+				return conv_ops[t1][t2];
+			}
+			MethodInfo method = t1.GetMethod("op_Implicit", new Type[1] { t2 });
+			lock (conv_ops_lock)
+			{
+				try
+				{
+					conv_ops[t1].Add(t2, method);
+					return method;
+				}
+				catch (ArgumentException)
+				{
+					return conv_ops[t1][t2];
+				}
+			}
+		}
+
+		private static object ReadValue(Type inst_type, JsonReader reader)
+		{
+			reader.Read();
+			if (reader.Token == JsonToken.ArrayEnd)
+			{
+				return null;
+			}
+			if (reader.Token == JsonToken.Null)
+			{
+				if (!inst_type.IsClass)
+				{
+					throw new JsonException(string.Format("Can't assign null to an instance of type {0}", inst_type));
+				}
+				return null;
+			}
+			if (reader.Token == JsonToken.Double || reader.Token == JsonToken.Int || reader.Token == JsonToken.Long || reader.Token == JsonToken.String || reader.Token == JsonToken.Boolean)
+			{
+				Type type = reader.Value.GetType();
+				if (inst_type.IsAssignableFrom(type))
+				{
+					return reader.Value;
+				}
+				if (custom_importers_table.ContainsKey(type) && custom_importers_table[type].ContainsKey(inst_type))
+				{
+					ImporterFunc importerFunc = custom_importers_table[type][inst_type];
+					return importerFunc(reader.Value);
+				}
+				if (base_importers_table.ContainsKey(type) && base_importers_table[type].ContainsKey(inst_type))
+				{
+					ImporterFunc importerFunc2 = base_importers_table[type][inst_type];
+					return importerFunc2(reader.Value);
+				}
+				if (inst_type.IsEnum)
+				{
+					return Enum.ToObject(inst_type, reader.Value);
+				}
+				MethodInfo convOp = GetConvOp(inst_type, type);
+				if (convOp != null)
+				{
+					return convOp.Invoke(null, new object[1] { reader.Value });
+				}
+				if (reader.Token == JsonToken.Int && inst_type.Name.CompareTo("Int64") == 0)
+				{
+					long num = Convert.ToInt64(reader.Value);
+					return num;
+				}
+				throw new JsonException(string.Format("Can't assign value '{0}' (type {1}) to type {2}", reader.Value, type, inst_type));
+			}
+			object obj = null;
+			if (reader.Token == JsonToken.ArrayStart)
+			{
+				AddArrayMetadata(inst_type);
+				ArrayMetadata arrayMetadata = array_metadata[inst_type];
+				if (!arrayMetadata.IsArray && !arrayMetadata.IsList)
+				{
+					throw new JsonException(string.Format("Type {0} can't act as an array", inst_type));
+				}
+				IList list;
+				Type elementType;
+				if (!arrayMetadata.IsArray)
+				{
+					list = (IList)Activator.CreateInstance(inst_type);
+					elementType = arrayMetadata.ElementType;
+				}
+				else
+				{
+					list = new ArrayList();
+					elementType = inst_type.GetElementType();
+				}
+				while (true)
+				{
+					object value = ReadValue(elementType, reader);
+					if (reader.Token == JsonToken.ArrayEnd)
+					{
+						break;
+					}
+					list.Add(value);
+				}
+				if (arrayMetadata.IsArray)
+				{
+					int count = list.Count;
+					obj = Array.CreateInstance(elementType, count);
+					for (int i = 0; i < count; i++)
+					{
+						((Array)obj).SetValue(list[i], i);
+					}
+				}
+				else
+				{
+					obj = list;
+				}
+			}
+			else if (reader.Token == JsonToken.ObjectStart)
+			{
+				AddObjectMetadata(inst_type);
+				ObjectMetadata objectMetadata = object_metadata[inst_type];
+				obj = Activator.CreateInstance(inst_type);
+				while (true)
+				{
+					reader.Read();
+					if (reader.Token == JsonToken.ObjectEnd)
+					{
+						break;
+					}
+					string text = (string)reader.Value;
+					if (objectMetadata.Properties.ContainsKey(text))
+					{
+						PropertyMetadata propertyMetadata = objectMetadata.Properties[text];
+						if (propertyMetadata.IsField)
+						{
+							((FieldInfo)propertyMetadata.Info).SetValue(obj, ReadValue(propertyMetadata.Type, reader));
+							continue;
+						}
+						PropertyInfo propertyInfo = (PropertyInfo)propertyMetadata.Info;
+						if (propertyInfo.CanWrite)
+						{
+							propertyInfo.SetValue(obj, ReadValue(propertyMetadata.Type, reader), null);
+						}
+						else
+						{
+							ReadValue(propertyMetadata.Type, reader);
+						}
+					}
+					else if (!objectMetadata.IsDictionary)
+					{
+						EGDebug.LogWarning(string.Format("The type {0} doesn't have the property '{1}'", inst_type, text));
+						reader.Read();
+						JsonToken token = reader.Token;
+						if (reader.Token == JsonToken.Double || reader.Token == JsonToken.Int || reader.Token == JsonToken.Long || reader.Token == JsonToken.String || reader.Token == JsonToken.Boolean)
+						{
+							continue;
+						}
+						JsonToken jsonToken = token;
+						switch (token)
+						{
+						case JsonToken.ArrayStart:
+							jsonToken = JsonToken.ArrayEnd;
+							break;
+						case JsonToken.ObjectStart:
+							jsonToken = JsonToken.ObjectEnd;
+							break;
+						}
+						int num2 = 1;
+						while (reader.Read())
+						{
+							if (reader.Token == token)
+							{
+								num2++;
+							}
+							if (reader.Token == jsonToken)
+							{
+								num2--;
+							}
+							if (num2 == 0)
+							{
+								break;
+							}
+						}
+					}
+					else if (((IDictionary)obj).Contains(text))
+					{
+						EGDebug.LogError("Loi trung` code name :" + text.ToString());
+					}
+					else
+					{
+						((IDictionary)obj).Add(text, ReadValue(objectMetadata.ElementType, reader));
+					}
+				}
+			}
+			return obj;
+		}
+
+		private static IJsonWrapper ReadValue(WrapperFactory factory, JsonReader reader)
+		{
+			reader.Read();
+			if (reader.Token == JsonToken.ArrayEnd || reader.Token == JsonToken.Null)
+			{
+				return null;
+			}
+			IJsonWrapper jsonWrapper = factory();
+			if (reader.Token == JsonToken.String)
+			{
+				jsonWrapper.SetString((string)reader.Value);
+				return jsonWrapper;
+			}
+			if (reader.Token == JsonToken.Double)
+			{
+				jsonWrapper.SetDouble((double)reader.Value);
+				return jsonWrapper;
+			}
+			if (reader.Token == JsonToken.Int)
+			{
+				jsonWrapper.SetInt((int)reader.Value);
+				return jsonWrapper;
+			}
+			if (reader.Token == JsonToken.Long)
+			{
+				jsonWrapper.SetLong((long)reader.Value);
+				return jsonWrapper;
+			}
+			if (reader.Token == JsonToken.Boolean)
+			{
+				jsonWrapper.SetBoolean((bool)reader.Value);
+				return jsonWrapper;
+			}
+			if (reader.Token == JsonToken.ArrayStart)
+			{
+				jsonWrapper.SetJsonType(JsonType.Array);
+				while (true)
+				{
+					IJsonWrapper value = ReadValue(factory, reader);
+					if (reader.Token == JsonToken.ArrayEnd)
+					{
+						break;
+					}
+					jsonWrapper.Add(value);
+				}
+			}
+			else if (reader.Token == JsonToken.ObjectStart)
+			{
+				jsonWrapper.SetJsonType(JsonType.Object);
+				while (true)
+				{
+					reader.Read();
+					if (reader.Token == JsonToken.ObjectEnd)
+					{
+						break;
+					}
+					string key = (string)reader.Value;
+					jsonWrapper[key] = ReadValue(factory, reader);
+				}
+			}
+			return jsonWrapper;
+		}
+
+		private static void RegisterBaseExporters()
+		{
+			base_exporters_table[typeof(byte)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToInt32((byte)obj));
+			};
+			base_exporters_table[typeof(char)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToString((char)obj));
+			};
+			base_exporters_table[typeof(DateTime)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToString((DateTime)obj, datetime_format));
+			};
+			base_exporters_table[typeof(decimal)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write((decimal)obj);
+			};
+			base_exporters_table[typeof(sbyte)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToInt32((sbyte)obj));
+			};
+			base_exporters_table[typeof(short)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToInt32((short)obj));
+			};
+			base_exporters_table[typeof(ushort)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToInt32((ushort)obj));
+			};
+			base_exporters_table[typeof(uint)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write(Convert.ToUInt64((uint)obj));
+			};
+			base_exporters_table[typeof(ulong)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write((ulong)obj);
+			};
+			base_exporters_table[typeof(float)] = (object obj, JsonWriter writer) =>
+			{
+				writer.Write((float)obj);
+			};
+		}
+
+		private static void RegisterBaseImporters()
+		{
+			ImporterFunc importer = (object input) => Convert.ToByte((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(byte), importer);
+			importer = (object input) => Convert.ToUInt64((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(ulong), importer);
+			importer = (object input) => Convert.ToSByte((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(sbyte), importer);
+			importer = (object input) => Convert.ToInt16((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(short), importer);
+			importer = (object input) => Convert.ToUInt16((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(ushort), importer);
+			importer = (object input) => Convert.ToUInt32((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(uint), importer);
+			importer = (object input) => Convert.ToSingle((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(float), importer);
+			importer = (object input) => Convert.ToSingle((float)(double)input);
+			RegisterImporter(base_importers_table, typeof(double), typeof(float), importer);
+			importer = (object input) => Convert.ToDouble((int)input);
+			RegisterImporter(base_importers_table, typeof(int), typeof(double), importer);
+			importer = (object input) => Convert.ToDecimal((double)input);
+			RegisterImporter(base_importers_table, typeof(double), typeof(decimal), importer);
+			importer = (object input) => Convert.ToUInt32((long)input);
+			RegisterImporter(base_importers_table, typeof(long), typeof(uint), importer);
+			importer = (object input) => Convert.ToChar((string)input);
+			RegisterImporter(base_importers_table, typeof(string), typeof(char), importer);
+			importer = (object input) => Convert.ToDateTime((string)input, datetime_format);
+			RegisterImporter(base_importers_table, typeof(string), typeof(DateTime), importer);
+		}
+
+		private static void RegisterImporter(IDictionary<Type, IDictionary<Type, ImporterFunc>> table, Type json_type, Type value_type, ImporterFunc importer)
+		{
+			if (!table.ContainsKey(json_type))
+			{
+				table.Add(json_type, new Dictionary<Type, ImporterFunc>());
+			}
+			table[json_type][value_type] = importer;
+		}
+
+		private static void WriteValue(object obj, JsonWriter writer, bool writer_is_private, int depth)
+		{
+			if (depth > max_nesting_depth)
+			{
+				throw new JsonException(string.Format("Max allowed object depth reached while trying to export from type {0}", obj.GetType()));
+			}
+			if (obj == null)
+			{
+				writer.Write(null);
+				return;
+			}
+			if (obj is IJsonWrapper)
+			{
+				if (writer_is_private)
+				{
+					writer.TextWriter.Write(((IJsonWrapper)obj).ToJson());
+				}
+				else
+				{
+					((IJsonWrapper)obj).ToJson(writer);
+				}
+				return;
+			}
+			if (obj is string)
+			{
+				writer.Write((string)obj);
+				return;
+			}
+			if (obj is double)
+			{
+				writer.Write((double)obj);
+				return;
+			}
+			if (obj is int)
+			{
+				writer.Write((int)obj);
+				return;
+			}
+			if (obj is bool)
+			{
+				writer.Write((bool)obj);
+				return;
+			}
+			if (obj is long)
+			{
+				writer.Write((long)obj);
+				return;
+			}
+			if (obj is Array)
+			{
+				writer.WriteArrayStart();
+				foreach (object item in (Array)obj)
+				{
+					WriteValue(item, writer, writer_is_private, depth + 1);
+				}
+				writer.WriteArrayEnd();
+				return;
+			}
+			if (obj is IList)
+			{
+				writer.WriteArrayStart();
+				foreach (object item2 in (IList)obj)
+				{
+					WriteValue(item2, writer, writer_is_private, depth + 1);
+				}
+				writer.WriteArrayEnd();
+				return;
+			}
+			if (obj is IDictionary)
+			{
+				writer.WriteObjectStart();
+				foreach (DictionaryEntry item3 in (IDictionary)obj)
+				{
+					writer.WritePropertyName((string)item3.Key);
+					WriteValue(item3.Value, writer, writer_is_private, depth + 1);
+				}
+				writer.WriteObjectEnd();
+				return;
+			}
+			Type type = obj.GetType();
+			if (custom_exporters_table.ContainsKey(type))
+			{
+				ExporterFunc exporterFunc = custom_exporters_table[type];
+				exporterFunc(obj, writer);
+				return;
+			}
+			if (base_exporters_table.ContainsKey(type))
+			{
+				ExporterFunc exporterFunc2 = base_exporters_table[type];
+				exporterFunc2(obj, writer);
+				return;
+			}
+			if (obj is Enum)
+			{
+				Type underlyingType = Enum.GetUnderlyingType(type);
+				if (underlyingType == typeof(long) || underlyingType == typeof(uint) || underlyingType == typeof(ulong))
+				{
+					writer.Write((ulong)obj);
+				}
+				else
+				{
+					writer.Write((int)obj);
+				}
+				return;
+			}
+			AddTypeProperties(type);
+			IList<PropertyMetadata> list = type_properties[type];
+			writer.WriteObjectStart();
+			foreach (PropertyMetadata item4 in list)
+			{
+				if (item4.IsField)
+				{
+					object value = ((FieldInfo)item4.Info).GetValue(obj);
+					if (value != null)
+					{
+						writer.WritePropertyName(item4.Info.Name);
+						WriteValue(value, writer, writer_is_private, depth + 1);
+					}
+					continue;
+				}
+				PropertyInfo propertyInfo = (PropertyInfo)item4.Info;
+				if (propertyInfo.CanRead)
+				{
+					object value2 = propertyInfo.GetValue(obj, null);
+					if (value2 != null)
+					{
+						writer.WritePropertyName(item4.Info.Name);
+						WriteValue(value2, writer, writer_is_private, depth + 1);
+					}
+				}
+			}
+			writer.WriteObjectEnd();
+		}
+
+		public static string ToJson(object obj, bool shouldCompress = true)
+		{
+			lock (static_writer_lock)
+			{
+				static_writer.Reset();
+				WriteValue(obj, static_writer, true, 0);
+				if (shouldCompress)
+				{
+					string s = static_writer.ToString();
+					return EGUtils.Compress(s);
+				}
+				return static_writer.ToString();
+			}
+		}
+
+		public static void ToJson(object obj, JsonWriter writer)
+		{
+			WriteValue(obj, writer, false, 0);
+		}
+
+		public static JsonData ToObject(JsonReader reader)
+		{
+			return (JsonData)ToWrapper(() => new JsonData(), reader);
+		}
+
+		public static JsonData ToObject(TextReader reader)
+		{
+			JsonReader reader2 = new JsonReader(reader);
+			return (JsonData)ToWrapper(() => new JsonData(), reader2);
+		}
+
+		public static JsonData ToObject(string json)
+		{
+			return (JsonData)ToWrapper(() => new JsonData(), json);
+		}
+
+		public static T ToObject<T>(JsonReader reader)
+		{
+			return (T)ReadValue(typeof(T), reader);
+		}
+
+		public static T ToObject<T>(TextReader reader)
+		{
+			JsonReader reader2 = new JsonReader(reader);
+			return (T)ReadValue(typeof(T), reader2);
+		}
+
+		public static T ToObject<T>(string json)
+		{
+			string json_text = json;
+			if (!json.StartsWith("{") && !json.StartsWith("["))
+			{
+				json_text = EGUtils.Decompress(json);
+			}
+			JsonReader reader = new JsonReader(json_text);
+			return (T)ReadValue(typeof(T), reader);
+		}
+
+		public static IJsonWrapper ToWrapper(WrapperFactory factory, JsonReader reader)
+		{
+			return ReadValue(factory, reader);
+		}
+
+		public static IJsonWrapper ToWrapper(WrapperFactory factory, string json)
+		{
+			JsonReader reader = new JsonReader(json);
+			return ReadValue(factory, reader);
+		}
+
+		public static void RegisterExporter<T>(ExporterFunc<T> exporter)
+		{
+			ExporterFunc value = (object obj, JsonWriter writer) =>
+			{
+				exporter((T)obj, writer);
+			};
+			custom_exporters_table[typeof(T)] = value;
+		}
+
+		public static void RegisterImporter<TJson, TValue>(ImporterFunc<TJson, TValue> importer)
+		{
+			ImporterFunc importer2 = (object input) => importer((TJson)input);
+			RegisterImporter(custom_importers_table, typeof(TJson), typeof(TValue), importer2);
+		}
+
+		public static void UnregisterExporters()
+		{
+			custom_exporters_table.Clear();
+		}
+
+		public static void UnregisterImporters()
+		{
+			custom_importers_table.Clear();
+		}
 	}
 }

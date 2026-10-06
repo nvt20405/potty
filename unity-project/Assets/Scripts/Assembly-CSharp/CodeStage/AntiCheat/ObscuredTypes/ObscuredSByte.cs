@@ -1,66 +1,173 @@
-using UnityEngine;
+using System;
+using CodeStage.AntiCheat.Detectors;
 
 namespace CodeStage.AntiCheat.ObscuredTypes
 {
-	public class ObscuredSByte : MonoBehaviour
+	[Serializable]
+	public struct ObscuredSByte : IFormattable, IEquatable<ObscuredSByte>
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private static sbyte cryptoKey = 112;
 
-		1. No dll files were provided to AssetRipper.
+		private sbyte currentCryptoKey;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private sbyte hiddenValue;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private sbyte fakeValue;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private bool inited;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private ObscuredSByte(sbyte value)
+		{
+			currentCryptoKey = cryptoKey;
+			hiddenValue = value;
+			fakeValue = 0;
+			inited = true;
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		public static void SetNewCryptoKey(sbyte newKey)
+		{
+			cryptoKey = newKey;
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public void ApplyNewCryptoKey()
+		{
+			if (currentCryptoKey != cryptoKey)
+			{
+				hiddenValue = EncryptDecrypt(InternalDecrypt(), cryptoKey);
+				currentCryptoKey = cryptoKey;
+			}
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public static sbyte EncryptDecrypt(sbyte value)
+		{
+			return EncryptDecrypt(value, 0);
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public static sbyte EncryptDecrypt(sbyte value, sbyte key)
+		{
+			if (key == 0)
+			{
+				return (sbyte)(value ^ cryptoKey);
+			}
+			return (sbyte)(value ^ key);
+		}
 
-		5. Script Content Level 0
+		public sbyte GetEncrypted()
+		{
+			ApplyNewCryptoKey();
+			return hiddenValue;
+		}
 
-			AssetRipper was set to not load any script information.
+		public void SetEncrypted(sbyte encrypted)
+		{
+			inited = true;
+			hiddenValue = encrypted;
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				fakeValue = InternalDecrypt();
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private sbyte InternalDecrypt()
+		{
+			if (!inited)
+			{
+				currentCryptoKey = cryptoKey;
+				hiddenValue = EncryptDecrypt(0);
+				fakeValue = 0;
+				inited = true;
+			}
+			sbyte key = cryptoKey;
+			if (currentCryptoKey != cryptoKey)
+			{
+				key = currentCryptoKey;
+			}
+			sbyte b = EncryptDecrypt(hiddenValue, key);
+			if (ObscuredCheatingDetector.isRunning && fakeValue != 0 && b != fakeValue)
+			{
+				ObscuredCheatingDetector.Instance.OnCheatingDetected();
+			}
+			return b;
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public override bool Equals(object obj)
+		{
+			if (obj is ObscuredSByte)
+			{
+				ObscuredSByte obscuredSByte = (ObscuredSByte)obj;
+				if (true)
+				{
+					return hiddenValue == obscuredSByte.hiddenValue;
+				}
+			}
+			return false;
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		public bool Equals(ObscuredSByte obj)
+		{
+			return hiddenValue == obj.hiddenValue;
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public override string ToString()
+		{
+			return InternalDecrypt().ToString();
+		}
 
-		*/
+		public string ToString(string format)
+		{
+			return InternalDecrypt().ToString(format);
+		}
+
+		public override int GetHashCode()
+		{
+			return InternalDecrypt().GetHashCode();
+		}
+
+		public string ToString(IFormatProvider provider)
+		{
+			return InternalDecrypt().ToString(provider);
+		}
+
+		public string ToString(string format, IFormatProvider provider)
+		{
+			return InternalDecrypt().ToString(format, provider);
+		}
+
+		public static implicit operator ObscuredSByte(sbyte value)
+		{
+			ObscuredSByte result = new ObscuredSByte(EncryptDecrypt(value));
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				result.fakeValue = value;
+			}
+			return result;
+		}
+
+		public static implicit operator sbyte(ObscuredSByte value)
+		{
+			return value.InternalDecrypt();
+		}
+
+		public static ObscuredSByte operator ++(ObscuredSByte input)
+		{
+			sbyte value = (sbyte)(input.InternalDecrypt() + 1);
+			input.hiddenValue = EncryptDecrypt(value, input.currentCryptoKey);
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				input.fakeValue = value;
+			}
+			return input;
+		}
+
+		public static ObscuredSByte operator --(ObscuredSByte input)
+		{
+			sbyte value = (sbyte)(input.InternalDecrypt() - 1);
+			input.hiddenValue = EncryptDecrypt(value, input.currentCryptoKey);
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				input.fakeValue = value;
+			}
+			return input;
+		}
 	}
 }

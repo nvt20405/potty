@@ -1,66 +1,276 @@
+using System;
 using UnityEngine;
 
 namespace CodeStage.AntiCheat.Detectors
 {
-	public class WallHackDetector : MonoBehaviour
+	[DisallowMultipleComponent]
+	public class WallHackDetector : ActDetectorBase
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private const string COMPONENT_NAME = "WallHack Detector";
 
-		1. No dll files were provided to AssetRipper.
+		private const string SERVICE_CONTAINER_NAME = "[WH Detector Service]";
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private readonly Vector3 rigidPlayerVelocity = new Vector3(0f, 0f, 1f);
 
-		2. Incorrect dll files were provided to AssetRipper.
+		internal static bool isRunning;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		[Tooltip("World position of the container for service objects within 3x3x3 cube (drawn as red wireframe cube in scene).")]
+		public Vector3 spawnPosition;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private int whLayer = -1;
 
-		3. Assembly Reconstruction has not been implemented.
+		private GameObject serviceContainer;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private Rigidbody rigidPlayer;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private CharacterController charControllerPlayer;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private float charControllerVelocity;
 
-		5. Script Content Level 0
+		public static WallHackDetector Instance { get; private set; }
 
-			AssetRipper was set to not load any script information.
+		private static WallHackDetector GetOrCreateInstance
+		{
+			get
+			{
+				if (Instance == null)
+				{
+					WallHackDetector wallHackDetector = UnityEngine.Object.FindObjectOfType<WallHackDetector>();
+					if (wallHackDetector != null)
+					{
+						Instance = wallHackDetector;
+					}
+					else
+					{
+						if (ActDetectorBase.detectorsContainer == null)
+						{
+							ActDetectorBase.detectorsContainer = new GameObject("Anti-Cheat Toolkit Detectors");
+						}
+						ActDetectorBase.detectorsContainer.AddComponent<WallHackDetector>();
+					}
+				}
+				return Instance;
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private WallHackDetector()
+		{
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static void StartDetection(Action callback)
+		{
+			StartDetection(callback, GetOrCreateInstance.spawnPosition);
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		public static void StartDetection(Action callback, Vector3 servicePosition)
+		{
+			GetOrCreateInstance.StartDetectionInternal(callback, servicePosition);
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public static void StopDetection()
+		{
+			if (Instance != null)
+			{
+				Instance.StopDetectionInternal();
+			}
+		}
 
-		*/
+		public static void Dispose()
+		{
+			if (Instance != null)
+			{
+				Instance.DisposeInternal();
+			}
+		}
+
+		private void Awake()
+		{
+			if (Init(Instance, "WallHack Detector"))
+			{
+				Instance = this;
+			}
+		}
+
+		private void StartDetectionInternal(Action callback, Vector3 servicePosition)
+		{
+			if (isRunning)
+			{
+				Debug.LogWarning("[ACTk] WallHack Detector already running!");
+				return;
+			}
+			if (!base.enabled)
+			{
+				Debug.LogWarning("[ACTk] WallHack Detector disabled but StartDetection still called from somewhere!");
+				return;
+			}
+			onDetection = callback;
+			spawnPosition = servicePosition;
+			InitDetector();
+			isRunning = true;
+		}
+
+		protected override void StopDetectionInternal()
+		{
+			if (isRunning)
+			{
+				UninitDetector();
+				onDetection = null;
+				isRunning = false;
+			}
+		}
+
+		protected override void PauseDetector()
+		{
+			if (isRunning)
+			{
+				isRunning = false;
+				StopRigidModule();
+				StopControllerModule();
+			}
+		}
+
+		protected override void ResumeDetector()
+		{
+			isRunning = true;
+			StartRigidModule();
+			StartControllerModule();
+		}
+
+		protected override void DisposeInternal()
+		{
+			base.DisposeInternal();
+			if (Instance == this)
+			{
+				Instance = null;
+			}
+		}
+
+		private void InitDetector()
+		{
+			InitCommon();
+			InitRigidModule();
+			InitControllerModule();
+			StartRigidModule();
+			StartControllerModule();
+		}
+
+		private void UninitDetector()
+		{
+			isRunning = false;
+			StopRigidModule();
+			StopControllerModule();
+			UnityEngine.Object.Destroy(serviceContainer);
+		}
+
+		private void InitCommon()
+		{
+			if (whLayer == -1)
+			{
+				whLayer = LayerMask.NameToLayer("Ignore Raycast");
+			}
+			serviceContainer = new GameObject("[WH Detector Service]");
+			serviceContainer.layer = whLayer;
+			serviceContainer.transform.position = spawnPosition;
+			UnityEngine.Object.DontDestroyOnLoad(serviceContainer);
+			GameObject gameObject = new GameObject("Wall");
+			gameObject.AddComponent<BoxCollider>();
+			gameObject.layer = whLayer;
+			gameObject.transform.parent = serviceContainer.transform;
+			gameObject.transform.localPosition = Vector3.zero;
+			gameObject.transform.localScale = new Vector3(3f, 3f, 0.5f);
+		}
+
+		private void InitRigidModule()
+		{
+			GameObject gameObject = new GameObject("RigidPlayer");
+			gameObject.AddComponent<CapsuleCollider>().height = 2f;
+			gameObject.layer = whLayer;
+			gameObject.transform.parent = serviceContainer.transform;
+			gameObject.transform.localPosition = new Vector3(0.75f, 0f, -1f);
+			rigidPlayer = gameObject.AddComponent<Rigidbody>();
+			rigidPlayer.useGravity = false;
+		}
+
+		private void InitControllerModule()
+		{
+			GameObject gameObject = new GameObject("ControlledPlayer");
+			gameObject.AddComponent<CapsuleCollider>().height = 2f;
+			gameObject.layer = whLayer;
+			gameObject.transform.parent = serviceContainer.transform;
+			gameObject.transform.localPosition = new Vector3(-0.75f, 0f, -1f);
+			charControllerPlayer = gameObject.AddComponent<CharacterController>();
+		}
+
+		private void StartRigidModule()
+		{
+			rigidPlayer.rotation = Quaternion.identity;
+			rigidPlayer.angularVelocity = Vector3.zero;
+			rigidPlayer.transform.localPosition = new Vector3(0.75f, 0f, -1f);
+			rigidPlayer.velocity = rigidPlayerVelocity;
+			Invoke("StartRigidModule", 4f);
+		}
+
+		private void StopRigidModule()
+		{
+			rigidPlayer.velocity = Vector3.zero;
+			CancelInvoke("StartRigidModule");
+		}
+
+		private void StartControllerModule()
+		{
+			charControllerPlayer.transform.localPosition = new Vector3(-0.75f, 0f, -1f);
+			charControllerVelocity = 0.01f;
+			Invoke("StartControllerModule", 4f);
+		}
+
+		private void StopControllerModule()
+		{
+			charControllerVelocity = 0f;
+			CancelInvoke("StartControllerModule");
+		}
+
+		private void FixedUpdate()
+		{
+			if (isRunning && rigidPlayer.transform.localPosition.z > 1f)
+			{
+				StopRigidModule();
+				Detect();
+			}
+		}
+
+		private void Update()
+		{
+			if (isRunning && charControllerVelocity > 0f)
+			{
+				charControllerPlayer.Move(new Vector3(UnityEngine.Random.Range(-0.002f, 0.002f), 0f, charControllerVelocity));
+				if (charControllerPlayer.transform.localPosition.z > 1f)
+				{
+					StopControllerModule();
+					Detect();
+				}
+			}
+		}
+
+		private void Detect()
+		{
+			if (onDetection != null)
+			{
+				onDetection();
+			}
+			if (autoDispose)
+			{
+				Dispose();
+			}
+			else
+			{
+				StopDetection();
+			}
+		}
+
+		private void OnDrawGizmosSelected()
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireCube(spawnPosition, new Vector3(3f, 3f, 3f));
+		}
 	}
 }

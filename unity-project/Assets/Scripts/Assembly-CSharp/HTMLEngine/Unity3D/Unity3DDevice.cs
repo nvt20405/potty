@@ -1,66 +1,57 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HTMLEngine.Unity3D
 {
-	public class Unity3DDevice : MonoBehaviour
+	public class Unity3DDevice : HtDevice
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private readonly Dictionary<string, Unity3DFont> fonts = new Dictionary<string, Unity3DFont>();
 
-		1. No dll files were provided to AssetRipper.
+		private readonly Dictionary<string, Unity3DImage> images = new Dictionary<string, Unity3DImage>();
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private static Texture2D whiteTex;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public override HtFont LoadFont(string face, int size, bool bold, bool italic)
+		{
+			string key = string.Format("{0}{1}{2}{3}", face, size, (!bold) ? string.Empty : "b", (!italic) ? string.Empty : "i");
+			Unity3DFont value;
+			if (fonts.TryGetValue(key, out value))
+			{
+				return value;
+			}
+			value = new Unity3DFont(face, size, bold, italic);
+			fonts[key] = value;
+			return value;
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public override HtImage LoadImage(string src, int fps)
+		{
+			Unity3DImage value;
+			if (images.TryGetValue(src, out value))
+			{
+				return value;
+			}
+			value = new Unity3DImage(src);
+			images[src] = value;
+			return value;
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public override void FillRect(HtRect rect, HtColor color, object userData)
+		{
+			if (whiteTex == null)
+			{
+				whiteTex = new Texture2D(1, 1, TextureFormat.RGBA32, false);
+				whiteTex.SetPixel(0, 0, Color.white);
+				whiteTex.Apply(false, true);
+			}
+			Color color2 = GUI.color;
+			GUI.color = new Color32(color.R, color.G, color.B, color.A);
+			GUI.DrawTexture(new Rect(rect.X, rect.Y, rect.Width, rect.Height), whiteTex);
+			GUI.color = color2;
+		}
 
-		3. Assembly Reconstruction has not been implemented.
-
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
-
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
-
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public override void OnRelease()
+		{
+		}
 	}
 }

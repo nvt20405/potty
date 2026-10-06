@@ -1,66 +1,149 @@
-using UnityEngine;
+using System;
+using HTMLEngine.Core;
 
 namespace HTMLEngine
 {
-	public class HtEngine : MonoBehaviour
+	public class HtEngine
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		internal class GenericFont : HtFont
+		{
+			public override int LineSpacing
+			{
+				get
+				{
+					return base.Size;
+				}
+			}
 
-		1. No dll files were provided to AssetRipper.
+			public override int WhiteSize
+			{
+				get
+				{
+					return base.Size / 2;
+				}
+			}
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public GenericFont(string face, int size, bool bold, bool italic)
+				: base(face, size, bold, italic)
+			{
+			}
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public override HtSize Measure(string text)
+			{
+				return new HtSize(text.Length * WhiteSize, base.Size);
+			}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			public override void Draw(string id, HtRect rect, HtColor color, string text, bool isEffect, DrawTextEffect effect, HtColor effectColor, int effectAmount, string linkText, object userData)
+			{
+				Console.WriteLine("DrawText: {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10}", this, id, rect, color, text, isEffect, effect, effectColor, effectAmount, linkText, userData);
+			}
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		internal class GenericImage : HtImage
+		{
+			public override int Width
+			{
+				get
+				{
+					return 32;
+				}
+			}
 
-		3. Assembly Reconstruction has not been implemented.
+			public override int Height
+			{
+				get
+				{
+					return 32;
+				}
+			}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			public override void Draw(string id, HtRect rect, HtColor color, string linkText, object userData)
+			{
+				Console.WriteLine("DrawImage {0} {1} {2} {3} {4} {5}", this, id, rect, color, linkText, userData);
+			}
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		internal class GenericDevice : HtDevice
+		{
+			public override HtFont LoadFont(string face, int size, bool bold, bool italic)
+			{
+				return new GenericFont(face, size, bold, italic);
+			}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			public override HtImage LoadImage(string src, int fps)
+			{
+				return new GenericImage();
+			}
 
-		5. Script Content Level 0
+			public override void FillRect(HtRect rect, HtColor color, object userData)
+			{
+				Console.WriteLine("FillRect {0} {1} {2}", rect, color, userData);
+			}
 
-			AssetRipper was set to not load any script information.
+			public override void OnRelease()
+			{
+				Console.WriteLine("OnRelease");
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		internal class ConsoleLogger : HtLogger
+		{
+			public override void Log(HtLogLevel level, string message)
+			{
+				Console.WriteLine("{0} : {1}", level, message);
+			}
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		internal static HtDevice Device = new GenericDevice();
 
-		7. An incorrect path was provided to AssetRipper.
+		internal static HtLogger Logger = new ConsoleLogger();
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public static HtLogLevel LogLevel = HtLogLevel.Debug;
 
-		*/
+		public static HtColor DefaultColor = HtColor.white;
+
+		public static HtColor LinkHoverColor = HtColor.blue;
+
+		public static float LinkPressedFactor = 0.6f;
+
+		public static string LinkFunctionName = "onLinkClicked";
+
+		public static UIFont NormalSmall;
+
+		public static UIFont FontSmall;
+
+		public static UIFont ThuPhapSmall;
+
+		public static UIAtlas[] atlas = null;
+
+		public static string DefaultFontFace = "default";
+
+		public static int DefaultFontSize = 16;
+
+		public static HtColor DefaultLinkColor = HtColor.yellow;
+
+		public static void RegisterDevice(HtDevice device)
+		{
+			if (Device != null)
+			{
+				Device.OnRelease();
+			}
+			Device = device;
+		}
+
+		public static void RegisterLogger(HtLogger logger)
+		{
+			Logger = logger;
+		}
+
+		public static HtCompiler GetCompiler()
+		{
+			return OP<HtCompiler>.Acquire();
+		}
+
+		internal static void Log(HtLogLevel level, string format, params object[] args)
+		{
+			Logger.Log(level, string.Format(format, args));
+		}
 	}
 }

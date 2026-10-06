@@ -1,66 +1,72 @@
+using HTMLEngine.Core;
 using UnityEngine;
 
 namespace HTMLEngine.Unity3D
 {
-	public class Unity3DFont : MonoBehaviour
+	public class Unity3DFont : HtFont
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public readonly GUIStyle style = new GUIStyle();
 
-		1. No dll files were provided to AssetRipper.
+		public readonly GUIContent content = new GUIContent();
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private readonly int whiteSize;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public override int LineSpacing
+		{
+			get
+			{
+				return (int)style.lineHeight;
+			}
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public override int WhiteSize
+		{
+			get
+			{
+				return whiteSize;
+			}
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public Unity3DFont(string face, int size, bool bold, bool italic)
+			: base(face, size, bold, italic)
+		{
+			string text = string.Format("{0}{1}{2}{3}", face, size, (!bold) ? string.Empty : "b", (!italic) ? string.Empty : "i");
+			GUIStyle gUIStyle = style;
+			Object obj = Resources.Load("fonts/" + text, typeof(Font));
+			gUIStyle.font = (Font)((obj is Font) ? obj : null);
+			if (style.font == null)
+			{
+				Debug.LogError("Could not load font: " + text);
+			}
+			style.wordWrap = false;
+			content.text = " .";
+			whiteSize = (int)style.CalcSize(content).x;
+			content.text = ".";
+			whiteSize -= (int)style.CalcSize(content).x;
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		public override HtSize Measure(string text)
+		{
+			content.text = text;
+			Vector2 vector = style.CalcSize(content);
+			int num = text.Length;
+			while (num > 0 && text[num - 1] == ' ')
+			{
+				vector.x += WhiteSize;
+				num--;
+			}
+			return new HtSize((int)vector.x, (int)vector.y);
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
-
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
-
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public override void Draw(string id, HtRect rect, HtColor color, string text, bool isEffect, DrawTextEffect effect, HtColor effectColor, int effectAmount, string linkText, object userData)
+		{
+			if (string.IsNullOrEmpty(id))
+			{
+				GUI.SetNextControlName(id);
+			}
+			content.text = text;
+			style.normal.textColor = new Color32(color.R, color.G, color.B, color.A);
+			style.Draw(new Rect(rect.X, rect.Y, rect.Width, rect.Height), content, false, false, false, false);
+		}
 	}
 }

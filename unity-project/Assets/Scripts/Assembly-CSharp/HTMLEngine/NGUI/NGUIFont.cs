@@ -1,66 +1,123 @@
+using HTMLEngine.Core;
 using UnityEngine;
 
 namespace HTMLEngine.NGUI
 {
-	public class NGUIFont : MonoBehaviour
+	public class NGUIFont : HtFont
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public UIFont uiFont;
 
-		1. No dll files were provided to AssetRipper.
+		private readonly int whiteSize;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public override int LineSpacing
+		{
+			get
+			{
+				return uiFont.size + uiFont.verticalSpacing;
+			}
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public override int WhiteSize
+		{
+			get
+			{
+				return whiteSize;
+			}
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public NGUIFont(string face, int size, bool bold, bool italic)
+			: base(face, size, bold, italic)
+		{
+			UIFont uIFont = null;
+			uIFont = ((face == "FontSmall") ? HtEngine.FontSmall : ((!(face == "ThuPhapSmall")) ? HtEngine.NormalSmall : HtEngine.ThuPhapSmall));
+			if (uIFont == null)
+			{
+				Debug.LogError("Could not load font: " + face);
+				return;
+			}
+			uiFont = Object.Instantiate(uIFont) as UIFont;
+			Object.DontDestroyOnLoad(uiFont);
+			GameObject gameObject = GameObject.Find("/cachedHtmlFonts");
+			if (gameObject == null)
+			{
+				gameObject = new GameObject("cachedHtmlFonts");
+				Object.DontDestroyOnLoad(gameObject);
+			}
+			uiFont.transform.parent = gameObject.transform;
+			uiFont.name = face;
+			whiteSize = (int)(uiFont.CalculatePrintedSize(" .", true, UIFont.SymbolStyle.None).x * (float)size);
+			whiteSize -= (int)(uiFont.CalculatePrintedSize(".", true, UIFont.SymbolStyle.None).x * (float)size);
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public override HtSize Measure(string text)
+		{
+			Vector2 vector = uiFont.CalculatePrintedSize(text, false, UIFont.SymbolStyle.None) * uiFont.size * 1.1f;
+			return new HtSize((int)vector.x, (int)vector.y);
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		public override void Draw(string id, HtRect rect, HtColor color, string text, bool isEffect, DrawTextEffect effect, HtColor effectColor, int effectAmount, string linkText, object userData)
+		{
+			if (isEffect)
+			{
+				return;
+			}
+			Transform transform = (Transform)((userData is Transform) ? userData : null);
+			if (transform != null)
+			{
+				GameObject gameObject = new GameObject((!string.IsNullOrEmpty(id)) ? id : "label", typeof(UILabel));
+				gameObject.layer = transform.gameObject.layer;
+				gameObject.transform.parent = transform;
+				gameObject.transform.localPosition = new Vector3(rect.X + rect.Width / 2, -rect.Y - rect.Height / 2, 0f);
+				gameObject.transform.localScale = new Vector3(uiFont.size, uiFont.size, 1f);
+				UILabel component = gameObject.GetComponent<UILabel>();
+				component.pivot = UIWidget.Pivot.Center;
+				component.supportEncoding = false;
+				component.font = uiFont;
+				component.text = text;
+				component.color = new Color32(color.R, color.G, color.B, color.A);
+				switch (effect)
+				{
+				case DrawTextEffect.Outline:
+					component.effectStyle = UILabel.Effect.Outline;
+					break;
+				case DrawTextEffect.Shadow:
+					component.effectStyle = UILabel.Effect.Shadow;
+					break;
+				}
+				component.effectColor = new Color32(effectColor.R, effectColor.G, effectColor.B, effectColor.A);
+				component.effectDistance = new Vector2(effectAmount, effectAmount);
+				component.MakePixelPerfect();
+				if (!string.IsNullOrEmpty(linkText))
+				{
+					BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
+					boxCollider.isTrigger = true;
+					boxCollider.center = new Vector3(0f, 0f, -0.25f);
+					boxCollider.size = new Vector3(component.relativeSize.x, 1f, 1f);
+					NGUILinkText nGUILinkText = gameObject.AddComponent<NGUILinkText>();
+					nGUILinkText.linkText = linkText;
+					UIButtonColor uIButtonColor = gameObject.AddComponent<UIButtonColor>();
+					uIButtonColor.tweenTarget = gameObject;
+					uIButtonColor.hover = new Color32(HtEngine.LinkHoverColor.R, HtEngine.LinkHoverColor.G, HtEngine.LinkHoverColor.B, HtEngine.LinkHoverColor.A);
+					uIButtonColor.pressed = new Color(component.color.r * HtEngine.LinkPressedFactor, component.color.g * HtEngine.LinkPressedFactor, component.color.b * HtEngine.LinkPressedFactor, component.color.a);
+					uIButtonColor.duration = 0f;
+					UIButtonMessage uIButtonMessage = gameObject.AddComponent<UIButtonMessage>();
+					uIButtonMessage.target = transform.gameObject;
+					uIButtonMessage.functionName = HtEngine.LinkFunctionName;
+				}
+			}
+			else
+			{
+				HtEngine.Log(HtLogLevel.Error, "Can't draw without root.");
+			}
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
-
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
-
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public void OnRelease()
+		{
+			if (uiFont != null && (bool)uiFont)
+			{
+				Object.Destroy(uiFont.gameObject);
+				uiFont = null;
+			}
+		}
 	}
 }

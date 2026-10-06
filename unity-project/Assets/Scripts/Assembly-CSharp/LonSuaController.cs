@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using UnityEngine.AI;
 public class LonSuaController : MonoBehaviour
 {
 	public const float RunMaxSpeed = 2.4f;

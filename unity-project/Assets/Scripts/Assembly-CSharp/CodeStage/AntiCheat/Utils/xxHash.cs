@@ -1,66 +1,70 @@
-using UnityEngine;
-
 namespace CodeStage.AntiCheat.Utils
 {
-	public class xxHash : MonoBehaviour
+	internal class xxHash
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private const uint PRIME32_1 = 2654435761u;
 
-		1. No dll files were provided to AssetRipper.
+		private const uint PRIME32_2 = 2246822519u;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private const uint PRIME32_3 = 3266489917u;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private const uint PRIME32_4 = 668265263u;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private const uint PRIME32_5 = 374761393u;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
-
-		3. Assembly Reconstruction has not been implemented.
-
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
-
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
-
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public static uint CalculateHash(byte[] buf, int len, uint seed = 0u)
+		{
+			int i = 0;
+			uint num7;
+			if (len >= 16)
+			{
+				int num = len - 16;
+				uint num2 = (uint)((int)seed + -1640531535 + -2048144777);
+				uint num3 = seed + 2246822519u;
+				uint num4 = seed;
+				uint num5 = seed - 2654435761u;
+				do
+				{
+					uint num6 = (uint)(buf[i++] | (buf[i++] << 8) | (buf[i++] << 16) | (buf[i++] << 24));
+					num2 += (uint)((int)num6 * -2048144777);
+					num2 = (num2 << 13) | (num2 >> 19);
+					num2 *= 2654435761u;
+					num6 = (uint)(buf[i++] | (buf[i++] << 8) | (buf[i++] << 16) | (buf[i++] << 24));
+					num3 += (uint)((int)num6 * -2048144777);
+					num3 = (num3 << 13) | (num3 >> 19);
+					num3 *= 2654435761u;
+					num6 = (uint)(buf[i++] | (buf[i++] << 8) | (buf[i++] << 16) | (buf[i++] << 24));
+					num4 += (uint)((int)num6 * -2048144777);
+					num4 = (num4 << 13) | (num4 >> 19);
+					num4 *= 2654435761u;
+					num6 = (uint)(buf[i++] | (buf[i++] << 8) | (buf[i++] << 16) | (buf[i++] << 24));
+					num5 += (uint)((int)num6 * -2048144777);
+					num5 = (num5 << 13) | (num5 >> 19);
+					num5 *= 2654435761u;
+				}
+				while (i <= num);
+				num7 = ((num2 << 1) | (num2 >> 31)) + ((num3 << 7) | (num3 >> 25)) + ((num4 << 12) | (num4 >> 20)) + ((num5 << 18) | (num5 >> 14));
+			}
+			else
+			{
+				num7 = seed + 374761393;
+			}
+			num7 += (uint)len;
+			while (i <= len - 4)
+			{
+				num7 += (uint)((buf[i++] | (buf[i++] << 8) | (buf[i++] << 16) | (buf[i++] << 24)) * -1028477379);
+				num7 = ((num7 << 17) | (num7 >> 15)) * 668265263;
+			}
+			for (; i < len; i++)
+			{
+				num7 += (uint)(buf[i] * 374761393);
+				num7 = ((num7 << 11) | (num7 >> 21)) * 2654435761u;
+			}
+			num7 ^= num7 >> 15;
+			num7 *= 2246822519u;
+			num7 ^= num7 >> 13;
+			num7 *= 3266489917u;
+			return num7 ^ (num7 >> 16);
+		}
 	}
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using UnityEngine.AI;
 public class BanhChungMainPlayer : BanhChungPlayer
 {
 	private const float updatePosInterval = 1f;

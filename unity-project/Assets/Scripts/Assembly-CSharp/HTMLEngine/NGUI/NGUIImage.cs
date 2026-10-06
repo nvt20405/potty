@@ -1,66 +1,176 @@
+using System;
+using HTMLEngine.Core;
 using UnityEngine;
 
 namespace HTMLEngine.NGUI
 {
-	public class NGUIImage : MonoBehaviour
+	public class NGUIImage : HtImage
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private readonly bool isTime;
 
-		1. No dll files were provided to AssetRipper.
+		private readonly HtFont timeFont;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public readonly UIAtlas uiAtlas;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public readonly string spriteName;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public readonly bool isAnim;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public readonly int FPS;
 
-		3. Assembly Reconstruction has not been implemented.
+		public override int Width
+		{
+			get
+			{
+				if (isTime)
+				{
+					return 120;
+				}
+				if (uiAtlas == null)
+				{
+					return 1;
+				}
+				UIAtlas.Sprite sprite = null;
+				if (isAnim)
+				{
+					int i = 0;
+					for (int count = uiAtlas.spriteList.Count; i < count; i++)
+					{
+						UIAtlas.Sprite sprite2 = uiAtlas.spriteList[i];
+						if (string.IsNullOrEmpty(spriteName) || sprite2.name.StartsWith(spriteName))
+						{
+							sprite = sprite2;
+							break;
+						}
+					}
+				}
+				else
+				{
+					sprite = uiAtlas.GetSprite(spriteName);
+				}
+				return (sprite == null) ? 1 : ((int)sprite.outer.width);
+			}
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public override int Height
+		{
+			get
+			{
+				if (isTime)
+				{
+					return 20;
+				}
+				if (uiAtlas == null)
+				{
+					return 1;
+				}
+				UIAtlas.Sprite sprite = null;
+				if (isAnim)
+				{
+					int i = 0;
+					for (int count = uiAtlas.spriteList.Count; i < count; i++)
+					{
+						UIAtlas.Sprite sprite2 = uiAtlas.spriteList[i];
+						if (string.IsNullOrEmpty(spriteName) || sprite2.name.StartsWith(spriteName))
+						{
+							sprite = sprite2;
+							break;
+						}
+					}
+				}
+				else
+				{
+					sprite = uiAtlas.GetSprite(spriteName);
+				}
+				return (sprite == null) ? 1 : ((int)sprite.outer.height);
+			}
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public NGUIImage(string source, int fps)
+		{
+			spriteName = source;
+			isAnim = fps >= 0;
+			FPS = fps;
+			uiAtlas = null;
+			UIAtlas[] atlas = HtEngine.atlas;
+			UIAtlas[] array = atlas;
+			foreach (UIAtlas uIAtlas in array)
+			{
+				if (uIAtlas.GetSprite(spriteName) != null)
+				{
+					uiAtlas = uIAtlas;
+					break;
+				}
+			}
+			if (uiAtlas == null)
+			{
+				Debug.LogError("Could not found sprite" + spriteName);
+			}
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		public override void Draw(string id, HtRect rect, HtColor color, string linkText, object userData)
+		{
+			if (isTime)
+			{
+				DateTime now = DateTime.Now;
+				timeFont.Draw("time", rect, color, string.Format("{0:D2}:{1:D2}:{2:D2}.{3:D3}", now.Hour, now.Minute, now.Second, now.Millisecond), false, DrawTextEffect.None, HtColor.white, 0, linkText, userData);
+			}
+			else
+			{
+				if (!(uiAtlas != null))
+				{
+					return;
+				}
+				Transform transform = (Transform)((userData is Transform) ? userData : null);
+				if (transform != null)
+				{
+					GameObject gameObject = new GameObject((!string.IsNullOrEmpty(id)) ? id : "image", typeof(UISprite));
+					gameObject.layer = transform.gameObject.layer;
+					gameObject.transform.parent = transform;
+					gameObject.transform.localPosition = new Vector3(rect.X + rect.Width / 2, -rect.Y - rect.Height / 2, -1f);
+					gameObject.transform.localScale = new Vector3(rect.Width, rect.Height, 1f);
+					UISprite component = gameObject.GetComponent<UISprite>();
+					component.pivot = UIWidget.Pivot.Center;
+					component.atlas = uiAtlas;
+					component.color = new Color32(color.R, color.G, color.B, color.A);
+					if (isAnim)
+					{
+						UISpriteAnimation uISpriteAnimation = gameObject.AddComponent<UISpriteAnimation>();
+						uISpriteAnimation.framesPerSecond = FPS;
+						uISpriteAnimation.namePrefix = spriteName;
+					}
+					else
+					{
+						component.spriteName = spriteName;
+						component.MakePixelPerfect();
+						if (gameObject.transform.localScale.y == 0f)
+						{
+							gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, 1f, 1f);
+						}
+					}
+					if (!string.IsNullOrEmpty(linkText))
+					{
+						BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
+						boxCollider.isTrigger = true;
+						boxCollider.center = new Vector3(0f, 0f, -0.25f);
+						boxCollider.size = new Vector3(1f, 1f, 1f);
+						NGUILinkText nGUILinkText = gameObject.AddComponent<NGUILinkText>();
+						nGUILinkText.linkText = linkText;
+						UIButtonColor uIButtonColor = gameObject.AddComponent<UIButtonColor>();
+						uIButtonColor.tweenTarget = gameObject;
+						uIButtonColor.hover = new Color32(HtEngine.LinkHoverColor.R, HtEngine.LinkHoverColor.G, HtEngine.LinkHoverColor.B, HtEngine.LinkHoverColor.A);
+						uIButtonColor.pressed = new Color(component.color.r * HtEngine.LinkPressedFactor, component.color.g * HtEngine.LinkPressedFactor, component.color.b * HtEngine.LinkPressedFactor, component.color.a);
+						uIButtonColor.duration = 0f;
+						UIButtonMessage uIButtonMessage = gameObject.AddComponent<UIButtonMessage>();
+						uIButtonMessage.target = transform.gameObject;
+						uIButtonMessage.functionName = HtEngine.LinkFunctionName;
+					}
+				}
+				else
+				{
+					HtEngine.Log(HtLogLevel.Error, "Can't draw without root.");
+				}
+			}
+		}
 	}
 }

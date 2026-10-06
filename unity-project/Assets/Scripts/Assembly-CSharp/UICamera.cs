@@ -524,7 +524,7 @@ public class UICamera : MonoBehaviour
 	{
 		mList.Add(this);
 		cachedCamera.eventMask = 0;
-		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.BB10Player)
 		{
 			useMouse = false;
 			useTouch = true;
@@ -534,7 +534,7 @@ public class UICamera : MonoBehaviour
 				useController = false;
 			}
 		}
-		else if (Application.platform == RuntimePlatform.PS4 || Application.platform == RuntimePlatform.XboxOne)
+		else if (Application.platform == RuntimePlatform.PS3 || Application.platform == RuntimePlatform.XBOX360)
 		{
 			useMouse = false;
 			useTouch = false;

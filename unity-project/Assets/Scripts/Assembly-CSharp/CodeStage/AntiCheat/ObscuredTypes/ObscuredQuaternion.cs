@@ -1,66 +1,180 @@
+using System;
+using CodeStage.AntiCheat.Detectors;
 using UnityEngine;
 
 namespace CodeStage.AntiCheat.ObscuredTypes
 {
-	public class ObscuredQuaternion : MonoBehaviour
+	[Serializable]
+	public struct ObscuredQuaternion
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		[Serializable]
+		public struct RawEncryptedQuaternion
+		{
+			public int x;
 
-		1. No dll files were provided to AssetRipper.
+			public int y;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public int z;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public int w;
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private static int cryptoKey = 120205;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private static readonly Quaternion initialFakeValue = Quaternion.identity;
 
-		3. Assembly Reconstruction has not been implemented.
+		[SerializeField]
+		private int currentCryptoKey;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		[SerializeField]
+		private RawEncryptedQuaternion hiddenValue;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		[SerializeField]
+		private Quaternion fakeValue;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		[SerializeField]
+		private bool inited;
 
-		5. Script Content Level 0
+		private ObscuredQuaternion(RawEncryptedQuaternion value)
+		{
+			currentCryptoKey = cryptoKey;
+			hiddenValue = value;
+			fakeValue = initialFakeValue;
+			inited = true;
+		}
 
-			AssetRipper was set to not load any script information.
+		public static void SetNewCryptoKey(int newKey)
+		{
+			cryptoKey = newKey;
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public void ApplyNewCryptoKey()
+		{
+			if (currentCryptoKey != cryptoKey)
+			{
+				hiddenValue = Encrypt(InternalDecrypt(), cryptoKey);
+				currentCryptoKey = cryptoKey;
+			}
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static RawEncryptedQuaternion Encrypt(Quaternion value)
+		{
+			return Encrypt(value, 0);
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		public static RawEncryptedQuaternion Encrypt(Quaternion value, int key)
+		{
+			if (key == 0)
+			{
+				key = cryptoKey;
+			}
+			return new RawEncryptedQuaternion
+			{
+				x = ObscuredFloat.Encrypt(value.x, key),
+				y = ObscuredFloat.Encrypt(value.y, key),
+				z = ObscuredFloat.Encrypt(value.z, key),
+				w = ObscuredFloat.Encrypt(value.w, key)
+			};
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public static Quaternion Decrypt(RawEncryptedQuaternion value)
+		{
+			return Decrypt(value, 0);
+		}
 
-		*/
+		public static Quaternion Decrypt(RawEncryptedQuaternion value, int key)
+		{
+			if (key == 0)
+			{
+				key = cryptoKey;
+			}
+			return new Quaternion
+			{
+				x = ObscuredFloat.Decrypt(value.x, key),
+				y = ObscuredFloat.Decrypt(value.y, key),
+				z = ObscuredFloat.Decrypt(value.z, key),
+				w = ObscuredFloat.Decrypt(value.w, key)
+			};
+		}
+
+		public RawEncryptedQuaternion GetEncrypted()
+		{
+			ApplyNewCryptoKey();
+			return hiddenValue;
+		}
+
+		public void SetEncrypted(RawEncryptedQuaternion encrypted)
+		{
+			inited = true;
+			hiddenValue = encrypted;
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				fakeValue = InternalDecrypt();
+			}
+		}
+
+		private Quaternion InternalDecrypt()
+		{
+			if (!inited)
+			{
+				currentCryptoKey = cryptoKey;
+				hiddenValue = Encrypt(initialFakeValue);
+				fakeValue = initialFakeValue;
+				inited = true;
+			}
+			int key = cryptoKey;
+			if (currentCryptoKey != cryptoKey)
+			{
+				key = currentCryptoKey;
+			}
+			Quaternion quaternion = new Quaternion
+			{
+				x = ObscuredFloat.Decrypt(hiddenValue.x, key),
+				y = ObscuredFloat.Decrypt(hiddenValue.y, key),
+				z = ObscuredFloat.Decrypt(hiddenValue.z, key),
+				w = ObscuredFloat.Decrypt(hiddenValue.w, key)
+			};
+			if (ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && !CompareQuaternionsWithTolerance(quaternion, fakeValue))
+			{
+				ObscuredCheatingDetector.Instance.OnCheatingDetected();
+			}
+			return quaternion;
+		}
+
+		private bool CompareQuaternionsWithTolerance(Quaternion q1, Quaternion q2)
+		{
+			float quaternionEpsilon = ObscuredCheatingDetector.Instance.quaternionEpsilon;
+			return Math.Abs(q1.x - q2.x) < quaternionEpsilon && Math.Abs(q1.y - q2.y) < quaternionEpsilon && Math.Abs(q1.z - q2.z) < quaternionEpsilon && Math.Abs(q1.w - q2.w) < quaternionEpsilon;
+		}
+
+		public override int GetHashCode()
+		{
+			return InternalDecrypt().GetHashCode();
+		}
+
+		public override string ToString()
+		{
+			return InternalDecrypt().ToString();
+		}
+
+		public string ToString(string format)
+		{
+			return InternalDecrypt().ToString(format);
+		}
+
+		public static implicit operator ObscuredQuaternion(Quaternion value)
+		{
+			ObscuredQuaternion result = new ObscuredQuaternion(Encrypt(value));
+			if (ObscuredCheatingDetector.isRunning)
+			{
+				result.fakeValue = value;
+			}
+			return result;
+		}
+
+		public static implicit operator Quaternion(ObscuredQuaternion value)
+		{
+			return value.InternalDecrypt();
+		}
 	}
 }

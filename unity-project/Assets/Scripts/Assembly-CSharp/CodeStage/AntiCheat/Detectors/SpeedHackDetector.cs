@@ -1,66 +1,255 @@
+using System;
 using UnityEngine;
 
 namespace CodeStage.AntiCheat.Detectors
 {
-	public class SpeedHackDetector : MonoBehaviour
+	[DisallowMultipleComponent]
+	public class SpeedHackDetector : ActDetectorBase
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private const string COMPONENT_NAME = "Speed Hack Detector";
 
-		1. No dll files were provided to AssetRipper.
+		private const long TICKS_PER_SECOND = 10000000L;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		private const int THRESHOLD = 5000000;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		internal static bool isRunning;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		[Tooltip("Time (in seconds) between detector checks.")]
+		public float interval = 1f;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		[Tooltip("Maximum false positives count allowed before registering speed hack.")]
+		public byte maxFalsePositives = 3;
 
-		3. Assembly Reconstruction has not been implemented.
+		[Tooltip("Amount of sequential successful checks before clearing internal false positives counter.\nSet 0 to disable Cool Down feature.")]
+		public int coolDown = 30;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private byte currentFalsePositives;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private int currentCooldownShots;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private long ticksOnStart;
 
-		5. Script Content Level 0
+		private long vulnerableTicksOnStart;
 
-			AssetRipper was set to not load any script information.
+		private long prevTicks;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private long prevIntervalTicks;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static SpeedHackDetector Instance { get; private set; }
 
-		7. An incorrect path was provided to AssetRipper.
+		private static SpeedHackDetector GetOrCreateInstance
+		{
+			get
+			{
+				if (Instance == null)
+				{
+					SpeedHackDetector speedHackDetector = UnityEngine.Object.FindObjectOfType<SpeedHackDetector>();
+					if (speedHackDetector != null)
+					{
+						Instance = speedHackDetector;
+					}
+					else
+					{
+						if (ActDetectorBase.detectorsContainer == null)
+						{
+							ActDetectorBase.detectorsContainer = new GameObject("Anti-Cheat Toolkit Detectors");
+						}
+						ActDetectorBase.detectorsContainer.AddComponent<SpeedHackDetector>();
+					}
+				}
+				return Instance;
+			}
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private SpeedHackDetector()
+		{
+		}
 
-		*/
+		public static void StartDetection(Action callback)
+		{
+			StartDetection(callback, GetOrCreateInstance.interval);
+		}
+
+		public static void StartDetection(Action callback, float checkInterval)
+		{
+			StartDetection(callback, checkInterval, GetOrCreateInstance.maxFalsePositives);
+		}
+
+		public static void StartDetection(Action callback, float checkInterval, byte falsePositives)
+		{
+			StartDetection(callback, checkInterval, falsePositives, GetOrCreateInstance.coolDown);
+		}
+
+		public static void StartDetection(Action callback, float checkInterval, byte falsePositives, int shotsTillCooldown)
+		{
+			GetOrCreateInstance.StartDetectionInternal(callback, checkInterval, falsePositives, shotsTillCooldown);
+		}
+
+		public static void StopDetection()
+		{
+			if (Instance != null)
+			{
+				Instance.StopDetectionInternal();
+			}
+		}
+
+		public static void Dispose()
+		{
+			if (Instance != null)
+			{
+				Instance.DisposeInternal();
+			}
+		}
+
+		private void Awake()
+		{
+			if (Init(Instance, "Speed Hack Detector"))
+			{
+				Instance = this;
+			}
+		}
+
+		private void StartDetectionInternal(Action callback, float checkInterval, byte falsePositives, int shotsTillCooldown)
+		{
+			if (isRunning)
+			{
+				Debug.LogWarning("[ACTk] Speed Hack Detector already running!");
+				return;
+			}
+			if (!base.enabled)
+			{
+				Debug.LogWarning("[ACTk] Speed Hack Detector disabled but StartDetection still called from somewhere!");
+				return;
+			}
+			onDetection = callback;
+			interval = checkInterval;
+			maxFalsePositives = falsePositives;
+			coolDown = shotsTillCooldown;
+			ResetStartTicks();
+			currentFalsePositives = 0;
+			currentCooldownShots = 0;
+			isRunning = true;
+		}
+
+		protected override void StopDetectionInternal()
+		{
+			if (isRunning)
+			{
+				onDetection = null;
+				isRunning = false;
+			}
+		}
+
+		protected override void PauseDetector()
+		{
+			isRunning = false;
+		}
+
+		protected override void ResumeDetector()
+		{
+			isRunning = true;
+		}
+
+		protected override void DisposeInternal()
+		{
+			base.DisposeInternal();
+			if (Instance == this)
+			{
+				Instance = null;
+			}
+		}
+
+		private void ResetStartTicks()
+		{
+			ticksOnStart = DateTime.UtcNow.Ticks;
+			vulnerableTicksOnStart = (long)Environment.TickCount * 10000L;
+			prevTicks = ticksOnStart;
+			prevIntervalTicks = ticksOnStart;
+		}
+
+		private void OnApplicationPause(bool pause)
+		{
+			if (!pause)
+			{
+				ResetStartTicks();
+			}
+		}
+
+		private void Update()
+		{
+			if (!isRunning)
+			{
+				return;
+			}
+			long num = 0L;
+			num = DateTime.UtcNow.Ticks;
+			long num2 = num - prevTicks;
+			if (num2 < 0 || num2 > 10000000)
+			{
+				if (Debug.isDebugBuild)
+				{
+					Debug.LogWarning("[ACTk] SpeedHackDetector: System DateTime change or > 1 second game freeze detected!");
+				}
+				ResetStartTicks();
+				return;
+			}
+			prevTicks = num;
+			long num3 = (long)(interval * 10000000f);
+			if (num - prevIntervalTicks < num3)
+			{
+				return;
+			}
+			long num4 = 0L;
+			num4 = (long)Environment.TickCount * 10000L;
+			if (Mathf.Abs(num4 - vulnerableTicksOnStart - (num - ticksOnStart)) > 5000000f)
+			{
+				currentFalsePositives++;
+				if (currentFalsePositives > maxFalsePositives)
+				{
+					if (Debug.isDebugBuild)
+					{
+						Debug.LogWarning("[ACTk] SpeedHackDetector: final detection!");
+					}
+					if (onDetection != null)
+					{
+						onDetection();
+					}
+					if (autoDispose)
+					{
+						Dispose();
+					}
+					else
+					{
+						StopDetection();
+					}
+				}
+				else
+				{
+					if (Debug.isDebugBuild)
+					{
+						Debug.LogWarning("[ACTk] SpeedHackDetector: detection! Allowed false positives left: " + (maxFalsePositives - currentFalsePositives));
+					}
+					currentCooldownShots = 0;
+					ResetStartTicks();
+				}
+			}
+			else if (currentFalsePositives > 0 && coolDown > 0)
+			{
+				if (Debug.isDebugBuild)
+				{
+					Debug.LogWarning("[ACTk] SpeedHackDetector: success shot! Shots till Cooldown: " + (coolDown - currentCooldownShots));
+				}
+				currentCooldownShots++;
+				if (currentCooldownShots >= coolDown)
+				{
+					if (Debug.isDebugBuild)
+					{
+						Debug.LogWarning("[ACTk] SpeedHackDetector: Cooldown!");
+					}
+					currentFalsePositives = 0;
+				}
+			}
+			prevIntervalTicks = num;
+		}
 	}
 }

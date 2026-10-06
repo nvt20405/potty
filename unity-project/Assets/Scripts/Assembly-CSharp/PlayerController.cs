@@ -1,6 +1,7 @@
 using LitJson;
 using UnityEngine;
 
+using UnityEngine.AI;
 public class PlayerController : PlayerMovement
 {
 	private const float updatePosInterval = 1f;
