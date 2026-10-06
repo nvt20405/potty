@@ -15,8 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true
-      - run: git lfs pull
+          lfs: false
+      - name: Pull only plugin DLLs from LFS
+        run: |
+          git lfs install --local
+          git lfs pull --include="unity-project/Assets/Plugins/**/*.dll,unity-project/Assets/Plugins/*.dll" --exclude="*"
       - name: Compile player C# against Unity 6
         run: |
           set -euo pipefail
@@ -34,7 +37,7 @@ jobs:
             for f in "$REF"/*.dll "$REF"/Facades/*.dll "$UMAN"/*.dll; do
               [ -f "$f" ] && printf "%s\n" "-r:$f" >> /tmp/mvl/refs.rsp
             done
-            find unity-project/Assets -type f -name "*.dll" | sort | while read -r f; do
+            find unity-project/Assets/Plugins -type f -name "*.dll" 2>/dev/null | sort | while read -r f; do
               printf "%s\n" "-r:/src/$f" >> /tmp/mvl/refs.rsp
             done
             sed "s#^#/src/#" /tmp/mvl/sources.txt > /tmp/mvl/sources-abs.txt
