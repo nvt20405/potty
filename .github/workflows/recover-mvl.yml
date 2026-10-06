@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   recover:
@@ -75,6 +75,13 @@ jobs:
           test -d "$OUT/ExportedProject/Assets"
           test -d "$OUT/ExportedProject/ProjectSettings"
 
+      - name: Migrate recovered project to Unity 6
+        run: |
+          set -euxo pipefail
+          PROJ=work/recovered/ExportedProject
+          python3 tools/port_to_unity6.py "$PROJ"
+          python3 tools/validate_unity_project.py "$PROJ" | tee work/unity6-validation.txt
+
       - name: Inventory and split archive
         run: |
           set -euxo pipefail
@@ -99,6 +106,22 @@ jobs:
           split -b 80m -d -a 2 work/mvl-recovered.tar.gz work/chunks/part-
           ls -lh work/chunks
 
+      - name: Push migrated Unity project to branch
+        run: |
+          set -euxo pipefail
+          PROJ=work/recovered/ExportedProject
+          rm -rf unity-project
+          mkdir -p unity-project
+          cp -a "$PROJ"/. unity-project/
+
+          git lfs install --local
+          git lfs track "*.anim" "*.asset" "*.png" "*.jpg" "*.jpeg" "*.tga" "*.psd" "*.mp3" "*.wav" "*.ogg" "*.ttf" "*.otf" "*.bytes" "*.dll" "*.so"
+          git config user.name "MVL Unity Migration Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add .gitattributes unity-project
+          git commit -m "feat: recover and migrate Mộng Võ Lâm project to Unity 6.3 LTS" || true
+          git push origin HEAD:mvl-unity6-recovery
+
       - name: Upload metadata
         uses: actions/upload-artifact@v4
         with:
@@ -108,6 +131,7 @@ jobs:
             work/assetripper.log
             work/assetripper.stdout.log
             work/apk.sha256
+            work/unity6-validation.txt
           retention-days: 7
 
       - name: Upload chunk 00
