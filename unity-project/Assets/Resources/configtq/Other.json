@@ -1,0 +1,2264 @@
+{
+	"LoginCfg": {
+	"version" : 10000,
+	"androidUrl":"https://play.google.com/store/apps/details?id=vn.shg.dmc",
+	"appstoreUrl":"https://itunes.apple.com/vn/app/dai-minh-chu/id722012550?mt=8",
+	"jbUrl":"http://minhchu.sohagame.vn/download",
+	"cfgAndroidUrl": "http://54.251.100.23/Upload/bundle/cfg_android_v6.unity3d",
+	"cfgAndroidCRC": 123716599,
+	"cfgIOSUrl": "http://54.251.100.23/Upload/bundle/cfg_ios_v6.unity3d",
+	"cfgIOSCRC": 1302670939,
+	"cfgWindowUrl":"http://54.251.100.23/Upload/bundle/cfg_window_v6.unity3d",
+	"cfgWindowCRC": 4140631830,
+	"cfgWPUrl":"http://54.251.100.23/Upload/bundle/cfg_wp_v6.unity3d",
+	"cfgWPCRC": 2331792151,
+	"cfgVer": 6
+  },
+  "BangChien": {
+    "ListThanhChien": [
+      "襄阳",
+      "金陵",
+      "燕京",
+      "扬州",
+      "成都",
+      "大理",
+      "凤翔",
+      "苏州"
+    ],
+    "ListNgayBangChien": [
+      0,
+      3,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "GioBangChien": "21:30:00",
+    "ThoiGianDienRa": 29,
+    "DoBenCongThanhNho": 1500,
+    "DoBenCongThanhTo": 1500,
+    "ThoiGianHoiSinhCongThanh": 0,
+    "ThoiGianHoiSinhThuThanh": 0,
+    "ThoiGianCongThanh": 20,
+    "ThoiGianGetPhanThuong": 20,
+    "ThoiGianDenThuThanh": 15
+  },
+  "TanSuatUpdateViTriPlayerBanhChung" : 1,
+  "TanSuatUpdateViTriOtherBanhChung" : 2,
+  "NguyenKhiConfig":
+	  {
+	  "NK_THIEN_TUONG": {
+		"DisplayName": "天将",
+		"Loai": 0,
+		"baseStat": 200,
+		"growStat": 9,
+		"MoTa": "属于南斗星，行阳水，象征权利。给修炼者增加额外命属性加成。"
+	  },
+	  "NK_THAT_SAT": {
+		"DisplayName": "七杀",
+		"Loai": 1,
+		"baseStat": 150,
+		"growStat": 7,
+		"MoTa": "属阳金，是星宿中的第一杀星。给修炼者增加额外外属性加成。"
+	  },
+	  "NK_THAM_LANG": {
+		"DisplayName": "贪狼",
+		"Loai": 2,
+		"baseStat": 120,
+		"growStat": 6,
+		"MoTa": "属阴水，是星宿中的凶星。给修炼者增加额外身法属性加成。"
+	  },
+	  "NK_THIEN_CO": {
+		"DisplayName": "天机",
+		"Loai": 3,
+		"baseStat": 170,
+		"growStat": 7,
+		"MoTa": "属阴木，属星宿中第一福星。给修炼者增加额外气属性加成。"
+	  },
+	  "NK_VU_KHUC": {
+		"DisplayName": "武曲",
+		"Loai": 4,
+		"baseStat": 1,
+		"growStat": 0.2,
+		"MoTa": "属北斗星、阴金，是星宿中最高财星。给修炼者增加对普通攻击的抵抗能力。"
+	  },
+	  "NK_PHA_QUAN": {
+		"DisplayName": "破军",
+		"Loai": 5,
+		"baseStat": 3,
+		"growStat": 0.5,
+		"MoTa": "属阴水，代表破坏力。对修炼者减少暴击所造成的伤害。"
+	  }
+	},
+	"ThuCuoiConfig": {
+    "NGUA_O_TRUY": {
+      "CodeName": "NGUA_O_TRUY",
+      "MenhBuff": 0,
+      "NgoaiBuff": 0,
+      "ThanBuff": 0,
+      "KhiBuff": 0,
+      "MenhBuffRate": 5,
+      "NgoaiBuffRate": 5,
+      "ThanBuffRate": 5,
+      "KhiBuffRate": 5,
+      "BaoBuff": 0,
+      "NeBuff": 0,
+      "DoDonBuff": 0,
+      "DisplayName": "乌骓",
+      "MoTa": "乌骓马是西楚霸王项羽的坐骑，乌黑毛，勇猛。项羽在汉王刘邦失手时，项羽在乌江边用剑自杀。见到主人自杀，乌骓马也往河里跳下去。后世将乌骓马号称为忠诚的象征。",
+      "Loai": 0
+    },
+    "NGUA_DICH_LO": {
+      "CodeName": "NGUA_DICH_LO",
+      "MenhBuff": 500,
+      "NgoaiBuff": 0,
+      "ThanBuff": 0,
+      "KhiBuff": 0,
+      "MenhBuffRate": 0,
+      "NgoaiBuffRate": 0,
+      "ThanBuffRate": 10,
+      "KhiBuffRate": 10,
+      "BaoBuff": 0,
+      "NeBuff": 0,
+      "DoDonBuff": 0,
+      "DisplayName": "的卢",
+      "MoTa": "刘备本来将的卢马送给刘表，不过刘表认为这匹的卢马“马白额入口至齿者，名曰榆雁，一名的卢。奴乘客死，主乘弃市，凶马也”，张武的杀就是明正眼前，因此，刘表就将的卢马还给刘备。",
+      "Loai": 0
+    },
+    "NGUA_XICH_THO": {
+      "CodeName": "NGUA_XICH_THO",
+      "MenhBuff": 0,
+      "NgoaiBuff": 0,
+      "ThanBuff": 500,
+      "KhiBuff": 0,
+      "MenhBuffRate": 0,
+      "NgoaiBuffRate": 0,
+      "ThanBuffRate": 0,
+      "KhiBuffRate": 0,
+      "BaoBuff": 10,
+      "NeBuff": 10,
+      "DoDonBuff": 25,
+      "DisplayName": "赤兔", 
+      "MoTa": "赤兔马一仗长，八尺高，毛色红彤彤，绝对没有一根杂毛。日行千里、也走八百。吕布死时，赤兔马被曹操派人照顾，后来交给关羽。关羽骑着赤兔马过五关战六将。关羽死时，赤兔马遂绝食而死。",
+      "Loai": 0
+    },
+    "NGUA_TUYET_ANH": {
+      "CodeName": "NGUA_TUYET_ANH",
+      "MenhBuff": 0,
+      "NgoaiBuff": 500,
+      "ThanBuff": 0,
+      "KhiBuff": 0,
+      "MenhBuffRate": 10,
+      "NgoaiBuffRate": 5,
+      "ThanBuffRate": 0,
+      "KhiBuffRate": 0,
+      "BaoBuff": 0,
+      "NeBuff": 10,
+      "DoDonBuff": 0,
+      "DisplayName": "绝影",
+      "MoTa": "绝影是曹操的神马。绝影的意思就是连马的影子都追不到。",
+      "Loai": 0
+    },
+    "NGUA_O_VAN_DAP_TUYET": {
+      "CodeName": "NGUA_O_VAN_DAP_TUYET",
+      "MenhBuff": 0,
+      "NgoaiBuff": 500,
+      "ThanBuff": 0,
+      "KhiBuff": 0,
+      "MenhBuffRate": 15,
+      "NgoaiBuffRate": 0,
+      "ThanBuffRate": 15,
+      "KhiBuffRate": 0,
+      "BaoBuff": 0,
+      "NeBuff": 0,
+      "DoDonBuff": 30,
+      "DisplayName": "乌云踏雪",
+      "MoTa": "乌云踏雪，马也如名-全身乌黑，四脚显白。这是张飞的宝马。相传张飞和乌云都一样黑。张飞以马为子对待，长城自身为马洗澡，梳毛。",
+      "Loai": 0
+    },
+    "NGUA_CHIEU_DA_NGOC_SU_TU": {
+      "CodeName": "NGUA_CHIEU_DA_NGOC_SU_TU",
+      "MenhBuff": 1000,
+      "NgoaiBuff": 0,
+      "ThanBuff": 0,
+      "KhiBuff": 0,
+      "MenhBuffRate": 0,
+      "NgoaiBuffRate": 15,
+      "ThanBuffRate": 0,
+      "KhiBuffRate": 15,
+      "BaoBuff": 10,
+      "NeBuff": 0,
+      "DoDonBuff": 0,
+      "DisplayName": "照夜玉狮子",
+      "MoTa": "是赵云的宝马，全身白毛如雪，脖子毛圈厚实，犹如狮子一样，脾气挺大。毛色在黑暗发光，因此命名为夜照玉狮子。 ",
+      "Loai": 0
+    },
+    "NGUA_PHIEN_VU": {
+      "CodeName": "NGUA_PHIEN_VU",
+      "MenhBuff": 0,
+      "NgoaiBuff": 0,
+      "ThanBuff": 0,
+      "KhiBuff": 0,
+      "MenhBuffRate": 15,
+      "NgoaiBuffRate": 15,
+      "ThanBuffRate": 15,
+      "KhiBuffRate": 15,
+      "BaoBuff": 0,
+      "NeBuff": 0,
+      "DoDonBuff": 0,
+      "DisplayName": "翻羽",
+      "MoTa": "是周穆王八骏其中的一骏，翻羽马可以跑得比飞鸟还快。",
+      "Loai": 0
+    }
+  },
+  "NgocBuffTocDoDanh":	[0,3,5,7,9,11,13,15,20,25,30],
+  "NgocBuffKhangChuong":[0,2,4,6,8,10,12,14,16,18,20],
+  "NgocBuffHoaGiai":	[0,2,4,6,8,10,12,14,16,18,20],
+  "NgocBuffBaoKich":	[0,3,4,5,6,7,8,9,11,13,15],
+  "NgocBuffChiSo":		[0,2,4,6,8,10,12,14,17,20,25],
+  "NgocSoLuongCan":		[0,5,10,20,40,80,160,320,640,1280,2560],
+  "ThoiGianDotLuaTrai" : 10,
+  "ThoiGianGetExpLuaTrai" : 5,
+  "CT2TimeNotifyPos" : 0.15,
+  "TinhLuyenBinh1":{
+	"SoLoai":2,
+	"SoManh": [ 10,10]
+  },
+  "TinhLuyenBinh2":{
+	"SoLoai":3,
+	"SoManh": [ 20,20,20]
+  },
+  "TinhLuyenBinh3":{
+	"SoLoai":3,
+	"SoManh": [ 40,40,40]
+  },
+  "TinhLuyenAt1":{
+	"SoLoai":2,
+	"SoManh": [ 20,20]
+  },
+  "TinhLuyenAt2":{
+	"SoLoai":3,
+	"SoManh": [ 40,40,40]
+  },
+  "TinhLuyenAt3":{
+	"SoLoai":4,
+	"SoManh": [ 80,80,80,15]
+  },
+  "TinhLuyenGiap1":{
+	"SoLoai":3,
+	"SoManh": [ 40,40,40]
+  },
+  "TinhLuyenGiap2":{
+	"SoLoai":3,
+	"SoManh": [ 80,80,80]
+  },
+  "TinhLuyenGiap3":{
+	"SoLoai":4,
+	"SoManh": [ 160,160,160,30]
+  },
+  "CaoNhanThapAvatar" : "NV_HONG_THAT_CONG",
+  "CaoNhanTrungAvatar" : "NV_PHONG_THANH_DUONG",
+  "CaoNhanCaoAvatar" : "NV_TRUONG_TAM_PHONG",
+  "CaoNhanSieuCapAvatar" : "NV_DOC_CO_CAU_BAI",
+  "ThuongNhanAvatar" : "NV_VI_TIEU_BAO",
+  "TyThiAvatar" : "NV_LENH_HO_XUNG",
+  "HopThanList":{
+	"VP_RUONGTHAN_TRANGBI":["VK_DA_CAU_BONG","VK_Y_THIEN_KIEM","AG_TU_HA_CAM_Y","VK_DO_LONG_DAO","VK_LANH_NGUYET_BAO_DAO","VK_NHAT_NGUYET_PHU","VK_BACH_LONG_THANG_THIEN_THUONG","VK_TRANG_NGUYEN_BUT","VK_THANH_MA_THAN_THU","VK_LONG_PHUNG_SONG_HOAN","VK_DAP_NGUYET_PHIEN","AG_THU_THUY_THUONG","AG_BICH_NGUYET_AM_THUONG","AG_VO_SONG_NGOC_THUONG","AG_THUY_LINH_CAM_Y","AG_BANG_PHACH"],
+	"VP_RUONGTHAN_MU":["TS_THAT_BAO_LINH","TS_CAU_HON_LINH","TS_KIM_BAI_LENH_TIEN","TS_TUYET_VIEM_THACH"],
+	"VP_RUONGTHAN_BOPHAP":["VC_BAT_BO_DANG_KHONG_B","VC_DAP_TUYET_LUU_HUONG_B","VC_LANG_KHONG_DAP_HU_B","VC_THE_VAN_TUNG_B","VC_THIEN_CAN_TRUY_B","VC_CUU_AM_CHAN_KINH_B","VC_BAC_MINH_THAN_CONG_B","VC_HON_NGUYEN_CONG_B","VC_THAI_CUC_THAN_CONG_B","VC_THIEN_TAM_CONG_B","VC_TU_LA_AM_SAT_CONG_B"],
+	"VP_RUONGTHAN_NOICONG":["VC_DAP_TUYET_LUU_HUONG_B","VC_LANG_KHONG_DAP_HU_B","VC_THIEN_CAN_TRUY_B","VC_BAC_MINH_THAN_CONG_B","VC_HON_NGUYEN_CONG_B","VC_THAI_CUC_THAN_CONG_B","VC_THIEN_TAM_CONG_B"],
+	"VP_RUONGTHAN_ULINH":["VC_DAP_TUYET_LUU_HUONG_B","VC_LANG_KHONG_DAP_HU_B","VC_THIEN_CAN_TRUY_B"],
+	"VP_RUONGTHAN_DENBU_NC":["VC_THIEN_TAM_CONG_B","VC_HON_NGUYEN_CONG_B","VC_BAC_MINH_THAN_CONG_B"],
+	"VP_RUONGTHAN_DENBU_AG":["AG_THU_THUY_THUONG","AG_BICH_NGUYET_AM_THUONG","AG_VO_SONG_NGOC_THUONG","AG_THUY_LINH_CAM_Y","AG_BANG_PHACH"],
+	"VP_RUONGTHAN_DENBU_VK":["VK_DO_LONG_DAO","VK_LANH_NGUYET_BAO_DAO","VK_NHAT_NGUYET_PHU","VK_BACH_LONG_THANG_THIEN_THUONG","VK_TRANG_NGUYEN_BUT","VK_THANH_MA_THAN_THU","VK_LONG_PHUNG_SONG_HOAN","VK_DAP_NGUYET_PHIEN"]
+  },
+  "MaxAvatar3DInHome" : 15,
+  "CuocThachDau1" : 100,
+  "CuocThachDau2" : 250,
+  "CuocThachDau3" : 500,
+  "MaxLuotTangTheLuc" : 10,
+  "MaxLuotDuocTangTheLuc" : 10,
+  "MaxLuotThuongGiupBanDanhSon" : 10,
+  "GiaDoiRuou0": 5,
+  "GiaDoiRuou1": 10,
+  "GiaDoiRuou2": 100,
+  "GiaMoThuongDanhSonLan1": 30,
+  "GiaMoThuongDanhSonLan2": 35,
+  "GiaMoThuongDanhSonLan3": 40,
+  "GiaMoThuongDanhSonLan4": 45,
+  "GiaMoThuongDanhSonLan5": 50,
+  "GiaMoThuongDanhSonLan6": 60,
+  "GiaMoTatCaDanhSon": 250,
+  "GiaResetDanhSon": 20,
+  "GiaLayDeTuLoai1": 20,
+  "GiaLayDeTuLoai2": 200,
+  "GiaLayDeTuLoai3": 500,
+  "ThuongNhapMaGioiThieu": [
+    {
+    "Name": "VC_NHAT_DUONG_CHI",
+    "Count": 1,
+    "Level": 1,
+    "Loai": 3
+	},
+    {
+      "Count": 200,
+      "Name": "",
+      "Level": 1,
+      "Loai": 1
+    },
+    {
+      "Count": 200,
+      "Name": "VP_BOI_DUONG_DAN",
+      "Level": 1,
+      "Loai": 4
+    }
+  ],
+  "ThuongNapKnbLanDau": [
+  {
+    "Name": "VK_LANH_NGUYET_BAO_DAO",
+    "Count": 1,
+    "Level": 1,
+    "ID": 0,
+    "Loai": 2
+  },
+  {
+    "Name": "VC_THONG_THIEN_BO_PHAP_B",
+    "Count": 1,
+    "Level": 1,
+    "ID": 0,
+    "Loai": 3
+  },
+  {
+    "Name": "VP_BOI_DUONG_DAN",
+    "Count": 200,
+    "Level": 1,
+    "ID": 0,
+    "Loai": 4
+  }
+],
+  "CuuVienTieuPhong": [
+    {
+      "SoDeTuGiap": 5,
+      "SoTrangBiGiap": 0,
+      "PhanThuong": {
+        "Count": 500,
+        "Name": "VP_BOI_DUONG_DAN",
+        "Level": 1,
+        "Loai": 4
+      }
+    },
+    {
+      "SoDeTuGiap": 6,
+      "SoTrangBiGiap": 0,
+      "PhanThuong": {
+        "Count": 1,
+        "Name": "VC_THAI_CUC_THAN_CONG_B",
+        "Level": 1,
+        "Loai": 3
+      }
+    },
+    {
+      "SoDeTuGiap": 7,
+      "SoTrangBiGiap": 2,
+      "PhanThuong": {
+        "Count": 1,
+        "Name": "VC_THIEN_CAN_TRUY_B",
+        "Level": 1,
+        "Loai": 3
+      }
+    },
+    {
+      "SoDeTuGiap": 8,
+      "SoTrangBiGiap": 4,
+      "PhanThuong": {
+        "Count": 1,
+        "Name": "VC_TU_LA_AM_SAT_CONG_B",
+        "Level": 1,
+        "Loai": 3
+      }
+    }
+  ],
+  "LenCapNhanThuong": [
+    {
+      "CapYeuCau": 4,
+      "PhanThuong": [{"Name":"","Count":30,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":60000,"Level":1,"ID":0,"Loai":0}]
+    },
+	{
+      "CapYeuCau": 5,
+      "PhanThuong": [{"Name":"VK_KIM_XA_KIEM","Count":1,"Level":1,"ID":0,"Loai":2},{"Name":"","Count":60000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":1,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "CapYeuCau": 7,
+      "PhanThuong": [{"Name":"","Count":50,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":70000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "CapYeuCau": 10,
+      "PhanThuong": [{"Name":"","Count":100,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":80000,"Level":1,"ID":0,"Loai":0}]
+    },
+	{
+      "CapYeuCau": 11,
+      "PhanThuong": [{"Name":"AG_TUONG_QUAN_KHAI_GIAP","Count":1,"Level":1,"ID":0,"Loai":2},{"Name":"","Count":80000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":2,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "CapYeuCau": 12,
+      "PhanThuong": [{"Name":"","Count":200,"Level":1,"ID":0,"Loai":1},{"Name":"VP_BAT_QUAI_TRAN_DO","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 13,
+      "PhanThuong": [{"Name":"MU_CAI_BANG_DAU_SUC","Count":1,"Level":1,"ID":0,"Loai":2},{"Name":"","Count":80000,"Level":1,"ID":0,"Loai":0},{"Name":"VC_NGU_HANH_CONG_PHAP_B","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+    {
+      "CapYeuCau": 15,
+      "PhanThuong": [{"Name":"","Count":300,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":120000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":4,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "CapYeuCau": 18,
+      "PhanThuong": [{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"","Count":150000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":4,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "CapYeuCau": 20,
+      "PhanThuong": [{"Name":"VP_BOI_DUONG_DAN","Count":300,"Level":1,"ID":0,"Loai":4},{"Name":"","Count":300000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 24,
+      "PhanThuong": [{"Name":"VP_BOI_DUONG_DAN","Count":500,"Level":1,"ID":0,"Loai":4},{"Name":"VP_TRUYEN_CONG_2","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 28,
+      "PhanThuong": [{"Name":"","Count":500,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":1000000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":6,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 32,
+      "PhanThuong": [{"Name":"VP_BOI_DUONG_DAN","Count":800,"Level":1,"ID":0,"Loai":4},{"Name":"VP_TRUYEN_CONG_2","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":6,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 35,
+      "PhanThuong": [{"Name":"","Count":800,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":5000000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 38,
+      "PhanThuong": [{"Name":"VP_BOI_DUONG_DAN","Count":1200,"Level":1,"ID":0,"Loai":4},{"Name":"","Count":6500000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 40,
+      "PhanThuong": [{"Name":"VC_THIEN_TAM_CONG_B","Count":1,"Level":1,"ID":0,"Loai":3},{"Name":"VP_TRUYEN_CONG_2","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":10,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 43,
+      "PhanThuong": [{"Name":"","Count":1200,"Level":1,"ID":0,"Loai":1},{"Name":"","Count":10000000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":10,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 45,
+      "PhanThuong": [{"Name":"MU_KIM_XA_NGAN_TI","Count":1,"Level":1,"ID":0,"Loai":2},{"Name":"","Count":12000000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":12,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 48,
+      "PhanThuong": [{"Name":"","Count":2000,"Level":1,"ID":0,"Loai":1},{"Name":"VP_TRUYEN_CONG_2","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":12,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "CapYeuCau": 50,
+      "PhanThuong": [{"Name":"TS_TUYET_VIEM_THACH","Count":1,"Level":1,"ID":0,"Loai":2},{"Name":"VP_BOI_DUONG_DAN","Count":2000,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":15,"Level":1,"ID":0,"Loai":4}]
+    }
+  ],
+  "DangNhapNhanThuong": [
+    {
+      "PhanThuong": [{"Name":"","Count":10000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":3,"Level":1,"ID":0,"Loai":4},{"Name":"VC_DAU_CHUYEN_TINH_DI","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+    {
+      "PhanThuong": [{"Name":"","Count":20000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":3,"Level":1,"ID":0,"Loai":4},{"Name":"VC_BAT_PHUONG_PHONG_VU","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+    {
+      "PhanThuong": [{"Name":"","Count":30000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":3,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "PhanThuong": [{"Name":"","Count":40000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":3,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "PhanThuong": [{"Name":"","Count":50000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":3,"Level":1,"ID":0,"Loai":4},{"Name":"NV_VI_TIEU_BAO","Count":30,"Level":1,"ID":0,"Loai":5}]
+    },
+    {
+      "PhanThuong": [{"Name":"","Count":60000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+    {
+      "PhanThuong": [{"Name":"","Count":70000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":50,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":80000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":90000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":100000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":50,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":105000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":110000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":50,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":115000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":120000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":125000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VK_ON_HAU_NGAN_KICH","Count":1,"Level":1,"ID":0,"Loai":2}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":130000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":10,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":135000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":10,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":50,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":140000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":10,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":3,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":145000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":10,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":10,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":150000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":10,"Level":1,"ID":0,"Loai":4},{"Name":"TS_THANH_HOA_LENH","Count":1,"Level":1,"ID":0,"Loai":2}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":155000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":12,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":160000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":12,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":50,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":165000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":12,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":170000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":12,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":12,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":175000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":12,"Level":1,"ID":0,"Loai":4},{"Name":"MU_DIEM_THUY_PHAT_DAI","Count":1,"Level":1,"ID":0,"Loai":2}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":180000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":15,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":185000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":15,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":50,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":190000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":15,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":195000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":15,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":15,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":200000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":15,"Level":1,"ID":0,"Loai":4},{"Name":"AG_THU_THUY_THUONG","Count":1,"Level":1,"ID":0,"Loai":2}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":205000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":17,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":10,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":210000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":17,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":215000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":17,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":220000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":17,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":17,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":225000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":17,"Level":1,"ID":0,"Loai":4},{"Name":"VC_PHI_LONG_TAI_THIEN","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":230000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":20,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":10,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":235000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":20,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":240000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":20,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":5,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":245000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":20,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":20,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":250000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":20,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TRUY_TINH_CAN_NGUYET_B","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":255000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":22,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":12,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":260000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":22,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":265000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":22,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":270000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":22,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":22,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":275000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":22,"Level":1,"ID":0,"Loai":4},{"Name":"VC_THAT_TUYET_KINH_B","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":280000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":25,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":12,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":285000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":25,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":290000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":25,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":295000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":25,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":25,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":300000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":25,"Level":1,"ID":0,"Loai":4},{"Name":"VC_THIEN_PHAT_HANG_THE","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":305000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":27,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":15,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":310000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":27,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":315000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":27,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":320000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":27,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":27,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":325000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":27,"Level":1,"ID":0,"Loai":4},{"Name":"VC_LANG_KHONG_DAP_HU_B","Count":1,"Level":1,"ID":0,"Loai":3}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":330000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT","Count":30,"Level":1,"ID":0,"Loai":4},{"Name":"VP_GA_QUAY","Count":15,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":335000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_SAT_KEY","Count":30,"Level":1,"ID":0,"Loai":4},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":340000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_BAC","Count":30,"Level":1,"ID":0,"Loai":4},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":345000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG","Count":30,"Level":1,"ID":0,"Loai":4},{"Name":"VP_HOP_BAC_KEY","Count":30,"Level":1,"ID":0,"Loai":4}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":350000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_HOP_VANG_KEY","Count":30,"Level":1,"ID":0,"Loai":4},{"Name":"VK_LANH_NGUYET_BAO_DAO","Count":1,"Level":1,"ID":0,"Loai":2}]
+    },
+{
+      "PhanThuong": [{"Name":"","Count":355000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":360000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":365000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":370000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":375000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":380000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":385000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":390000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":395000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":400000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_TRUYEN_CONG_2","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":405000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":410000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":8,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":415000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":420000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":425000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":8,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":430000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":435000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":440000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":8,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":445000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":450000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_TRUYEN_CONG_2","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":455000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":460000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":465000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":470000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":475000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":9,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":480000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":485000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":490000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":495000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":500000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_TRUYEN_CONG_2","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":505000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":510000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":10,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":515000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":13,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":520000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":525000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"NV_LENH_HO_XUNG","Count":1,"Level":1,"ID":0,"Loai":5}]
+    },
+{
+      "PhanThuong": [{"Name":"","Count":525000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":530000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":535000,"Level":1,"ID":0,"Loai":0},{"Name":"","Count":200,"Level":1,"ID":0,"Loai":1},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":540000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":545000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":550000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":555000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":560000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":565000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":570000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_TRUYEN_CONG_2","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":575000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":580000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":585000,"Level":1,"ID":0,"Loai":0},{"Name":"","Count":200,"Level":1,"ID":0,"Loai":1},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":590000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":595000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":600000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":605000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":610000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":615000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":620000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_TRUYEN_CONG_2","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":625000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":630000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":635000,"Level":1,"ID":0,"Loai":0},{"Name":"","Count":200,"Level":1,"ID":0,"Loai":1},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":640000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":645000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":650000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":655000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_GA_QUAY","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":660000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_CUSTOM_1","Count":5,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":665000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":670000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_TRUYEN_CONG_2","Count":1,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":675000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_BOI_DUONG_DAN","Count":100,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":680000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":685000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_SEED_HUYET_BO_DE","Count":2,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":690000,"Level":1,"ID":0,"Loai":0},{"Name":"","Count":200,"Level":1,"ID":0,"Loai":1},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    },
+	{
+      "PhanThuong": [{"Name":"","Count":695000,"Level":1,"ID":0,"Loai":0},{"Name":"VP_LUAN_KIEM_LENH","Count":7,"Level":1,"ID":0,"Loai":4},{"Name":"VC_TIEU_VO_TUONG_CONG_B","Count":1,"Level":1,"ID":0,"Loai":11}]
+    }	
+  ],
+  "DongNhanTimeUpLevel": 10,
+  "NhanVatMaxExp": [
+    1,
+    1,
+    1,
+    1,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    3.5,
+    3.5,
+    3.5,
+    3.5,
+    6,
+    6,
+    6,
+    6,
+    9,
+    9,
+    9,
+    9,
+    10,
+    10,
+    10,
+    10,
+    14,
+    14,
+    14,
+    14,
+    15.5,
+    15.5,
+    15.5,
+    15.5,
+    20.5,
+    20.5,
+    20.5,
+    20.5,
+    23,
+    23,
+    23,
+    23,
+    30,
+    30,
+    30,
+    30,
+    33.5,
+    33.5,
+    33.5,
+    33.5,
+    42,
+    42,
+    42,
+    47,
+    47,
+    47,
+    58,
+    58,
+    58,
+    64,
+    64,
+    64,
+    78.5,
+    78.5,
+    78.5,
+    104,
+    104,
+    104,
+    134.5,
+    134.5,
+    134.5,
+    169.5,
+    169.5,
+    169.5,
+    210,
+    210,
+    210,
+    257,
+    257,
+    257,
+    425,
+    425,
+    425,
+    467.5,
+    467.5,
+    467.5,
+    687,
+    687,
+    687,
+    757,
+    757,
+    757,
+    1042,
+    1042,
+    1042,
+    1375,
+    1375,
+    1375,
+    1801,
+    1801,
+    1801,
+    2227,
+    2227,
+    2227,
+    2760,
+    2760,
+    2760,
+    3375,
+    3375,
+    3375,
+    3717,
+    3717,
+    3717,
+    4092,
+    4092,
+    4092,
+    4508.5,
+    4508.5,
+    4508.5,
+    4967,
+    4967,
+    4967,
+    5467,
+    5467,
+    5467,
+    6017,
+    6017,
+    6017,
+    6625,
+    6625,
+    6625,
+    7292,
+    7292,
+    7292,
+    8025,
+    8025,
+    8025,
+    8455,
+    8455,
+    8455,
+    9988,
+    9988,
+    9988,
+    10692,
+    10692,
+    10692,
+    11767,
+    11767,
+    11767,
+    12950,
+    12950,
+    12950,
+    13222,
+    13222,
+    13222,
+    13483.5,
+    13483.5,
+    13483.5,
+    13758.5,
+    13758.5,
+    13758.5,
+    14042,
+    14042,
+    14042,
+    14312,
+    14312,
+    14312,
+    14617,
+    14617,
+    14617,
+    14915,
+    14915,
+    14915,
+    15300,
+    15300,
+    15300,
+    15555,
+    15555,
+    15555,
+    15842,
+    15842,
+    15842,
+    16167,
+    16167,
+    16167,
+    16492,
+    16492,
+    16492,
+    16881,
+    16881,
+    16881,
+    17167,
+    17167,
+    17167,
+    17517,
+    17517,
+    17517,
+    17875,
+    17875,
+    17875,
+    18233.5,
+    18233.5,
+    18233.5,
+    18450,
+    18450,
+    18450,
+    18759,
+    18759,
+    18759,
+    19233,
+    19233,
+    19233,
+    19750,
+    19750,
+    19750,
+    20122,
+    20122,
+    20122,
+    20558.5,
+    20558.5,
+    20558.5,
+    20975,
+    20975,
+    20975,
+    21345,
+    21345,
+    21345,
+    21888,
+    21888,
+    21888,
+    22275,
+    22275,
+    22275,
+    22725,
+    22725,
+    22725,
+    23100,
+    23100,
+    23100,
+    23650,
+    23650,
+    23650,
+    24000,
+    24000,
+    24000,
+    24500,
+    24500,
+    24500,
+    24999,
+    24999,
+    24999,
+    25588,
+    26088,
+    26588,
+    27088,
+    27588,
+    28088,
+    28588,
+    29088,
+    29588,
+    30088,
+    30588,
+    31088,
+    31588,
+    32088,
+    32588,
+    33088,
+    33588,
+    34088,
+    34588,
+    35088,
+    35588,
+    36088,
+    36993,
+    38307,
+    40034,
+    42178,
+    44744,
+    47736,
+    51157,
+    55013,
+    59307,
+    64044,
+    69229,
+    74865,
+    80958,
+    87512,
+    94531,
+    102020,
+    109984,
+    118428,
+    127356,
+    136774,
+    146686,
+    157097,
+    168012,
+    179436,
+    191374,
+    203832,
+    216814,
+    230326,
+    244373,
+    274373,
+    314373,
+    364373,
+    434373,
+    504373,
+    574373,
+    654373,
+    744373,
+    844373,
+    954373
+  ],
+  "MonPhaiMaxExp": [
+    130,
+    150,
+    160,
+    170,
+    180,
+    310,
+    330,
+    520,
+    690,
+    730,
+    920,
+    970,
+    1164,
+    1340,
+    1590,
+    1880,
+    2150,
+    2250,
+    2530,
+    2650,
+    2940,
+    3680,
+    4290,
+    5110,
+    5750,
+    6640,
+    8300,
+    10340,
+    13270,
+    17150,
+    20910,
+    25910,
+    30530,
+    36750,
+    40120,
+    46510,
+    51110,
+    58810,
+    62250,
+    68800,
+    73120,
+    79500,
+    85930,
+    90100,
+    94360,
+    100210,
+    105200,
+    110290,
+    115010,
+    120870,
+    124230,
+    129640,
+    132050,
+    136070,
+    139010,
+    145080,
+    150420,
+    156480,
+    160680,
+    165070,
+    170850,
+    174200,
+    179690,
+    183420,
+    188590,
+    192220,
+    203450,
+    209520,
+    214650,
+    220150,
+    224850,
+    229990,
+    235690,
+    288570,
+    292320,
+    296080,
+    300000,
+    304850,
+    310020,
+    314860,
+    319810,
+    324220,
+    329000,
+    334210,
+    340010,
+    344210,
+    348520,
+    352610,
+    357960,
+    365100,
+    370050,
+    373210,
+    378700,
+    383980,
+    388560,
+    394230,
+    399670,
+    405550,
+    409990,
+    415590
+  ],
+  "MonPhaiGetExp": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    18,
+    19,
+    19,
+    20,
+    20,
+    21,
+    21,
+    22,
+    22,
+    23,
+    23,
+    24,
+    24,
+    25,
+    25,
+    26,
+    26,
+    27,
+    27,
+    28,
+    28,
+    29,
+    29,
+    30,
+    30,
+    31,
+    31,
+    32,
+    32,
+    33,
+    33,
+    34,
+    34,
+    35,
+    35,
+    36,
+    36,
+    37,
+    37,
+    38,
+    38,
+    39,
+    39,
+    40,
+    40,
+    41,
+    41,
+    42,
+    42,
+    43,
+    43,
+    44,
+    44,
+    45,
+    45,
+    46,
+    46,
+    47,
+    47,
+    48,
+    48,
+    49,
+    49,
+    50,
+    50,
+    51,
+    51,
+    52,
+    52,
+    53,
+    53,
+    54,
+    54,
+    55,
+    55,
+    56,
+    56,
+    57,
+    57,
+    58,
+    58,
+    59,
+    59,
+    60,
+    60,
+    61,
+    61,
+    62,
+    62,
+    63,
+    63
+  ],
+  "NhanVatGetExp": [
+    30,
+    31,
+    36,
+    40,
+    44,
+    47,
+    50,
+    55,
+    59,
+    63,
+    66,
+    72,
+    77,
+    85,
+    91,
+    99,
+    107,
+    115,
+    123,
+    131,
+    141,
+    150,
+    161,
+    171,
+    182,
+    192,
+    204,
+    215,
+    226,
+    238,
+    250,
+    275,
+    303,
+    334,
+    360,
+    400,
+    438,
+    473,
+    516,
+    564,
+    616,
+    656,
+    701,
+    750,
+    805,
+    863,
+    915,
+    963,
+    1023,
+    1080,
+    1145,
+    1214,
+    1289,
+    1357,
+    1437,
+    1532,
+    1638,
+    1737,
+    1852,
+    1951,
+    2081,
+    2181,
+    2319,
+    2444,
+    2584,
+    2717,
+    2861,
+    3013,
+    3173,
+    3347,
+    3511,
+    3696,
+    3870,
+    4066,
+    4274,
+    4424,
+    4564,
+    4724,
+    4904,
+    5048,
+    5236,
+    5437,
+    5659,
+    5799,
+    5900,
+    5999,
+    6174,
+    6328,
+    6454,
+    6639,
+    6833,
+    6978,
+    7114,
+    7259,
+    7384,
+    7559,
+    7684,
+    7870,
+    8069,
+    8269
+  ],
+  "VuKhiGiaNangCapLevel1": [
+    300,
+    600,
+    1200
+  ],
+  "AoGiapGiaNangCapLevel1": [
+    300,
+    600,
+    1200
+  ],
+  "TrangSucGiaNangCapLevel1": [
+    300,
+    600,
+    1200
+  ],
+  "MuGiaNangCapLevel1": [
+    300,
+    600,
+    1200
+  ],
+  "TrangBiHeSoNangCap": [
+    1,
+    1,
+    1,
+    1.1,
+    1.1,
+    1.1,
+    1.3,
+    1.3,
+    1.3,
+    1.5,
+    1.5,
+    1.5,
+    1.7,
+    1.7,
+    1.7,
+    3.8,
+    3.8,
+    3.8,
+    4.2,
+    4.2,
+    4.2,
+    7.2,
+    7.2,
+    7.2,
+    10.8,
+    10.8,
+    10.8,
+    12,
+    12,
+    12,
+    16.5,
+    16.5,
+    16.5,
+    18.5,
+    18.5,
+    18.5,
+    24.6,
+    24.6,
+    24.6,
+    27.6,
+    27.6,
+    27.6,
+    35.7,
+    35.7,
+    35.7,
+    39.9,
+    39.9,
+    39.9,
+    50.4,
+    50.4,
+    50.4,
+    56,
+    56,
+    56,
+    69.3,
+    69.3,
+    69.3,
+    76.5,
+    76.5,
+    76.5,
+    94,
+    94,
+    94,
+    124.8,
+    124.8,
+    124.8,
+    161,
+    161,
+    161,
+    203.2,
+    203.2,
+    203.2,
+    252,
+    252,
+    252,
+    308,
+    308,
+    308,
+    510,
+    510,
+    510,
+    561,
+    561,
+    561,
+    824,
+    824,
+    824,
+    908,
+    908,
+    908,
+    1250,
+    1250,
+    1250,
+    1650,
+    1650,
+    1650,
+    2121,
+    2121,
+    2121,
+    2672,
+    2672,
+    2672,
+    3172,
+    3172,
+    3172,
+    3672,
+    3672,
+    3672,
+    4222,
+    4222,
+    4222,
+    4772,
+    4772,
+    4772,
+    5372,
+    5372,
+    5372,
+    5972,
+    5972,
+    5972,
+    6622,
+    6622,
+    6622,
+    7272,
+    7272,
+    7272,
+    7972,
+    7972,
+    7972,
+    8672,
+    8672,
+    8672,
+    9422,
+    9422,
+    9422,
+    10172,
+    10172,
+    10172,
+    10972,
+    10972,
+    10972,
+    11772,
+    11772,
+    11772,
+    12622,
+    12622,
+    12622,
+    13472,
+    13472,
+    13472,
+    14372,
+    14372,
+    14372,
+    15272,
+    15272,
+    15272,
+    16222,
+    16222,
+    16222,
+    17172,
+    17172,
+    17172,
+    18172,
+    18172,
+    18172,
+    19172,
+    19172,
+    19172,
+    20222,
+    20222,
+    20222,
+    21272,
+    21272,
+    21272,
+    22372,
+    22372,
+    22372,
+    23472,
+    23472,
+    23472,
+    24622,
+    24622,
+    24622,
+    25772,
+    25772,
+    25772,
+    26972,
+    26972,
+    26972,
+    28172,
+    28172,
+    28172,
+    29422,
+    29422,
+    29422,
+    30672,
+    30672,
+    30672,
+    31972,
+    31972,
+    31972,
+    33272,
+    33272,
+    33272,
+    34622,
+    34622,
+    34622,
+    35972,
+    35972,
+    35972,
+    37372,
+    37372,
+    37372,
+    38772,
+    38772,
+    38772,
+    40222,
+    40222,
+    40222,
+    41672,
+    41672,
+    41672,
+    43172,
+    43172,
+    43172,
+    44672,
+    44672,
+    44672,
+    46222,
+    46222,
+    46222,
+    47772,
+    47772,
+    47772,
+    49372,
+    49372,
+    49372,
+    50972,
+    50972,
+    50972,
+    52622,
+    52622,
+    52622,
+    54322,
+    54322,
+    54322,
+    56022,
+    56022,
+    56022,
+    57772,
+    57772,
+    57772,
+    59522,
+    59522,
+    59522,
+    61322,
+    61322,
+    61322,
+    63122,
+    63122,
+    63122,
+    64972,
+    64972,
+    64972,
+    66822,
+    66822,
+    66822,
+    68722,
+    68722,
+    68722,
+    70622,
+    70622,
+    70622,
+    72572,
+    72572,
+    72572,
+    74522,
+    74522,
+    74522,
+    76522,
+    76522,
+    76522,
+    78522,
+    78522,
+    78522,
+    80522,
+    80522,
+    80522,
+    82522,
+    82522,
+    82522,
+    84522,
+    84522,
+    84522,
+    86522,
+    86522,
+    86522,
+    88522,
+    88522,
+    88522
+  ],
+  "VoCongHang3NangCapHeSo": [
+    6,
+    18,
+    36,
+    72,
+    144,
+    288,
+    576,
+    1152,
+    2304
+  ],
+  "VoCongHang2NangCapHeSo": [
+    4,
+    12,
+    24,
+    48,
+    96,
+    192,
+    384,
+    768,
+    1536
+  ],
+  "VoCongHang1NangCapHeSo": [
+    2,
+    6,
+    12,
+    24,
+    48,
+    96,
+    192,
+    384,
+    768
+  ],
+  "TenHienThiTienTo": [
+"天龙",
+"火龙",
+"水龙",
+"黑龙",
+"白龙",
+"青龙",
+"巨龙",
+"金龙",
+"木龙",
+"震海",
+"天地",
+"日月",
+"黑虎",
+"白虎",
+"巨虎",
+"五虎",
+"朱雀",
+"玄武",
+"白鹤",
+"麒麟",
+"火麟",
+"花",
+"黒木",
+"桃花",
+"梅花",
+"菊花",
+"天魔",
+"魔",
+"巨魔",
+"双魔",
+"恶人",
+"君子",
+"冰雪",
+"绝情",
+"华山",
+"行山",
+"横山",
+"泰山",
+"纵山",
+"雪山",
+"周山",
+"天山",
+"青城",
+"武曲",
+"福威",
+"长生",
+"精钢",
+"破军",
+"贪狼",
+"七星",
+"七杀",
+"五岳",
+"五行",
+"天机",
+"天姑",
+"天英",
+"天魁",
+"天钢",
+"天怒",
+"替天",
+"开山",
+"断石",
+"离别",
+"夺魂",
+"聂魂",
+"真武",
+"圣火",
+"狂风",
+"黑河",
+"红河",
+"二河",
+"两河",
+"紫河",
+"黄河",
+"降龙",
+"伏虎",
+"藏龙",
+"太极",
+"两仪",
+"四象",
+"八卦",
+"龙木",
+"长乐",
+"蓬莱",
+"东海",
+"北海",
+"南海",
+"西海",
+"侠客",
+"摩天",
+"玄素",
+"碧针",
+"仙歌",
+"杏子",
+"飞雁",
+"烟云",
+"铁骨",
+"移骨",
+"清心",
+"怒焰",
+"影遁",
+"追魂",
+"极舞",
+"迷踪",
+"震地",
+"凌烟",
+"夺灵",
+"守心",
+"镇海",
+"灭世",
+"无极",
+"玄变",
+"判日"
+
+  ],
+  "TenHienThiHauTo": [
+"帮",
+"大帮",
+"会",
+"谷",
+"崖",
+"派",
+"宫",
+"岛",
+"教",
+"神教",
+"剑派",
+"刀派",
+"仙派",
+"枪派",
+"权派",
+"棍派",
+"镖局",
+"寨",
+"堂",
+"唐门",
+"庄",
+"洞",
+"府",
+"王府",
+"院",
+"林",
+"城",
+"家",
+"乌",
+"明",
+"封",
+"阁",
+"村",
+"店",
+"楼",
+"楼",
+"宗",
+"坊",
+"宝",
+"寺",
+"馆",
+"团",
+"道",
+"厂",
+"道馆",
+"卫",
+"侠",
+"怪",
+"鬼",
+"贼",
+"兄弟"
+
+  ],
+  "BotTienTo": [
+"河北",
+"应天",
+"龙应",
+"道林",
+"真灯",
+"长燕",
+"富良",
+"天德",
+"布正",
+"魔灵",
+"都金",
+"永安",
+"苏某",
+"光郎",
+"上元",
+"定元",
+"长津",
+"广元"
+
+  ],
+  "HelpMenu": [
+    {
+      "Name": "弟子",
+      "Children": [
+        {
+          "Name": "分类",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_phanloaidetu.html"
+        },
+        {
+          "Name": "招募",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_chieumo.html"
+        },
+        {
+          "Name": "属性",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_chiso.html"
+        },
+		{
+          "Name": "培养",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_boiduong.html"
+        },
+		{
+          "Name": "传功",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_truyencong.html"
+        },
+		{
+          "Name": "八卦阵",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_batquaitran.html"
+        },
+		{
+          "Name": "修炼",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/detu_tuluyen.html"
+        }
+      ]
+    },
+	{
+      "Name": "武功",
+      "Children": [
+        {
+          "Name": "介绍",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/vocong_gioithieu.html"
+        },
+        {
+          "Name": "分类",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/vocong_phanloai.html"
+        },
+        {
+          "Name": "特效",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/vocong_cachieuung.html"
+        },
+		{
+          "Name": "参悟",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/vocong_thamngo.html"
+        },
+		{
+          "Name": "突破",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/vocong_dotpha.html"
+        }
+      ]
+    },
+	{
+      "Name": "装备",
+      "Children": [
+        {
+          "Name": "介绍",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/trangbi_gioithieu.html"
+        },
+        {
+          "Name": "分级",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/trangbi_captrangbi.html"
+        },
+        {
+          "Name": "强化",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/trangbi_cuonghoa.html"
+        },
+		
+		{
+          "Name": "精炼",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/trangbi_tinhluyen.html"
+        },
+		{
+          "Name": "镶嵌",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/trangbi_khamngoc.html"
+        }
+      ]
+    },
+	{
+      "Name": "战斗系统",
+      "Children": [
+        {
+          "Name": "基础规则",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/hethongchiendau_luatcoban.html"
+        },
+        {
+          "Name": "战斗",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/hethongchiendau_dichuyenvatancong.html"
+        },
+        
+		{
+          "Name": "注意",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/hethongchiendau_chuy.html"
+        }
+      ]
+    },
+	{
+      "Name": "战术",
+      "Children": [
+        {
+          "Name": "介绍",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/chienthuat_gioithieu.html"
+        },
+        {
+          "Name": "狂战",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/chienthuat_cuongchien.html"
+        },
+        {
+          "Name": "潜伏",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/chienthuat_tiemphuc.html"
+        },
+		
+		{
+          "Name": "阵型",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/chienthuat_doihinh.html"
+        }
+      ]
+    },
+	{
+      "Name": "练功",
+      "Children": [
+        {
+          "Name": "江湖",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/giangho_gioithieu.html"
+        },
+        {
+          "Name": "江湖奇遇",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/kyngo_gioithieu.html"
+        }
+      ]
+    },
+	{
+      "Name": "日常活动",
+      "Children": [
+        {
+          "Name": "灭魔",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/dietma_phuongthuc.html"
+        },
+        {
+          "Name": "黑木崖",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/hacmocnhai_gioithieu.html"
+        },
+        {
+          "Name": "魔教禁地",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/magiaocamdia_gioithieu.html"
+        },
+		{
+          "Name": "绑架 - 抓闪电",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/batcoc_batchuot.html"
+        },
+		{
+          "Name": "段天战场",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/chientruongdoanthien_gioithieu.html"
+        }
+      ]
+    },
+	
+    
+	{
+      "Name": "活动",
+      "Children": [
+        {
+          "Name": "登录奖励",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/nhanthuong_gioithieu.html"
+        },
+        {
+          "Name": "升级奖励",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/thangcap_gioithieu.html"
+        },
+		{
+          "Name": "吃鸡肉",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/theluc_gioithieu.html"
+        },
+		{
+          "Name": "喝酒",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/uongruou_gioithieu.html"
+        },
+		{
+          "Name": "幽灵山庄",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/ulinh_gioithieu.html"
+        },
+		{
+          "Name": "赌博",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/danhbac_gioithieu.html"
+        },
+		{
+          "Name": "移花宫",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/dihoacung_gioithieu.html"
+        }
+      ]
+    },
+	{
+      "Name": "帮会",
+      "Children": [
+        
+		{
+          "Name": "创建-组织",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/lienminh_tochuc.html"
+        },
+		{
+          "Name": "任务-帮贡",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/lienminh_conghien.html"
+        },
+		{
+          "Name": "活动",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/lienminh_hoatdong.html"
+        }
+      ]
+    },
+	{
+      "Name": "元气",
+      "Children": [
+        {
+          "Name": "介绍",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/nguyenkhi_gioithieu.html"
+        },
+        {
+          "Name": "分类",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/nguyenkhi_capnguyenkhi.html"
+        },
+        {
+          "Name": "强化",
+          "URL": "http://54.251.100.23/Upload/HuongDanTQ/nguyenkhi_cuonghoa.html"
+        }
+      ]
+    }
+  ]
+}

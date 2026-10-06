@@ -1,0 +1,6 @@
+public enum QuayCamCungType
+{
+	USE_1_PHITHIENLENH = 0,
+	USE_5_PHITHIENLENH = 1,
+	USE_25_PHITHIENLENH = 2
+}

@@ -1,0 +1,1138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147589
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 479954}
+  - 114: {fileID: 11409266}
+  m_Layer: 0
+  m_Name: VN_EmotionAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11409266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: 9eaffbf103cc1724db1ac3f160131e0f, type: 2}
+  sprites:
+  - name: sad
+    outer:
+      serializedVersion: 2
+      x: 91
+      y: 122
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 91
+      y: 122
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: angel
+    outer:
+      serializedVersion: 2
+      x: 399
+      y: 235
+      width: 29
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 399
+      y: 235
+      width: 29
+      height: 39
+    rotated: 0
+    paddingLeft: 0.06896552
+    paddingRight: 0.27586207
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mat_meo
+    outer:
+      serializedVersion: 2
+      x: 336
+      y: 235
+      width: 31
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 336
+      y: 235
+      width: 31
+      height: 39
+    rotated: 0
+    paddingLeft: 0.12903225
+    paddingRight: 0.12903225
+    paddingTop: 0
+    paddingBottom: 0
+  - name: not_talking
+    outer:
+      serializedVersion: 2
+      x: 275
+      y: 277
+      width: 39
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 275
+      y: 277
+      width: 39
+      height: 36
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.083333336
+    paddingBottom: 0
+  - name: afraid
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 195
+      width: 37
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 195
+      width: 37
+      height: 38
+    rotated: 0
+    paddingLeft: 0.027027028
+    paddingRight: 0.027027028
+    paddingTop: 0.02631579
+    paddingBottom: 0
+  - name: kiss
+    outer:
+      serializedVersion: 2
+      x: 315
+      y: 277
+      width: 39
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 315
+      y: 277
+      width: 39
+      height: 36
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.083333336
+    paddingBottom: 0
+  - name: nhaymat
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 235
+      width: 34
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 235
+      width: 34
+      height: 39
+    rotated: 0
+    paddingLeft: 0.0882353
+    paddingRight: 0.05882353
+    paddingTop: 0
+    paddingBottom: 0
+  - name: smile2
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 155
+      width: 36
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 155
+      width: 36
+      height: 39
+    rotated: 0
+    paddingLeft: 0.055555556
+    paddingRight: 0.027777778
+    paddingTop: 0
+    paddingBottom: 0
+  - name: raised_eyebrows
+    outer:
+      serializedVersion: 2
+      x: 429
+      y: 236
+      width: 29
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 429
+      y: 236
+      width: 29
+      height: 38
+    rotated: 0
+    paddingLeft: 0.3448276
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.02631579
+  - name: love
+    outer:
+      serializedVersion: 2
+      x: 436
+      y: 315
+      width: 39
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 436
+      y: 315
+      width: 39
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.02631579
+    paddingBottom: 0
+  - name: laugh
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 75
+      width: 34
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 75
+      width: 34
+      height: 39
+    rotated: 0
+    paddingLeft: 0.029411765
+    paddingRight: 0.11764706
+    paddingTop: 0
+    paddingBottom: 0
+  - name: smile1
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 195
+      width: 33
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 195
+      width: 33
+      height: 39
+    rotated: 0
+    paddingLeft: 0.18181819
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: blushing1
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 75
+      width: 32
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 75
+      width: 32
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.21875
+    paddingTop: 0
+    paddingBottom: 0
+  - name: aa
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 234
+      width: 37
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 234
+      width: 37
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.054054055
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cry
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 35
+      width: 34
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 35
+      width: 34
+      height: 39
+    rotated: 0
+    paddingLeft: 0.0882353
+    paddingRight: 0.05882353
+    paddingTop: 0
+    paddingBottom: 0
+  - name: angry
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: devil
+    outer:
+      serializedVersion: 2
+      x: 476
+      y: 314
+      width: 35
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 476
+      y: 314
+      width: 35
+      height: 39
+    rotated: 0
+    paddingLeft: 0.028571429
+    paddingRight: 0.08571429
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hypnotized
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 115
+      width: 36
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 115
+      width: 36
+      height: 39
+    rotated: 0
+    paddingLeft: 0.027777778
+    paddingRight: 0.055555556
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UTMSwiss32_0
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 354
+      width: 508
+      height: 158
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 354
+      width: 508
+      height: 158
+    rotated: 0
+    paddingLeft: 0.003937008
+    paddingRight: 0.003937008
+    paddingTop: 0.006329114
+    paddingBottom: 0.613924
+  - name: blushing
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 35
+      width: 32
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 35
+      width: 32
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.21875
+    paddingTop: 0
+    paddingBottom: 0
+  - name: nhay_mat
+    outer:
+      serializedVersion: 2
+      x: 368
+      y: 235
+      width: 30
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 368
+      y: 235
+      width: 30
+      height: 39
+    rotated: 0
+    paddingLeft: 0.16666667
+    paddingRight: 0.13333334
+    paddingTop: 0
+    paddingBottom: 0
+  - name: it was not me
+    outer:
+      serializedVersion: 2
+      x: 395
+      y: 275
+      width: 32
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 395
+      y: 275
+      width: 32
+      height: 38
+    rotated: 0
+    paddingLeft: 0.1875
+    paddingRight: 0.03125
+    paddingTop: 0.02631579
+    paddingBottom: 0
+  - name: waiting
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 115
+      width: 33
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 115
+      width: 33
+      height: 39
+    rotated: 0
+    paddingLeft: 0.121212125
+    paddingRight: 0.060606062
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sick1
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 75
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 75
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: huyt_sao
+    outer:
+      serializedVersion: 2
+      x: 120
+      y: 35
+      width: 35
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 120
+      y: 35
+      width: 35
+      height: 39
+    rotated: 0
+    paddingLeft: 0.028571429
+    paddingRight: 0.08571429
+    paddingTop: 0
+    paddingBottom: 0
+  - name: yawn
+    outer:
+      serializedVersion: 2
+      x: 120
+      y: 75
+      width: 35
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 120
+      y: 75
+      width: 35
+      height: 39
+    rotated: 0
+    paddingLeft: 0.114285715
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cowboy
+    outer:
+      serializedVersion: 2
+      x: 40
+      y: 75
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 40
+      y: 75
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sick
+    outer:
+      serializedVersion: 2
+      x: 40
+      y: 35
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 40
+      y: 35
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: facebook1
+    outer:
+      serializedVersion: 2
+      x: 270
+      y: 159
+      width: 28
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 270
+      y: 159
+      width: 28
+      height: 37
+    rotated: 0
+    paddingLeft: 0.17857143
+    paddingRight: 0.21428572
+    paddingTop: 0.054054055
+    paddingBottom: 0
+  - name: sigh
+    outer:
+      serializedVersion: 2
+      x: 91
+      y: 162
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 91
+      y: 162
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: doh
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 155
+      width: 33
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 155
+      width: 33
+      height: 39
+    rotated: 0
+    paddingLeft: 0.09090909
+    paddingRight: 0.09090909
+    paddingTop: 0
+    paddingBottom: 0
+  - name: fight
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: devil2
+    outer:
+      serializedVersion: 2
+      x: 270
+      y: 197
+      width: 29
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 270
+      y: 197
+      width: 29
+      height: 37
+    rotated: 0
+    paddingLeft: 0.13793103
+    paddingRight: 0.20689656
+    paddingTop: 0.054054055
+    paddingBottom: 0
+  - name: puke
+    outer:
+      serializedVersion: 2
+      x: 270
+      y: 235
+      width: 32
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 270
+      y: 235
+      width: 32
+      height: 39
+    rotated: 0
+    paddingLeft: 0.09375
+    paddingRight: 0.125
+    paddingTop: 0
+    paddingBottom: 0
+  - name: talk to the hand
+    outer:
+      serializedVersion: 2
+      x: 355
+      y: 277
+      width: 39
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 355
+      y: 277
+      width: 39
+      height: 36
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.083333336
+    paddingBottom: 0
+  - name: i dont want to see
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 274
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 274
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: studying
+    outer:
+      serializedVersion: 2
+      x: 80
+      y: 35
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 80
+      y: 35
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: facebook3
+    outer:
+      serializedVersion: 2
+      x: 459
+      y: 235
+      width: 28
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 459
+      y: 235
+      width: 28
+      height: 39
+    rotated: 0
+    paddingLeft: 0.17857143
+    paddingRight: 0.21428572
+    paddingTop: 0
+    paddingBottom: 0
+  - name: wave
+    outer:
+      serializedVersion: 2
+      x: 196
+      y: 274
+      width: 38
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 196
+      y: 274
+      width: 38
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.02631579
+    paddingTop: 0
+    paddingBottom: 0
+  - name: thinking
+    outer:
+      serializedVersion: 2
+      x: 462
+      y: 275
+      width: 30
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 462
+      y: 275
+      width: 30
+      height: 38
+    rotated: 0
+    paddingLeft: 0.13333334
+    paddingRight: 0.16666667
+    paddingTop: 0.02631579
+    paddingBottom: 0
+  - name: hot
+    outer:
+      serializedVersion: 2
+      x: 235
+      y: 275
+      width: 39
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 235
+      y: 275
+      width: 39
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.02631579
+    paddingBottom: 0
+  - name: cool
+    outer:
+      serializedVersion: 2
+      x: 303
+      y: 235
+      width: 32
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 303
+      y: 235
+      width: 32
+      height: 39
+    rotated: 0
+    paddingLeft: 0.125
+    paddingRight: 0.09375
+    paddingTop: 0
+    paddingBottom: 0
+  - name: facebook2
+    outer:
+      serializedVersion: 2
+      x: 428
+      y: 277
+      width: 33
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 428
+      y: 277
+      width: 33
+      height: 36
+    rotated: 0
+    paddingLeft: 0.060606062
+    paddingRight: 0.121212125
+    paddingTop: 0.055555556
+    paddingBottom: 0.027777778
+  - name: tinh_nang_bat_coc
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 202
+      width: 155
+      height: 151
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 202
+      width: 155
+      height: 151
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tinh_nang_bat_chuot
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 115
+      width: 90
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 115
+      width: 90
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_10
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 234
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 234
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_4
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 194
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 194
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_2
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 154
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 154
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_1
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 114
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 114
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_5
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 74
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 74
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_13
+    outer:
+      serializedVersion: 2
+      x: 156
+      y: 34
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 156
+      y: 34
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_9
+    outer:
+      serializedVersion: 2
+      x: 80
+      y: 75
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 80
+      y: 75
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_8
+    outer:
+      serializedVersion: 2
+      x: 236
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 236
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_6
+    outer:
+      serializedVersion: 2
+      x: 276
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 276
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_3
+    outer:
+      serializedVersion: 2
+      x: 316
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 316
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_12
+    outer:
+      serializedVersion: 2
+      x: 356
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 356
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_11
+    outer:
+      serializedVersion: 2
+      x: 396
+      y: 314
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 396
+      y: 314
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cap_khithe_7
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 35
+      width: 39
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 35
+      width: 39
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_GO
+    outer:
+      serializedVersion: 2
+      x: 40
+      y: 9
+      width: 38
+      height: 25
+    inner:
+      serializedVersion: 2
+      x: 40
+      y: 9
+      width: 38
+      height: 25
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.02631579
+    paddingTop: 0.16
+    paddingBottom: 0
+  - name: VP_DA
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 5
+      width: 39
+      height: 29
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 5
+      width: 39
+      height: 29
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 147589}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

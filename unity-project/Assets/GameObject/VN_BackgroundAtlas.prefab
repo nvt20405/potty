@@ -1,0 +1,3334 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147589
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 479954}
+  - 114: {fileID: 11409266}
+  m_Layer: 0
+  m_Name: VN_BackgroundAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11409266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: dd5d7a0da3822dd4da64a460220beafb, type: 2}
+  sprites:
+  - name: menu_toi
+    outer:
+      serializedVersion: 2
+      x: 1959
+      y: 1537
+      width: 68
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 1974
+      y: 1552
+      width: 38
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_thong_so
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 29
+      width: 54
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1334
+      y: 29
+      width: 24
+      height: 37
+    rotated: 0
+    paddingLeft: 0.055555556
+    paddingRight: 0.055555556
+    paddingTop: 0.027027028
+    paddingBottom: 0
+  - name: khung_giay
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 619
+      width: 177
+      height: 181
+    inner:
+      serializedVersion: 2
+      x: 1001
+      y: 699
+      width: -23
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_thong_bao
+    outer:
+      serializedVersion: 2
+      x: 2016
+      y: 977
+      width: 28
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 2016
+      y: 977
+      width: 28
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: menu_sang
+    outer:
+      serializedVersion: 2
+      x: 1952
+      y: 1680
+      width: 68
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1967
+      y: 1700
+      width: 38
+      height: 6
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_doihinh
+    outer:
+      serializedVersion: 2
+      x: 1743
+      y: 1118
+      width: 242
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1863
+      y: 1118
+      width: 2
+      height: 73
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tab1
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 506
+      width: 68
+      height: 130
+    inner:
+      serializedVersion: 2
+      x: 1359
+      y: 536
+      width: -12
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tab2
+    outer:
+      serializedVersion: 2
+      x: 1078
+      y: 569
+      width: 50
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1108
+      y: 599
+      width: -10
+      height: -11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_an2
+    outer:
+      serializedVersion: 2
+      x: 1083
+      y: 352
+      width: 43
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 1103
+      y: 372
+      width: 3
+      height: 1
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_an1
+    outer:
+      serializedVersion: 2
+      x: 1078
+      y: 522
+      width: 48
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1100
+      y: 544
+      width: 4
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tennhanvat
+    outer:
+      serializedVersion: 2
+      x: 990
+      y: 1540
+      width: 400
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 990
+      y: 1540
+      width: 400
+      height: 30
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_popup
+    outer:
+      serializedVersion: 2
+      x: 1064
+      y: 154
+      width: 62
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1094
+      y: 184
+      width: 2
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_truyencong1
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 6
+      width: 200
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 20
+      y: 7
+      width: 80
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tab3
+    outer:
+      serializedVersion: 2
+      x: 1882
+      y: 661
+      width: 94
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1927
+      y: 696
+      width: 4
+      height: 4
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tab4
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 127
+      width: 99
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 1177
+      y: 162
+      width: 9
+      height: 29
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_hoa_tiet
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 329
+      width: 102
+      height: 101
+    inner:
+      serializedVersion: 2
+      x: 1132
+      y: 329
+      width: 102
+      height: 101
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: dai_thang_bgr
+    outer:
+      serializedVersion: 2
+      x: 1217
+      y: 1678
+      width: 420
+      height: 127
+    inner:
+      serializedVersion: 2
+      x: 1217
+      y: 1678
+      width: 420
+      height: 127
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.21259843
+    paddingBottom: 0.031496063
+  - name: bai
+    outer:
+      serializedVersion: 2
+      x: 1664
+      y: 1299
+      width: 248
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1664
+      y: 1299
+      width: 248
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.3108108
+    paddingBottom: 0.2027027
+  - name: dai_thang
+    outer:
+      serializedVersion: 2
+      x: 1732
+      y: 1579
+      width: 270
+      height: 89
+    inner:
+      serializedVersion: 2
+      x: 1732
+      y: 1579
+      width: 270
+      height: 89
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.033707865
+    paddingBottom: 0.02247191
+  - name: thang
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 17
+      width: 199
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 17
+      width: 199
+      height: 99
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.0050251256
+    paddingTop: 0.2929293
+    paddingBottom: 0.13131313
+  - name: slide_bgr
+    outer:
+      serializedVersion: 2
+      x: 1977
+      y: 638
+      width: 63
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 2007
+      y: 638
+      width: 3
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: slide
+    outer:
+      serializedVersion: 2
+      x: 1848
+      y: 795
+      width: 187
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 1938
+      y: 795
+      width: 7
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_doihinh2
+    outer:
+      serializedVersion: 2
+      x: 864
+      y: 290
+      width: 29
+      height: 119
+    inner:
+      serializedVersion: 2
+      x: 865
+      y: 305
+      width: 27
+      height: 89
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tranhinh
+    outer:
+      serializedVersion: 2
+      x: 1638
+      y: 1733
+      width: 313
+      height: 315
+    inner:
+      serializedVersion: 2
+      x: 1638
+      y: 1733
+      width: 313
+      height: 315
+    rotated: 0
+    paddingLeft: 0.0063897762
+    paddingRight: 0.015974442
+    paddingTop: 0.0031746032
+    paddingBottom: 0.012698413
+  - name: NV_AuDuongPhong_ava_to
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1277
+      width: 367
+      height: 391
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1277
+      width: 367
+      height: 391
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.01907357
+    paddingTop: 0.0025575447
+    paddingBottom: 0.020460358
+  - name: bgr_xep_hang
+    outer:
+      serializedVersion: 2
+      x: 1388
+      y: 411
+      width: 70
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1414
+      y: 411
+      width: 24
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_cho
+    outer:
+      serializedVersion: 2
+      x: 864
+      y: 120
+      width: 35
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 865
+      y: 140
+      width: 33
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_time
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 11
+      width: 147
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 11
+      width: 7
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_kyngo2
+    outer:
+      serializedVersion: 2
+      x: 1064
+      y: 217
+      width: 66
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1065
+      y: 218
+      width: 64
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_kyngo1
+    outer:
+      serializedVersion: 2
+      x: 386
+      y: 1670
+      width: 66
+      height: 14
+    inner:
+      serializedVersion: 2
+      x: 387
+      y: 1670
+      width: 64
+      height: 14
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_nhanvat
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 30
+      width: 250
+      height: 251
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 30
+      width: 250
+      height: 251
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huyetchien
+    outer:
+      serializedVersion: 2
+      x: 864
+      y: 230
+      width: 33
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 879
+      y: 255
+      width: 3
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huanguyen
+    outer:
+      serializedVersion: 2
+      x: 1747
+      y: 794
+      width: 70
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1747
+      y: 794
+      width: 70
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huanguyen2
+    outer:
+      serializedVersion: 2
+      x: 1526
+      y: 640
+      width: 100
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 1526
+      y: 640
+      width: 100
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.042105265
+    paddingBottom: 0.010526316
+  - name: bgr_tab5
+    outer:
+      serializedVersion: 2
+      x: 258
+      y: 478
+      width: 105
+      height: 103
+    inner:
+      serializedVersion: 2
+      x: 303
+      y: 523
+      width: 15
+      height: 13
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.00952381
+    paddingTop: 0
+    paddingBottom: 0.009708738
+  - name: thantai1
+    outer:
+      serializedVersion: 2
+      x: 837
+      y: 554
+      width: 50
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 847
+      y: 564
+      width: 30
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ten_map
+    outer:
+      serializedVersion: 2
+      x: 301
+      y: 583
+      width: 64
+      height: 143
+    inner:
+      serializedVersion: 2
+      x: 301
+      y: 583
+      width: 64
+      height: 143
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: danhbac1
+    outer:
+      serializedVersion: 2
+      x: 386
+      y: 1685
+      width: 300
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 386
+      y: 1685
+      width: 300
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_icon_lat
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 60
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 251
+      y: 60
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_icon_up
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 171
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 251
+      y: 171
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab_nhan_mon_quan
+    outer:
+      serializedVersion: 2
+      x: 990
+      y: 1571
+      width: 420
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 990
+      y: 1571
+      width: 420
+      height: 97
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_nhan_mon_quan
+    outer:
+      serializedVersion: 2
+      x: 1217
+      y: 1806
+      width: 420
+      height: 242
+    inner:
+      serializedVersion: 2
+      x: 1217
+      y: 1806
+      width: 420
+      height: 242
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: naptien_bgr_2
+    outer:
+      serializedVersion: 2
+      x: 1568
+      y: 1007
+      width: 246
+      height: 93
+    inner:
+      serializedVersion: 2
+      x: 1688
+      y: 1007
+      width: 16
+      height: 93
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: naptien_bgr_3png
+    outer:
+      serializedVersion: 2
+      x: 1231
+      y: 228
+      width: 87
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1264
+      y: 267
+      width: 23
+      height: 26
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.01
+  - name: bgr_ruongthachsanh
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 282
+      width: 257
+      height: 299
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 282
+      width: 257
+      height: 299
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_box_chat
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 537
+      width: 134
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1212
+      y: 587
+      width: 24
+      height: 14
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: line_gradient
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 1289
+      width: 420
+      height: 9
+    inner:
+      serializedVersion: 2
+      x: 977
+      y: 1289
+      width: 6
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_duongdiem
+    outer:
+      serializedVersion: 2
+      x: 1205
+      y: 1709
+      width: 8
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1205
+      y: 1709
+      width: 8
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_blood
+    outer:
+      serializedVersion: 2
+      x: 258
+      y: 1028
+      width: 102
+      height: 248
+    inner:
+      serializedVersion: 2
+      x: 258
+      y: 1028
+      width: 102
+      height: 248
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab8
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 284
+      width: 181
+      height: 152
+    inner:
+      serializedVersion: 2
+      x: 951
+      y: 334
+      width: 81
+      height: 52
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab6
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 952
+      width: 245
+      height: 148
+    inner:
+      serializedVersion: 2
+      x: 1016
+      y: 952
+      width: 15
+      height: 148
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chitiet1
+    outer:
+      serializedVersion: 2
+      x: 807
+      y: 1677
+      width: 250
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 846
+      y: 1716
+      width: 211
+      height: 59
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.08163265
+  - name: tab7
+    outer:
+      serializedVersion: 2
+      x: 368
+      y: 1534
+      width: 621
+      height: 134
+    inner:
+      serializedVersion: 2
+      x: 368
+      y: 1534
+      width: 621
+      height: 134
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_noiluc
+    outer:
+      serializedVersion: 2
+      x: 1880
+      y: 750
+      width: 159
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 1880
+      y: 750
+      width: 159
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_list
+    outer:
+      serializedVersion: 2
+      x: 837
+      y: 754
+      width: 50
+      height: 140
+    inner:
+      serializedVersion: 2
+      x: 838
+      y: 754
+      width: 48
+      height: 140
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_mau
+    outer:
+      serializedVersion: 2
+      x: 1713
+      y: 744
+      width: 159
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 1713
+      y: 744
+      width: 159
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_chiendau2
+    outer:
+      serializedVersion: 2
+      x: 1713
+      y: 766
+      width: 166
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 1713
+      y: 766
+      width: 166
+      height: 27
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_quanta
+    outer:
+      serializedVersion: 2
+      x: 1880
+      y: 772
+      width: 159
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 1880
+      y: 772
+      width: 159
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_popup2
+    outer:
+      serializedVersion: 2
+      x: 258
+      y: 368
+      width: 99
+      height: 109
+    inner:
+      serializedVersion: 2
+      x: 305
+      y: 418
+      width: 5
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: slide_bgr2
+    outer:
+      serializedVersion: 2
+      x: 1388
+      y: 285
+      width: 54
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 1413
+      y: 285
+      width: 4
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: slide2
+    outer:
+      serializedVersion: 2
+      x: 1473
+      y: 604
+      width: 209
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 1473
+      y: 604
+      width: 209
+      height: 20
+    rotated: 0
+    paddingLeft: 0.023923445
+    paddingRight: 0.023923445
+    paddingTop: 0.2
+    paddingBottom: 0.2
+  - name: popup_nhanvat
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 801
+      width: 230
+      height: 150
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 801
+      width: 230
+      height: 150
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huongdan
+    outer:
+      serializedVersion: 2
+      x: 1926
+      y: 1712
+      width: 22
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 1936
+      y: 1721
+      width: 2
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huyetchien2
+    outer:
+      serializedVersion: 2
+      x: 368
+      y: 618
+      width: 150
+      height: 457
+    inner:
+      serializedVersion: 2
+      x: 368
+      y: 618
+      width: 150
+      height: 457
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huyetchien3
+    outer:
+      serializedVersion: 2
+      x: 368
+      y: 163
+      width: 150
+      height: 454
+    inner:
+      serializedVersion: 2
+      x: 368
+      y: 163
+      width: 150
+      height: 454
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_huyetchien1
+    outer:
+      serializedVersion: 2
+      x: 368
+      y: 1076
+      width: 150
+      height: 457
+    inner:
+      serializedVersion: 2
+      x: 368
+      y: 1076
+      width: 150
+      height: 457
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: title_tangcap
+    outer:
+      serializedVersion: 2
+      x: 1411
+      y: 1547
+      width: 320
+      height: 121
+    inner:
+      serializedVersion: 2
+      x: 1411
+      y: 1547
+      width: 320
+      height: 121
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tab9
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 27
+      width: 99
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 1177
+      y: 62
+      width: 9
+      height: 29
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: khithe
+    outer:
+      serializedVersion: 2
+      x: 1815
+      y: 952
+      width: 200
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1815
+      y: 952
+      width: 200
+      height: 53
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: slide3
+    outer:
+      serializedVersion: 2
+      x: 1683
+      y: 604
+      width: 166
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 1763
+      y: 604
+      width: 6
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_time_kyngo
+    outer:
+      serializedVersion: 2
+      x: 1520
+      y: 745
+      width: 192
+      height: 48
+    inner:
+      serializedVersion: 2
+      x: 1600
+      y: 745
+      width: 32
+      height: 48
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_ava_KhieuChien
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 736
+      width: 200
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 1319
+      y: 736
+      width: 200
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ThuongNhanThanBi
+    outer:
+      serializedVersion: 2
+      x: 686
+      y: 410
+      width: 150
+      height: 241
+    inner:
+      serializedVersion: 2
+      x: 686
+      y: 410
+      width: 150
+      height: 241
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_kyngo_info
+    outer:
+      serializedVersion: 2
+      x: 258
+      y: 924
+      width: 108
+      height: 103
+    inner:
+      serializedVersion: 2
+      x: 298
+      y: 924
+      width: 28
+      height: 103
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CaoNhanChiDiem
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 988
+      width: 166
+      height: 294
+    inner:
+      serializedVersion: 2
+      x: 519
+      y: 988
+      width: 166
+      height: 294
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.006024096
+    paddingTop: 0.037414964
+    paddingBottom: 0.040816326
+  - name: bgr_ava_Kyngo
+    outer:
+      serializedVersion: 2
+      x: 1389
+      y: 796
+      width: 99
+      height: 24
+    inner:
+      serializedVersion: 2
+      x: 1389
+      y: 796
+      width: 99
+      height: 24
+    rotated: 0
+    paddingLeft: 0.01010101
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.041666668
+  - name: apche
+    outer:
+      serializedVersion: 2
+      x: 837
+      y: 659
+      width: 60
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 837
+      y: 659
+      width: 60
+      height: 94
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tang3
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 632
+      width: 186
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1132
+      y: 632
+      width: 186
+      height: 80
+    rotated: 0
+    paddingLeft: 0.03763441
+    paddingRight: 0.03763441
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tang2
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 713
+      width: 186
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1132
+      y: 713
+      width: 186
+      height: 80
+    rotated: 0
+    paddingLeft: 0.03763441
+    paddingRight: 0.03763441
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tang1
+    outer:
+      serializedVersion: 2
+      x: 1848
+      y: 871
+      width: 186
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1848
+      y: 871
+      width: 186
+      height: 80
+    rotated: 0
+    paddingLeft: 0.03763441
+    paddingRight: 0.03763441
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_cho2
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 486
+      width: 146
+      height: 250
+    inner:
+      serializedVersion: 2
+      x: 519
+      y: 486
+      width: 146
+      height: 250
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_cho3
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 737
+      width: 146
+      height: 250
+    inner:
+      serializedVersion: 2
+      x: 519
+      y: 737
+      width: 146
+      height: 250
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_cho1
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 235
+      width: 146
+      height: 250
+    inner:
+      serializedVersion: 2
+      x: 519
+      y: 235
+      width: 146
+      height: 250
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: X1
+    outer:
+      serializedVersion: 2
+      x: 1235
+      y: 350
+      width: 80
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1235
+      y: 350
+      width: 80
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: X2
+    outer:
+      serializedVersion: 2
+      x: 1388
+      y: 476
+      width: 80
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1388
+      y: 476
+      width: 80
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: logo_mvl
+    outer:
+      serializedVersion: 2
+      x: 807
+      y: 1776
+      width: 409
+      height: 272
+    inner:
+      serializedVersion: 2
+      x: 807
+      y: 1776
+      width: 409
+      height: 272
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab10
+    outer:
+      serializedVersion: 2
+      x: 837
+      y: 472
+      width: 58
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 862
+      y: 472
+      width: 8
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab9
+    outer:
+      serializedVersion: 2
+      x: 1986
+      y: 1110
+      width: 58
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 2011
+      y: 1110
+      width: 8
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NV_AuDuongPhong_ava_to_ech
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 880
+      width: 257
+      height: 396
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 880
+      width: 257
+      height: 396
+    rotated: 0
+    paddingLeft: 0.050583657
+    paddingRight: 0.042801555
+    paddingTop: 0.01010101
+    paddingBottom: 0
+  - name: bgr_loading
+    outer:
+      serializedVersion: 2
+      x: 1638
+      y: 1675
+      width: 200
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 1638
+      y: 1675
+      width: 200
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_popup_naptien
+    outer:
+      serializedVersion: 2
+      x: 1191
+      y: 1288
+      width: 237
+      height: 245
+    inner:
+      serializedVersion: 2
+      x: 1308
+      y: 1408
+      width: 7
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_bgr_xephang
+    outer:
+      serializedVersion: 2
+      x: 780
+      y: 1679
+      width: 26
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 780
+      y: 1679
+      width: 26
+      height: 58
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_unlock
+    outer:
+      serializedVersion: 2
+      x: 1079
+      y: 649
+      width: 39
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 649
+      width: 5
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_user
+    outer:
+      serializedVersion: 2
+      x: 1079
+      y: 725
+      width: 40
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 725
+      width: 6
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_lock
+    outer:
+      serializedVersion: 2
+      x: 2003
+      y: 1593
+      width: 42
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 2021
+      y: 1593
+      width: 7
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: di_hoa_cung_bgr
+    outer:
+      serializedVersion: 2
+      x: 386
+      y: 1738
+      width: 420
+      height: 310
+    inner:
+      serializedVersion: 2
+      x: 386
+      y: 1738
+      width: 420
+      height: 310
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cung_tang
+    outer:
+      serializedVersion: 2
+      x: 201
+      y: 10
+      width: 45
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 211
+      y: 10
+      width: 25
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cung_mai
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 1299
+      width: 420
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 770
+      y: 1299
+      width: 420
+      height: 91
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chinh_ta_tittle
+    outer:
+      serializedVersion: 2
+      x: 1664
+      y: 1374
+      width: 300
+      height: 159
+    inner:
+      serializedVersion: 2
+      x: 1664
+      y: 1374
+      width: 300
+      height: 159
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chinh_ta_trieudinh
+    outer:
+      serializedVersion: 2
+      x: 1147
+      y: 956
+      width: 200
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1147
+      y: 956
+      width: 200
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chinh_ta_lienminh
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 957
+      width: 200
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 957
+      width: 200
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cung_tang_1
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 1391
+      width: 420
+      height: 142
+    inner:
+      serializedVersion: 2
+      x: 770
+      y: 1391
+      width: 420
+      height: 142
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_avatar
+    outer:
+      serializedVersion: 2
+      x: 1147
+      y: 1024
+      width: 420
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1147
+      y: 1024
+      width: 420
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: white
+    outer:
+      serializedVersion: 2
+      x: 1079
+      y: 621
+      width: 27
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 1084
+      y: 626
+      width: 17
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: nguyen_khi_list
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 227
+      width: 98
+      height: 101
+    inner:
+      serializedVersion: 2
+      x: 1177
+      y: 272
+      width: 8
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.010204081
+    paddingTop: 0
+    paddingBottom: 0.00990099
+  - name: bgr_popup3
+    outer:
+      serializedVersion: 2
+      x: 1975
+      y: 1212
+      width: 70
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1242
+      width: 10
+      height: 10
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Daihoi_bgr_minhchu
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 1192
+      width: 420
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 1192
+      width: 420
+      height: 90
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Daihoi_bgr_daihiep
+    outer:
+      serializedVersion: 2
+      x: 1322
+      y: 1101
+      width: 420
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 1322
+      y: 1101
+      width: 420
+      height: 90
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Daihoi_bgr_sonhap
+    outer:
+      serializedVersion: 2
+      x: 1322
+      y: 1192
+      width: 420
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 1322
+      y: 1192
+      width: 420
+      height: 90
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Daihoi_bgr_caothu
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 1101
+      width: 420
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 1101
+      width: 420
+      height: 90
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab_tuong_duong
+    outer:
+      serializedVersion: 2
+      x: 1673
+      y: 794
+      width: 73
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1698
+      y: 819
+      width: 23
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: vong_bat_quai
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 431
+      width: 100
+      height: 105
+    inner:
+      serializedVersion: 2
+      x: 1132
+      y: 431
+      width: 100
+      height: 105
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr2_kim_tien_bang
+    outer:
+      serializedVersion: 2
+      x: 1952
+      y: 1727
+      width: 75
+      height: 169
+    inner:
+      serializedVersion: 2
+      x: 1972
+      y: 1752
+      width: 35
+      height: 119
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.00591716
+  - name: thach-dau_28
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 222
+      width: 30
+      height: 283
+    inner:
+      serializedVersion: 2
+      x: 1332
+      y: 222
+      width: 4
+      height: 283
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: khung_giay_4_0
+    outer:
+      serializedVersion: 2
+      x: 1522
+      y: 842
+      width: 150
+      height: 109
+    inner:
+      serializedVersion: 2
+      x: 1592
+      y: 906
+      width: 10
+      height: -19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: khung_trong
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 162
+      width: 61
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1346
+      y: 189
+      width: 7
+      height: 5
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: khung_giay_2
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 50
+      width: 160
+      height: 184
+    inner:
+      serializedVersion: 2
+      x: 597
+      y: 150
+      width: 4
+      height: 6
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_popup_lencap
+    outer:
+      serializedVersion: 2
+      x: 1429
+      y: 1288
+      width: 234
+      height: 245
+    inner:
+      serializedVersion: 2
+      x: 1543
+      y: 1408
+      width: 8
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_chiendau_2
+    outer:
+      serializedVersion: 2
+      x: 1473
+      y: 625
+      width: 552
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 1473
+      y: 625
+      width: 552
+      height: 11
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_chiendau_3
+    outer:
+      serializedVersion: 2
+      x: 1473
+      y: 573
+      width: 552
+      height: 6
+    inner:
+      serializedVersion: 2
+      x: 1473
+      y: 573
+      width: 552
+      height: 6
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_chiendau_1
+    outer:
+      serializedVersion: 2
+      x: 1196
+      y: 1669
+      width: 8
+      height: 106
+    inner:
+      serializedVersion: 2
+      x: 1196
+      y: 1669
+      width: 8
+      height: 106
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Daihoi_bgr_list_03
+    outer:
+      serializedVersion: 2
+      x: 864
+      y: 60
+      width: 28
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 864
+      y: 60
+      width: 28
+      height: 59
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Daihoi_bgr_list_06
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 593
+      width: 37
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1282
+      y: 608
+      width: 7
+      height: 8
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tab_tuong_duong_2
+    outer:
+      serializedVersion: 2
+      x: 1388
+      y: 351
+      width: 70
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1388
+      y: 351
+      width: 70
+      height: 59
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: logo_ngao_giang_ho
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1669
+      width: 385
+      height: 379
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1669
+      width: 385
+      height: 379
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_popup_autoHMN
+    outer:
+      serializedVersion: 2
+      x: 1388
+      y: 557
+      width: 84
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1428
+      y: 593
+      width: 4
+      height: 7
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_tittle_popup_autoHMN
+    outer:
+      serializedVersion: 2
+      x: 1839
+      y: 1673
+      width: 86
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1869
+      y: 1673
+      width: 26
+      height: 59
+    rotated: 0
+    paddingLeft: 0.011627907
+    paddingRight: 0.011627907
+    paddingTop: 0
+    paddingBottom: 0
+  - name: luachon_21
+    outer:
+      serializedVersion: 2
+      x: 1132
+      y: 794
+      width: 132
+      height: 157
+    inner:
+      serializedVersion: 2
+      x: 1194
+      y: 871
+      width: 12
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.006369427
+    paddingBottom: 0
+  - name: luachon_10
+    outer:
+      serializedVersion: 2
+      x: 1232
+      y: 4
+      width: 72
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1256
+      y: 19
+      width: 24
+      height: 7
+    rotated: 0
+    paddingLeft: 0.013888889
+    paddingRight: 0.027777778
+    paddingTop: 0.027027028
+    paddingBottom: 0.027027028
+  - name: bkg_select_horse
+    outer:
+      serializedVersion: 2
+      x: 301
+      y: 727
+      width: 63
+      height: 152
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 727
+      width: 7
+      height: 152
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_title_select_horse
+    outer:
+      serializedVersion: 2
+      x: 1522
+      y: 821
+      width: 135
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 1522
+      y: 821
+      width: 135
+      height: 20
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_select_horse_1
+    outer:
+      serializedVersion: 2
+      x: 1078
+      y: 441
+      width: 44
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 1078
+      y: 441
+      width: 44
+      height: 36
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_select_horse_2
+    outer:
+      serializedVersion: 2
+      x: 864
+      y: 4
+      width: 31
+      height: 22
+    inner:
+      serializedVersion: 2
+      x: 864
+      y: 4
+      width: 31
+      height: 22
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_select_horse_3
+    outer:
+      serializedVersion: 2
+      x: 453
+      y: 1670
+      width: 13
+      height: 14
+    inner:
+      serializedVersion: 2
+      x: 453
+      y: 1670
+      width: 13
+      height: 14
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_bacmayman
+    outer:
+      serializedVersion: 2
+      x: 1058
+      y: 1678
+      width: 137
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 1118
+      y: 1724
+      width: 17
+      height: 5
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.01459854
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_time_bacmayman
+    outer:
+      serializedVersion: 2
+      x: 864
+      y: 27
+      width: 30
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 878
+      y: 42
+      width: 2
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_quay_number_bacmayman
+    outer:
+      serializedVersion: 2
+      x: 1977
+      y: 667
+      width: 68
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1977
+      y: 667
+      width: 68
+      height: 68
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.014705882
+  - name: line_top_bacmayman
+    outer:
+      serializedVersion: 2
+      x: 1473
+      y: 580
+      width: 176
+      height: 23
+    inner:
+      serializedVersion: 2
+      x: 1559
+      y: 580
+      width: 4
+      height: 23
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.04347826
+  - name: bkg_number_tubaobon
+    outer:
+      serializedVersion: 2
+      x: 1815
+      y: 1006
+      width: 220
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1815
+      y: 1006
+      width: 220
+      height: 94
+    rotated: 0
+    paddingLeft: 0.009090909
+    paddingRight: 0.0045454544
+    paddingTop: 0
+    paddingBottom: 0.021276595
+  - name: bkg_time_tubaobon
+    outer:
+      serializedVersion: 2
+      x: 258
+      y: 882
+      width: 68
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 882
+      width: 8
+      height: 41
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.014705882
+    paddingTop: 0
+    paddingBottom: 0.024390243
+  - name: bkg_main_lanhdiabang
+    outer:
+      serializedVersion: 2
+      x: 686
+      y: 1084
+      width: 214
+      height: 198
+    inner:
+      serializedVersion: 2
+      x: 792
+      y: 1184
+      width: 2
+      height: -2
+    rotated: 0
+    paddingLeft: 0.004672897
+    paddingRight: 0.009345794
+    paddingTop: 0
+    paddingBottom: 0.02020202
+  - name: bkg_trans_lanhdiabang_4
+    outer:
+      serializedVersion: 2
+      x: 1797
+      y: 651
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1797
+      y: 651
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trans_lanhdiabang_1
+    outer:
+      serializedVersion: 2
+      x: 1712
+      y: 651
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1712
+      y: 651
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trans_lanhdiabang_2
+    outer:
+      serializedVersion: 2
+      x: 1232
+      y: 42
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1232
+      y: 42
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trans_lanhdiabang_3
+    outer:
+      serializedVersion: 2
+      x: 1232
+      y: 142
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1232
+      y: 142
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trans_lanhdiabang_5
+    outer:
+      serializedVersion: 2
+      x: 1233
+      y: 452
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1233
+      y: 452
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trong_lanhdiabang
+    outer:
+      serializedVersion: 2
+      x: 1083
+      y: 313
+      width: 39
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1098
+      y: 331
+      width: 9
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_item_tayvuc
+    outer:
+      serializedVersion: 2
+      x: 1420
+      y: 644
+      width: 105
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 1470
+      y: 687
+      width: 5
+      height: 5
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.010989011
+  - name: bkg_tayvuc
+    outer:
+      serializedVersion: 2
+      x: 1913
+      y: 1284
+      width: 108
+      height: 89
+    inner:
+      serializedVersion: 2
+      x: 1963
+      y: 1324
+      width: 8
+      height: 9
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trans_lanhdiabang_6
+    outer:
+      serializedVersion: 2
+      x: 1627
+      y: 651
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1627
+      y: 651
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_item_tichnap
+    outer:
+      serializedVersion: 2
+      x: 1389
+      y: 821
+      width: 132
+      height: 130
+    inner:
+      serializedVersion: 2
+      x: 1389
+      y: 821
+      width: 132
+      height: 130
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_tichnap1
+    outer:
+      serializedVersion: 2
+      x: 1952
+      y: 1897
+      width: 84
+      height: 151
+    inner:
+      serializedVersion: 2
+      x: 1987
+      y: 1962
+      width: 14
+      height: 21
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.023809524
+    paddingTop: 0.01986755
+    paddingBottom: 0.0066225166
+  - name: bkg_tichnap2
+    outer:
+      serializedVersion: 2
+      x: 1388
+      y: 314
+      width: 69
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 1418
+      y: 339
+      width: 9
+      height: 1
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.014492754
+    paddingTop: 0
+    paddingBottom: 0.027777778
+  - name: bkg_item_top_lanhdia
+    outer:
+      serializedVersion: 2
+      x: 1673
+      y: 865
+      width: 174
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 1758
+      y: 865
+      width: 4
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_list_top_lanhdia
+    outer:
+      serializedVersion: 2
+      x: 1083
+      y: 394
+      width: 44
+      height: 42
+    inner:
+      serializedVersion: 2
+      x: 1101
+      y: 409
+      width: 8
+      height: 12
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.023809524
+    paddingBottom: 0.023809524
+  - name: bkg_sukien_screenMain
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 1673
+      width: 92
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 727
+      y: 1698
+      width: 12
+      height: 14
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_thuongphong2
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 582
+      width: 300
+      height: 297
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 582
+      width: 300
+      height: 297
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_thuongphong
+    outer:
+      serializedVersion: 2
+      x: 258
+      y: 282
+      width: 91
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 298
+      y: 322
+      width: 11
+      height: 5
+    rotated: 0
+    paddingLeft: 0.010989011
+    paddingRight: 0.021978023
+    paddingTop: 0.011764706
+    paddingBottom: 0.011764706
+  - name: bkg_title_popup_thuongphong
+    outer:
+      serializedVersion: 2
+      x: 1568
+      y: 961
+      width: 240
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1678
+      y: 983
+      width: 20
+      height: 1
+    rotated: 0
+    paddingLeft: 0.004166667
+    paddingRight: 0.008333334
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_title_thuongphong
+    outer:
+      serializedVersion: 2
+      x: 1848
+      y: 816
+      width: 192
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 1940
+      y: 816
+      width: 8
+      height: 54
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.0052083335
+    paddingTop: 0
+    paddingBottom: 0.018518519
+  - name: lenhbai_thienma
+    outer:
+      serializedVersion: 2
+      x: 1265
+      y: 799
+      width: 123
+      height: 152
+    inner:
+      serializedVersion: 2
+      x: 1325
+      y: 864
+      width: 3
+      height: 7
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btn_ThuongPhongMain
+    outer:
+      serializedVersion: 2
+      x: 686
+      y: 211
+      width: 177
+      height: 198
+    inner:
+      serializedVersion: 2
+      x: 686
+      y: 211
+      width: 177
+      height: 198
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btn_HaPhongMain
+    outer:
+      serializedVersion: 2
+      x: 686
+      y: 12
+      width: 177
+      height: 198
+    inner:
+      serializedVersion: 2
+      x: 686
+      y: 12
+      width: 177
+      height: 198
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: che_tac
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 437
+      width: 176
+      height: 181
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 437
+      width: 176
+      height: 181
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatrangbi_hoangkim_1
+    outer:
+      serializedVersion: 2
+      x: 310
+      y: 1
+      width: 57
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 337
+      y: 28
+      width: 3
+      height: 4
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatrangbi_hoangkim_2
+    outer:
+      serializedVersion: 2
+      x: 251
+      y: 1
+      width: 58
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 278
+      y: 28
+      width: 4
+      height: 4
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_ava_vphoangkim
+    outer:
+      serializedVersion: 2
+      x: 1078
+      y: 478
+      width: 45
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 1098
+      y: 498
+      width: 5
+      height: 3
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_trangbi_hoangkim
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 637
+      width: 100
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 1367
+      y: 685
+      width: 4
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: line_trangbi_hoangkim
+    outer:
+      serializedVersion: 2
+      x: 1064
+      y: 125
+      width: 66
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 125
+      width: 2
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ten_map_tinhanh
+    outer:
+      serializedVersion: 2
+      x: 1965
+      y: 1390
+      width: 64
+      height: 143
+    inner:
+      serializedVersion: 2
+      x: 1965
+      y: 1390
+      width: 64
+      height: 143
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_baokho
+    outer:
+      serializedVersion: 2
+      x: 327
+      y: 881
+      width: 40
+      height: 42
+    inner:
+      serializedVersion: 2
+      x: 345
+      y: 899
+      width: 4
+      height: 6
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tiennhanchilo_board_bgr
+    outer:
+      serializedVersion: 2
+      x: 519
+      y: 1283
+      width: 250
+      height: 250
+    inner:
+      serializedVersion: 2
+      x: 519
+      y: 1283
+      width: 250
+      height: 250
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tiennhanchilo_board
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 111
+      width: 54
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 1344
+      y: 133
+      width: 4
+      height: 6
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: luyenhoatrangbi_bgr
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 117
+      width: 162
+      height: 166
+    inner:
+      serializedVersion: 2
+      x: 981
+      y: 198
+      width: 2
+      height: 4
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: server_item_bg
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 556
+      width: 37
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 1284
+      y: 573
+      width: 3
+      height: 2
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: rong_luyen_hoa
+    outer:
+      serializedVersion: 2
+      x: 686
+      y: 652
+      width: 150
+      height: 242
+    inner:
+      serializedVersion: 2
+      x: 686
+      y: 652
+      width: 150
+      height: 242
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hoavan_tiennhanchilo
+    outer:
+      serializedVersion: 2
+      x: 686
+      y: 895
+      width: 210
+      height: 188
+    inner:
+      serializedVersion: 2
+      x: 686
+      y: 895
+      width: 210
+      height: 188
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tiennhanchilo_tittle
+    outer:
+      serializedVersion: 2
+      x: 1743
+      y: 1204
+      width: 231
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 1853
+      y: 1204
+      width: 11
+      height: 78
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tiennhanchilo_tittle_text
+    outer:
+      serializedVersion: 2
+      x: 1732
+      y: 1538
+      width: 226
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1732
+      y: 1538
+      width: 226
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.0044247787
+    paddingTop: 0.05
+    paddingBottom: 0.05
+  - name: bkg_camcung
+    outer:
+      serializedVersion: 2
+      x: 837
+      y: 411
+      width: 63
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 862
+      y: 436
+      width: 13
+      height: 10
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hoatietrong
+    outer:
+      serializedVersion: 2
+      x: 368
+      y: 12
+      width: 150
+      height: 150
+    inner:
+      serializedVersion: 2
+      x: 368
+      y: 12
+      width: 150
+      height: 150
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_camcung2
+    outer:
+      serializedVersion: 2
+      x: 1319
+      y: 67
+      width: 61
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 1347
+      y: 86
+      width: 5
+      height: 5
+    rotated: 0
+    paddingLeft: 0.016393442
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 147589}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

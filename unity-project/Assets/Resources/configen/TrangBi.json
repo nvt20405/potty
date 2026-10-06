@@ -1,0 +1,2056 @@
+{
+  "VK_QUAN_TU_KIEM" : {
+    "Name" : "VK_QUAN_TU_KIEM",
+    "TenHienThi" : "Gentleman Sword",
+    "Hang"       : 1,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 100.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 3.90000009536743,
+    "Range"      : 220.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A light and slender but flexible sword often used by a hero",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_QUAN_TU_KIEM",
+      "AG_SAT_THU_PHUC"
+    ]
+  },
+  "VK_THUC_NU_KIEM" : {
+    "Name" : "VK_THUC_NU_KIEM",
+    "TenHienThi" : "Lady Sword",
+    "Hang"       : 1,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 99.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 4.09999990463257,
+    "Range"      : 220.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A slender-like-silk sword like a beautiful woman",
+    "TinhLuyen"  : [
+      "VK_QUAN_TU_KIEM",
+      "VK_THUC_NU_KIEM",
+      "AG_SAT_THU_PHUC"
+    ]
+  },
+  "VK_LY_BIET_CAU"  : {
+    "Name" : "VK_LY_BIET_CAU",
+    "TenHienThi" : "Farewell Hook",
+    "Hang"       : 1,
+    "Anim"       : "NV_Dao",
+    "CoSo"       : 103.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 3.79999995231628,
+    "Range"      : 220.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "6th weapon in The Seven Weapons, this hook causes separation",
+    "TinhLuyen"  : [
+      "VK_LY_BIET_CAU",
+      "VK_LANG_NHA_BONG",
+      "AG_TOAN_CHAN_DAO_BAO"
+    ]
+  },
+  "VK_LANG_NHA_BONG" : {
+    "Name" : "VK_LANG_NHA_BONG",
+    "TenHienThi" : "Wolf Fang Staff",
+    "Hang"       : 1,
+    "Anim"       : "NV_ConBong",
+    "CoSo"       : 105.0,
+    "ChinhXac"   : 95.0,
+    "TangTruong" : 3.90000009536743,
+    "Range"      : 250.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "Jin Mao Shi Wang's weapon with full of wolf's teeth on it, will make enemies suffer grealy.",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_LY_BIET_CAU",
+      "AG_TOAN_CHAN_DAO_BAO"
+    ]
+  },
+  "VK_HUYET_DAO"     : {
+    "Name" : "VK_HUYET_DAO",
+    "TenHienThi" : "Bloody Blade",
+    "Hang"       : 1,
+    "Anim"       : "NV_Dao",
+    "CoSo"       : 99.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 4.19999980926514,
+    "Range"      : 200.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A heavy one-handed saber with a slightly curved blade. It has the color of blood.",
+    "TinhLuyen"  : [
+      "VK_HUYET_DAO",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "AG_THIEU_LAM_TANG_Y"
+    ]
+  },
+  "VK_VIEN_NGUYET_LOAN_DAO" : {
+    "Name" : "VK_VIEN_NGUYET_LOAN_DAO",
+    "TenHienThi" : "Full Moon Curved Sabre",
+    "Hang"       : 1,
+    "Anim"       : "NV_Dao",
+    "CoSo"       : 100.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 4.30000019073486,
+    "Range"      : 200.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A crescent blade that only take a flash of the blade’s glare, for catastrophe to descend.",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_HUYET_DAO",
+      "AG_THIEU_LAM_TANG_Y"
+    ]
+  },
+  "VK_BA_VUONG_THUONG"      : {
+    "Name" : "VK_BA_VUONG_THUONG",
+    "TenHienThi" : "The Overlord's Spear",
+    "Hang"       : 1,
+    "Anim"       : "NV_Thuong",
+    "CoSo"       : 102.0,
+    "ChinhXac"   : 90.0,
+    "TangTruong" : 4.30000019073486,
+    "Range"      : 350.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A very heavy and long metal spear only for great warriors on the battlefield.",
+    "TinhLuyen"  : [
+      "VK_BA_VUONG_THUONG",
+      "VK_KHAI_SON_PHU",
+      "AG_CAM_VE_KHAI_GIAP"
+    ]
+  },
+  "VK_KHAI_SON_PHU"         : {
+    "Name" : "VK_KHAI_SON_PHU",
+    "TenHienThi" : "Break Mountain Axe",
+    "Hang"       : 1,
+    "Anim"       : "NV_PhuRiu",
+    "CoSo"       : 107.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 4.09999990463257,
+    "Range"      : 220.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A heavy and dangerous axe that is always good in anyone's hands",
+    "TinhLuyen"  : [
+      "VK_KHAI_SON_PHU",
+      "VK_BA_VUONG_THUONG",
+      "AG_CAM_VE_KHAI_GIAP"
+    ]
+  },
+  "VK_THIET_THU"            : {
+    "Name" : "VK_THIET_THU",
+    "TenHienThi" : "Iron Fist",
+    "Hang"       : 1,
+    "Anim"       : "NV_BaoTay",
+    "CoSo"       : 101.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 3.79999995231628,
+    "Range"      : 200.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Signature weapon of Iron Fist in The Four Great Constables",
+    "TinhLuyen"  : [
+      "VK_THIET_THU",
+      "VK_DA_TINH_HOAN",
+      "AG_THANH_AM_SAM"
+    ]
+  },
+  "VK_DA_TINH_HOAN"         : {
+    "Name" : "VK_DA_TINH_HOAN",
+    "TenHienThi" : "Passionate Ring",
+    "Hang"       : 1,
+    "Anim"       : "NV_Hoan",
+    "CoSo"       : 98.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 3.90000009536743,
+    "Range"      : 210.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "Signature weapon of Zheng Ba Tian that helps him dominate through Kung Fu World. Each carved line on this represent for one person be killed by him.",
+    "TinhLuyen"  : [
+      "VK_DA_TINH_HOAN",
+      "VK_THIET_THU",
+      "AG_THANH_AM_SAM"
+    ]
+  },
+  "VK_BICH_NGOC_DICH"       : {
+    "Name" : "VK_BICH_NGOC_DICH",
+    "TenHienThi" : "Jasper Flute",
+    "Hang"       : 1,
+    "Anim"       : "NV_ButTieu",
+    "CoSo"       : 101.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 4.0,
+    "Range"      : 200.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A flute made of jasper, one of The Seven Weapons",
+    "TinhLuyen"  : [
+      "VK_BICH_NGOC_DICH",
+      "VK_QUAN_TU_KIEM",
+      "AG_NGA_HOANG_THUONG_THUONG"
+    ]
+  },
+  "VK_KHONG_TUOC_LINH"      : {
+    "Name" : "VK_KHONG_TUOC_LINH",
+    "TenHienThi" : "Peacock Feathers",
+    "Hang"       : 1,
+    "Anim"       : "NV_AmKhi",
+    "CoSo"       : 100.0,
+    "ChinhXac"   : 80.0,
+    "TangTruong" : 4.09999990463257,
+    "Range"      : 600.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "An armguard weapon that when unsheathed will show a splendid and dazzling light so beautiful that the victims smile happily until they die without knowing it.",
+    "TinhLuyen"  : [
+      "VK_BICH_NGOC_DICH",
+      "VK_QUAN_TU_KIEM",
+      "AG_NGA_HOANG_THUONG_THUONG"
+    ]
+  },
+  "VK_CHAN_VU_KIEM"         : {
+    "Name" : "VK_CHAN_VU_KIEM",
+    "TenHienThi" : "Wudang Sword",
+    "Hang"       : 2,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 139.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 7.09999990463257,
+    "Range"      : 220.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "Wudang's precious sword of Zhang San Feng, honoured by the Kung Fu World",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_QUAN_TU_KIEM",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_VO_DAU_SAM"
+    ]
+  },
+  "VK_KIM_XA_KIEM"          : {
+    "Name" : "VK_KIM_XA_KIEM",
+    "TenHienThi" : "Golden Snake Sword",
+    "Hang"       : 2,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 141.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 6.90000009536743,
+    "Range"      : 220.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A shining snake-shaped sword made of golden shining metals. Each time this sword appears, golden light appears everywhere!",
+    "TinhLuyen"  : [
+      "VK_LY_BIET_CAU",
+      "VK_LANG_NHA_BONG",
+      "AG_VO_DANG_DAO_BAO",
+      "AG_TO_TU_BICH_THUONG"
+    ]
+  },
+  "VK_BICH_NHAN_PHU"        : {
+    "Name" : "VK_BICH_NHAN_PHU",
+    "TenHienThi" : "Sapphire Eye Axe",
+    "Hang"       : 2,
+    "Anim"       : "NV_PhuRiu",
+    "CoSo"       : 143.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 7.09999990463257,
+    "Range"      : 200.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A patterned axe with a sapphire in the middle",
+    "TinhLuyen"  : [
+      "VK_HUYET_DAO",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "AG_DA_HANH_Y",
+      "AG_THU_LAM_NHUNG_Y"
+    ]
+  },
+  "VK_PHUONG_THIEN_KICH"    : {
+    "Name" : "VK_PHUONG_THIEN_KICH",
+    "TenHienThi" : "Sky Piercer",
+    "Hang"       : 2,
+    "Anim"       : "NV_Thuong",
+    "CoSo"       : 145.0,
+    "ChinhXac"   : 90.0,
+    "TangTruong" : 7.0,
+    "Range"      : 350.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "Not only can stab but also can chop, useful in battlefield. The signature weapon of Lu Bu.",
+    "TinhLuyen"  : [
+      "VK_KHAI_SON_PHU",
+      "VK_THIET_THU",
+      "AG_PHI_PHONG",
+      "AG_THANH_TUYET_SAM"
+    ]
+  },
+  "VK_KIM_DICH"             : {
+    "Name" : "VK_KIM_DICH",
+    "TenHienThi" : "Golden Flute",
+    "Hang"       : 2,
+    "Anim"       : "NV_ButTieu",
+    "CoSo"       : 138.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 6.80000019073486,
+    "Range"      : 200.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "Signature weapon of Yu Yu Tong, nicknamed Golden Flute Scholar - the 14th leader of the Kung Fu World.",
+    "TinhLuyen"  : [
+      "VK_BICH_NGOC_DICH",
+      "VK_QUAN_TU_KIEM",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_QUANG_LIEN_CUNG_TRANG"
+    ]
+  },
+  "VK_NGU_KIM_LUAN"         : {
+    "Name" : "VK_NGU_KIM_LUAN",
+    "TenHienThi" : "Five Metal Rings",
+    "Hang"       : 2,
+    "Anim"       : "NV_Hoan",
+    "CoSo"       : 138.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 6.80000019073486,
+    "Range"      : 210.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "Made of five metal: gold, silver, bronze, iron and each with different purposes",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_LY_BIET_CAU",
+      "AG_SAT_THU_PHUC",
+      "AG_NGUYET_TU_THUC_Y"
+    ]
+  },
+  "VK_HAN_SUONG_THU"        : {
+    "Name" : "VK_HAN_SUONG_THU",
+    "TenHienThi" : "Frost Claw",
+    "Hang"       : 2,
+    "Anim"       : "NV_BaoTay",
+    "CoSo"       : 140.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 7.19999980926514,
+    "Range"      : 200.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A claw made of real steel, cold as frost",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_HUYET_DAO",
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_KHIEU_TU_CAM_Y"
+    ]
+  },
+  "VK_MAI_HOA_TIEU"         : {
+    "Name" : "VK_MAI_HOA_TIEU",
+    "TenHienThi" : "Apricot Darts",
+    "Hang"       : 2,
+    "Anim"       : "NV_AmKhi",
+    "CoSo"       : 143.0,
+    "ChinhXac"   : 80.0,
+    "TangTruong" : 7.09999990463257,
+    "Range"      : 600.0,
+    "HeSoRandom" : 20,
+    "MoTa"       : "An apricot-shaped secret darts, beautiful but antipersonnel. Accuracy: Medium",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_BA_VUONG_THUONG",
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_HONG_PHAN_TRUONG_BAO"
+    ]
+  },
+  "VK_HOI_PHONG_PHIEN"      : {
+    "Name" : "VK_HOI_PHONG_PHIEN",
+    "TenHienThi" : "Windy Fan",
+    "Hang"       : 2,
+    "Anim"       : "NV_Phien",
+    "CoSo"       : 142.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 7.19999980926514,
+    "Range"      : 200.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "An precious and uncommon fan which can shift wind and control rain",
+    "TinhLuyen"  : [
+      "VK_KHAI_SON_PHU",
+      "VK_THIET_THU",
+      "AG_THANH_AM_SAM",
+      "AG_TUONG_QUAN_KHAI_GIAP"
+    ]
+  },
+  "VK_ON_HAU_NGAN_KICH"     : {
+    "Name" : "VK_ON_HAU_NGAN_KICH",
+    "TenHienThi" : "Great Silver Halberd",
+    "Hang"       : 2,
+    "Anim"       : "NV_Thuong",
+    "CoSo"       : 145.0,
+    "ChinhXac"   : 90.0,
+    "TangTruong" : 8.0,
+    "Range"      : 350.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A great silver halberd said to be once used by Lu Bu. It is hard to wield and hard to be pratically used.",
+    "TinhLuyen"  : [
+      "VK_DA_TINH_HOAN",
+      "VK_BICH_NGOC_DICH",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_O_TAM_Y"
+    ]
+  },
+  "VK_DA_CAU_BONG"          : {
+    "Name" : "VK_DA_CAU_BONG",
+    "TenHienThi" : "Dog Beating Staff",
+    "Hang"       : 3,
+    "Anim"       : "NV_ConBong",
+    "CoSo"       : 185.0,
+    "ChinhXac"   : 95.0,
+    "TangTruong" : 11.6000003814697,
+    "Range"      : 320.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "The symbol for The Leadership of Beggars' Sect. Who has this staff will be the leader of the most crowded sect in the Kung Fu World.",
+    "TinhLuyen"  : [
+      "VK_QUAN_TU_KIEM",
+      "VK_LY_BIET_CAU",
+      "AG_VO_DANG_DAO_BAO",
+      "AG_VO_DAU_SAM"
+    ]
+  },
+  "VK_HUYEN_THIET_TRONG_KIEM" : {
+    "Name" : "VK_HUYEN_THIET_TRONG_KIEM",
+    "TenHienThi" : "Heavy Iron Sword",
+    "Hang"       : 3,
+    "Anim"       : "NV_Dao",
+    "CoSo"       : 190.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 13.5,
+    "Range"      : 270.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A weapon made from a meteor. It belongs to Du Gu Qiu Bai, a great swordsman whose skills were unmatched in his time",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_LANG_NHA_BONG",
+      "AG_DA_HANH_Y",
+      "AG_VO_DAU_SAM"
+    ]
+  },
+  "VK_Y_THIEN_KIEM"           : {
+    "Name" : "VK_Y_THIEN_KIEM",
+    "TenHienThi" : "Heaven Reliant Sword",
+    "Hang"       : 3,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 185.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 13.5,
+    "Range"      : 250.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A precious sword said to allow its wielder to rule the Kung Fu World as it embodies Heaven",
+    "TinhLuyen"  : [
+      "VK_LY_BIET_CAU",
+      "VK_HUYET_DAO",
+      "AG_PHI_PHONG",
+      "AG_THU_LAM_NHUNG_Y"
+    ]
+  },
+  "VK_NGU_TRUONG_KIEM"        : {
+    "Name" : "VK_NGU_TRUONG_KIEM",
+    "TenHienThi" : "Yuchang Sword",
+    "Hang"       : 3,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 182.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 12.0,
+    "Range"      : 250.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "One of the treasured swords made by Ou Ye Zi - a legendary master of sword-making in the Spring and Autumn Period. It is an evil sword coated in the blood of a king.",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_THANH_TUYET_SAM"
+    ]
+  },
+  "VK_CU_KHUYET_KIEM"         : {
+    "Name" : "VK_CU_KHUYET_KIEM",
+    "TenHienThi" : "Juque Sword",
+    "Hang"       : 3,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 180.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 12.3000001907349,
+    "Range"      : 250.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Weapon of Ye Gu Cheng and one of the treasured swords made by Ou Ye Zi - a legendary master of sword-making in the Spring and Autumn Period",
+    "TinhLuyen"  : [
+      "VK_HUYET_DAO",
+      "VK_BA_VUONG_THUONG",
+      "AG_SAT_THU_PHUC",
+      "AG_QUANG_LIEN_CUNG_TRANG"
+    ]
+  },
+  "VK_TUNG_DUONG_THIET_KIEM"  : {
+    "Name" : "VK_TUNG_DUONG_THIET_KIEM",
+    "TenHienThi" : "Sun Iron Sword",
+    "Hang"       : 3,
+    "Anim"       : "NV_Kiem",
+    "CoSo"       : 185.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 12.1999998092651,
+    "Range"      : 250.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A sword of real hero, represents for all swords in the Kung Fu World.",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_KHAI_SON_PHU",
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_NGUYET_TU_THUC_Y"
+    ]
+  },
+  "VK_DO_LONG_DAO"            : {
+    "Name" : "VK_DO_LONG_DAO",
+    "TenHienThi" : "Dragon Slaying Blade",
+    "Hang"       : 3,
+    "Anim"       : "NV_Dao",
+    "CoSo"       : 188.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 12.1000003814697,
+    "Range"      : 270.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Honoured by the Kung Fu World, the precious Dragon Slaying Blade. It commands the world. Who dares to disobey?",
+    "TinhLuyen"  : [
+      "VK_BA_VUONG_THUONG",
+      "VK_THIET_THU",
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_KHIEU_TU_CAM_Y"
+    ]
+  },
+  "VK_LANH_NGUYET_BAO_DAO"    : {
+    "Name" : "VK_LANH_NGUYET_BAO_DAO",
+    "TenHienThi" : "Cold Moon Blade",
+    "Hang"       : 3,
+    "Anim"       : "NV_Dao",
+    "CoSo"       : 178.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 11.3000001907349,
+    "Range"      : 240.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A very sharp blade that can cut everything fall throught it. Many evil leaders of Kung Fu World in history used this blade.",
+    "TinhLuyen"  : [
+      "VK_KHAI_SON_PHU",
+      "VK_DA_TINH_HOAN",
+      "AG_THANH_AM_SAM",
+      "AG_HONG_PHAN_TRUONG_BAO"
+    ]
+  },
+  "VK_NHAT_NGUYET_PHU"        : {
+    "Name" : "VK_NHAT_NGUYET_PHU",
+    "TenHienThi" : "Sun Moon Axe",
+    "Hang"       : 3,
+    "Anim"       : "NV_PhuRiu",
+    "CoSo"       : 186.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 12.1000003814697,
+    "Range"      : 200.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A two-hands heavy axe with a big blade said to be able to break anything",
+    "TinhLuyen"  : [
+      "VK_THIET_THU",
+      "VK_BICH_NGOC_DICH",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_TUONG_QUAN_KHAI_GIAP"
+    ]
+  },
+  "VK_BACH_LONG_THANG_THIEN_THUONG" : {
+    "Name" : "VK_BACH_LONG_THANG_THIEN_THUONG",
+    "TenHienThi" : "White Dragon Spear",
+    "Hang"       : 3,
+    "Anim"       : "NV_Thuong",
+    "CoSo"       : 187.0,
+    "ChinhXac"   : 90.0,
+    "TangTruong" : 11.1999998092651,
+    "Range"      : 350.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "The precious spear of Zhao Yun, who did an unbelievable legendary one vs. ten thousands fight in the Battle of Changban to protect Liu Shan",
+    "TinhLuyen"  : [
+      "VK_DA_TINH_HOAN",
+      "VK_THUC_NU_KIEM",
+      "AG_VO_DANG_DAO_BAO",
+      "AG_O_TAM_Y"
+    ]
+  },
+  "VK_TRANG_NGUYEN_BUT"             : {
+    "Name" : "VK_TRANG_NGUYEN_BUT",
+    "TenHienThi" : "Scholar's Pen",
+    "Hang"       : 3,
+    "Anim"       : "NV_ButTieu",
+    "CoSo"       : 175.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 11.8000001907349,
+    "Range"      : 200.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A sophisticated pen made from the finest iron, strong but light.",
+    "TinhLuyen"  : [
+      "VK_QUAN_TU_KIEM",
+      "VK_LANG_NHA_BONG",
+      "AG_DA_HANH_Y",
+      "AG_VO_DAU_SAM"
+    ]
+  },
+  "VK_THANH_MA_THAN_THU"            : {
+    "Name" : "VK_THANH_MA_THAN_THU",
+    "TenHienThi" : "Blue Ghost Claw",
+    "Hang"       : 3,
+    "Anim"       : "NV_BaoTay",
+    "CoSo"       : 175.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 11.8999996185303,
+    "Range"      : 200.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "Most powerful and poisonous weapon in Seven Great Poisons in the Kung Fu World",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_HUYET_DAO",
+      "AG_PHI_PHONG",
+      "AG_TO_TU_BICH_THUONG"
+    ]
+  },
+  "VK_HONG_TI_TU_CHAM"              : {
+    "Name" : "VK_HONG_TI_TU_CHAM",
+    "TenHienThi" : "Rosy Needle",
+    "Hang"       : 3,
+    "Anim"       : "NV_AmKhi",
+    "CoSo"       : 179.0,
+    "ChinhXac"   : 85.0,
+    "TangTruong" : 12.6999998092651,
+    "Range"      : 600.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Signature weapon of Dong Fang Bu Bai. When it is in his hands, fighting alone against the four strongest masters is just like a walk.",
+    "TinhLuyen"  : [
+      "VK_LY_BIET_CAU",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_THU_LAM_NHUNG_Y"
+    ]
+  },
+  "VK_THIEN_CO_BONG"                : {
+    "Name" : "VK_THIEN_CO_BONG",
+    "TenHienThi" : "Will of Heaven Staff",
+    "Hang"       : 3,
+    "Anim"       : "NV_ConBong",
+    "CoSo"       : 185.0,
+    "ChinhXac"   : 95.0,
+    "TangTruong" : 12.1999998092651,
+    "Range"      : 300.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Light and thin but very powerful. A staff that is called Invincible, because its owner must be the number one.",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_BA_VUONG_THUONG",
+      "AG_SAT_THU_PHUC",
+      "AG_THANH_TUYET_SAM"
+    ]
+  },
+  "VK_DAP_NGUYET_PHIEN"             : {
+    "Name" : "VK_DAP_NGUYET_PHIEN",
+    "TenHienThi" : "Precious Moon Fan",
+    "Hang"       : 3,
+    "Anim"       : "NV_Phien",
+    "CoSo"       : 178.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 12.3999996185303,
+    "Range"      : 200.0,
+    "HeSoRandom" : 40,
+    "MoTa"       : "Signature weapon of Chu Liu Xiang. He wields a fan as his weapon and uses it only for self-defense. It is made by Sacred Silk and Jade.",
+    "TinhLuyen"  : [
+      "VK_HUYET_DAO",
+      "VK_KHAI_SON_PHU",
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_QUANG_LIEN_CUNG_TRANG"
+    ]
+  },
+  "VK_LONG_PHUNG_SONG_HOAN"         : {
+    "Name" : "VK_LONG_PHUNG_SONG_HOAN",
+    "TenHienThi" : "Dragon & Phoenix Rings",
+    "Hang"       : 3,
+    "Anim"       : "NV_Hoan",
+    "CoSo"       : 180.0,
+    "ChinhXac"   : 100.0,
+    "TangTruong" : 10.8999996185303,
+    "Range"      : 210.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Signature weapon of Shang Guan Jin Hong. It is too powerful, too wicked and too swift.",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_THIET_THU",
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_NGUYET_TU_THUC_Y"
+    ]
+  },
+  "AG_NHUYEN_VI_GIAP"               : {
+    "Name" : "AG_NHUYEN_VI_GIAP",
+    "TenHienThi" : "The Soft Porcupine Armour",
+    "Hang"       : 3,
+    "CoSo"       : 102.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A special lightweight armour with spikes on it that will protect the wearer from all kinds of metal weapons",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_SAT_THU_PHUC",
+      "VK_QUAN_TU_KIEM",
+      "VK_CHAN_VU_KIEM"
+    ]
+  },
+  "AG_TU_HA_CAM_Y"                  : {
+    "Name" : "AG_TU_HA_CAM_Y",
+    "TenHienThi" : "Light Purple",
+    "Hang"       : 3,
+    "CoSo"       : 101.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.09999990463257,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A clothes weaved from purple silk, only for leaders of a sect",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_THUC_NU_KIEM",
+      "VK_KIM_XA_KIEM"
+    ]
+  },
+  "AG_BANG_PHACH"                   : {
+    "Name" : "AG_BANG_PHACH",
+    "TenHienThi" : "Ice Soul",
+    "Hang"       : 3,
+    "CoSo"       : 106.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 75,
+    "MoTa"       : "A pure white Armor that lingers fragrance",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_LY_BIET_CAU",
+      "VK_BICH_NHAN_PHU"
+    ]
+  },
+  "AG_BICH_NGUYET_AM_THUONG"        : {
+    "Name" : "AG_BICH_NGUYET_AM_THUONG",
+    "TenHienThi" : "Jade Moon",
+    "Hang"       : 3,
+    "CoSo"       : 102.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 8.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Emei Sect Leaders' dress",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_DA_HANH_Y",
+      "VK_LANG_NHA_BONG",
+      "VK_PHUONG_THIEN_KICH"
+    ]
+  },
+  "AG_LE_SAT_CAM_Y"                 : {
+    "Name" : "AG_LE_SAT_CAM_Y",
+    "TenHienThi" : "Murderous Purple",
+    "Hang"       : 3,
+    "CoSo"       : 99.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.30000019073486,
+    "Range"      : 0.0,
+    "HeSoRandom" : 3,
+    "MoTa"       : "A purple dress with full of cold darkness",
+    "TinhLuyen"  : [
+      "AG_PHI_PHONG",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "VK_HUYET_DAO",
+      "VK_KIM_DICH"
+    ]
+  },
+  "AG_VO_SONG_NGOC_THUONG"          : {
+    "Name" : "AG_VO_SONG_NGOC_THUONG",
+    "TenHienThi" : "Unmatched Violet",
+    "Hang"       : 3,
+    "CoSo"       : 101.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A violet clothes weaved from top class silk",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_NGU_KIM_LUAN"
+    ]
+  },
+  "AG_TU_THIEN_GIANG_BAO"           : {
+    "Name" : "AG_TU_THIEN_GIANG_BAO",
+    "TenHienThi" : "Heavenly Purple Robe",
+    "Hang"       : 3,
+    "CoSo"       : 103.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Robe of Wudang Sect's Leaders",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_THANH_AM_SAM",
+      "VK_BA_VUONG_THUONG",
+      "VK_HAN_SUONG_THU"
+    ]
+  },
+  "AG_KIM_TI_BAO_GIAP"              : {
+    "Name" : "AG_KIM_TI_BAO_GIAP",
+    "TenHienThi" : "Golden Silk Armor",
+    "Hang"       : 3,
+    "CoSo"       : 106.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.40000009536743,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "An armor weaved from golden silk can prevent external injuries.",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_KHAI_SON_PHU",
+      "VK_MAI_HOA_TIEU"
+    ]
+  },
+  "AG_THU_THUY_THUONG"              : {
+    "Name" : "AG_THU_THUY_THUONG",
+    "TenHienThi" : "Autumn Water",
+    "Hang"       : 3,
+    "CoSo"       : 99.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.59999990463257,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A silk light armor often used by skilful heroes",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_THIET_THU",
+      "VK_MAI_HOA_TIEU"
+    ]
+  },
+  "AG_THUY_LINH_CAM_Y"              : {
+    "Name" : "AG_THUY_LINH_CAM_Y",
+    "TenHienThi" : "Water Pearl",
+    "Hang"       : 3,
+    "CoSo"       : 104.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 7.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "An armor inlaid with pearls, soft but can prevent both internal and external injuries.",
+    "TinhLuyen"  : [
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_DA_HANH_Y",
+      "VK_DA_TINH_HOAN",
+      "VK_ON_HAU_NGAN_KICH"
+    ]
+  },
+  "AG_O_TAM_Y"                      : {
+    "Name" : "AG_O_TAM_Y",
+    "TenHienThi" : "Grey Silk Armor",
+    "Hang"       : 2,
+    "CoSo"       : 69.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.80000019073486,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "An moulded armor weaved from grey silk, light but reliable",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_PHI_PHONG",
+      "VK_BICH_NGOC_DICH",
+      "VK_CHAN_VU_KIEM"
+    ]
+  },
+  "AG_TUONG_QUAN_KHAI_GIAP"         : {
+    "Name" : "AG_TUONG_QUAN_KHAI_GIAP",
+    "TenHienThi" : "General Metal Armor",
+    "Hang"       : 2,
+    "CoSo"       : 72.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.59999990463257,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "An armor often used by generals in battlefield, made of iron scale, can sustain external force",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_QUAN_TU_KIEM",
+      "VK_KIM_XA_KIEM"
+    ]
+  },
+  "AG_HONG_PHAN_TRUONG_BAO"         : {
+    "Name" : "AG_HONG_PHAN_TRUONG_BAO",
+    "TenHienThi" : "Pinky Silk Robe",
+    "Hang"       : 2,
+    "CoSo"       : 71.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A resistant silk robe",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_THANH_AM_SAM",
+      "VK_THUC_NU_KIEM",
+      "VK_BICH_NHAN_PHU"
+    ]
+  },
+  "AG_KHIEU_TU_CAM_Y"               : {
+    "Name" : "AG_KHIEU_TU_CAM_Y",
+    "TenHienThi" : "Top Class",
+    "Hang"       : 2,
+    "CoSo"       : 72.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.69999980926514,
+    "Range"      : 0.0,
+    "HeSoRandom" : 35,
+    "MoTa"       : "A top class dress made by weavers from Jiangnan.",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_LY_BIET_CAU",
+      "VK_PHUONG_THIEN_KICH"
+    ]
+  },
+  "AG_NGUYET_TU_THUC_Y"             : {
+    "Name" : "AG_NGUYET_TU_THUC_Y",
+    "TenHienThi" : "Dead Moon",
+    "Hang"       : 2,
+    "CoSo"       : 73.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A dark, overcast evil dress",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_LANG_NHA_BONG",
+      "VK_KIM_DICH"
+    ]
+  },
+  "AG_QUANG_LIEN_CUNG_TRANG"        : {
+    "Name" : "AG_QUANG_LIEN_CUNG_TRANG",
+    "TenHienThi" : "Moon Lotus",
+    "Hang"       : 2,
+    "CoSo"       : 69.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 5.19999980926514,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "An armor is only for Su Zhou's aristocrat",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_DA_HANH_Y",
+      "VK_HUYET_DAO",
+      "VK_NGU_KIM_LUAN"
+    ]
+  },
+  "AG_THANH_TUYET_SAM"              : {
+    "Name" : "AG_THANH_TUYET_SAM",
+    "TenHienThi" : "Bright Jade Robe",
+    "Hang"       : 2,
+    "CoSo"       : 72.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.40000009536743,
+    "Range"      : 0.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A light jade robe",
+    "TinhLuyen"  : [
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_PHI_PHONG",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_HAN_SUONG_THU"
+    ]
+  },
+  "AG_THU_LAM_NHUNG_Y"              : {
+    "Name" : "AG_THU_LAM_NHUNG_Y",
+    "TenHienThi" : "Blue Fall",
+    "Hang"       : 2,
+    "CoSo"       : 71.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.40000009536743,
+    "Range"      : 0.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "An armor made of unknown fabrics from West Chasm",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "VK_BA_VUONG_THUONG",
+      "VK_MAI_HOA_TIEU"
+    ]
+  },
+  "AG_TO_TU_BICH_THUONG"            : {
+    "Name" : "AG_TO_TU_BICH_THUONG",
+    "TenHienThi" : "Common Cloth",
+    "Hang"       : 2,
+    "CoSo"       : 70.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.69999980926514,
+    "Range"      : 0.0,
+    "HeSoRandom" : 30,
+    "MoTa"       : "A common cloth",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_PHI_PHONG",
+      "VK_KHAI_SON_PHU",
+      "VK_MAI_HOA_TIEU"
+    ]
+  },
+  "AG_VO_DAU_SAM"                   : {
+    "Name" : "AG_VO_DAU_SAM",
+    "TenHienThi" : "Jade Kung Fu",
+    "Hang"       : 2,
+    "CoSo"       : 72.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 4.59999990463257,
+    "Range"      : 0.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "An jade Armor with long sleeve for Kung Fu trainee",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_DA_HANH_Y",
+      "VK_THIET_THU",
+      "VK_ON_HAU_NGAN_KICH"
+    ]
+  },
+  "AG_PHI_PHONG"                    : {
+    "Name" : "AG_PHI_PHONG",
+    "TenHienThi" : "Wind Robe",
+    "Hang"       : 1,
+    "CoSo"       : 42.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 1.89999997615814,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A overcoat can block sun and wind",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_DA_TINH_HOAN"
+    ]
+  },
+  "AG_DA_HANH_Y"                    : {
+    "Name" : "AG_DA_HANH_Y",
+    "TenHienThi" : "Nightwalker",
+    "Hang"       : 1,
+    "CoSo"       : 41.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A black dress for masking in the night",
+    "TinhLuyen"  : [
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "VK_BICH_NGOC_DICH"
+    ]
+  },
+  "AG_VO_DANG_DAO_BAO"              : {
+    "Name" : "AG_VO_DANG_DAO_BAO",
+    "TenHienThi" : "Wudang Robe",
+    "Hang"       : 1,
+    "CoSo"       : 43.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 1.89999997615814,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Wudang Sect's students dress.",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_SAT_THU_PHUC",
+      "VK_QUAN_TU_KIEM"
+    ]
+  },
+  "AG_NGA_HOANG_THUONG_THUONG"      : {
+    "Name" : "AG_NGA_HOANG_THUONG_THUONG",
+    "TenHienThi" : "Informal Hero",
+    "Hang"       : 1,
+    "CoSo"       : 41.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.09999990463257,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "An informal dress for heroes",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_THIEU_LAM_TANG_Y",
+      "VK_THUC_NU_KIEM"
+    ]
+  },
+  "AG_PHI_KIEM_CAM_Y"               : {
+    "Name" : "AG_PHI_KIEM_CAM_Y",
+    "TenHienThi" : "Purple Sword",
+    "Hang"       : 1,
+    "CoSo"       : 43.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "An Armor with full of short-blade in it, only for assassins",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_THIEU_LAM_TANG_Y",
+      "VK_THUC_NU_KIEM"
+    ]
+  },
+  "AG_THANH_AM_SAM"                 : {
+    "Name" : "AG_THANH_AM_SAM",
+    "TenHienThi" : "Music Robe",
+    "Hang"       : 1,
+    "CoSo"       : 39.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 55,
+    "MoTa"       : "A big and refined robe for music teacher.",
+    "TinhLuyen"  : [
+      "AG_DA_HANH_Y",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_LY_BIET_CAU"
+    ]
+  },
+  "AG_CAM_VE_KHAI_GIAP"             : {
+    "Name" : "AG_CAM_VE_KHAI_GIAP",
+    "TenHienThi" : "Imperial Guard Armor",
+    "Hang"       : 1,
+    "CoSo"       : 43.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 1.79999995231628,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "An armor with the bronze mirror in the front, only for imperial guard",
+    "TinhLuyen"  : [
+      "AG_PHI_PHONG",
+      "AG_THANH_AM_SAM",
+      "VK_LANG_NHA_BONG"
+    ]
+  },
+  "AG_THIEU_LAM_TANG_Y"             : {
+    "Name" : "AG_THIEU_LAM_TANG_Y",
+    "TenHienThi" : "Shaolin Cloth",
+    "Hang"       : 1,
+    "CoSo"       : 41.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Dress of Shaolin's eminent monk",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_HUYET_DAO"
+    ]
+  },
+  "AG_SAT_THU_PHUC"                 : {
+    "Name" : "AG_SAT_THU_PHUC",
+    "TenHienThi" : "Assassin Robe",
+    "Hang"       : 1,
+    "CoSo"       : 40.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.20000004768372,
+    "Range"      : 0.0,
+    "HeSoRandom" : 65,
+    "MoTa"       : "Assassin's Armor lined with net inside to reduce injuries.",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_VIEN_NGUYET_LOAN_DAO"
+    ]
+  },
+  "AG_TOAN_CHAN_DAO_BAO"            : {
+    "Name" : "AG_TOAN_CHAN_DAO_BAO",
+    "TenHienThi" : "Quanzhen Robe",
+    "Hang"       : 1,
+    "CoSo"       : 39.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 2.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Dress of Quanzhen Sect's students",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_DA_HANH_Y",
+      "VK_BA_VUONG_THUONG"
+    ]
+  },
+  "TS_CAU_HON_LINH"                 : {
+    "Name" : "TS_CAU_HON_LINH",
+    "TenHienThi" : "Draw Soul Necklace",
+    "Hang"       : 3,
+    "CoSo"       : 303.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 20.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A necklace made of unknown gem that attracts the spirit of the deceased",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_DA_HANH_Y",
+      "VK_BA_VUONG_THUONG",
+      "AG_VO_DAU_SAM"
+    ]
+  },
+  "TS_TUYET_VIEM_THACH"             : {
+    "Name" : "TS_TUYET_VIEM_THACH",
+    "TenHienThi" : "Obsidian Necklace",
+    "Hang"       : 3,
+    "CoSo"       : 299.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 22.1000003814697,
+    "Range"      : 0.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A necklace made of Dark gem found at North volcano",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_PHI_PHONG",
+      "VK_KHAI_SON_PHU",
+      "AG_TO_TU_BICH_THUONG"
+    ]
+  },
+  "TS_THAT_BAO_LINH"                : {
+    "Name" : "TS_THAT_BAO_LINH",
+    "TenHienThi" : "Rainbow Gem Ornament",
+    "Hang"       : 3,
+    "CoSo"       : 302.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 19.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 70,
+    "MoTa"       : "An precious ornament made of 3 rainbow gemstone",
+    "TinhLuyen"  : [
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "VK_THIET_THU",
+      "AG_THU_LAM_NHUNG_Y"
+    ]
+  },
+  "TS_BICH_HAI_VAN"                 : {
+    "Name" : "TS_BICH_HAI_VAN",
+    "TenHienThi" : "Violet Gem Ornament",
+    "Hang"       : 3,
+    "CoSo"       : 299.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 20.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "An purple gem ornament carved a white dragon on waves",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_SAT_THU_PHUC",
+      "VK_DA_TINH_HOAN",
+      "AG_THANH_TUYET_SAM"
+    ]
+  },
+  "TS_THAN_NHI_HOAN"                : {
+    "Name" : "TS_THAN_NHI_HOAN",
+    "TenHienThi" : "Cold Darkness Necklace",
+    "Hang"       : 3,
+    "CoSo"       : 300.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 21.2999992370605,
+    "Range"      : 0.0,
+    "HeSoRandom" : 20,
+    "MoTa"       : "A cold darkness necklace made of unknown gem that attract dead souls",
+    "TinhLuyen"  : [
+      "AG_DA_HANH_Y",
+      "AG_THIEU_LAM_TANG_Y",
+      "VK_BICH_NGOC_DICH",
+      "AG_QUANG_LIEN_CUNG_TRANG"
+    ]
+  },
+  "TS_KIM_BAI_LENH_TIEN"            : {
+    "Name" : "TS_KIM_BAI_LENH_TIEN",
+    "TenHienThi" : "King Urgent Command",
+    "Hang"       : 3,
+    "CoSo"       : 301.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 22.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A golden royal card that present Majesty's superior with a fait accompli",
+    "TinhLuyen"  : [
+      "AG_PHI_PHONG",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_QUAN_TU_KIEM",
+      "AG_NGUYET_TU_THUC_Y"
+    ]
+  },
+  "TS_NGOC_HOA_HAM_SUONG"           : {
+    "Name" : "TS_NGOC_HOA_HAM_SUONG",
+    "TenHienThi" : "Dark Dew Gem Ring",
+    "Hang"       : 3,
+    "CoSo"       : 299.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 22.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A fire-proof ring that made of cold and dark gemstone",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_THANH_AM_SAM",
+      "VK_THUC_NU_KIEM",
+      "AG_KHIEU_TU_CAM_Y"
+    ]
+  },
+  "TS_CUU_THIEN_HUYEN_GIOI"         : {
+    "Name" : "TS_CUU_THIEN_HUYEN_GIOI",
+    "TenHienThi" : "Nine Heaven Rings",
+    "Hang"       : 3,
+    "CoSo"       : 310.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 23.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Legend has it that a pair of rings belongs to the Gods from the heaven. The rings curved with golden dragon",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_LY_BIET_CAU",
+      "AG_HONG_PHAN_TRUONG_BAO"
+    ]
+  },
+  "TS_PHA_THIEN_GIOI_CHI"           : {
+    "Name" : "TS_PHA_THIEN_GIOI_CHI",
+    "TenHienThi" : "Break Sky Ring",
+    "Hang"       : 3,
+    "CoSo"       : 305.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 23.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Legend has it that this ring made of meteorite from the sky",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_LANG_NHA_BONG",
+      "AG_TUONG_QUAN_KHAI_GIAP"
+    ]
+  },
+  "TS_THIEN_KIEM_BAO_CHAU"          : {
+    "Name" : "TS_THIEN_KIEM_BAO_CHAU",
+    "TenHienThi" : "Precious Sky Sword",
+    "Hang"       : 3,
+    "CoSo"       : 302.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 21.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A guard gate of the ancient sect, curved with 2 sword",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_DA_HANH_Y",
+      "VK_HUYET_DAO",
+      "AG_O_TAM_Y"
+    ]
+  },
+  "TS_LANH_NGUYET_HOA"              : {
+    "Name" : "TS_LANH_NGUYET_HOA",
+    "TenHienThi" : "Moon Flower Necklace",
+    "Hang"       : 2,
+    "CoSo"       : 202.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.1000003814697,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "A rose hoop necklace tied from golden fiber",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_PHI_PHONG",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "AG_VO_DAU_SAM"
+    ]
+  },
+  "TS_THANH_NGAN_HANG_LIEN"         : {
+    "Name" : "TS_THANH_NGAN_HANG_LIEN",
+    "TenHienThi" : "Agate Rosary",
+    "Hang"       : 2,
+    "CoSo"       : 199.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.8000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "A precious rosary made of agate and pearl",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_DA_HANH_Y",
+      "VK_BA_VUONG_THUONG",
+      "AG_TO_TU_BICH_THUONG"
+    ]
+  },
+  "TS_YEN_HOA_NGOC_BOI"             : {
+    "Name" : "TS_YEN_HOA_NGOC_BOI",
+    "TenHienThi" : "Jade Flower",
+    "Hang"       : 2,
+    "CoSo"       : 205.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "An sapphire ornament with a silk rope",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_KHAI_SON_PHU",
+      "AG_THU_LAM_NHUNG_Y"
+    ]
+  },
+  "TS_KY_LAN_BOI"                   : {
+    "Name" : "TS_KY_LAN_BOI",
+    "TenHienThi" : "Unicorn Ornament",
+    "Hang"       : 2,
+    "CoSo"       : 201.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.3999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A gem ornament curved Unicorn.",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_THIET_THU",
+      "AG_THANH_TUYET_SAM"
+    ]
+  },
+  "TS_THANH_HOA_LENH"               : {
+    "Name" : "TS_THANH_HOA_LENH",
+    "TenHienThi" : "Holy Flame Tablets",
+    "Hang"       : 2,
+    "CoSo"       : 206.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.3999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A tablets of Ming Cult Leaders, curved Heaven and Earth Great Reversal on it",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_DA_TINH_HOAN",
+      "AG_QUANG_LIEN_CUNG_TRANG"
+    ]
+  },
+  "TS_CHUC_ANH_THIEN_TRUNG"         : {
+    "Name" : "TS_CHUC_ANH_THIEN_TRUNG",
+    "TenHienThi" : "Shadow Flower Earring",
+    "Hang"       : 2,
+    "CoSo"       : 201.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 14.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A earring made by gold and ruby, only for young maiden",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_THANH_AM_SAM",
+      "VK_BICH_NGOC_DICH",
+      "AG_NGUYET_TU_THUC_Y"
+    ]
+  },
+  "TS_THAN_CHUNG_CO_GIOI"           : {
+    "Name" : "TS_THAN_CHUNG_CO_GIOI",
+    "TenHienThi" : "Divine Bell Ring",
+    "Hang"       : 2,
+    "CoSo"       : 199.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 16.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A ring curved with a bronze bell, can drive away deadly atmosphere",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_QUAN_TU_KIEM",
+      "AG_KHIEU_TU_CAM_Y"
+    ]
+  },
+  "TS_YEN_VU_HAN_TRAN"              : {
+    "Name" : "TS_YEN_VU_HAN_TRAN",
+    "TenHienThi" : "Cold Jade Ring",
+    "Hang"       : 2,
+    "CoSo"       : 203.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.3000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "A beautiful simple ring made by sapphire",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_THUC_NU_KIEM",
+      "AG_HONG_PHAN_TRUONG_BAO"
+    ]
+  },
+  "TS_CAT_TUONG_GIOI_CHI"           : {
+    "Name" : "TS_CAT_TUONG_GIOI_CHI",
+    "TenHienThi" : "Lucky Crystal Ring",
+    "Hang"       : 2,
+    "CoSo"       : 207.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 14.8000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "A luckily crystal gem ring",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_DA_HANH_Y",
+      "VK_LY_BIET_CAU",
+      "AG_TUONG_QUAN_KHAI_GIAP"
+    ]
+  },
+  "TS_YEU_NGON_GIOI_CHI"            : {
+    "Name" : "TS_YEU_NGON_GIOI_CHI",
+    "TenHienThi" : "Cold Darkness Ring",
+    "Hang"       : 2,
+    "CoSo"       : 206.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.1999998092651,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "Evil ring from Evil Cult, curved with ghost and full of deadly atmosphere",
+    "TinhLuyen"  : [
+      "AG_PHI_PHONG",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_LANG_NHA_BONG",
+      "AG_O_TAM_Y"
+    ]
+  },
+  "TS_VAN_TUONG_HANG_LIEN"          : {
+    "Name" : "TS_VAN_TUONG_HANG_LIEN",
+    "TenHienThi" : "Gemstone Tusk Necklace",
+    "Hang"       : 1,
+    "CoSo"       : 157.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.1999998092651,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A elephant's tusk necklace with five gemstones",
+    "TinhLuyen"  : [
+      "AG_DA_HANH_Y",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_HUYET_DAO"
+    ]
+  },
+  "TS_TUYET_HON_LINH"               : {
+    "Name" : "TS_TUYET_HON_LINH",
+    "TenHienThi" : "Blue Gem Necklace",
+    "Hang"       : 1,
+    "CoSo"       : 149.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A golden necklace with a blue gemstone, only for the officials.",
+    "TinhLuyen"  : [
+      "AG_VO_DANG_DAO_BAO",
+      "AG_THANH_AM_SAM",
+      "VK_VIEN_NGUYET_LOAN_DAO"
+    ]
+  },
+  "TS_LINH_LUNG_THANH_TUYET"        : {
+    "Name" : "TS_LINH_LUNG_THANH_TUYET",
+    "TenHienThi" : "Wool Necklace",
+    "Hang"       : 1,
+    "CoSo"       : 152.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.6999998092651,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A popular wool necklace",
+    "TinhLuyen"  : [
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_BA_VUONG_THUONG"
+    ]
+  },
+  "TS_BICH_KIM_LUU_LY"              : {
+    "Name" : "TS_BICH_KIM_LUU_LY",
+    "TenHienThi" : "Crystal Gem Ornament",
+    "Hang"       : 1,
+    "CoSo"       : 148.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.1000003814697,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A popular crystal gem ornament",
+    "TinhLuyen"  : [
+      "AG_THANH_AM_SAM",
+      "AG_THIEU_LAM_TANG_Y",
+      "VK_KHAI_SON_PHU"
+    ]
+  },
+  "TS_VU_AM_NHI_TRUY"               : {
+    "Name" : "TS_VU_AM_NHI_TRUY",
+    "TenHienThi" : "Blue Gem Earring",
+    "Hang"       : 1,
+    "CoSo"       : 153.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 70,
+    "MoTa"       : "A popular blue gemstone earring",
+    "TinhLuyen"  : [
+      "AG_CAM_VE_KHAI_GIAP",
+      "AG_SAT_THU_PHUC",
+      "VK_THIET_THU"
+    ]
+  },
+  "TS_HAN_SUONG_UYEN_LINH"          : {
+    "Name" : "TS_HAN_SUONG_UYEN_LINH",
+    "TenHienThi" : "Frost Gem Earring",
+    "Hang"       : 1,
+    "CoSo"       : 156.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A heat-proof earring made by cold gemstone",
+    "TinhLuyen"  : [
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "VK_DA_TINH_HOAN"
+    ]
+  },
+  "TS_NIEM_CHAU"                    : {
+    "Name" : "TS_NIEM_CHAU",
+    "TenHienThi" : "Pray Rosary",
+    "Hang"       : 1,
+    "CoSo"       : 150.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 9.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Hand-held thing of Buddhist",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_PHI_PHONG",
+      "VK_BICH_NGOC_DICH"
+    ]
+  },
+  "TS_MO_NHAT_HA_QUANG"             : {
+    "Name" : "TS_MO_NHAT_HA_QUANG",
+    "TenHienThi" : "Sapphire Light Ring",
+    "Hang"       : 1,
+    "CoSo"       : 154.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 9.89999961853027,
+    "Range"      : 0.0,
+    "HeSoRandom" : 90,
+    "MoTa"       : "A patterned sapphire ring",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_PHI_PHONG",
+      "VK_BICH_NGOC_DICH"
+    ]
+  },
+  "TS_THIEN_HOP_GIOI_CHI"           : {
+    "Name" : "TS_THIEN_HOP_GIOI_CHI",
+    "TenHienThi" : "White Sky Ring",
+    "Hang"       : 1,
+    "CoSo"       : 155.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.6000003814697,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A white tiger-curved ring made of white silver",
+    "TinhLuyen"  : [
+      "AG_TOAN_CHAN_DAO_BAO",
+      "AG_DA_HANH_Y",
+      "VK_QUAN_TU_KIEM"
+    ]
+  },
+  "TS_BACH_XUYEN_GIOI_CHI"          : {
+    "Name" : "TS_BACH_XUYEN_GIOI_CHI",
+    "TenHienThi" : "Flame Phoenix Ring",
+    "Hang"       : 1,
+    "CoSo"       : 157.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.3999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "A ring curved with flying fire phoenix, only for young maiden",
+    "TinhLuyen"  : [
+      "AG_SAT_THU_PHUC",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_THUC_NU_KIEM"
+    ]
+  },
+  "MU_NON_LA"                       : {
+    "Name" : "MU_NON_LA",
+    "TenHienThi" : "Bamboo Hat",
+    "Hang"       : 1,
+    "CoSo"       : 149.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.3999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "Made of straw or matting, this hat is used primarily as protection from the sun and rain",
+    "TinhLuyen"  : [
+      "VK_QUAN_TU_KIEM",
+      "VK_BICH_NGOC_DICH",
+      "AG_PHI_PHONG"
+    ]
+  },
+  "MU_KHAN_BIT_MAT"                 : {
+    "Name" : "MU_KHAN_BIT_MAT",
+    "TenHienThi" : "Dark Veil",
+    "Hang"       : 1,
+    "CoSo"       : 152.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "A veil to cover the face, often used by dubious persons",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_DA_TINH_HOAN",
+      "AG_DA_HANH_Y"
+    ]
+  },
+  "MU_CAI_BANG_DAU_SUC"             : {
+    "Name" : "MU_CAI_BANG_DAU_SUC",
+    "TenHienThi" : "Beggars Headband",
+    "Hang"       : 1,
+    "CoSo"       : 150.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 12.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A brown headband of Beggars Sect's",
+    "TinhLuyen"  : [
+      "VK_LY_BIET_CAU",
+      "VK_THIET_THU",
+      "AG_VO_DANG_DAO_BAO"
+    ]
+  },
+  "MU_TOAN_CHAN_PHAT_QUAN"          : {
+    "Name" : "MU_TOAN_CHAN_PHAT_QUAN",
+    "TenHienThi" : "Quanzhen's Hat",
+    "Hang"       : 1,
+    "CoSo"       : 155.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.1999998092651,
+    "Range"      : 0.0,
+    "HeSoRandom" : 85,
+    "MoTa"       : "A hat for Quanzhen Sect's students",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_KHAI_SON_PHU",
+      "AG_NGA_HOANG_THUONG_THUONG"
+    ]
+  },
+  "MU_DIEU_BI_PHAT_KET"             : {
+    "Name" : "MU_DIEU_BI_PHAT_KET",
+    "TenHienThi" : "Fox's Fur Hat",
+    "Hang"       : 1,
+    "CoSo"       : 153.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 92,
+    "MoTa"       : "Fox fur hat that can keep warm head",
+    "TinhLuyen"  : [
+      "VK_HUYET_DAO",
+      "VK_BA_VUONG_THUONG",
+      "AG_THANH_AM_SAM"
+    ]
+  },
+  "MU_SAT_THU_LAP"                  : {
+    "Name" : "MU_SAT_THU_LAP",
+    "TenHienThi" : "Assassin's Hat",
+    "Hang"       : 1,
+    "CoSo"       : 154.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 70,
+    "MoTa"       : "A all-face-covered hat of assassins",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_QUAN_TU_KIEM",
+      "AG_CAM_VE_KHAI_GIAP"
+    ]
+  },
+  "MU_PHI_PHAN_PHAT_KET"            : {
+    "Name" : "MU_PHI_PHAN_PHAT_KET",
+    "TenHienThi" : "Pinky Silk Hat",
+    "Hang"       : 1,
+    "CoSo"       : 156.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.8000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 50,
+    "MoTa"       : "A pinky violet hat weaved from top class silk",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_QUAN_TU_KIEM",
+      "AG_THIEU_LAM_TANG_Y"
+    ]
+  },
+  "MU_DIEM_THUY_PHAT_DAI"           : {
+    "Name" : "MU_DIEM_THUY_PHAT_DAI",
+    "TenHienThi" : "Wudang Priest's Hat",
+    "Hang"       : 1,
+    "CoSo"       : 151.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 55,
+    "MoTa"       : "A hat for Wudang Priest",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_LY_BIET_CAU",
+      "AG_SAT_THU_PHUC"
+    ]
+  },
+  "MU_TAY_VUC_PHAT_QUAN"            : {
+    "Name" : "MU_TAY_VUC_PHAT_QUAN",
+    "TenHienThi" : "West Chasm's Hat",
+    "Hang"       : 1,
+    "CoSo"       : 152.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 10.8000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 60,
+    "MoTa"       : "A weird hat of skilful heroes from West Chasm",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_HUYET_DAO",
+      "AG_TOAN_CHAN_DAO_BAO"
+    ]
+  },
+  "MU_MINH_GIAO_HOA_TRAM"           : {
+    "Name" : "MU_MINH_GIAO_HOA_TRAM",
+    "TenHienThi" : "Ming Cult Brooch",
+    "Hang"       : 1,
+    "CoSo"       : 156.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 11.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "A fire-curved brooch of Ming Cult",
+    "TinhLuyen"  : [
+      "VK_KHAI_SON_PHU",
+      "VK_BA_VUONG_THUONG",
+      "AG_PHI_PHONG"
+    ]
+  },
+  "MU_KIM_TUONG_BO_DIEU"            : {
+    "Name" : "MU_KIM_TUONG_BO_DIEU",
+    "TenHienThi" : "Golden Silk Hat",
+    "Hang"       : 2,
+    "CoSo"       : 202.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 16.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 80,
+    "MoTa"       : "A luxurious hat weaved from golden fibre",
+    "TinhLuyen"  : [
+      "VK_DA_TINH_HOAN",
+      "VK_THIET_THU",
+      "AG_DA_HANH_Y",
+      "VK_CHAN_VU_KIEM"
+    ]
+  },
+  "MU_MA_NI_PHAT_QUAN"              : {
+    "Name" : "MU_MA_NI_PHAT_QUAN",
+    "TenHienThi" : "West Chasm Frost Silk ",
+    "Hang"       : 2,
+    "CoSo"       : 204.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 14.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 70,
+    "MoTa"       : "A hat weaved from silk Ice Silkworm of West Chasm, only for the one whose high internal force",
+    "TinhLuyen"  : [
+      "VK_QUAN_TU_KIEM",
+      "VK_BICH_NGOC_DICH",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_KIM_XA_KIEM"
+    ]
+  },
+  "MU_KIM_XA_NGAN_TI"               : {
+    "Name" : "MU_KIM_XA_NGAN_TI",
+    "TenHienThi" : "Golden Snake Clothes",
+    "Hang"       : 2,
+    "CoSo"       : 202.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.3000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A hat made of desert golden snake's skin, can increase internal force",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_LANG_NHA_BONG",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_BICH_NHAN_PHU"
+    ]
+  },
+  "MU_TIEU_DAO_QUAN"                : {
+    "Name" : "MU_TIEU_DAO_QUAN",
+    "TenHienThi" : "Xiaodao Hat",
+    "Hang"       : 2,
+    "CoSo"       : 203.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.6000003814697,
+    "Range"      : 0.0,
+    "HeSoRandom" : 2,
+    "MoTa"       : "Popular light fabric hat",
+    "TinhLuyen"  : [
+      "VK_LY_BIET_CAU",
+      "VK_HUYET_DAO",
+      "AG_THANH_AM_SAM",
+      "VK_PHUONG_THIEN_KICH"
+    ]
+  },
+  "MU_BICH_HA_LUU_TO"               : {
+    "Name" : "MU_BICH_HA_LUU_TO",
+    "TenHienThi" : "River Silk Hat",
+    "Hang"       : 2,
+    "CoSo"       : 199.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 15.8000001907349,
+    "Range"      : 0.0,
+    "HeSoRandom" : 40,
+    "MoTa"       : "A luxurious silk hat with a veil",
+    "TinhLuyen"  : [
+      "VK_LANG_NHA_BONG",
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "AG_CAM_VE_KHAI_GIAP",
+      "VK_KIM_DICH"
+    ]
+  },
+  "MU_PHI_THUY_KIM_PHUNG"           : {
+    "Name" : "MU_PHI_THUY_KIM_PHUNG",
+    "TenHienThi" : "Phoenix Hairpin",
+    "Hang"       : 3,
+    "CoSo"       : 303.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 22.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "An uncommon hairpin curved to the phoenix's shape",
+    "TinhLuyen"  : [
+      "VK_HUYET_DAO",
+      "VK_BA_VUONG_THUONG",
+      "AG_THIEU_LAM_TANG_Y",
+      "VK_NGU_KIM_LUAN"
+    ]
+  },
+  "MU_PHI_LONG_DAU_HOAN"            : {
+    "Name" : "MU_PHI_LONG_DAU_HOAN",
+    "TenHienThi" : "Flying Dragon Hat",
+    "Hang"       : 3,
+    "CoSo"       : 301.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 21.5,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "Royal hat only for aristocrats",
+    "TinhLuyen"  : [
+      "VK_VIEN_NGUYET_LOAN_DAO",
+      "VK_KHAI_SON_PHU",
+      "AG_SAT_THU_PHUC",
+      "VK_HAN_SUONG_THU"
+    ]
+  },
+  "MU_MAI_KHOI_HONG_TRAM"           : {
+    "Name" : "MU_MAI_KHOI_HONG_TRAM",
+    "TenHienThi" : "Pink Rose Brooch",
+    "Hang"       : 3,
+    "CoSo"       : 303.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 22.0,
+    "Range"      : 0.0,
+    "HeSoRandom" : 40,
+    "MoTa"       : "A rose-shaped hair accessory",
+    "TinhLuyen"  : [
+      "VK_BA_VUONG_THUONG",
+      "VK_THIET_THU",
+      "AG_TOAN_CHAN_DAO_BAO",
+      "VK_MAI_HOA_TIEU"
+    ]
+  },
+  "MU_LUU_THAI_TUYET_THANH"         : {
+    "Name" : "MU_LUU_THAI_TUYET_THANH",
+    "TenHienThi" : "Premium Silk Hairtie",
+    "Hang"       : 3,
+    "CoSo"       : 304.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 21.7999992370605,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A light and flowing luxurious silk hairtie",
+    "TinhLuyen"  : [
+      "VK_KHAI_SON_PHU",
+      "VK_DA_TINH_HOAN",
+      "AG_PHI_PHONG",
+      "VK_MAI_HOA_TIEU"
+    ]
+  },
+  "MU_LAM_LINH_TU_TRAM"             : {
+    "Name" : "MU_LAM_LINH_TU_TRAM",
+    "TenHienThi" : "Blue Alligator Brooch",
+    "Hang"       : 3,
+    "CoSo"       : 305.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 22.2000007629395,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A royal water-proof brooch made of alligator's skin",
+    "TinhLuyen"  : [
+      "VK_THIET_THU",
+      "VK_BICH_NGOC_DICH",
+      "AG_DA_HANH_Y",
+      "VK_ON_HAU_NGAN_KICH"
+    ]
+  },
+  "MU_DOAN_THI_VUONG_MAO"           : {
+    "Name" : "MU_DOAN_THI_VUONG_MAO",
+    "TenHienThi" : "Dali Royal Hat",
+    "Hang"       : 3,
+    "CoSo"       : 299.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 19.7999992370605,
+    "Range"      : 0.0,
+    "HeSoRandom" : 100,
+    "MoTa"       : "The luxurious hat only for the royal families, said that can can protect the head from external injuries",
+    "TinhLuyen"  : [
+      "VK_DA_TINH_HOAN",
+      "VK_QUAN_TU_KIEM",
+      "AG_VO_DANG_DAO_BAO",
+      "VK_CHAN_VU_KIEM"
+    ]
+  },
+  "MU_CHU_TUOC_TRAM"                : {
+    "Name" : "MU_CHU_TUOC_TRAM",
+    "TenHienThi" : "Red Phoenix Brooch",
+    "Hang"       : 3,
+    "CoSo"       : 306.0,
+    "ChinhXac"   : 0.0,
+    "TangTruong" : 21.8999996185303,
+    "Range"      : 0.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "A phoenix-curved brooch made of an unknown precious gem glowing like the phoenix's flame",
+    "TinhLuyen"  : [
+      "VK_THUC_NU_KIEM",
+      "VK_HUYET_DAO",
+      "AG_NGA_HOANG_THUONG_THUONG",
+      "VK_KIM_XA_KIEM"
+    ]
+  },
+  "VK_TIEU_LY_PHI_DAO"              : {
+    "Name" : "VK_TIEU_LY_PHI_DAO",
+    "TenHienThi" : "Little Li Flying Dagger",
+    "Hang"       : 3,
+    "Anim"       : "NV_AmKhi",
+    "CoSo"       : 180.0,
+    "ChinhXac"   : 85.0,
+    "TangTruong" : 11.8999996185303,
+    "Range"      : 600.0,
+    "HeSoRandom" : 0,
+    "MoTa"       : "The blade of the dagger is three cun and seven fen long. It was forged from ordinary steel and iron unlike other famous weapons that were forged from special types of materials. It ranks third on the Bingqipu, a book of weapons.",
+    "TinhLuyen"  : [
+      "VK_BA_VUONG_THUONG",
+      "VK_DA_TINH_HOAN",
+      "AG_THIEU_LAM_TANG_Y",
+      "AG_QUANG_LIEN_CUNG_TRANG"
+    ]
+  }
+}

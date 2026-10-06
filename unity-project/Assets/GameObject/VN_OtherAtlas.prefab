@@ -1,0 +1,9688 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147589
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 479954}
+  - 114: {fileID: 11409266}
+  m_Layer: 0
+  m_Name: VN_OtherAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11409266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: 2834f8be93536ac47be1cc5cbacb90c3, type: 2}
+  sprites:
+  - name: VC_THAI_CUC_KIEM_VU
+    outer:
+      serializedVersion: 2
+      x: 1201
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1201
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LUC_MACH_THAN_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1302
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1302
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: vc_hang3_bkgnho
+    outer:
+      serializedVersion: 2
+      x: 1403
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1403
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KIEM_SINH_THAI_CUC
+    outer:
+      serializedVersion: 2
+      x: 1504
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1504
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHI_LONG_TAI_THIEN
+    outer:
+      serializedVersion: 2
+      x: 1605
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1605
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_DOC_CO_CUU_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_DIA_VO_CUC
+    outer:
+      serializedVersion: 2
+      x: 1807
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1807
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_HA_VO_CAU
+    outer:
+      serializedVersion: 2
+      x: 1908
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1908
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hang3_tl1_lvl_bkg
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 229
+      width: 46
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1746
+      y: 229
+      width: 4
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hang1_tl1_lvl_bkg
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 182
+      width: 46
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 182
+      width: 46
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hang2_tl1_lvl_bkg
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 135
+      width: 46
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 135
+      width: 46
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: count_bkg
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 1
+      width: 57
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 871
+      y: 13
+      width: 33
+      height: 33
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar2
+    outer:
+      serializedVersion: 2
+      x: 549
+      y: 1938
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 549
+      y: 1938
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar3
+    outer:
+      serializedVersion: 2
+      x: 660
+      y: 1938
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 660
+      y: 1938
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar1
+    outer:
+      serializedVersion: 2
+      x: 771
+      y: 1938
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 771
+      y: 1938
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: plus
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lock
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1332
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1332
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: empty
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1231
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1231
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_QUAN_TU_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1824
+      y: 470
+      width: 73
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1824
+      y: 470
+      width: 73
+      height: 64
+    rotated: 0
+    paddingLeft: 0.01369863
+    paddingRight: 0.15068494
+    paddingTop: 0.171875
+    paddingBottom: 0.15625
+  - name: AG_NHUYEN_VI_GIAP
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1371
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1371
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tb_hang3_bkgnho
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 928
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 928
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tb_hang1_bkgnho
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 827
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 827
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: tb_hang2_bkgnho
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 726
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 726
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: vp_bkgnho
+    outer:
+      serializedVersion: 2
+      x: 1100
+      y: 1948
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1100
+      y: 1948
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_KIM_BAI_LENH_TIEN
+    outer:
+      serializedVersion: 2
+      x: 1473
+      y: 1351
+      width: 85
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1473
+      y: 1351
+      width: 85
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.037037037
+    paddingBottom: 0.012345679
+  - name: TS_YEU_NGON_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 242
+      width: 79
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 242
+      width: 79
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.07594936
+    paddingTop: 0
+    paddingBottom: 0.036585364
+  - name: TS_CHUC_ANH_THIEN_TRUNG
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1113
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1113
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_CUU_THIEN_HUYEN_GIOI
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 920
+      width: 84
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 920
+      width: 84
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_CHU_TUOC_TRAM
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 941
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 941
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_MINH_GIAO_HOA_TRAM
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 325
+      width: 80
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 325
+      width: 80
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.0625
+    paddingTop: 0
+    paddingBottom: 0.049382716
+  - name: TS_CAT_TUONG_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 769
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 769
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_LINH_LUNG_THANH_TUYET
+    outer:
+      serializedVersion: 2
+      x: 1433
+      y: 849
+      width: 83
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1433
+      y: 849
+      width: 83
+      height: 76
+    rotated: 0
+    paddingLeft: 0.024096385
+    paddingRight: 0
+    paddingTop: 0.078947365
+    paddingBottom: 0.039473683
+  - name: TS_VAN_TUONG_HANG_LIEN
+    outer:
+      serializedVersion: 2
+      x: 1449
+      y: 928
+      width: 84
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1449
+      y: 928
+      width: 84
+      height: 77
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0.051948052
+    paddingBottom: 0.051948052
+  - name: MU_LAM_LINH_TU_TRAM
+    outer:
+      serializedVersion: 2
+      x: 1810
+      y: 1351
+      width: 84
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1810
+      y: 1351
+      width: 84
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0
+    paddingBottom: 0.049382716
+  - name: TS_YEN_VU_HAN_TRAN
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 425
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 425
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_KY_LAN_BOI
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 339
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 339
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_KIM_TUONG_BO_DIEU
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 244
+      width: 62
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 244
+      width: 62
+      height: 80
+    rotated: 0
+    paddingLeft: 0.12903225
+    paddingRight: 0.24193548
+    paddingTop: 0
+    paddingBottom: 0.0625
+  - name: MU_CAI_BANG_DAU_SUC
+    outer:
+      serializedVersion: 2
+      x: 1848
+      y: 848
+      width: 80
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1848
+      y: 848
+      width: 80
+      height: 77
+    rotated: 0
+    paddingLeft: 0.0625
+    paddingRight: 0
+    paddingTop: 0.103896104
+    paddingBottom: 0
+  - name: AG_KHIEU_TU_CAM_Y
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 579
+      width: 77
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 579
+      width: 77
+      height: 85
+    rotated: 0
+    paddingLeft: 0.012987013
+    paddingRight: 0.09090909
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_MAI_KHOI_HONG_TRAM
+    outer:
+      serializedVersion: 2
+      x: 957
+      y: 1349
+      width: 85
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 957
+      y: 1349
+      width: 85
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.024096385
+  - name: MU_DIEU_BI_PHAT_KET
+    outer:
+      serializedVersion: 2
+      x: 1650
+      y: 760
+      width: 73
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1650
+      y: 760
+      width: 73
+      height: 82
+    rotated: 0
+    paddingLeft: 0.09589041
+    paddingRight: 0.06849315
+    paddingTop: 0.036585364
+    paddingBottom: 0
+  - name: AG_VO_SONG_NGOC_THUONG
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 748
+      width: 84
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 748
+      width: 84
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_CAM_VE_KHAI_GIAP
+    outer:
+      serializedVersion: 2
+      x: 1683
+      y: 845
+      width: 78
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1683
+      y: 845
+      width: 78
+      height: 80
+    rotated: 0
+    paddingLeft: 0.08974359
+    paddingRight: 0
+    paddingTop: 0.0625
+    paddingBottom: 0
+  - name: MU_BICH_HA_LUU_TO
+    outer:
+      serializedVersion: 2
+      x: 1461
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1461
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: TS_HAN_SUONG_UYEN_LINH
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 144
+      width: 78
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 144
+      width: 78
+      height: 74
+    rotated: 0
+    paddingLeft: 0.051282052
+    paddingRight: 0.03846154
+    paddingTop: 0.067567565
+    paddingBottom: 0.08108108
+  - name: MU_TOAN_CHAN_PHAT_QUAN
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 332
+      width: 66
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 332
+      width: 66
+      height: 68
+    rotated: 0
+    paddingLeft: 0.16666667
+    paddingRight: 0.121212125
+    paddingTop: 0.10294118
+    paddingBottom: 0.14705883
+  - name: TS_TUYET_HON_LINH
+    outer:
+      serializedVersion: 2
+      x: 1195
+      y: 926
+      width: 83
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1195
+      y: 926
+      width: 83
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.024096385
+    paddingTop: 0.050632913
+    paddingBottom: 0.025316456
+  - name: MU_PHI_PHAN_PHAT_KET
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 536
+      width: 73
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 536
+      width: 73
+      height: 79
+    rotated: 0
+    paddingLeft: 0.08219178
+    paddingRight: 0.08219178
+    paddingTop: 0.06329114
+    paddingBottom: 0.012658228
+  - name: TS_MO_NHAT_HA_QUANG
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 77
+      width: 75
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 77
+      width: 75
+      height: 82
+    rotated: 0
+    paddingLeft: 0.10666667
+    paddingRight: 0.026666667
+    paddingTop: 0
+    paddingBottom: 0.036585364
+  - name: MU_DOAN_THI_VUONG_MAO
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 166
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 166
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_NGUYET_TU_THUC_Y
+    outer:
+      serializedVersion: 2
+      x: 1977
+      y: 1263
+      width: 70
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1977
+      y: 1263
+      width: 70
+      height: 85
+    rotated: 0
+    paddingLeft: 0.1
+    paddingRight: 0.114285715
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_KHAN_BIT_MAT
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 453
+      width: 73
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 453
+      width: 73
+      height: 81
+    rotated: 0
+    paddingLeft: 0.01369863
+    paddingRight: 0.15068494
+    paddingTop: 0.024691358
+    paddingBottom: 0.024691358
+  - name: TS_BICH_HAI_VAN
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 404
+      width: 83
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 404
+      width: 83
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.024096385
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_CAU_HON_LINH
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_KIM_XA_NGAN_TI
+    outer:
+      serializedVersion: 2
+      x: 1905
+      y: 547
+      width: 77
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1905
+      y: 547
+      width: 77
+      height: 66
+    rotated: 0
+    paddingLeft: 0.038961038
+    paddingRight: 0.064935066
+    paddingTop: 0.13636364
+    paddingBottom: 0.15151516
+  - name: TS_BACH_XUYEN_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 1
+      width: 76
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 1
+      width: 76
+      height: 75
+    rotated: 0
+    paddingLeft: 0.065789476
+    paddingRight: 0.05263158
+    paddingTop: 0.06666667
+    paddingBottom: 0.06666667
+  - name: AG_BANG_PHACH
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 1091
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 1091
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THIEN_HOP_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 378
+      width: 79
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 378
+      width: 79
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.07594936
+    paddingTop: 0
+    paddingBottom: 0.14864865
+  - name: AG_HONG_PHAN_TRUONG_BAO
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 282
+      width: 61
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 282
+      width: 61
+      height: 85
+    rotated: 0
+    paddingLeft: 0.19672132
+    paddingRight: 0.19672132
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_TUYET_VIEM_THACH
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 158
+      width: 78
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 158
+      width: 78
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.08974359
+    paddingTop: 0.012048192
+    paddingBottom: 0.012048192
+  - name: MU_MA_NI_PHAT_QUAN
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 220
+      width: 72
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 220
+      width: 72
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.18055555
+    paddingTop: 0.0625
+    paddingBottom: 0
+  - name: TS_VU_AM_NHI_TRUY
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 77
+      width: 82
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 77
+      width: 82
+      height: 70
+    rotated: 0
+    paddingLeft: 0.036585364
+    paddingRight: 0
+    paddingTop: 0.21428572
+    paddingBottom: 0
+  - name: MU_SAT_THU_LAP
+    outer:
+      serializedVersion: 2
+      x: 1988
+      y: 759
+      width: 56
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1988
+      y: 759
+      width: 56
+      height: 83
+    rotated: 0
+    paddingLeft: 0.21428572
+    paddingRight: 0.30357143
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: TS_THANH_HOA_LENH
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 919
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 919
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_LUU_THAI_TUYET_THANH
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 1006
+      width: 84
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 1006
+      width: 84
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_YEN_HOA_NGOC_BOI
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 747
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 747
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_NGA_HOANG_THUONG_THUONG
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 242
+      width: 73
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 242
+      width: 73
+      height: 85
+    rotated: 0
+    paddingLeft: 0.06849315
+    paddingRight: 0.09589041
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THANH_NGAN_HANG_LIEN
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 661
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 661
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_BICH_NGUYET_AM_THUONG
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 1006
+      width: 81
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 1006
+      width: 81
+      height: 85
+    rotated: 0
+    paddingLeft: 0.049382716
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THAN_NHI_HOAN
+    outer:
+      serializedVersion: 2
+      x: 1980
+      y: 1449
+      width: 67
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1980
+      y: 1449
+      width: 67
+      height: 84
+    rotated: 0
+    paddingLeft: 0.13432837
+    paddingRight: 0.13432837
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: TS_THIEN_KIEM_BAO_CHAU
+    outer:
+      serializedVersion: 2
+      x: 1356
+      y: 1010
+      width: 82
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1356
+      y: 1010
+      width: 82
+      height: 81
+    rotated: 0
+    paddingLeft: 0.036585364
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.049382716
+  - name: MU_TAY_VUC_PHAT_QUAN
+    outer:
+      serializedVersion: 2
+      x: 1981
+      y: 1352
+      width: 65
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1981
+      y: 1352
+      width: 65
+      height: 80
+    rotated: 0
+    paddingLeft: 0.21538462
+    paddingRight: 0.092307694
+    paddingTop: 0.025
+    paddingBottom: 0.0375
+  - name: TS_BICH_KIM_LUU_LY
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 69
+      width: 78
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 69
+      width: 78
+      height: 74
+    rotated: 0
+    paddingLeft: 0.08974359
+    paddingRight: 0
+    paddingTop: 0.067567565
+    paddingBottom: 0.08108108
+  - name: MU_NON_LA
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1
+      width: 85
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1
+      width: 85
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.07594936
+    paddingBottom: 0
+  - name: TS_NIEM_CHAU
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 923
+      width: 80
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 923
+      width: 80
+      height: 82
+    rotated: 0
+    paddingLeft: 0.0625
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.036585364
+  - name: AG_DA_HANH_Y
+    outer:
+      serializedVersion: 2
+      x: 1043
+      y: 1349
+      width: 85
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1043
+      y: 1349
+      width: 85
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.012048192
+    paddingBottom: 0.012048192
+  - name: TS_LANH_NGUYET_HOA
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 145
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 145
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THAT_BAO_LINH
+    outer:
+      serializedVersion: 2
+      x: 1944
+      y: 1009
+      width: 80
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1944
+      y: 1009
+      width: 80
+      height: 82
+    rotated: 0
+    paddingLeft: 0.025
+    paddingRight: 0.0375
+    paddingTop: 0.0121951215
+    paddingBottom: 0.024390243
+  - name: AG_KIM_TI_BAO_GIAP
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_PHI_THUY_KIM_PHUNG
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_TIEU_DAO_QUAN
+    outer:
+      serializedVersion: 2
+      x: 1789
+      y: 689
+      width: 85
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1789
+      y: 689
+      width: 85
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.1641791
+    paddingBottom: 0.104477614
+  - name: MU_DIEM_THUY_PHAT_DAI
+    outer:
+      serializedVersion: 2
+      x: 1773
+      y: 340
+      width: 62
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 1773
+      y: 340
+      width: 62
+      height: 60
+    rotated: 0
+    paddingLeft: 0.17741935
+    paddingRight: 0.19354838
+    paddingTop: 0.16666667
+    paddingBottom: 0.25
+  - name: TS_NGOC_HOA_HAM_SUONG
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_PHI_LONG_DAU_HOAN
+    outer:
+      serializedVersion: 2
+      x: 1031
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1031
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_LE_SAT_CAM_Y
+    outer:
+      serializedVersion: 2
+      x: 1117
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1117
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_PHA_THIEN_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 4
+      width: 79
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 4
+      width: 79
+      height: 72
+    rotated: 0
+    paddingLeft: 0.025316456
+    paddingRight: 0.050632913
+    paddingTop: 0.1388889
+    paddingBottom: 0.041666668
+  - name: TS_THAN_CHUNG_CO_GIOI
+    outer:
+      serializedVersion: 2
+      x: 1203
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1203
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TU_HA_THAN_CONG
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1332
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1332
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BAT_CAU_TRIEU_THIEN
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1231
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1231
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_Y_VO_PHUNG
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1130
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1130
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_MAN_THIEN_HOA_VU
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1029
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1029
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NGU_DOC_KI_KINH
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 928
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 928
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_DOC_XA_THO_TIN
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 827
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 827
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THAN_HANH_BACH_BIEN
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 726
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 726
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LONG_TRAO_THU
+    outer:
+      serializedVersion: 2
+      x: 1803
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1803
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TRUY_PHONG_THUAT
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 524
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 524
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LINH_TE_NHAT_CHI
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 423
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 423
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NGU_HANH_HO_THE
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 322
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 322
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOA_CONG_DAI_PHAP
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 221
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 221
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LIET_HOA_PHAN_THIEN
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 120
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 120
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LUU_TINH_CAN_NGUYET
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 19
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 19
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BAT_PHUONG_PHONG_VU
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TIEU_DAO_TAM_PHAP
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THAT_TINH_LUAN_CHUYEN
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TU_KHI_DONG_LAI
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 692
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LIEN_HOA_CHAN_KHI
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TIEN_THIEN_CONG
+    outer:
+      serializedVersion: 2
+      x: 894
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 894
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_DAU_CHUYEN_TINH_DI
+    outer:
+      serializedVersion: 2
+      x: 995
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 995
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIET_DAU_CONG
+    outer:
+      serializedVersion: 2
+      x: 1096
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KIM_CANG_PHUC_MA
+    outer:
+      serializedVersion: 2
+      x: 1197
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1197
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_PHAT_HANG_THE
+    outer:
+      serializedVersion: 2
+      x: 1298
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1298
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LY_HOP_DAO_KHI
+    outer:
+      serializedVersion: 2
+      x: 1399
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1399
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIET_KINH_CANG_QUYEN
+    outer:
+      serializedVersion: 2
+      x: 1500
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1500
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOA_COT_MIEN_CHUONG
+    outer:
+      serializedVersion: 2
+      x: 1601
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1601
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LUC_PHACH_HOA_SON
+    outer:
+      serializedVersion: 2
+      x: 1702
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1702
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOA_COT_THUC_TAM
+    outer:
+      serializedVersion: 2
+      x: 1803
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1803
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KHANG_LONG_HUU_HOI
+    outer:
+      serializedVersion: 2
+      x: 1904
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1904
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NGU_PHONG_THUAT
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KHAI_THAI_HOP_CUC
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NHAT_DUONG_CHI
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1332
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1332
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHIEU_TUYET_XUYEN_VAN
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1231
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1231
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HUYET_CHIEN_BAT_PHUONG
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1130
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1130
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KHINH_THAN_THUAT
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1029
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1029
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KHAI_SON_TOAI_THACH
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 928
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 928
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHICH_LICH_THU
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 827
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 827
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHI_HONG_DAP_TUYET
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 726
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 726
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HON_NGUYEN_THU
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 625
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 625
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOI_PHONG_LUU_TUYET
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 524
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 524
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: OtherAvatar_Bac_1
+    outer:
+      serializedVersion: 2
+      x: 1950
+      y: 355
+      width: 68
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1950
+      y: 355
+      width: 68
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.04411765
+    paddingTop: 0
+    paddingBottom: 0
+  - name: OtherAvatar_Vang_2
+    outer:
+      serializedVersion: 2
+      x: 1724
+      y: 409
+      width: 78
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1724
+      y: 409
+      width: 78
+      height: 59
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: OtherAvatar_Bac_3
+    outer:
+      serializedVersion: 2
+      x: 1724
+      y: 780
+      width: 96
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1724
+      y: 780
+      width: 96
+      height: 62
+    rotated: 0
+    paddingLeft: 0.020833334
+    paddingRight: 0.020833334
+    paddingTop: 0.09677419
+    paddingBottom: 0.032258064
+  - name: OtherAvatar_Bac_0
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 6
+      width: 56
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 6
+      width: 56
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.08928572
+    paddingTop: 0
+    paddingBottom: 0
+  - name: OtherAvatar_Vang_3
+    outer:
+      serializedVersion: 2
+      x: 1692
+      y: 695
+      width: 96
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 1692
+      y: 695
+      width: 96
+      height: 61
+    rotated: 0
+    paddingLeft: 0.020833334
+    paddingRight: 0.020833334
+    paddingTop: 0.09836066
+    paddingBottom: 0.04918033
+  - name: OtherAvatar_Vang_1
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 3
+      width: 68
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 3
+      width: 68
+      height: 45
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.04411765
+    paddingTop: 0
+    paddingBottom: 0
+  - name: OtherAvatar_Bac_2
+    outer:
+      serializedVersion: 2
+      x: 1803
+      y: 409
+      width: 78
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1803
+      y: 409
+      width: 78
+      height: 59
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: OtherAvatar_Vang_0
+    outer:
+      serializedVersion: 2
+      x: 1640
+      y: 11
+      width: 56
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1640
+      y: 11
+      width: 56
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.08928572
+    paddingTop: 0
+    paddingBottom: 0
+  - name: kyngo_khobau
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: kyngo_banghuu
+    outer:
+      serializedVersion: 2
+      x: 894
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 894
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_kyngo
+    outer:
+      serializedVersion: 2
+      x: 993
+      y: 1942
+      width: 106
+      height: 106
+    inner:
+      serializedVersion: 2
+      x: 993
+      y: 1942
+      width: 106
+      height: 106
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: kyngo_thuongnhan
+    outer:
+      serializedVersion: 2
+      x: 995
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 995
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: kyngo_caonhan
+    outer:
+      serializedVersion: 2
+      x: 1096
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: kyngo_tythi
+    outer:
+      serializedVersion: 2
+      x: 1197
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1197
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar4
+    outer:
+      serializedVersion: 2
+      x: 882
+      y: 1938
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 882
+      y: 1938
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_DOI_TEN
+    outer:
+      serializedVersion: 2
+      x: 1640
+      y: 328
+      width: 65
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1640
+      y: 328
+      width: 65
+      height: 72
+    rotated: 0
+    paddingLeft: 0.16923077
+    paddingRight: 0.13846155
+    paddingTop: 0.18055555
+    paddingBottom: 0
+  - name: VP_HOP_SAT
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 401
+      width: 74
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 401
+      width: 74
+      height: 67
+    rotated: 0
+    paddingLeft: 0.054054055
+    paddingRight: 0.0945946
+    paddingTop: 0.1641791
+    paddingBottom: 0.104477614
+  - name: VP_TRUYEN_CONG_2
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 497
+      width: 74
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 497
+      width: 74
+      height: 85
+    rotated: 0
+    paddingLeft: 0.067567565
+    paddingRight: 0.08108108
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_BINH_RUOU
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 17
+      width: 69
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 17
+      width: 69
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.23188406
+    paddingTop: 0.114285715
+    paddingBottom: 0.1
+  - name: VP_HOP_BAC
+    outer:
+      serializedVersion: 2
+      x: 1650
+      y: 401
+      width: 73
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1650
+      y: 401
+      width: 73
+      height: 67
+    rotated: 0
+    paddingLeft: 0.06849315
+    paddingRight: 0.09589041
+    paddingTop: 0.1641791
+    paddingBottom: 0.104477614
+  - name: VP_RUOU_TIEM_LUC_0
+    outer:
+      serializedVersion: 2
+      x: 1603
+      y: 846
+      width: 79
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1603
+      y: 846
+      width: 79
+      height: 79
+    rotated: 0
+    paddingLeft: 0.07594936
+    paddingRight: 0
+    paddingTop: 0.07594936
+    paddingBottom: 0
+  - name: VP_LOA
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 111
+      width: 64
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 111
+      width: 64
+      height: 65
+    rotated: 0
+    paddingLeft: 0.125
+    paddingRight: 0.203125
+    paddingTop: 0.15384616
+    paddingBottom: 0.15384616
+  - name: VP_RUOU_TIEM_LUC_2
+    outer:
+      serializedVersion: 2
+      x: 1633
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1633
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_BOI_DUONG_DAN
+    outer:
+      serializedVersion: 2
+      x: 1954
+      y: 403
+      width: 64
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 1954
+      y: 403
+      width: 64
+      height: 65
+    rotated: 0
+    paddingLeft: 0.203125
+    paddingRight: 0.125
+    paddingTop: 0.24615385
+    paddingBottom: 0.06153846
+  - name: VP_HOP_VANG
+    outer:
+      serializedVersion: 2
+      x: 1861
+      y: 1011
+      width: 82
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1861
+      y: 1011
+      width: 82
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.036585364
+    paddingTop: 0
+    paddingBottom: 0.0625
+  - name: VP_BAT_QUAI_TRAN_DO
+    outer:
+      serializedVersion: 2
+      x: 1891
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1891
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TRUYEN_CONG_1
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 328
+      width: 73
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 328
+      width: 73
+      height: 85
+    rotated: 0
+    paddingLeft: 0.08219178
+    paddingRight: 0.08219178
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_BAN_DO_KHO_BAU
+    outer:
+      serializedVersion: 2
+      x: 1746
+      y: 471
+      width: 77
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 1746
+      y: 471
+      width: 77
+      height: 63
+    rotated: 0
+    paddingLeft: 0.051948052
+    paddingRight: 0.051948052
+    paddingTop: 0.17460318
+    paddingBottom: 0.17460318
+  - name: VP_HUA_NGUYEN
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 49
+      width: 69
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 49
+      width: 69
+      height: 74
+    rotated: 0
+    paddingLeft: 0.08695652
+    paddingRight: 0.14492753
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUOU_TIEM_LUC_1
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 1091
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 1091
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_LUAN_KIEM_LENH
+    outer:
+      serializedVersion: 2
+      x: 1719
+      y: 1092
+      width: 84
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1719
+      y: 1092
+      width: 84
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: VP_GA_QUAY
+    outer:
+      serializedVersion: 2
+      x: 1898
+      y: 470
+      width: 72
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1898
+      y: 470
+      width: 72
+      height: 64
+    rotated: 0
+    paddingLeft: 0.083333336
+    paddingRight: 0.097222224
+    paddingTop: 0.203125
+    paddingBottom: 0.125
+  - name: EFF_CHOANG
+    outer:
+      serializedVersion: 2
+      x: 1917
+      y: 293
+      width: 37
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1917
+      y: 293
+      width: 37
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.08108108
+    paddingTop: 0.02631579
+    paddingBottom: 0.02631579
+  - name: EFF_TRIET_PHONG
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 211
+      width: 37
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 211
+      width: 37
+      height: 40
+    rotated: 0
+    paddingLeft: 0.08108108
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_GIAM_CHINH_XAC
+    outer:
+      serializedVersion: 2
+      x: 2003
+      y: 615
+      width: 40
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 2003
+      y: 615
+      width: 40
+      height: 30
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.13333334
+    paddingBottom: 0.2
+  - name: EFF_DINH_THAN
+    outer:
+      serializedVersion: 2
+      x: 1993
+      y: 294
+      width: 37
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1993
+      y: 294
+      width: 37
+      height: 37
+    rotated: 0
+    paddingLeft: 0.054054055
+    paddingRight: 0.027027028
+    paddingTop: 0.054054055
+    paddingBottom: 0.027027028
+  - name: EFF_PHONG_CHIEU
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 252
+      width: 37
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 252
+      width: 37
+      height: 40
+    rotated: 0
+    paddingLeft: 0.054054055
+    paddingRight: 0.027027028
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_PHONG_THAN_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1798
+      y: 293
+      width: 40
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1798
+      y: 293
+      width: 40
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.05263158
+    paddingBottom: 0
+  - name: EFF_BA_THE
+    outer:
+      serializedVersion: 2
+      x: 2007
+      y: 844
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2007
+      y: 844
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_PHE_BO_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1878
+      y: 294
+      width: 38
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1878
+      y: 294
+      width: 38
+      height: 37
+    rotated: 0
+    paddingLeft: 0.05263158
+    paddingRight: 0
+    paddingTop: 0.08108108
+    paddingBottom: 0
+  - name: EFF_HO_THE
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 9
+      width: 40
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 9
+      width: 40
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.02631579
+    paddingBottom: 0.02631579
+  - name: EFF_SUY_NHUOC
+    outer:
+      serializedVersion: 2
+      x: 1839
+      y: 294
+      width: 38
+      height: 37
+    inner:
+      serializedVersion: 2
+      x: 1839
+      y: 294
+      width: 38
+      height: 37
+    rotated: 0
+    paddingLeft: 0.05263158
+    paddingRight: 0
+    paddingTop: 0.08108108
+    paddingBottom: 0
+  - name: EFF_TRUNG_DOC
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 16
+      width: 29
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 16
+      width: 29
+      height: 38
+    rotated: 0
+    paddingLeft: 0.2413793
+    paddingRight: 0.13793103
+    paddingTop: 0.02631579
+    paddingBottom: 0.02631579
+  - name: EFF_THU_HUT
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1755
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1755
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_PHONG_KINH
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1695
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1695
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_HON_ME
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1856
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1856
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_TAU_HOA
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1796
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1796
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_XUAT_HUYET
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 55
+      width: 29
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 55
+      width: 29
+      height: 38
+    rotated: 0
+    paddingLeft: 0.2413793
+    paddingRight: 0.13793103
+    paddingTop: 0.02631579
+    paddingBottom: 0.02631579
+  - name: EFF_PHE_THU_PHAP
+    outer:
+      serializedVersion: 2
+      x: 2003
+      y: 646
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2003
+      y: 646
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THIEU_LAM_TANG_Y
+    outer:
+      serializedVersion: 2
+      x: 1193
+      y: 1006
+      width: 79
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1193
+      y: 1006
+      width: 79
+      height: 85
+    rotated: 0
+    paddingLeft: 0.03797468
+    paddingRight: 0.03797468
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_TOAN_CHAN_DAO_BAO
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 59
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 59
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_VO_DANG_DAO_BAO
+    outer:
+      serializedVersion: 2
+      x: 1890
+      y: 1092
+      width: 80
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1890
+      y: 1092
+      width: 80
+      height: 84
+    rotated: 0
+    paddingLeft: 0.025
+    paddingRight: 0.0375
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: AG_THANH_TUYET_SAM
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 445
+      width: 64
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 445
+      width: 64
+      height: 85
+    rotated: 0
+    paddingLeft: 0.109375
+    paddingRight: 0.21875
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_O_TAM_Y
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 249
+      width: 72
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 249
+      width: 72
+      height: 85
+    rotated: 0
+    paddingLeft: 0.083333336
+    paddingRight: 0.097222224
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_TUONG_QUAN_KHAI_GIAP
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 60
+      width: 82
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 60
+      width: 82
+      height: 85
+    rotated: 0
+    paddingLeft: 0.036585364
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_TU_THIEN_GIANG_BAO
+    outer:
+      serializedVersion: 2
+      x: 1524
+      y: 1006
+      width: 78
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1524
+      y: 1006
+      width: 78
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.08974359
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THU_LAM_NHUNG_Y
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 662
+      width: 84
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 662
+      width: 84
+      height: 85
+    rotated: 0
+    paddingLeft: 0.011904762
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_VO_DAU_SAM
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 840
+      width: 76
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 840
+      width: 76
+      height: 85
+    rotated: 0
+    paddingLeft: 0.065789476
+    paddingRight: 0.05263158
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THU_THUY_THUONG
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 576
+      width: 84
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 576
+      width: 84
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_PHI_PHONG
+    outer:
+      serializedVersion: 2
+      x: 1780
+      y: 1009
+      width: 80
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1780
+      y: 1009
+      width: 80
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.0625
+    paddingTop: 0.036585364
+    paddingBottom: 0
+  - name: AG_THUY_LINH_CAM_Y
+    outer:
+      serializedVersion: 2
+      x: 1891
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1891
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_SAT_THU_PHUC
+    outer:
+      serializedVersion: 2
+      x: 1805
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1805
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_TO_TU_BICH_THUONG
+    outer:
+      serializedVersion: 2
+      x: 1977
+      y: 1177
+      width: 70
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1977
+      y: 1177
+      width: 70
+      height: 85
+    rotated: 0
+    paddingLeft: 0.1
+    paddingRight: 0.114285715
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THANH_AM_SAM
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 837
+      width: 77
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 837
+      width: 77
+      height: 85
+    rotated: 0
+    paddingLeft: 0.077922076
+    paddingRight: 0.025974026
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_QUANG_LIEN_CUNG_TRANG
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 757
+      width: 71
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 757
+      width: 71
+      height: 85
+    rotated: 0
+    paddingLeft: 0.09859155
+    paddingRight: 0.09859155
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_TU_HA_CAM_Y
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 919
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 919
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KIEN_BO_CONG
+    outer:
+      serializedVersion: 2
+      x: 995
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 995
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: manh
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 19
+      width: 78
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 19
+      width: 78
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_ao
+    outer:
+      serializedVersion: 2
+      x: 1096
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_vu_khi
+    outer:
+      serializedVersion: 2
+      x: 1197
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1197
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_vo_cong
+    outer:
+      serializedVersion: 2
+      x: 1298
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1298
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_mu
+    outer:
+      serializedVersion: 2
+      x: 1399
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1399
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_trang_suc
+    outer:
+      serializedVersion: 2
+      x: 1500
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1500
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_noicong
+    outer:
+      serializedVersion: 2
+      x: 1601
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1601
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_bo_phap
+    outer:
+      serializedVersion: 2
+      x: 1702
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1702
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HON_NGUYEN_CONG
+    outer:
+      serializedVersion: 2
+      x: 1904
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1904
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_DOC_KINH
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THAI_CUC_THAN_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HUYEN_AM_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TRUY_TINH_CAN_NGUYET
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NHAN_HANH_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1332
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1332
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TU_LA_AM_SAT_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1231
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1231
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_TINH_CHI_NGOC
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1130
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1130
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CUU_AM_CHAN_KINH
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1029
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1029
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_CAN_TRUY
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 726
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 726
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_TAM_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 625
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 625
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BAC_MINH_THAN_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 322
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 322
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KIM_CANG_NHAP_THE
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 221
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 221
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_NGUYEN_CHI_THAN
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 120
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 120
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THE_VAN_TUNG
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NGU_HANH_CONG_PHAP
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_MINH_NGOC_CONG
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THAI_THUONG_THIEN_MA_CONG
+    outer:
+      serializedVersion: 2
+      x: 894
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 894
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BICH_HO_DU_TUONG
+    outer:
+      serializedVersion: 2
+      x: 995
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 995
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BAT_BO_DANG_KHONG
+    outer:
+      serializedVersion: 2
+      x: 1096
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOI_PHONG_LAC_NHAN
+    outer:
+      serializedVersion: 2
+      x: 1197
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1197
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LANG_KHONG_DAP_HU
+    outer:
+      serializedVersion: 2
+      x: 1298
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1298
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THONG_THIEN_BO_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1399
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1399
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THUY_THUONG_PHIEU
+    outer:
+      serializedVersion: 2
+      x: 1500
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1500
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LANG_BA_VI_BO
+    outer:
+      serializedVersion: 2
+      x: 1803
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1803
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_MA_GIAI_THE_DAI_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1904
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1904
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_PHONG_CHI_THUY
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_XUYEN_VAN_TUNG
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BANG_PHACH_CONG
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 625
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 625
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HANG_LONG_PHUC_HO_CONG
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 221
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 221
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THAT_TUYET_KINH
+    outer:
+      serializedVersion: 2
+      x: 1500
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1500
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_MA_BO_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1803
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1803
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_DAP_TUYET_LUU_HUONG
+    outer:
+      serializedVersion: 2
+      x: 1904
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1904
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOPHAP
+    outer:
+      serializedVersion: 2
+      x: 1520
+      y: 687
+      width: 85
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1520
+      y: 687
+      width: 85
+      height: 69
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.14492753
+    paddingBottom: 0.08695652
+  - name: VP_RUONGTHAN_NOICONG
+    outer:
+      serializedVersion: 2
+      x: 1434
+      y: 687
+      width: 85
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1434
+      y: 687
+      width: 85
+      height: 69
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.14492753
+    paddingBottom: 0.08695652
+  - name: VP_RUONGTHAN_TRANGBI
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 687
+      width: 85
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 687
+      width: 85
+      height: 69
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.14492753
+    paddingBottom: 0.08695652
+  - name: VP_BAN_DO
+    outer:
+      serializedVersion: 2
+      x: 1689
+      y: 1018
+      width: 90
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1689
+      y: 1018
+      width: 90
+      height: 73
+    rotated: 0
+    paddingLeft: 0.055555556
+    paddingRight: 0.055555556
+    paddingTop: 0.19178082
+    paddingBottom: 0.1780822
+  - name: VP_LENH_BAI_BANG_HOI
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 382
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 382
+      width: 79
+      height: 73
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.07594936
+    paddingTop: 0.04109589
+    paddingBottom: 0.12328767
+  - name: VP_RUONGTHAN_MU
+    outer:
+      serializedVersion: 2
+      x: 1606
+      y: 687
+      width: 85
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1606
+      y: 687
+      width: 85
+      height: 69
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.14492753
+    paddingBottom: 0.08695652
+  - name: VP_HOP_BAC_KEY
+    outer:
+      serializedVersion: 2
+      x: 1640
+      y: 121
+      width: 61
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1640
+      y: 121
+      width: 61
+      height: 66
+    rotated: 0
+    paddingLeft: 0.22950819
+    paddingRight: 0.16393442
+    paddingTop: 0.16666667
+    paddingBottom: 0.121212125
+  - name: VP_HOP_SAT_KEY
+    outer:
+      serializedVersion: 2
+      x: 1640
+      y: 188
+      width: 61
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1640
+      y: 188
+      width: 61
+      height: 66
+    rotated: 0
+    paddingLeft: 0.22950819
+    paddingRight: 0.16393442
+    paddingTop: 0.16666667
+    paddingBottom: 0.121212125
+  - name: VP_HOP_VANG_KEY
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 414
+      width: 76
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 414
+      width: 76
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.118421055
+    paddingTop: 0
+    paddingBottom: 0.036585364
+  - name: VK_BACH_LONG_THANG_THIEN_THUONG
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 403
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 403
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_BICH_NGOC_DICH
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 46
+      width: 63
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 46
+      width: 63
+      height: 64
+    rotated: 0
+    paddingLeft: 0.14285715
+    paddingRight: 0.20634921
+    paddingTop: 0.203125
+    paddingBottom: 0.125
+  - name: VK_DA_CAU_BONG
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 490
+      width: 83
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 490
+      width: 83
+      height: 85
+    rotated: 0
+    paddingLeft: 0.012048192
+    paddingRight: 0.012048192
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_HONG_TI_TU_CHAM
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 843
+      width: 78
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 843
+      width: 78
+      height: 82
+    rotated: 0
+    paddingLeft: 0.08974359
+    paddingRight: 0
+    paddingTop: 0.036585364
+    paddingBottom: 0
+  - name: VK_ON_HAU_NGAN_KICH
+    outer:
+      serializedVersion: 2
+      x: 785
+      y: 1349
+      width: 85
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 785
+      y: 1349
+      width: 85
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VK_CU_KHUYET_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1559
+      y: 1349
+      width: 82
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1559
+      y: 1349
+      width: 82
+      height: 83
+    rotated: 0
+    paddingLeft: 0.0121951215
+    paddingRight: 0.024390243
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VK_Y_THIEN_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 167
+      width: 75
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 167
+      width: 75
+      height: 81
+    rotated: 0
+    paddingLeft: 0.06666667
+    paddingRight: 0.06666667
+    paddingTop: 0.049382716
+    paddingBottom: 0
+  - name: VK_KHAI_SON_PHU
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 399
+      width: 72
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 399
+      width: 72
+      height: 69
+    rotated: 0
+    paddingLeft: 0.097222224
+    paddingRight: 0.083333336
+    paddingTop: 0.14492753
+    paddingBottom: 0.08695652
+  - name: VK_TRANG_NGUYEN_BUT
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 761
+      width: 74
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 761
+      width: 74
+      height: 81
+    rotated: 0
+    paddingLeft: 0.067567565
+    paddingRight: 0.08108108
+    paddingTop: 0.049382716
+    paddingBottom: 0
+  - name: VK_THIET_THU
+    outer:
+      serializedVersion: 2
+      x: 1895
+      y: 337
+      width: 54
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 1895
+      y: 337
+      width: 54
+      height: 63
+    rotated: 0
+    paddingLeft: 0.22222222
+    paddingRight: 0.35185185
+    paddingTop: 0.25396827
+    paddingBottom: 0.0952381
+  - name: VK_HUYEN_THIET_TRONG_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1895
+      y: 1352
+      width: 85
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1895
+      y: 1352
+      width: 85
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.0375
+    paddingBottom: 0.025
+  - name: VK_PHUONG_THIEN_KICH
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 335
+      width: 72
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 335
+      width: 72
+      height: 85
+    rotated: 0
+    paddingLeft: 0.027777778
+    paddingRight: 0.15277778
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_LY_BIET_CAU
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 456
+      width: 73
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 456
+      width: 73
+      height: 79
+    rotated: 0
+    paddingLeft: 0.08219178
+    paddingRight: 0.08219178
+    paddingTop: 0.07594936
+    paddingBottom: 0
+  - name: VK_THIEN_CO_BONG
+    outer:
+      serializedVersion: 2
+      x: 1971
+      y: 1092
+      width: 76
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1971
+      y: 1092
+      width: 76
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.118421055
+    paddingTop: 0
+    paddingBottom: 0.011904762
+  - name: VK_NHAT_NGUYET_PHU
+    outer:
+      serializedVersion: 2
+      x: 1547
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1547
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_TUNG_DUONG_THIET_KIEM
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1
+      width: 85
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1
+      width: 85
+      height: 78
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.08974359
+  - name: VK_THANH_MA_THAN_THU
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 614
+      width: 79
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 614
+      width: 79
+      height: 72
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.07594936
+    paddingTop: 0.11111111
+    paddingBottom: 0.06944445
+  - name: VK_NGU_KIM_LUAN
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 297
+      width: 73
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 297
+      width: 73
+      height: 80
+    rotated: 0
+    paddingLeft: 0.06849315
+    paddingRight: 0.09589041
+    paddingTop: 0.025
+    paddingBottom: 0.0375
+  - name: VK_LANG_NHA_BONG
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 535
+      width: 72
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 535
+      width: 72
+      height: 78
+    rotated: 0
+    paddingLeft: 0.055555556
+    paddingRight: 0.125
+    paddingTop: 0.06410257
+    paddingBottom: 0.025641026
+  - name: VK_LONG_PHUNG_SONG_HOAN
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 751
+      width: 77
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 751
+      width: 77
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.103896104
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_HUYET_DAO
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 204
+      width: 67
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 204
+      width: 67
+      height: 77
+    rotated: 0
+    paddingLeft: 0.1641791
+    paddingRight: 0.104477614
+    paddingTop: 0.077922076
+    paddingBottom: 0.025974026
+  - name: VK_VIEN_NGUYET_LOAN_DAO
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 368
+      width: 69
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 368
+      width: 69
+      height: 76
+    rotated: 0
+    paddingLeft: 0.13043478
+    paddingRight: 0.10144927
+    paddingTop: 0.09210526
+    paddingBottom: 0.02631579
+  - name: VK_MAI_HOA_TIEU
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 276
+      width: 50
+      height: 55
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 276
+      width: 50
+      height: 55
+    rotated: 0
+    paddingLeft: 0.34
+    paddingRight: 0.36
+    paddingTop: 0.29090908
+    paddingBottom: 0.25454545
+  - name: VK_HOI_PHONG_PHIEN
+    outer:
+      serializedVersion: 2
+      x: 1581
+      y: 474
+      width: 84
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 1581
+      y: 474
+      width: 84
+      height: 60
+    rotated: 0
+    paddingLeft: 0.011904762
+    paddingRight: 0
+    paddingTop: 0.2
+    paddingBottom: 0.21666667
+  - name: VK_HAN_SUONG_THU
+    outer:
+      serializedVersion: 2
+      x: 1983
+      y: 537
+      width: 64
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1983
+      y: 537
+      width: 64
+      height: 76
+    rotated: 0
+    paddingLeft: 0.109375
+    paddingRight: 0.21875
+    paddingTop: 0.09210526
+    paddingBottom: 0.02631579
+  - name: VK_LANH_NGUYET_BAO_DAO
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 926
+      width: 83
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 926
+      width: 83
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.024096385
+    paddingTop: 0
+    paddingBottom: 0.07594936
+  - name: VK_BA_VUONG_THUONG
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 669
+      width: 76
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 669
+      width: 76
+      height: 84
+    rotated: 0
+    paddingLeft: 0.02631579
+    paddingRight: 0.09210526
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: VK_DAP_NGUYET_PHIEN
+    outer:
+      serializedVersion: 2
+      x: 1129
+      y: 1350
+      width: 85
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1129
+      y: 1350
+      width: 85
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.036585364
+    paddingBottom: 0
+  - name: VK_KIM_DICH
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 168
+      width: 66
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 168
+      width: 66
+      height: 75
+    rotated: 0
+    paddingLeft: 0.10606061
+    paddingRight: 0.18181819
+    paddingTop: 0.053333335
+    paddingBottom: 0.08
+  - name: VK_NGU_TRUONG_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 665
+      width: 77
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 665
+      width: 77
+      height: 85
+    rotated: 0
+    paddingLeft: 0.038961038
+    paddingRight: 0.064935066
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_CHAN_VU_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 325
+      width: 64
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 325
+      width: 64
+      height: 75
+    rotated: 0
+    paddingLeft: 0.203125
+    paddingRight: 0.125
+    paddingTop: 0.12
+    paddingBottom: 0.013333334
+  - name: VK_BICH_NHAN_PHU
+    outer:
+      serializedVersion: 2
+      x: 1907
+      y: 768
+      width: 80
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1907
+      y: 768
+      width: 80
+      height: 74
+    rotated: 0
+    paddingLeft: 0.025
+    paddingRight: 0.0375
+    paddingTop: 0.10810811
+    paddingBottom: 0.04054054
+  - name: VK_DA_TINH_HOAN
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 250
+      width: 61
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 250
+      width: 61
+      height: 74
+    rotated: 0
+    paddingLeft: 0.16393442
+    paddingRight: 0.22950819
+    paddingTop: 0.10810811
+    paddingBottom: 0.04054054
+  - name: VK_DO_LONG_DAO
+    outer:
+      serializedVersion: 2
+      x: 1633
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1633
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_KIM_XA_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 531
+      width: 69
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 531
+      width: 69
+      height: 82
+    rotated: 0
+    paddingLeft: 0.11594203
+    paddingRight: 0.11594203
+    paddingTop: 0.036585364
+    paddingBottom: 0
+  - name: VK_THUC_NU_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1882
+      y: 405
+      width: 71
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 1882
+      y: 405
+      width: 71
+      height: 63
+    rotated: 0
+    paddingLeft: 0.056338027
+    paddingRight: 0.14084508
+    paddingTop: 0.1904762
+    paddingBottom: 0.15873016
+  - name: sao
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 94
+      width: 35
+      height: 35
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 94
+      width: 35
+      height: 35
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_TANG_CONG
+    outer:
+      serializedVersion: 2
+      x: 1955
+      y: 293
+      width: 37
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1955
+      y: 293
+      width: 37
+      height: 38
+    rotated: 0
+    paddingLeft: 0.08108108
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.05263158
+  - name: VP_BI_NGO
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 148
+      width: 81
+      height: 71
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 148
+      width: 81
+      height: 71
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.049382716
+    paddingTop: 0.14084508
+    paddingBottom: 0.056338027
+  - name: VP_LA_CO
+    outer:
+      serializedVersion: 2
+      x: 1375
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1375
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THIEP_MOI
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 616
+      width: 83
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 616
+      width: 83
+      height: 70
+    rotated: 0
+    paddingLeft: 0.024096385
+    paddingRight: 0
+    paddingTop: 0.14285715
+    paddingBottom: 0.071428575
+  - name: VP_VAT_PHAM_1
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 74
+      width: 78
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 74
+      width: 78
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.08974359
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VP_VAT_PHAM_2
+    outer:
+      serializedVersion: 2
+      x: 1301
+      y: 1350
+      width: 85
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1301
+      y: 1350
+      width: 85
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.036585364
+    paddingBottom: 0
+  - name: VC_DAN_CHI_THAN_THONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 726
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 726
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_SU_TU_HONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1029
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1029
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_SON_LUC_DUONG_CHUONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1130
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1130
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CAP_MO_CONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1231
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1231
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TA_QUYEN_HUU_CHUONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1332
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1332
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CUU_AM_BACH_COT_TRAO
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar1_to
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1938
+      width: 145
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1938
+      width: 145
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar2_to
+    outer:
+      serializedVersion: 2
+      x: 146
+      y: 1938
+      width: 145
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 146
+      y: 1938
+      width: 145
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar3_to
+    outer:
+      serializedVersion: 2
+      x: 292
+      y: 1938
+      width: 145
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 292
+      y: 1938
+      width: 145
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_NGOC_TIM
+    outer:
+      serializedVersion: 2
+      x: 1117
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1117
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_NGOC_VANG
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 231
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 231
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_NGOC_DO
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 317
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 317
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_NGOC_XANH
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 1091
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 1091
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_AM_NHIEN_TIEU_HON_CHUONG
+    outer:
+      serializedVersion: 2
+      x: 894
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 894
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CAU_HON_THAT_DOAT
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_DOAT_MENH_THAP_TAM_KIEM
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LANH_NGAO_KIEM_TUYET
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 120
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 120
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LONG_TUONG_BAT_NHA_CONG
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 221
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 221
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NHAT_KIEM_TAY_LAI
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 322
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 322
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_KIEM_CAN_KHON
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 423
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 423
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_NGOAI_PHI_TIEN
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 524
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 524
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_SON_CHIET_MAI_THU
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 625
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 625
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_THU_QUAN_AM
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1029
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1029
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TIEU_LY_PHI_DAO
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1130
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1130
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HAP_TINH_DAI_PHAP
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CUSTOM_1
+    outer:
+      serializedVersion: 2
+      x: 1512
+      y: 618
+      width: 83
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1512
+      y: 618
+      width: 83
+      height: 68
+    rotated: 0
+    paddingLeft: 0.012048192
+    paddingRight: 0.012048192
+    paddingTop: 0.25
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG4
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 507
+      width: 77
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 507
+      width: 77
+      height: 83
+    rotated: 0
+    paddingLeft: 0.064935066
+    paddingRight: 0.038961038
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG10
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 493
+      width: 77
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 493
+      width: 77
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.103896104
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG6
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 591
+      width: 77
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 591
+      width: 77
+      height: 83
+    rotated: 0
+    paddingLeft: 0.064935066
+    paddingRight: 0.038961038
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG8
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 609
+      width: 81
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 609
+      width: 81
+      height: 73
+    rotated: 0
+    paddingLeft: 0.049382716
+    paddingRight: 0
+    paddingTop: 0.16438356
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG5
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 675
+      width: 77
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 675
+      width: 77
+      height: 83
+    rotated: 0
+    paddingLeft: 0.064935066
+    paddingRight: 0.038961038
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG3
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 929
+      width: 85
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 929
+      width: 85
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.118421055
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG2
+    outer:
+      serializedVersion: 2
+      x: 1620
+      y: 929
+      width: 85
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1620
+      y: 929
+      width: 85
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.118421055
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG1
+    outer:
+      serializedVersion: 2
+      x: 1534
+      y: 929
+      width: 85
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 1534
+      y: 929
+      width: 85
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.118421055
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG7
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 683
+      width: 81
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 683
+      width: 81
+      height: 73
+    rotated: 0
+    paddingLeft: 0.049382716
+    paddingRight: 0
+    paddingTop: 0.16438356
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG9
+    outer:
+      serializedVersion: 2
+      x: 1666
+      y: 472
+      width: 79
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1666
+      y: 472
+      width: 79
+      height: 62
+    rotated: 0
+    paddingLeft: 0.03797468
+    paddingRight: 0.03797468
+    paddingTop: 0.27419356
+    paddingBottom: 0.09677419
+  - name: EFF_DOAT_MENH
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 48
+      width: 40
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 48
+      width: 40
+      height: 39
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.025641026
+    paddingBottom: 0
+  - name: EFF_AM_HAN
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1897
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1897
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_THUAN_BO
+    outer:
+      serializedVersion: 2
+      x: 2007
+      y: 885
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2007
+      y: 885
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_NGUYEN_KHI_DAN
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 833
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 833
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_HAP_TINH
+    outer:
+      serializedVersion: 2
+      x: 2009
+      y: 1967
+      width: 38
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2009
+      y: 1967
+      width: 38
+      height: 40
+    rotated: 0
+    paddingLeft: 0.02631579
+    paddingRight: 0.02631579
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_BANG_CO_NGOC_COT
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1553
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1553
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_CUU_DUONG_CHAN_KHI
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1594
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1594
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_QUY_HOA_CHAN_KHI
+    outer:
+      serializedVersion: 2
+      x: 1795
+      y: 259
+      width: 40
+      height: 33
+    inner:
+      serializedVersion: 2
+      x: 1795
+      y: 259
+      width: 40
+      height: 33
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.121212125
+    paddingBottom: 0.09090909
+  - name: EFF_VO_TUONG
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 293
+      width: 40
+      height: 38
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 293
+      width: 40
+      height: 38
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.05263158
+    paddingBottom: 0
+  - name: EFF_TAM_MA
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 171
+      width: 37
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 171
+      width: 37
+      height: 39
+    rotated: 0
+    paddingLeft: 0.027027028
+    paddingRight: 0.054054055
+    paddingTop: 0
+    paddingBottom: 0.025641026
+  - name: VP_CUSTOM_2
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 919
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 919
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CUU_KIEM_QUY_NHAT
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 827
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 827
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHUONG_VU_CUU_THIEN
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 928
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 928
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_SEED_HUYET_BO_DE
+    outer:
+      serializedVersion: 2
+      x: 1417
+      y: 762
+      width: 75
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1417
+      y: 762
+      width: 75
+      height: 80
+    rotated: 0
+    paddingLeft: 0.093333334
+    paddingRight: 0.04
+    paddingTop: 0.0625
+    paddingBottom: 0
+  - name: VP_SEED_HAC_LINH_CHI
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 759
+      width: 77
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 759
+      width: 77
+      height: 83
+    rotated: 0
+    paddingLeft: 0.051948052
+    paddingRight: 0.051948052
+    paddingTop: 0.024096385
+    paddingBottom: 0
+  - name: VP_SEED_THIEN_SON_TUYET_LIEN
+    outer:
+      serializedVersion: 2
+      x: 1547
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1547
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_SEED_THONG_KINH_THAO
+    outer:
+      serializedVersion: 2
+      x: 1640
+      y: 51
+      width: 56
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1640
+      y: 51
+      width: 56
+      height: 69
+    rotated: 0
+    paddingLeft: 0.30357143
+    paddingRight: 0.21428572
+    paddingTop: 0.11594203
+    paddingBottom: 0.11594203
+  - name: EFF_PHONG_SUONG
+    outer:
+      serializedVersion: 2
+      x: 2005
+      y: 1654
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2005
+      y: 1654
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_CUONG_HOA
+    outer:
+      serializedVersion: 2
+      x: 1757
+      y: 130
+      width: 36
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1757
+      y: 130
+      width: 36
+      height: 40
+    rotated: 0
+    paddingLeft: 0.027777778
+    paddingRight: 0.083333336
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HUYET_MA_TAM_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1702
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1702
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOI_PHONG_DOAT_NGUYET
+    outer:
+      serializedVersion: 2
+      x: 1601
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1601
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LAC_TUYET_BO_PHAP
+    outer:
+      serializedVersion: 2
+      x: 1399
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1399
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHONG_SUONG_TUYET_ANH
+    outer:
+      serializedVersion: 2
+      x: 1298
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1298
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_HANH_KHI_CONG
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 692
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CAN_KHON_DAI_NA_DI
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_CUU_DUONG_THAN_CONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LUC_HOP_KINH
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 19
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 19
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THIEN_MA_HANH_KHONG
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 120
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 120
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THUAN_DUONG_VO_CUC
+    outer:
+      serializedVersion: 2
+      x: 1196
+      y: 1434
+      width: 99
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 1196
+      y: 1434
+      width: 99
+      height: 99
+    rotated: 0
+    paddingLeft: 0.01010101
+    paddingRight: 0
+    paddingTop: 0.01010101
+    paddingBottom: 0
+  - name: VC_LAM_TUOC_VI
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 322
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 322
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_DI_BO_HOAN_HINH
+    outer:
+      serializedVersion: 2
+      x: 389
+      y: 423
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 389
+      y: 423
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_NGOC_NU_TAM_KINH
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_QUY_HOA_BAO_DIEN
+    outer:
+      serializedVersion: 2
+      x: 1702
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1702
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_LUU_QUANG_CHUYEN_THE
+    outer:
+      serializedVersion: 2
+      x: 1601
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1601
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HAP_MA_CHIEU_HON
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TRUC_DIEN_TRUY_PHONG
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 692
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BO_PHONG_TROC_ANH
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TIEU_VO_TUONG_CONG
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 423
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 423
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: EFF_DIEM_HUYET
+    outer:
+      serializedVersion: 2
+      x: 2009
+      y: 2008
+      width: 38
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 2009
+      y: 2008
+      width: 38
+      height: 40
+    rotated: 0
+    paddingLeft: 0.02631579
+    paddingRight: 0.02631579
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_O_TRUY
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 524
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 524
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_PHIEN_VU
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1141
+      width: 91
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1141
+      width: 91
+      height: 99
+    rotated: 0
+    paddingLeft: 0.0989011
+    paddingRight: 0
+    paddingTop: 0.01010101
+    paddingBottom: 0
+  - name: NGUA_XICH_THO
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 827
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 827
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_DICH_LO
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 928
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 928
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_TUYET_ANH
+    outer:
+      serializedVersion: 2
+      x: 1496
+      y: 1435
+      width: 98
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 1496
+      y: 1435
+      width: 98
+      height: 98
+    rotated: 0
+    paddingLeft: 0.020408163
+    paddingRight: 0
+    paddingTop: 0.020408163
+    paddingBottom: 0
+  - name: NGUA_O_VAN_DAP_TUYET
+    outer:
+      serializedVersion: 2
+      x: 894
+      y: 1434
+      width: 100
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 894
+      y: 1434
+      width: 100
+      height: 99
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.01010101
+    paddingBottom: 0
+  - name: NGUA_CHIEU_DA_NGOC_SU_TU
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1041
+      width: 90
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1041
+      width: 90
+      height: 99
+    rotated: 0
+    paddingLeft: 0.11111111
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.01010101
+  - name: VP_LA_DONG
+    outer:
+      serializedVersion: 2
+      x: 1961
+      y: 689
+      width: 85
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1961
+      y: 689
+      width: 85
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.11940298
+    paddingBottom: 0.14925373
+  - name: VP_GAO_NEP
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 80
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 80
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THIT_LON
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 252
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 252
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_BANH_CHUNG
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 7
+      width: 85
+      height: 51
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 7
+      width: 85
+      height: 51
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.3137255
+    paddingBottom: 0.3529412
+  - name: VK_TIEU_LY_PHI_DAO
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 2
+      width: 75
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 2
+      width: 75
+      height: 78
+    rotated: 0
+    paddingLeft: 0.10666667
+    paddingRight: 0.026666667
+    paddingTop: 0.051282052
+    paddingBottom: 0.03846154
+  - name: VP_TAY_TUY_DAN
+    outer:
+      serializedVersion: 2
+      x: 1279
+      y: 927
+      width: 84
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 1279
+      y: 927
+      width: 84
+      height: 78
+    rotated: 0
+    paddingLeft: 0.011904762
+    paddingRight: 0
+    paddingTop: 0.08974359
+    paddingBottom: 0
+  - name: VP_HUY_HIEU_SAO_VANG
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 421
+      width: 72
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 421
+      width: 72
+      height: 85
+    rotated: 0
+    paddingLeft: 0.041666668
+    paddingRight: 0.1388889
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_VONG_QUAY
+    outer:
+      serializedVersion: 2
+      x: 1493
+      y: 768
+      width: 81
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1493
+      y: 768
+      width: 81
+      height: 74
+    rotated: 0
+    paddingLeft: 0.024691358
+    paddingRight: 0.024691358
+    paddingTop: 0.10810811
+    paddingBottom: 0.04054054
+  - name: VP_MANH_GHEP_XEP_HINH_2
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 424
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 424
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_MANH_GHEP_XEP_HINH_1
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 510
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 510
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_MANH_GHEP_XEP_HINH_4
+    outer:
+      serializedVersion: 2
+      x: 1215
+      y: 1350
+      width: 85
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 1215
+      y: 1350
+      width: 85
+      height: 82
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.036585364
+  - name: VP_MANH_GHEP_XEP_HINH_3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 253
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 253
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CUSTOM_3
+    outer:
+      serializedVersion: 2
+      x: 1661
+      y: 549
+      width: 83
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 1661
+      y: 549
+      width: 83
+      height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.024096385
+    paddingTop: 0.140625
+    paddingBottom: 0.1875
+  - name: NGUA_BACH_HO
+    outer:
+      serializedVersion: 2
+      x: 995
+      y: 1434
+      width: 100
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 995
+      y: 1434
+      width: 100
+      height: 99
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.01010101
+  - name: NGUA_THAN_DIEU
+    outer:
+      serializedVersion: 2
+      x: 1395
+      y: 1435
+      width: 100
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 1395
+      y: 1435
+      width: 100
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.020408163
+    paddingBottom: 0
+  - name: VC_CHAN_VU_THAT_TUYET_KIEM
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1534
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1534
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THANH_MINH_TRAM
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1635
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1635
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THAU_THIEN_HOAN_NHAT
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 1736
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 1736
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TO_COSTUME
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1457
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1457
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_DOI_TEN_BANG
+    outer:
+      serializedVersion: 2
+      x: 1640
+      y: 255
+      width: 65
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1640
+      y: 255
+      width: 65
+      height: 72
+    rotated: 0
+    paddingLeft: 0.16923077
+    paddingRight: 0.13846155
+    paddingTop: 0.18055555
+    paddingBottom: 0
+  - name: VP_LINH_DAN_1
+    outer:
+      serializedVersion: 2
+      x: 1348
+      y: 301
+      width: 72
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1348
+      y: 301
+      width: 72
+      height: 80
+    rotated: 0
+    paddingLeft: 0.041666668
+    paddingRight: 0.1388889
+    paddingTop: 0.0375
+    paddingBottom: 0.025
+  - name: VP_NGOI_PHAO
+    outer:
+      serializedVersion: 2
+      x: 1719
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1719
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_HOP_PHUC_VU_LAN_KEY
+    outer:
+      serializedVersion: 2
+      x: 1836
+      y: 338
+      width: 58
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1836
+      y: 338
+      width: 58
+      height: 62
+    rotated: 0
+    paddingLeft: 0.29310346
+    paddingRight: 0.1724138
+    paddingTop: 0.24193548
+    paddingBottom: 0.12903225
+  - name: VP_VO_PHAO
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 88
+      width: 62
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 88
+      width: 62
+      height: 79
+    rotated: 0
+    paddingLeft: 0.17741935
+    paddingRight: 0.19354838
+    paddingTop: 0.07594936
+    paddingBottom: 0
+  - name: VP_HOP_PHUC_VU_LAN
+    outer:
+      serializedVersion: 2
+      x: 1439
+      y: 1012
+      width: 84
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1439
+      y: 1012
+      width: 84
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.011904762
+    paddingTop: 0.06329114
+    paddingBottom: 0.012658228
+  - name: VP_LINH_DAN_2
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1717
+      width: 83
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1717
+      width: 83
+      height: 91
+    rotated: 0
+    paddingLeft: 0.060240965
+    paddingRight: 0.14457831
+    paddingTop: 0.054945055
+    paddingBottom: 0.043956045
+  - name: VC_DOAN_TINH_THAT_TUYET
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 625
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 625
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KIEM_TIEU_HONG_TRAN
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 524
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 524
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_HOANG_KIM_GIAP
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 423
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 423
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_HU_COT_THUC_TAM
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 322
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 322
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_PHI_TAN_THIEN_HOA
+    outer:
+      serializedVersion: 2
+      x: 1692
+      y: 1438
+      width: 95
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 1692
+      y: 1438
+      width: 95
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_PHU_QUANG_LUOC_ANH
+    outer:
+      serializedVersion: 2
+      x: 1788
+      y: 1438
+      width: 95
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 1788
+      y: 1438
+      width: 95
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_THOAI_BO_PHAN_YEN
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 221
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 221
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_CUU_CHUYEN_LY_HON
+    outer:
+      serializedVersion: 2
+      x: 1884
+      y: 1438
+      width: 95
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 1884
+      y: 1438
+      width: 95
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_HUYET_NHIEM_HONG_TRAN
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1241
+      width: 95
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1241
+      width: 95
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PET_TIEU_DAO_VO_ANH
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1337
+      width: 95
+      height: 95
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1337
+      width: 95
+      height: 95
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_LENH_BAI_CHUYEN_SINH
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 834
+      width: 84
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 834
+      width: 84
+      height: 85
+    rotated: 0
+    paddingLeft: 0.011904762
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG12
+    outer:
+      serializedVersion: 2
+      x: 1745
+      y: 544
+      width: 76
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1745
+      y: 544
+      width: 76
+      height: 69
+    rotated: 0
+    paddingLeft: 0.065789476
+    paddingRight: 0.05263158
+    paddingTop: 0.14492753
+    paddingBottom: 0.08695652
+  - name: VP_RUONGTHAN_BOSUNG14
+    outer:
+      serializedVersion: 2
+      x: 1841
+      y: 621
+      width: 83
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 1841
+      y: 621
+      width: 83
+      height: 65
+    rotated: 0
+    paddingLeft: 0.012048192
+    paddingRight: 0.012048192
+    paddingTop: 0.21538462
+    paddingBottom: 0.092307694
+  - name: VP_RUONGTHAN_BOSUNG11
+    outer:
+      serializedVersion: 2
+      x: 1971
+      y: 472
+      width: 74
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1971
+      y: 472
+      width: 74
+      height: 62
+    rotated: 0
+    paddingLeft: 0.067567565
+    paddingRight: 0.08108108
+    paddingTop: 0.20967741
+    paddingBottom: 0.16129032
+  - name: VP_RUONGTHAN_BOSUNG13
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 1
+      width: 77
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 1
+      width: 77
+      height: 67
+    rotated: 0
+    paddingLeft: 0.038961038
+    paddingRight: 0.064935066
+    paddingTop: 0.19402985
+    paddingBottom: 0.07462686
+  - name: VP_RUONGTHAN_BOSUNG15
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 469
+      width: 78
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 469
+      width: 78
+      height: 65
+    rotated: 0
+    paddingLeft: 0.03846154
+    paddingRight: 0.051282052
+    paddingTop: 0.2
+    paddingBottom: 0.10769231
+  - name: VP_RUONGTHAN_BOSUNG16
+    outer:
+      serializedVersion: 2
+      x: 1792
+      y: 928
+      width: 83
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1792
+      y: 928
+      width: 83
+      height: 77
+    rotated: 0
+    paddingLeft: 0.012048192
+    paddingRight: 0.012048192
+    paddingTop: 0.09090909
+    paddingBottom: 0.012987013
+  - name: VC_SAT_THAN_DIET_PHAT
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 120
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 120
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_VAN_PHAT_TRIEU_TONG
+    outer:
+      serializedVersion: 2
+      x: 490
+      y: 19
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 490
+      y: 19
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_PHONG_MA_THIEN_TRUONG
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 833
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 833
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hang4_tl1_lvl_bkg
+    outer:
+      serializedVersion: 2
+      x: 1706
+      y: 88
+      width: 46
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1706
+      y: 88
+      width: 46
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bkg_avatar5
+    outer:
+      serializedVersion: 2
+      x: 438
+      y: 1938
+      width: 110
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 438
+      y: 1938
+      width: 110
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_DIET_MA_PHAT_QUAN
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 747
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 747
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THU_HON
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.011904762
+  - name: VP_HOA_THAN_DAN
+    outer:
+      serializedVersion: 2
+      x: 1338
+      y: 765
+      width: 78
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1338
+      y: 765
+      width: 78
+      height: 77
+    rotated: 0
+    paddingLeft: 0.051282052
+    paddingRight: 0.03846154
+    paddingTop: 0.064935066
+    paddingBottom: 0.038961038
+  - name: VP_DOAT_HON_THACH
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 575
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 575
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_TAM_PHAT_BAO_Y
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 489
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 489
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THUOC_SUNG
+    outer:
+      serializedVersion: 2
+      x: 1675
+      y: 620
+      width: 85
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 1675
+      y: 620
+      width: 85
+      height: 66
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.22727273
+    paddingBottom: 0.060606062
+  - name: VC_VAN_KIEM_QUY_TONG
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHONG_THAN_THOAI
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 692
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_BAI_VAN_CHUONG
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1433
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1433
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_TUYET_AM_DAO
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 317
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 317
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_VO_SONG_NGOC_BOI
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 231
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 231
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_PHONG_THAN_CAM_Y
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 145
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 145
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_TUYET_THE_HAO_KIEM
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 59
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 59
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_HOA_LAN_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1285
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1285
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_TU_THAN_TRAM
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1199
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1199
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_ANH_HUNG_KIEM
+    outer:
+      serializedVersion: 2
+      x: 1353
+      y: 845
+      width: 79
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1353
+      y: 845
+      width: 79
+      height: 80
+    rotated: 0
+    paddingLeft: 0.03797468
+    paddingRight: 0.03797468
+    paddingTop: 0.0625
+    paddingBottom: 0
+  - name: VP_GO
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 6
+      width: 78
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 6
+      width: 78
+      height: 52
+    rotated: 0
+    paddingLeft: 0.025641026
+    paddingRight: 0.06410257
+    paddingTop: 0.48076922
+    paddingBottom: 0.15384616
+  - name: VP_DA
+    outer:
+      serializedVersion: 2
+      x: 1822
+      y: 551
+      width: 82
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 1822
+      y: 551
+      width: 82
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.036585364
+    paddingTop: 0.24193548
+    paddingBottom: 0.12903225
+  - name: VUON_THUOC
+    outer:
+      serializedVersion: 2
+      x: 1876
+      y: 928
+      width: 83
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1876
+      y: 928
+      width: 83
+      height: 77
+    rotated: 0
+    paddingLeft: 0.12048193
+    paddingRight: 0.084337346
+    paddingTop: 0.16883117
+    paddingBottom: 0.12987013
+  - name: CHINH_SANH
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 1349
+      width: 97
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 1349
+      width: 97
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.030927835
+    paddingTop: 0.16867469
+    paddingBottom: 0.036144577
+  - name: XUONG_DA
+    outer:
+      serializedVersion: 2
+      x: 1725
+      y: 1351
+      width: 84
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1725
+      y: 1351
+      width: 84
+      height: 81
+    rotated: 0
+    paddingLeft: 0.10714286
+    paddingRight: 0.083333336
+    paddingTop: 0.11111111
+    paddingBottom: 0.12345679
+  - name: XUONG_GO
+    outer:
+      serializedVersion: 2
+      x: 1596
+      y: 614
+      width: 78
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1596
+      y: 614
+      width: 78
+      height: 72
+    rotated: 0
+    paddingLeft: 0.115384616
+    paddingRight: 0.16666667
+    paddingTop: 0.22222222
+    paddingBottom: 0.16666667
+  - name: NHA_BEP
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 535
+      width: 81
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 535
+      width: 81
+      height: 73
+    rotated: 0
+    paddingLeft: 0.14814815
+    paddingRight: 0.086419754
+    paddingTop: 0.20547946
+    paddingBottom: 0.16438356
+  - name: TIEN_TRANG
+    outer:
+      serializedVersion: 2
+      x: 1364
+      y: 928
+      width: 84
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1364
+      y: 928
+      width: 84
+      height: 77
+    rotated: 0
+    paddingLeft: 0.10714286
+    paddingRight: 0.083333336
+    paddingTop: 0.16883117
+    paddingBottom: 0.12987013
+  - name: VP_RUONG_THAN_BI
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 1005
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 1005
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CO_PHO_TAN_QUYEN
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 583
+      width: 75
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 583
+      width: 75
+      height: 85
+    rotated: 0
+    paddingLeft: 0.06666667
+    paddingRight: 0.06666667
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_HUYEN_THIET_THACH
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1027
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1027
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TAY_LUYEN_THACH
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 855
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 855
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_DUNG_LUYEN_THACH
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 683
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 683
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_DANH_VONG
+    outer:
+      serializedVersion: 2
+      x: 1432
+      y: 124
+      width: 65
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1432
+      y: 124
+      width: 65
+      height: 79
+    rotated: 0
+    paddingLeft: 0.18461539
+    paddingRight: 0.12307692
+    paddingTop: 0.025316456
+    paddingBottom: 0.050632913
+  - name: VP_BAO_LI_XI
+    outer:
+      serializedVersion: 2
+      x: 1925
+      y: 616
+      width: 77
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1925
+      y: 616
+      width: 77
+      height: 70
+    rotated: 0
+    paddingLeft: 0.077922076
+    paddingRight: 0.025974026
+    paddingTop: 0.114285715
+    paddingBottom: 0.1
+  - name: VP_MAT_TIN_GIANG_HO
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 1
+      width: 80
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 1
+      width: 80
+      height: 72
+    rotated: 0
+    paddingLeft: 0.025
+    paddingRight: 0.0375
+    paddingTop: 0.15277778
+    paddingBottom: 0.027777778
+  - name: VP_THAN_HUYET_THACH
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 597
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 597
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THAN_VUONG_TINH_HUYET
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 511
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 511
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THAN_VUONG_LENH
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 754
+      width: 76
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 754
+      width: 76
+      height: 85
+    rotated: 0
+    paddingLeft: 0.065789476
+    paddingRight: 0.05263158
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THIEN_MA_BAO_HAP
+    outer:
+      serializedVersion: 2
+      x: 1762
+      y: 852
+      width: 85
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1762
+      y: 852
+      width: 85
+      height: 73
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.15068494
+    paddingBottom: 0.01369863
+  - name: NGUA_HOA_KY_LAN
+    outer:
+      serializedVersion: 2
+      x: 86
+      y: 19
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 86
+      y: 19
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_KY_LAN
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 940
+      width: 89
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 940
+      width: 89
+      height: 100
+    rotated: 0
+    paddingLeft: 0.123595506
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_DAI_CAT
+    outer:
+      serializedVersion: 2
+      x: 1595
+      y: 1433
+      width: 96
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1595
+      y: 1433
+      width: 96
+      height: 100
+    rotated: 0
+    paddingLeft: 0.041666668
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_DOAN_VIEN
+    outer:
+      serializedVersion: 2
+      x: 1296
+      y: 1433
+      width: 98
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1296
+      y: 1433
+      width: 98
+      height: 100
+    rotated: 0
+    paddingLeft: 0.020408163
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NGUA_TAN_XUAN
+    outer:
+      serializedVersion: 2
+      x: 1096
+      y: 1433
+      width: 99
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 1096
+      y: 1433
+      width: 99
+      height: 100
+    rotated: 0
+    paddingLeft: 0.01010101
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_HOANG_KIM_TIEU_DAO
+    outer:
+      serializedVersion: 2
+      x: 1761
+      y: 617
+      width: 79
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1761
+      y: 617
+      width: 79
+      height: 69
+    rotated: 0
+    paddingLeft: 0.03797468
+    paddingRight: 0.03797468
+    paddingTop: 0.11594203
+    paddingBottom: 0.11594203
+  - name: VP_HUYET_NGOC
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 167
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 167
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_THIEN_MA_TAN_PHIEN
+    outer:
+      serializedVersion: 2
+      x: 1642
+      y: 1349
+      width: 82
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 1642
+      y: 1349
+      width: 82
+      height: 83
+    rotated: 0
+    paddingLeft: 0.024390243
+    paddingRight: 0.0121951215
+    paddingTop: 0
+    paddingBottom: 0.024096385
+  - name: VP_THIEN_MA_LENH
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 81
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 81
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THIEN_HA_CHIEN_Y
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 232
+      width: 82
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 232
+      width: 82
+      height: 85
+    rotated: 0
+    paddingLeft: 0.036585364
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_TAM_PHAN_QUY_NGUYEN_KHI
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_BAI_VAN_HO_THU
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 318
+      width: 83
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 318
+      width: 83
+      height: 85
+    rotated: 0
+    paddingLeft: 0.012048192
+    paddingRight: 0.012048192
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BOSUNG17
+    outer:
+      serializedVersion: 2
+      x: 1517
+      y: 851
+      width: 85
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 1517
+      y: 851
+      width: 85
+      height: 74
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.10810811
+    paddingBottom: 0.04054054
+  - name: VP_TINH_KIM
+    outer:
+      serializedVersion: 2
+      x: 1821
+      y: 772
+      width: 85
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 1821
+      y: 772
+      width: 85
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.15714286
+    paddingBottom: 0.057142857
+  - name: TS_PHONG_THAN_HANG_LIEN
+    outer:
+      serializedVersion: 2
+      x: 1273
+      y: 1010
+      width: 82
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1273
+      y: 1010
+      width: 82
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.036585364
+    paddingTop: 0
+    paddingBottom: 0.049382716
+  - name: MU_THIEN_SUONG_DAU_SUC
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 854
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 854
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CUSTOM_TU_HON_DAN
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 850
+      width: 85
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 850
+      width: 85
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.08
+    paddingBottom: 0.053333335
+  - name: VC_THANH_LINH_KIEM_PHAP
+    outer:
+      serializedVersion: 2
+      x: 288
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 288
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_NGU_SAC_BAO_THACH
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 146
+      width: 82
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 146
+      width: 82
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.036585364
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THANH_LINH_BAO_Y
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 768
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 768
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_THANH_LINH_MAO
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 682
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 682
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THANH_LINH_BOI
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 596
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 596
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_THANH_LINH_KIEM_KHI
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 338
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 338
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_PHI_KIEM_CAM_Y
+    outer:
+      serializedVersion: 2
+      x: 1188
+      y: 81
+      width: 71
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1188
+      y: 81
+      width: 71
+      height: 85
+    rotated: 0
+    paddingLeft: 0.09859155
+    paddingRight: 0.09859155
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_KHONG_TUOC_LINH
+    outer:
+      serializedVersion: 2
+      x: 1502
+      y: 325
+      width: 68
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1502
+      y: 325
+      width: 68
+      height: 73
+    rotated: 0
+    paddingLeft: 0.19117647
+    paddingRight: 0.05882353
+    paddingTop: 0.08219178
+    paddingBottom: 0.08219178
+  - name: VP_CUSTOM_4
+    outer:
+      serializedVersion: 2
+      x: 1804
+      y: 1096
+      width: 85
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 1804
+      y: 1096
+      width: 85
+      height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.0625
+    paddingBottom: 0
+  - name: VK_KIM_TI_HO_THU
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_BAT_DIET_BAO_GIAP
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 661
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 661
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_BAT_DIET_DAU_KHOI
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 1005
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 1005
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_BAT_DIET_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 833
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 833
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_THIEN_MA_TRUY_HON_DAO
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 575
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 575
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_THIEN_TINH_MAO
+    outer:
+      serializedVersion: 2
+      x: 1112
+      y: 1006
+      width: 80
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1112
+      y: 1006
+      width: 80
+      height: 85
+    rotated: 0
+    paddingLeft: 0.0125
+    paddingRight: 0.05
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THIEN_TINH_THU_TRAC
+    outer:
+      serializedVersion: 2
+      x: 1266
+      y: 219
+      width: 75
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 1266
+      y: 219
+      width: 75
+      height: 77
+    rotated: 0
+    paddingLeft: 0.06666667
+    paddingRight: 0.06666667
+    paddingTop: 0.103896104
+    paddingBottom: 0
+  - name: VC_THIEN_DIA_VO_TINH
+    outer:
+      serializedVersion: 2
+      x: 1387
+      y: 1351
+      width: 85
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1387
+      y: 1351
+      width: 85
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.024691358
+    paddingBottom: 0.024691358
+  - name: VP_CUSTOM_5
+    outer:
+      serializedVersion: 2
+      x: 1111
+      y: 160
+      width: 76
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1111
+      y: 160
+      width: 76
+      height: 81
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.118421055
+    paddingTop: 0
+    paddingBottom: 0.049382716
+  - name: VP_PHI_THIEN_LENH
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 177
+      width: 61
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 177
+      width: 61
+      height: 72
+    rotated: 0
+    paddingLeft: 0.22950819
+    paddingRight: 0.16393442
+    paddingTop: 0.083333336
+    paddingBottom: 0.097222224
+  - name: AG_THIEN_TINH_Y
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 489
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 489
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CHU_CUNG
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 403
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 403
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CHU_XUAN
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 317
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 317
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CHU_TAN
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 231
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 231
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CHU_TRI
+    outer:
+      serializedVersion: 2
+      x: 1289
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1289
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: VP_HOA_HONG
+    outer:
+      serializedVersion: 2
+      x: 1929
+      y: 846
+      width: 77
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 1929
+      y: 846
+      width: 77
+      height: 79
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.103896104
+    paddingTop: 0.06329114
+    paddingBottom: 0.012658228
+  - name: VP_CHU_NHAN
+    outer:
+      serializedVersion: 2
+      x: 1203
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1203
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: VP_CHOCOLATE_TRANG
+    outer:
+      serializedVersion: 2
+      x: 1547
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1547
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.011904762
+  - name: VP_CHOCOLATE_NAU
+    outer:
+      serializedVersion: 2
+      x: 1375
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1375
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0.011904762
+  - name: VP_CHU_DUC
+    outer:
+      serializedVersion: 2
+      x: 1633
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1633
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: VP_CHU_CHUC
+    outer:
+      serializedVersion: 2
+      x: 687
+      y: 59
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 687
+      y: 59
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CHU_TAI
+    outer:
+      serializedVersion: 2
+      x: 1031
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1031
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: VP_VIEN_KEO
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 407
+      width: 77
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 407
+      width: 77
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0.103896104
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TUITHAN_3
+    outer:
+      serializedVersion: 2
+      x: 1289
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1289
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TUITHAN_1
+    outer:
+      serializedVersion: 2
+      x: 1375
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1375
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TUITHAN_4
+    outer:
+      serializedVersion: 2
+      x: 1461
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1461
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TUITHAN_2
+    outer:
+      serializedVersion: 2
+      x: 1719
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1719
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TUITHAN_5
+    outer:
+      serializedVersion: 2
+      x: 1805
+      y: 1263
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1805
+      y: 1263
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: HK_KIM
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: HK_THUY
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 1005
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 1005
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_TIEN_LINH_DAN
+    outer:
+      serializedVersion: 2
+      x: 871
+      y: 1349
+      width: 85
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 871
+      y: 1349
+      width: 85
+      height: 83
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BAOVAT
+    outer:
+      serializedVersion: 2
+      x: 1960
+      y: 930
+      width: 85
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 1960
+      y: 930
+      width: 85
+      height: 75
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.06666667
+    paddingBottom: 0.06666667
+  - name: VP_HUYEN_NGUYEN_DAN
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1543
+      width: 85
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1543
+      width: 85
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CAN_KHON_LENH_BAI
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 747
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 747
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: huyen_khi_bgr_sl
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1809
+      width: 85
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1809
+      width: 85
+      height: 128
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_CHIEN_THAN_DAN
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1630
+      width: 85
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1630
+      width: 85
+      height: 86
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: HK_THO
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 661
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 661
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_DICH_CAN_DAN
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 575
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 575
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_BACHKIM
+    outer:
+      serializedVersion: 2
+      x: 1575
+      y: 550
+      width: 85
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 1575
+      y: 550
+      width: 85
+      height: 63
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.17460318
+    paddingBottom: 0.17460318
+  - name: VP_HUYEN_THAN_LENH
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 489
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 489
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VP_RUONGTHAN_HOANGKIM
+    outer:
+      serializedVersion: 2
+      x: 1875
+      y: 689
+      width: 85
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 1875
+      y: 689
+      width: 85
+      height: 67
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.13432837
+    paddingBottom: 0.13432837
+  - name: HK_HOA
+    outer:
+      serializedVersion: 2
+      x: 1603
+      y: 1013
+      width: 85
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 1603
+      y: 1013
+      width: 85
+      height: 78
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: HK_MOC
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 403
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 403
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: huyen_khi_bgr
+    outer:
+      serializedVersion: 2
+      x: 591
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 591
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_THANH_TAM_QUYET
+    outer:
+      serializedVersion: 2
+      x: 692
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 692
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_THIEN_KIEP_THIEN_TOI
+    outer:
+      serializedVersion: 2
+      x: 773
+      y: 145
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 773
+      y: 145
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AG_THIEN_KIM_HOANG_BAO
+    outer:
+      serializedVersion: 2
+      x: 859
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 859
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_THIEN_VU_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 945
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 945
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_THIEN_VU_MAO
+    outer:
+      serializedVersion: 2
+      x: 1031
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1031
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_PHONG_HOA_TUYET_NGUYET
+    outer:
+      serializedVersion: 2
+      x: 793
+      y: 1837
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 793
+      y: 1837
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VK_TIEU_DAO_PHIEN
+    outer:
+      serializedVersion: 2
+      x: 1203
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1203
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TS_TIEU_DAO_GIOI_CHI
+    outer:
+      serializedVersion: 2
+      x: 1289
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1289
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MU_TIEU_DAO_PHAT_QUAN
+    outer:
+      serializedVersion: 2
+      x: 1117
+      y: 1092
+      width: 85
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 1117
+      y: 1092
+      width: 85
+      height: 84
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0.011904762
+    paddingBottom: 0
+  - name: AG_TIEU_DAO_DAO_BAO
+    outer:
+      serializedVersion: 2
+      x: 1461
+      y: 1177
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 1461
+      y: 1177
+      width: 85
+      height: 85
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: VC_KIM_THAN_BAT_DIET
+    outer:
+      serializedVersion: 2
+      x: 187
+      y: 19
+      width: 100
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 187
+      y: 19
+      width: 100
+      height: 100
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 147589}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0

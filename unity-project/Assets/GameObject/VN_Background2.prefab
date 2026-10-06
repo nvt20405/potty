@@ -1,0 +1,436 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147589
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 479954}
+  - 114: {fileID: 11409266}
+  m_Layer: 0
+  m_Name: VN_Background2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11409266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  material: {fileID: 2100000, guid: 6034b78674360fb43875763f2429bb43, type: 2}
+  sprites:
+  - name: bgr_BanDoKhoBau
+    outer:
+      serializedVersion: 2
+      x: 1399
+      y: 1718
+      width: 320
+      height: 330
+    inner:
+      serializedVersion: 2
+      x: 1399
+      y: 1718
+      width: 320
+      height: 330
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_ThuongNhanThanBi
+    outer:
+      serializedVersion: 2
+      x: 1095
+      y: 28
+      width: 288
+      height: 297
+    inner:
+      serializedVersion: 2
+      x: 1095
+      y: 28
+      width: 288
+      height: 297
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_GapBangHuu
+    outer:
+      serializedVersion: 2
+      x: 1179
+      y: 889
+      width: 320
+      height: 330
+    inner:
+      serializedVersion: 2
+      x: 1179
+      y: 889
+      width: 320
+      height: 330
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_KhieuChienTamMa
+    outer:
+      serializedVersion: 2
+      x: 1474
+      y: 558
+      width: 320
+      height: 330
+    inner:
+      serializedVersion: 2
+      x: 1474
+      y: 558
+      width: 320
+      height: 330
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_CaoNhanChiDiem
+    outer:
+      serializedVersion: 2
+      x: 1179
+      y: 1220
+      width: 320
+      height: 330
+    inner:
+      serializedVersion: 2
+      x: 1179
+      y: 1220
+      width: 320
+      height: 330
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_theme
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 696
+      width: 378
+      height: 671
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 696
+      width: 378
+      height: 671
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: white
+    outer:
+      serializedVersion: 2
+      x: 1125
+      y: 1477
+      width: 27
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 1129
+      y: 1481
+      width: 19
+      height: 19
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_theme3
+    outer:
+      serializedVersion: 2
+      x: 641
+      y: 1377
+      width: 378
+      height: 671
+    inner:
+      serializedVersion: 2
+      x: 641
+      y: 1377
+      width: 378
+      height: 671
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_bgr
+    outer:
+      serializedVersion: 2
+      x: 1020
+      y: 1551
+      width: 378
+      height: 497
+    inner:
+      serializedVersion: 2
+      x: 1020
+      y: 1551
+      width: 378
+      height: 497
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: lien_minh_avatar
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 35
+      width: 391
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 35
+      width: 391
+      height: 76
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: chinh_ta_bgr
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 112
+      width: 378
+      height: 508
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 112
+      width: 378
+      height: 508
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ban_do_cong_thanh
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1368
+      width: 640
+      height: 680
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1368
+      width: 640
+      height: 680
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Tu_linh_bkg4
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 24
+      width: 378
+      height: 671
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 24
+      width: 378
+      height: 671
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Vo_dai_bkg
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 621
+      width: 420
+      height: 746
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 621
+      width: 420
+      height: 746
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_kim_tien_bang
+    outer:
+      serializedVersion: 2
+      x: 1474
+      y: 356
+      width: 378
+      height: 201
+    inner:
+      serializedVersion: 2
+      x: 1474
+      y: 356
+      width: 378
+      height: 201
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_tuong_duong
+    outer:
+      serializedVersion: 2
+      x: 1384
+      y: 139
+      width: 420
+      height: 186
+    inner:
+      serializedVersion: 2
+      x: 1384
+      y: 139
+      width: 420
+      height: 186
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: vong_quay_bgr
+    outer:
+      serializedVersion: 2
+      x: 800
+      y: 182
+      width: 294
+      height: 522
+    inner:
+      serializedVersion: 2
+      x: 800
+      y: 182
+      width: 294
+      height: 522
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_chat
+    outer:
+      serializedVersion: 2
+      x: 1020
+      y: 1501
+      width: 104
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1070
+      y: 1508
+      width: 4
+      height: 17
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_thantai
+    outer:
+      serializedVersion: 2
+      x: 1125
+      y: 1505
+      width: 41
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 1135
+      y: 1515
+      width: 21
+      height: 25
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_quatang
+    outer:
+      serializedVersion: 2
+      x: 1095
+      y: 326
+      width: 378
+      height: 378
+    inner:
+      serializedVersion: 2
+      x: 1095
+      y: 326
+      width: 378
+      height: 378
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bgr_theme2
+    outer:
+      serializedVersion: 2
+      x: 800
+      y: 705
+      width: 378
+      height: 671
+    inner:
+      serializedVersion: 2
+      x: 800
+      y: 705
+      width: 378
+      height: 671
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 147589}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
