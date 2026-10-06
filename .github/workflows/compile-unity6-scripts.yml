@@ -1,0 +1,66 @@
+name: Compile MVL Scripts Unity 6
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - "unity-project/Assets/**/*.cs"
+      - ".github/workflows/compile-unity6-scripts.yml"
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - run: git lfs pull
+      - name: Compile player C# against Unity 6
+        run: |
+          set -euo pipefail
+          IMAGE=unityci/editor:ubuntu-6000.3.25f1-android-3
+          docker pull "$IMAGE"
+          docker run --rm -v "$PWD:/src" -w /src --entrypoint bash "$IMAGE" -lc '
+            set -euo pipefail
+            DOTNET=/opt/unity/Editor/Data/NetCoreRuntime/dotnet
+            CSC=/opt/unity/Editor/Data/DotNetSdkRoslyn/csc.dll
+            REF=/opt/unity/Editor/Data/UnityReferenceAssemblies/unity-4.8-api
+            UMAN=/opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/mono/Managed
+            mkdir -p /tmp/mvl
+            find unity-project/Assets -type f -name "*.cs" ! -path "*/Editor/*" | sort > /tmp/mvl/sources.txt
+            : > /tmp/mvl/refs.rsp
+            for f in "$REF"/*.dll "$REF"/Facades/*.dll "$UMAN"/*.dll; do
+              [ -f "$f" ] && printf "%s\n" "-r:$f" >> /tmp/mvl/refs.rsp
+            done
+            find unity-project/Assets -type f -name "*.dll" | sort | while read -r f; do
+              printf "%s\n" "-r:/src/$f" >> /tmp/mvl/refs.rsp
+            done
+            sed "s#^#/src/#" /tmp/mvl/sources.txt > /tmp/mvl/sources-abs.txt
+            {
+              echo "-nologo"
+              echo "-target:library"
+              echo "-langversion:latest"
+              echo "-unsafe+"
+              echo "-define:UNITY_6000_3_OR_NEWER,UNITY_6000_0_OR_NEWER,UNITY_ANDROID,UNITY_64,ENABLE_MONO,NET_4_6"
+              echo "-out:/tmp/mvl/Assembly-CSharp-check.dll"
+              cat /tmp/mvl/refs.rsp
+              sed "s#^#\"#; s#$#\"#" /tmp/mvl/sources-abs.txt
+            } > /tmp/mvl/compile.rsp
+            set +e
+            "$DOTNET" "$CSC" @/tmp/mvl/compile.rsp 2>&1 | tee /src/unity6-compile.log
+            status=${PIPESTATUS[0]}
+            set -e
+            grep -E "error CS[0-9]+" /src/unity6-compile.log | sed -E "s#^/src/##" | tee /src/unity6-errors.txt || true
+            echo "compiler_exit=$status"
+            exit "$status"
+          '
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unity6-script-compile
+          path: |
+            unity6-compile.log
+            unity6-errors.txt
+          retention-days: 7
