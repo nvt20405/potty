@@ -1,0 +1,50 @@
+name: Probe Legacy Model Bundles
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - ".github/workflows/probe-bundles.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe public model bundles
+        run: |
+          set -u
+          mkdir -p work
+          urls=(
+            "http://sg34.vcmedia.vn/Asset/Costume/Atlas/CostumesAtlas_v1_Android.unity3d"
+            "http://sg34.vcmedia.vn/Asset/Costume/Shader/ShadersList_v1_Android.unity3d"
+            "http://sg34.vcmedia.vn/Asset/Costume/NV_DOC_CO_CAU_BAI/NV_DOC_CO_CAU_BAI_TT_v1_Android.unity3d"
+          )
+          : > work/probe.txt
+          i=0
+          for url in "${urls[@]}"; do
+            out="work/bundle-$i.unity3d"
+            echo "=== $url ===" | tee -a work/probe.txt
+            curl -L --connect-timeout 20 --max-time 120 -A "Mozilla/5.0" -D "work/headers-$i.txt" -o "$out" -w "http_code=%{http_code} size=%{size_download} content_type=%{content_type}\n" "$url" 2>&1 | tee -a work/probe.txt || true
+            cat "work/headers-$i.txt" >> work/probe.txt || true
+            if [ -s "$out" ]; then
+              file "$out" | tee -a work/probe.txt
+              sha256sum "$out" | tee -a work/probe.txt
+              xxd -l 128 "$out" | tee -a work/probe.txt
+            fi
+            i=$((i+1))
+          done
+      - name: Upload probe report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mvl-bundle-probe
+          path: |
+            work/probe.txt
+            work/headers-*.txt
+            work/bundle-*.unity3d
+          retention-days: 3
