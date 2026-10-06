@@ -21,10 +21,6 @@ jobs:
             unity-project/Assets/Plugins
             .github/workflows/compile-unity6-scripts.yml
           sparse-checkout-cone-mode: true
-      - name: Pull plugin DLLs
-        run: |
-          git lfs install --local
-          git lfs pull --include="unity-project/Assets/Plugins/**/*.dll,unity-project/Assets/Plugins/*.dll" --exclude="*"
       - name: Compile C#
         run: |
           set -euo pipefail
@@ -36,10 +32,13 @@ jobs:
             CSC=/opt/unity/Editor/Data/DotNetSdkRoslyn/csc.dll
             REF=/opt/unity/Editor/Data/UnityReferenceAssemblies/unity-4.8-api
             UMAN=/opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/mono/Managed
-            find unity-project/Assets/Scripts -type f -name "*.cs" ! -path "*/Editor/*" | sort > /tmp/sources.txt
+
+            find unity-project/Assets/Scripts unity-project/Assets/Plugins -type f -name "*.cs" ! -path "*/Editor/*" | sort > /tmp/sources.txt
             : > /tmp/refs.rsp
-            for f in "$REF"/*.dll "$REF"/Facades/*.dll "$UMAN"/*.dll; do [ -f "$f" ] && echo "-r:$f" >> /tmp/refs.rsp; done
-            find unity-project/Assets/Plugins -type f -name "*.dll" 2>/dev/null | sort | while read -r f; do echo "-r:/src/$f" >> /tmp/refs.rsp; done
+            for f in "$REF"/*.dll "$REF"/Facades/*.dll "$UMAN"/*.dll; do
+              [ -f "$f" ] && echo "-r:$f" >> /tmp/refs.rsp
+            done
+
             sed "s#^#/src/#" /tmp/sources.txt > /tmp/sources-abs.txt
             {
               echo "-nologo"
@@ -51,6 +50,7 @@ jobs:
               cat /tmp/refs.rsp
               sed "s#^#\"#; s#$#\"#" /tmp/sources-abs.txt
             } > /tmp/compile.rsp
+
             set +e
             "$DOTNET" "$CSC" @/tmp/compile.rsp 2>&1 | tee /src/unity6-compile.log
             status=${PIPESTATUS[0]}
