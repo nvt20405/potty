@@ -605,7 +605,7 @@ def migrate(project: Path):
         '- Original APK UI orientation preserved as portrait; autorotation to landscape is disabled.\n'
         '- Android minimum raised from API 21 to API 23, the minimum supported by Unity 6.\n'
         '- Android backend: IL2CPP, ARMv7 + ARM64; managed stripping kept Minimal and Assembly-CSharp preserved for LitJson/RMI reflection.\n'
-        '- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while keeping the original 720-height layout.\n',encoding='utf-8')
+        '- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while preserving the recovered scene UIRoot scale (GameClient uses fixed manualHeight 1136).\n',encoding='utf-8')
     print(f'merged={merged} extra={extra} patched_files={changed} case_collisions_renamed={len(collisions)}')
 
 if __name__=='__main__':
