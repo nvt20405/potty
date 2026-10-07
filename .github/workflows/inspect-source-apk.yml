@@ -1,0 +1,55 @@
+name: Inspect Source APK
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - ".github/workflows/inspect-source-apk.yml"
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download APK
+        run: |
+          set -euo pipefail
+          python3 -m pip install -q --disable-pip-version-check gdown androguard
+          gdown "https://drive.google.com/uc?id=1x5AoDsrCh_zFI1WRAHG0coSh7HMBdAV5" -O source.apk
+          sha256sum source.apk
+
+      - name: Inspect AndroidManifest
+        run: |
+          python3 - <<'PY' | tee apk-manifest-report.txt
+          from androguard.core.apk import APK
+          a = APK("source.apk")
+          print("package:", a.get_package())
+          print("versionName:", a.get_androidversion_name())
+          print("versionCode:", a.get_androidversion_code())
+          print("minSdk:", a.get_min_sdk_version())
+          print("targetSdk:", a.get_target_sdk_version())
+          print("mainActivity:", a.get_main_activity())
+          print("permissions:", ",".join(sorted(a.get_permissions())))
+          manifest = a.get_android_manifest_xml()
+          ns = "{http://schemas.android.com/apk/res/android}"
+          app = manifest.find("application")
+          if app is not None:
+              print("appTheme:", app.get(ns+"theme"))
+              print("hardwareAccelerated:", app.get(ns+"hardwareAccelerated"))
+          for act in manifest.findall(".//activity"):
+              name = act.get(ns+"name")
+              orient = act.get(ns+"screenOrientation")
+              resize = act.get(ns+"resizeableActivity")
+              config = act.get(ns+"configChanges")
+              theme = act.get(ns+"theme")
+              print(f"activity: {name} orientation={orient} resizeable={resize} theme={theme} configChanges={config}")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-apk-manifest-report
+          path: apk-manifest-report.txt
+          retention-days: 7
