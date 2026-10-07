@@ -27,6 +27,7 @@ public static class MVLUnity6Build
         PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel23;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
+        PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.Android, ManagedStrippingLevel.Minimal);
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
 
         string[] scenes = EditorBuildSettings.scenes

@@ -1525,7 +1525,7 @@ MonoBehaviour:
   avatar: {fileID: 109266}
   label: {fileID: 0}
   ui: {fileID: 0}
-  model3D: {fileID: 109266, guid: 0fd2ac90e7abfa9418fdc94abd952fba, type: 2}
+  model3D: {fileID: 109266, guid: 5ec5570fd6db814468c9d7baa89950d2, type: 2}
   owner: {fileID: 0}
   nav: {fileID: 19511857}
 --- !u!4 &435975
@@ -1546,7 +1546,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179954}
-  m_Mesh: {fileID: 4300000, guid: 2787c2ef4fff71b478aacedd8fe7c3da, type: 2}
+  m_Mesh: {fileID: 4300000, guid: e83bdb3ebe1374f4e87fdc950401d092, type: 2}
 --- !u!23 &2380903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1559,7 +1559,7 @@ MeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 96ba411aa26db4d4ea3d5ede13039127, type: 2}
+  - {fileID: 2100000, guid: 5cac58a93d475684998031e7b5663bc3, type: 2}
   m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1589,10 +1589,10 @@ Animation:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109266}
   m_Enabled: 1
-  m_Animation: {fileID: 7400000, guid: 1c55fe84369074e4ba8ffa1de074db54, type: 2}
+  m_Animation: {fileID: 7400000, guid: b4f2087d8b62f004bb398adc21b10647, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 1c55fe84369074e4ba8ffa1de074db54, type: 2}
-  - {fileID: 7400000, guid: 0860ea9fea9259c4391458397203425d, type: 2}
+  - {fileID: 7400000, guid: b4f2087d8b62f004bb398adc21b10647, type: 2}
+  - {fileID: 7400000, guid: 26bf03d6b17768e469887635c5ca5d60, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -2817,7 +2817,7 @@ SkinnedMeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3591ffdaf78209b4d8f35d9640cf7401, type: 2}
+  - {fileID: 2100000, guid: 552e48e4598cb3f439ba9936d0c5ebec, type: 2}
   m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2827,7 +2827,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300000, guid: db2abfb6bc1764c4c95156c1956bdc63, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 25388d35ea5c6e148a5c715dbd8ede20, type: 2}
   m_Bones:
   - {fileID: 471354}
   - {fileID: 466439}
