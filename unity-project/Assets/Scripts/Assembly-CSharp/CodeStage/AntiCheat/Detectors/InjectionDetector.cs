@@ -108,6 +108,10 @@ namespace CodeStage.AntiCheat.Detectors
 			{
 				LoadAndParseAllowedAssemblies();
 			}
+			if (!base.enabled)
+			{
+				return;
+			}
 			if (signaturesAreNotGenuine)
 			{
 				OnInjectionDetected();
@@ -224,7 +228,8 @@ namespace CodeStage.AntiCheat.Detectors
 			TextAsset textAsset = (TextAsset)Resources.Load("fndid", typeof(TextAsset));
 			if (textAsset == null)
 			{
-				signaturesAreNotGenuine = true;
+				Debug.LogWarning("[MVL] InjectionDetector disabled: legacy fndid signatures are unavailable/incompatible with the Unity 6 rebuilt assemblies.");
+				base.enabled = false;
 				return;
 			}
 			string[] separator = new string[1] { ":" };

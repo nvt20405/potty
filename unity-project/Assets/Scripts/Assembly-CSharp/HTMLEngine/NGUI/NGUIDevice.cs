@@ -41,17 +41,22 @@ namespace HTMLEngine.NGUI
 			Transform transform = (Transform)((userData is Transform) ? userData : null);
 			if (transform != null)
 			{
-				GameObject gameObject = new GameObject("fill", typeof(UISlicedSprite));
+				if (whiteTex == null)
+				{
+					whiteTex = new Texture2D(1, 1, TextureFormat.RGBA32, false);
+					whiteTex.name = "HTMLEngineWhite";
+					whiteTex.SetPixel(0, 0, Color.white);
+					whiteTex.Apply(false, true);
+				}
+				GameObject gameObject = new GameObject("fill", typeof(UITexture));
 				gameObject.layer = transform.gameObject.layer;
 				gameObject.transform.parent = transform;
 				gameObject.transform.localPosition = new Vector3(rect.X + rect.Width / 2, -rect.Y - rect.Height / 2 - 2, -1f);
 				gameObject.transform.localScale = new Vector3(rect.Width, rect.Height, 1f);
-				UISlicedSprite component = gameObject.GetComponent<UISlicedSprite>();
+				UITexture component = gameObject.GetComponent<UITexture>();
 				component.pivot = UIWidget.Pivot.Center;
-				component.atlas = Resources.Load("atlases/white", typeof(UIAtlas)) as UIAtlas;
-				component.spriteName = "white";
+				component.mainTexture = whiteTex;
 				component.color = new Color32(color.R, color.G, color.B, color.A);
-				component.MakePixelPerfect();
 				if (gameObject.transform.localScale.y == 0f)
 				{
 					gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, 1f, 1f);
