@@ -109,6 +109,32 @@ def patch_cs(path: Path):
             'SendRequest(m_C2SProxy.RequestDoiThuongLienMinh, JsonMapper.ToJson(request));\n\t}\n\n\tpublic bool OnDoiMinhChuResponse',
             'SendRequest(m_C2SProxy.RequestDoiMinhChu, JsonMapper.ToJson(request));\n\t}\n\n\tpublic bool OnDoiMinhChuResponse')
 
+    if path.name == 'CJsonTransport.cs':
+        s=s.replace(
+'''\t\ttry
+\t\t{
+\t\t\tif (_thread != null && _thread.IsAlive)
+\t\t\t{
+\t\t\t\t_thread.Abort();
+\t\t\t}
+\t\t}
+\t\tcatch
+\t\t{
+\t\t}
+\t\t_thread = null;''',
+'''\t\tThread thread = _thread;
+\t\t_thread = null;
+\t\tif (thread != null && thread.IsAlive && Thread.CurrentThread != thread)
+\t\t{
+\t\t\ttry
+\t\t\t{
+\t\t\t\tthread.Join(500);
+\t\t\t}
+\t\t\tcatch
+\t\t\t{
+\t\t\t}
+\t\t}''')
+
     # Preserve the old NGUI art/layout while keeping anchored controls clear of
     # notches and display cutouts on modern Android devices.
     if path.name == 'UIAnchor.cs':
