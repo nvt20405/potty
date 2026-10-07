@@ -20,7 +20,27 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true
+          lfs: false
+
+      - name: Require Unity activation
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_LICENSING_SERVER: ${{ secrets.UNITY_LICENSING_SERVER }}
+        run: |
+          set -euo pipefail
+          if [ -n "$UNITY_LICENSE" ]; then
+            echo "Using UNITY_LICENSE"
+          elif [ -n "$UNITY_LICENSING_SERVER" ]; then
+            echo "Using UNITY_LICENSING_SERVER"
+          elif [ -n "$UNITY_EMAIL" ] && [ -n "$UNITY_PASSWORD" ]; then
+            echo "Using Unity account credentials"
+          else
+            echo "::error::Unity activation is not configured. Add UNITY_LICENSE, or UNITY_EMAIL + UNITY_PASSWORD (and UNITY_SERIAL for paid seats), or UNITY_LICENSING_SERVER."
+            exit 1
+          fi
 
       - name: Pull Git LFS assets
         run: |
@@ -33,21 +53,14 @@ jobs:
         run: |
           python3 tools/validate_unity_project.py unity-project
 
-      - name: Unity credential status
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        run: |
-          if [ -n "$UNITY_LICENSE" ]; then echo "UNITY_LICENSE configured"; else echo "UNITY_LICENSE not configured"; fi
-          if [ -n "$UNITY_EMAIL" ] && [ -n "$UNITY_PASSWORD" ]; then echo "Unity account credentials configured"; else echo "Unity account credentials not configured"; fi
-
       - name: Build Android APK with Unity 6.3 LTS
         uses: game-ci/unity-builder@v6.0.0
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_LICENSING_SERVER: ${{ secrets.UNITY_LICENSING_SERVER }}
         with:
           projectPath: unity-project
           unityVersion: 6000.3.25f1
