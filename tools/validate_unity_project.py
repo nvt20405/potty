@@ -85,7 +85,12 @@ def main(project: Path):
         if p.is_file() and p.suffix!='.meta':
             rel=p.relative_to(res).as_posix(); noext=str(Path(rel).with_suffix(''))
             resource_paths.add(noext.casefold()); resource_exact[noext.casefold()] = noext
-    literals=[]; missing_literals=[]; case_mismatch_literals=[]
+    literals=[]; missing_literals=[]; ignored_missing_literals=[]; case_mismatch_literals=[]
+    optional_missing={
+        'popup/PopupNopNienThuLenh': 'dead recovered script; audit found 0 code refs and 0 serialized refs',
+        'fndid': 'legacy Anti-Cheat assembly signatures; Unity 6 migration disables only InjectionDetector when unavailable',
+        'fonts/code': 'Unity3D HTML demo font; the game registers the NGUI HTML device instead',
+    }
     rx=re.compile(r'(?:Resources\.Load(?:<[^>]+>)?|EGResourceAsyncLoader\.Load)\(\s*"([^"]+)"')
     for p in assets.rglob('*.cs'):
         text=p.read_text(errors='ignore')
@@ -99,7 +104,10 @@ def main(project: Path):
             if key in resource_exact and resource_exact[key] != val:
                 case_mismatch_literals.append((str(p.relative_to(project)),val,resource_exact[key]))
             if key not in resource_paths and not any(x.startswith(key+'/') for x in resource_paths):
-                missing_literals.append((str(p.relative_to(project)),val))
+                if val in optional_missing:
+                    ignored_missing_literals.append((str(p.relative_to(project)),val,optional_missing[val]))
+                else:
+                    missing_literals.append((str(p.relative_to(project)),val))
     if case_mismatch_literals: issues.append(f'literal Resources path case mismatches: {len(case_mismatch_literals)}')
     if missing_literals: warnings.append(f'literal Resources paths not found: {len(missing_literals)}')
 
@@ -114,7 +122,9 @@ def main(project: Path):
         if intentional_hidden: print('  intentional-hidden:',', '.join(intentional_hidden))
         if fallback_weapon: print('  fallback:',', '.join(f'{a}->{b}' for a,b in fallback_weapon))
         if broken_weapon: print('  broken:',', '.join(f'{a}->{b or "<none>"}' for a,b in broken_weapon))
-    print('literal resource loads:',len(literals),'case_mismatches:',len(case_mismatch_literals),'missing:',len(missing_literals))
+    print('literal resource loads:',len(literals),'case_mismatches:',len(case_mismatch_literals),'missing:',len(missing_literals),'optional_ignored:',len(ignored_missing_literals))
+    if ignored_missing_literals:
+        for f,v,reason in ignored_missing_literals[:40]: print('  resource-optional:',f,'=>',v,'(',reason,')')
     if case_mismatch_literals:
         for f,got,want in case_mismatch_literals[:40]: print('  resource-case:',f,'=>',got,'expected',want)
     if missing_literals:
