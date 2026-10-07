@@ -109,6 +109,52 @@ def patch_cs(path: Path):
             'SendRequest(m_C2SProxy.RequestDoiThuongLienMinh, JsonMapper.ToJson(request));\n\t}\n\n\tpublic bool OnDoiMinhChuResponse',
             'SendRequest(m_C2SProxy.RequestDoiMinhChu, JsonMapper.ToJson(request));\n\t}\n\n\tpublic bool OnDoiMinhChuResponse')
 
+    if path.name == 'BattleHero.cs':
+        s=s.replace(
+'''\tprivate void LoadVuKhi()
+\t{
+\t\tGameObject gameObject = null;
+\t\tUnityEngine.Object obj = Resources.Load("vukhi/" + m_spawnInfo.VK, typeof(GameObject));
+\t\tgameObject = (GameObject)((obj is GameObject) ? obj : null);
+\t\tif (gameObject != null)
+\t\t{
+\t\t\tUnityEngine.Object obj2 = UnityEngine.Object.Instantiate(gameObject);
+\t\t\tm_goVk = (GameObject)((obj2 is GameObject) ? obj2 : null);
+\t\t\tTransform parent = m_avatar.transform.Find("jnt_root/jnt_weapon_R").transform;
+\t\t\tm_goVk.transform.parent = parent;
+\t\t\tm_goVk.transform.localRotation = Quaternion.identity;
+\t\t\tm_goVk.transform.localPosition = Vector3.zero;
+\t\t}
+\t}''',
+'''\tprivate void LoadVuKhi()
+\t{
+\t\tGameObject gameObject = null;
+\t\tUnityEngine.Object obj = Resources.Load("vukhi/" + m_spawnInfo.VK, typeof(GameObject));
+\t\tgameObject = (GameObject)((obj is GameObject) ? obj : null);
+\t\tif (gameObject == null)
+\t\t{
+\t\t\tTrangBiCfg cfg;
+\t\t\tif (ConfigManager.instance.m_dicTrangBi.TryGetValue(m_spawnInfo.VK, out cfg) && cfg.GetAnimVK() != AnimVuKhi.NV_AmKhi)
+\t\t\t{
+\t\t\t\tstring fallback = ConfigManager.GetVuKhiMacDinhTheoAnim(cfg.Anim);
+\t\t\t\tif (!string.IsNullOrEmpty(fallback))
+\t\t\t\t{
+\t\t\t\t\tUnityEngine.Object fallbackObj = Resources.Load("vukhi/" + fallback, typeof(GameObject));
+\t\t\t\t\tgameObject = (GameObject)((fallbackObj is GameObject) ? fallbackObj : null);
+\t\t\t\t}
+\t\t\t}
+\t\t}
+\t\tif (gameObject != null)
+\t\t{
+\t\t\tUnityEngine.Object obj2 = UnityEngine.Object.Instantiate(gameObject);
+\t\t\tm_goVk = (GameObject)((obj2 is GameObject) ? obj2 : null);
+\t\t\tTransform parent = m_avatar.transform.Find("jnt_root/jnt_weapon_R").transform;
+\t\t\tm_goVk.transform.parent = parent;
+\t\t\tm_goVk.transform.localRotation = Quaternion.identity;
+\t\t\tm_goVk.transform.localPosition = Vector3.zero;
+\t\t}
+\t}''')
+
     if path.name == 'CJsonTransport.cs':
         s=s.replace(
 '''\t\ttry
