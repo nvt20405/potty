@@ -24,6 +24,7 @@ jobs:
           sparse-checkout: |
             unity-project/Assets/Scripts
             unity-project/Assets/Plugins
+            unity-project/Assets/Editor
             .github/workflows/compile-unity6-scripts.yml
           sparse-checkout-cone-mode: true
       - name: Compile C#
@@ -61,7 +62,38 @@ jobs:
             status=${PIPESTATUS[0]}
             set -e
             grep -E "error CS[0-9]+" /src/unity6-compile.log | sed -E "s#^/src/##" | tee /src/unity6-errors.txt || true
-            exit "$status"
+            if [ "$status" -ne 0 ]; then exit "$status"; fi
+
+            # Compile Assets/Editor as a second assembly so UnityEditor build/validation
+            # code is checked without requiring a Unity license.
+            MAN=/opt/unity/Editor/Data/Managed
+            ANDROID_EXT=/opt/unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+            find unity-project/Assets/Editor -type f -name "*.cs" | sort > /tmp/editor-sources.txt
+            if [ -s /tmp/editor-sources.txt ]; then
+              : > /tmp/editor-refs.rsp
+              for f in "$REF"/*.dll "$REF"/Facades/*.dll "$MAN"/*.dll "$MAN"/UnityEngine/*.dll "$ANDROID_EXT"; do
+                [ -f "$f" ] && echo "-r:$f" >> /tmp/editor-refs.rsp
+              done
+              echo "-r:/tmp/Assembly-CSharp-check.dll" >> /tmp/editor-refs.rsp
+              sed "s#^#/src/#" /tmp/editor-sources.txt > /tmp/editor-sources-abs.txt
+              {
+                echo "-nologo"
+                echo "-target:library"
+                echo "-langversion:latest"
+                echo "-unsafe+"
+                echo "-define:UNITY_EDITOR,UNITY_EDITOR_LINUX,UNITY_6000_3_OR_NEWER,UNITY_6000_0_OR_NEWER,UNITY_ANDROID,UNITY_64,NET_4_6"
+                echo "-out:/tmp/Assembly-CSharp-Editor-check.dll"
+                cat /tmp/editor-refs.rsp
+                cat /tmp/editor-sources-abs.txt
+              } > /tmp/editor-compile.rsp
+
+              set +e
+              "$DOTNET" "$CSC" @/tmp/editor-compile.rsp 2>&1 | tee /src/unity6-editor-compile.log
+              editor_status=${PIPESTATUS[0]}
+              set -e
+              grep -E "error CS[0-9]+" /src/unity6-editor-compile.log | sed -E "s#^/src/##" | tee /src/unity6-editor-errors.txt || true
+              exit "$editor_status"
+            fi
           '
       - uses: actions/upload-artifact@v4
         if: always()
@@ -70,4 +102,6 @@ jobs:
           path: |
             unity6-compile.log
             unity6-errors.txt
+            unity6-editor-compile.log
+            unity6-editor-errors.txt
           retention-days: 7
