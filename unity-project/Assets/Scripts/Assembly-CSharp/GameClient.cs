@@ -7483,7 +7483,7 @@ public class GameClient : MonoBehaviour
 
 	public void RequestDoiMinhChu(DoiMinhChuRequest request)
 	{
-		SendRequest(m_C2SProxy.RequestDoiThuongLienMinh, JsonMapper.ToJson(request));
+		SendRequest(m_C2SProxy.RequestDoiMinhChu, JsonMapper.ToJson(request));
 	}
 
 	public bool OnDoiMinhChuResponse(HostID remote, RmiContext rmiContext, string data)
@@ -12601,7 +12601,7 @@ public class GameClient : MonoBehaviour
 		NopLenhBaiNienThuRequest nopLenhBaiNienThuRequest = new NopLenhBaiNienThuRequest();
 		nopLenhBaiNienThuRequest.ItemID = itemID;
 		nopLenhBaiNienThuRequest.Quantity = quantity;
-		SendRequest(m_C2SProxy.RequestDanhNienThu, JsonMapper.ToJson(nopLenhBaiNienThuRequest));
+		SendRequest(m_C2SProxy.RequestNopLenhBaiNienThu, JsonMapper.ToJson(nopLenhBaiNienThuRequest));
 	}
 
 	public bool OnNopLenhBaiNienThuResponse(HostID remote, RmiContext rmiContext, string data)
