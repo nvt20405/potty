@@ -278,8 +278,14 @@ public static class MVLUnity6Build
         PlayerSettings.companyName = "HikerGames";
         PlayerSettings.productName = "Mộng Võ Lâm";
         PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "vn.shg.mobi.mongvolam");
-        PlayerSettings.bundleVersion = "6.0.0";
-        PlayerSettings.Android.bundleVersionCode = Math.Max(PlayerSettings.Android.bundleVersionCode, 600000);
+        // Preserve the source APK identity/UI behavior while meeting Unity 6 requirements.
+        PlayerSettings.bundleVersion = "10.0.0";
+        PlayerSettings.Android.bundleVersionCode = Math.Max(PlayerSettings.Android.bundleVersionCode, 101);
+        PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
+        PlayerSettings.allowedAutorotateToPortrait = true;
+        PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
+        PlayerSettings.allowedAutorotateToLandscapeLeft = false;
+        PlayerSettings.allowedAutorotateToLandscapeRight = false;
         PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel23;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
@@ -501,7 +507,12 @@ def migrate(project: Path):
         '- Render pipeline: Built-in (keeps legacy NGUI/material/shader behavior)\n'
         '- Decompiled Mono source merged over AssetRipper dummy scripts while retaining original script GUIDs.\n'
         '- Unity 4 component shortcuts and scene loading APIs updated.\n'
-        '- Legacy WWW calls bridged to UnityWebRequest/UnityWebRequestAssetBundle for cached model/AssetBundle loading.\n',encoding='utf-8')
+        '- Legacy WWW calls bridged to UnityWebRequest/UnityWebRequestAssetBundle for cached model/AssetBundle loading.\n'
+        '- Android identity preserved: vn.shg.mobi.mongvolam, version 10.0.0; upgrade build code starts at 101.\n'
+        '- Original APK UI orientation preserved as portrait; autorotation to landscape is disabled.\n'
+        '- Android minimum raised from API 21 to API 23 because Unity 6 requires Android 6.0+.\n'
+        '- Android backend: IL2CPP, ARMv7 + ARM64.\n'
+        '- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while keeping the original 720-height layout.\n',encoding='utf-8')
     print(f'merged={merged} extra={extra} patched_files={changed} case_collisions_renamed={len(collisions)}')
 
 if __name__=='__main__':
