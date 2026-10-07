@@ -856,6 +856,19 @@ public class BattleHero : ClipEntity
 		GameObject gameObject = null;
 		UnityEngine.Object obj = Resources.Load("vukhi/" + m_spawnInfo.VK, typeof(GameObject));
 		gameObject = (GameObject)((obj is GameObject) ? obj : null);
+		if (gameObject == null)
+		{
+			TrangBiCfg cfg;
+			if (ConfigManager.instance.m_dicTrangBi.TryGetValue(m_spawnInfo.VK, out cfg) && cfg.GetAnimVK() != AnimVuKhi.NV_AmKhi)
+			{
+				string fallback = ConfigManager.GetVuKhiMacDinhTheoAnim(cfg.Anim);
+				if (!string.IsNullOrEmpty(fallback))
+				{
+					UnityEngine.Object fallbackObj = Resources.Load("vukhi/" + fallback, typeof(GameObject));
+					gameObject = (GameObject)((fallbackObj is GameObject) ? fallbackObj : null);
+				}
+			}
+		}
 		if (gameObject != null)
 		{
 			UnityEngine.Object obj2 = UnityEngine.Object.Instantiate(gameObject);
