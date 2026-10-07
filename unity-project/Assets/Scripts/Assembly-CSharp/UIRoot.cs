@@ -21,6 +21,10 @@ public class UIRoot : MonoBehaviour
 
 	public int manualHeight = 720;
 
+	public int manualWidth = 640;
+
+	public bool fitWidthOnTallScreens = true;
+
 	public int minimumHeight = 320;
 
 	public int maximumHeight = 1536;
@@ -42,11 +46,11 @@ public class UIRoot : MonoBehaviour
 			int num = Mathf.Max(2, Screen.height);
 			if (scalingStyle == Scaling.FixedSize)
 			{
-				return manualHeight;
+				return GetFixedHeight();
 			}
 			if (scalingStyle == Scaling.FixedSizeOnMobiles)
 			{
-				return manualHeight;
+				return GetFixedHeight();
 			}
 			if (num < minimumHeight)
 			{
@@ -79,11 +83,11 @@ public class UIRoot : MonoBehaviour
 		height = Mathf.Max(2, height);
 		if (scalingStyle == Scaling.FixedSize)
 		{
-			return (float)manualHeight / (float)height;
+			return (float)GetFixedHeight() / (float)height;
 		}
 		if (scalingStyle == Scaling.FixedSizeOnMobiles)
 		{
-			return (float)manualHeight / (float)height;
+			return (float)GetFixedHeight() / (float)height;
 		}
 		if (height < minimumHeight)
 		{
@@ -94,6 +98,22 @@ public class UIRoot : MonoBehaviour
 			return (float)maximumHeight / (float)height;
 		}
 		return 1f;
+	}
+
+	private int GetFixedHeight()
+	{
+		int target = Mathf.Max(2, manualHeight);
+		if (Application.isPlaying && fitWidthOnTallScreens && manualWidth > 0 && Screen.width > 0 && Screen.height > 0)
+		{
+			float screenAspect = (float)Screen.width / (float)Screen.height;
+			float designAspect = (float)manualWidth / (float)Mathf.Max(1, manualHeight);
+			if (screenAspect < designAspect)
+			{
+				target = Mathf.CeilToInt((float)manualWidth / screenAspect);
+			}
+		}
+		int max = Mathf.Max(minimumHeight, maximumHeight);
+		return Mathf.Clamp(target, Mathf.Max(2, minimumHeight), max);
 	}
 
 	private void Awake()

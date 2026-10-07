@@ -9,4 +9,4 @@
 - Original APK UI orientation preserved as portrait; autorotation to landscape is disabled.
 - Android minimum raised from API 21 to API 25, required by Unity 6.3 (Android 7.1+).
 - Android backend: IL2CPP, ARMv7 + ARM64; managed stripping kept Minimal and Assembly-CSharp preserved for LitJson/RMI reflection.
-- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while preserving the recovered scene UIRoot scale (GameClient uses fixed manualHeight 1136).
+- NGUI anchors respect Screen.safeArea; the recovered 640x1136 UIRoot also fits width on tall 20:9/21:9 phones to prevent horizontal UI cropping.
