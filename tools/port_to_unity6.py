@@ -105,6 +105,9 @@ def patch_cs(path: Path):
         s=s.replace(
             'SendRequest(m_C2SProxy.RequestDanhNienThu, JsonMapper.ToJson(nopLenhBaiNienThuRequest));',
             'SendRequest(m_C2SProxy.RequestNopLenhBaiNienThu, JsonMapper.ToJson(nopLenhBaiNienThuRequest));')
+        s=s.replace(
+            'SendRequest(m_C2SProxy.RequestDoiThuongLienMinh, JsonMapper.ToJson(request));\n\t}\n\n\tpublic bool OnDoiMinhChuResponse',
+            'SendRequest(m_C2SProxy.RequestDoiMinhChu, JsonMapper.ToJson(request));\n\t}\n\n\tpublic bool OnDoiMinhChuResponse')
 
     # Preserve the old NGUI art/layout while keeping anchored controls clear of
     # notches and display cutouts on modern Android devices.
