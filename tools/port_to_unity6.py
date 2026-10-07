@@ -366,9 +366,10 @@ public static class MVLUnity6Build
         PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
         PlayerSettings.allowedAutorotateToLandscapeLeft = false;
         PlayerSettings.allowedAutorotateToLandscapeRight = false;
-        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel23;
+        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
+        PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.Android, ManagedStrippingLevel.Minimal);
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
 
         string[] scenes = EditorBuildSettings.scenes
@@ -574,6 +575,18 @@ def migrate(project: Path):
 
     add_editor_build_tools(project)
 
+    # IL2CPP + reflection-heavy LitJson/RMI code needs conservative linker settings.
+    # All recovered gameplay/network/config scripts compile into Assembly-CSharp.
+    link = assets/'link.xml'
+    link.write_text(
+        '<linker>\n'
+        '  <assembly fullname="Assembly-CSharp" preserve="all"/>\n'
+        '</linker>\n',
+        encoding='utf-8')
+    link_meta = Path(str(link) + '.meta')
+    if not link_meta.exists():
+        link_meta.write_text(meta_for('Assets/link.xml'), encoding='utf-8')
+
     ps=project/'ProjectSettings'/'ProjectVersion.txt'
     ps.write_text(f'm_EditorVersion: {TARGET_VERSION}\nm_EditorVersionWithRevision: {TARGET_VERSION} ({TARGET_REVISION})\n',encoding='utf-8')
     packages=project/'Packages'; packages.mkdir(exist_ok=True)
@@ -590,8 +603,8 @@ def migrate(project: Path):
         '- Legacy WWW calls bridged to UnityWebRequest/UnityWebRequestAssetBundle for cached model/AssetBundle loading.\n'
         '- Android identity preserved: vn.shg.mobi.mongvolam, version 10.0.0; upgrade build code starts at 101.\n'
         '- Original APK UI orientation preserved as portrait; autorotation to landscape is disabled.\n'
-        '- Android minimum raised from API 21 to API 23 because Unity 6 requires Android 6.0+.\n'
-        '- Android backend: IL2CPP, ARMv7 + ARM64.\n'
+        '- Android minimum raised from API 21 to API 25 to match Unity 6 current Android support.\n'
+        '- Android backend: IL2CPP, ARMv7 + ARM64; managed stripping kept Minimal and Assembly-CSharp preserved for LitJson/RMI reflection.\n'
         '- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while keeping the original 720-height layout.\n',encoding='utf-8')
     print(f'merged={merged} extra={extra} patched_files={changed} case_collisions_renamed={len(collisions)}')
 
