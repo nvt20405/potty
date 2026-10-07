@@ -366,7 +366,7 @@ public static class MVLUnity6Build
         PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
         PlayerSettings.allowedAutorotateToLandscapeLeft = false;
         PlayerSettings.allowedAutorotateToLandscapeRight = false;
-        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel23;
+        PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
         PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.Android, ManagedStrippingLevel.Minimal);
@@ -603,7 +603,7 @@ def migrate(project: Path):
         '- Legacy WWW calls bridged to UnityWebRequest/UnityWebRequestAssetBundle for cached model/AssetBundle loading.\n'
         '- Android identity preserved: vn.shg.mobi.mongvolam, version 10.0.0; upgrade build code starts at 101.\n'
         '- Original APK UI orientation preserved as portrait; autorotation to landscape is disabled.\n'
-        '- Android minimum raised from API 21 to API 23, the minimum supported by Unity 6.\n'
+        '- Android minimum raised from API 21 to API 25, required by Unity 6.3 (Android 7.1+).\n'
         '- Android backend: IL2CPP, ARMv7 + ARM64; managed stripping kept Minimal and Assembly-CSharp preserved for LitJson/RMI reflection.\n'
         '- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while preserving the recovered scene UIRoot scale (GameClient uses fixed manualHeight 1136).\n',encoding='utf-8')
     print(f'merged={merged} extra={extra} patched_files={changed} case_collisions_renamed={len(collisions)}')
