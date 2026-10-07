@@ -227,17 +227,18 @@ public class CJsonTransport : IDisposable
 		}
 		_stream = null;
 		_client = null;
-		try
+		Thread thread = _thread;
+		_thread = null;
+		if (thread != null && thread.IsAlive && Thread.CurrentThread != thread)
 		{
-			if (_thread != null && _thread.IsAlive)
+			try
 			{
-				_thread.Abort();
+				thread.Join(500);
+			}
+			catch
+			{
 			}
 		}
-		catch
-		{
-		}
-		_thread = null;
 		if (_state == EState.Connected)
 		{
 			_fireDisconnected = true;
