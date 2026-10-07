@@ -99,6 +99,13 @@ def patch_cs(path: Path):
     if path.name == 'UICamera.cs':
         s=s.replace(' || Application.platform == RuntimePlatform.WP8Player || Application.platform == RuntimePlatform.BB10Player', '')
 
+    # Recovered client bug: depositing Nien Thu tokens has its own RMI (4274).
+    # The decompiled GameClient incorrectly routed it through RequestDanhNienThu (4270).
+    if path.name == 'GameClient.cs':
+        s=s.replace(
+            'SendRequest(m_C2SProxy.RequestDanhNienThu, JsonMapper.ToJson(nopLenhBaiNienThuRequest));',
+            'SendRequest(m_C2SProxy.RequestNopLenhBaiNienThu, JsonMapper.ToJson(nopLenhBaiNienThuRequest));')
+
     # Preserve the old NGUI art/layout while keeping anchored controls clear of
     # notches and display cutouts on modern Android devices.
     if path.name == 'UIAnchor.cs':
