@@ -215,6 +215,70 @@ def patch_cs(path: Path):
 \t\t\t\tcomponent.mainTexture = whiteTex;
 \t\t\t\tcomponent.color = new Color32(color.R, color.G, color.B, color.A);''')
 
+    # The recovered UI was authored for a 640x1136 portrait canvas. Old NGUI
+    # fixed only the height, which crops horizontal content on modern 20:9/21:9
+    # phones. Increase logical height only when needed so the full 640-wide
+    # design remains visible, while preserving the original 16:9 scale.
+    if path.name == 'UIRoot.cs':
+        s=s.replace(
+            '\tpublic int manualHeight = 720;\n',
+            '\tpublic int manualHeight = 720;\n\n\tpublic int manualWidth = 640;\n\n\tpublic bool fitWidthOnTallScreens = true;\n')
+        s=s.replace(
+'''\t\t\tif (scalingStyle == Scaling.FixedSize)
+\t\t\t{
+\t\t\t\treturn manualHeight;
+\t\t\t}
+\t\t\tif (scalingStyle == Scaling.FixedSizeOnMobiles)
+\t\t\t{
+\t\t\t\treturn manualHeight;
+\t\t\t}''',
+'''\t\t\tif (scalingStyle == Scaling.FixedSize)
+\t\t\t{
+\t\t\t\treturn GetFixedHeight();
+\t\t\t}
+\t\t\tif (scalingStyle == Scaling.FixedSizeOnMobiles)
+\t\t\t{
+\t\t\t\treturn GetFixedHeight();
+\t\t\t}''')
+        s=s.replace(
+'''\t\tif (scalingStyle == Scaling.FixedSize)
+\t\t{
+\t\t\treturn (float)manualHeight / (float)height;
+\t\t}
+\t\tif (scalingStyle == Scaling.FixedSizeOnMobiles)
+\t\t{
+\t\t\treturn (float)manualHeight / (float)height;
+\t\t}''',
+'''\t\tif (scalingStyle == Scaling.FixedSize)
+\t\t{
+\t\t\treturn (float)GetFixedHeight() / (float)height;
+\t\t}
+\t\tif (scalingStyle == Scaling.FixedSizeOnMobiles)
+\t\t{
+\t\t\treturn (float)GetFixedHeight() / (float)height;
+\t\t}''')
+        s=s.replace(
+'''\tprivate void Awake()
+\t{''',
+'''\tprivate int GetFixedHeight()
+\t{
+\t\tint target = Mathf.Max(2, manualHeight);
+\t\tif (Application.isPlaying && fitWidthOnTallScreens && manualWidth > 0 && Screen.width > 0 && Screen.height > 0)
+\t\t{
+\t\t\tfloat screenAspect = (float)Screen.width / (float)Screen.height;
+\t\t\tfloat designAspect = (float)manualWidth / (float)Mathf.Max(1, manualHeight);
+\t\t\tif (screenAspect < designAspect)
+\t\t\t{
+\t\t\t\ttarget = Mathf.CeilToInt((float)manualWidth / screenAspect);
+\t\t\t}
+\t\t}
+\t\tint max = Mathf.Max(minimumHeight, maximumHeight);
+\t\treturn Mathf.Clamp(target, Mathf.Max(2, minimumHeight), max);
+\t}
+
+\tprivate void Awake()
+\t{''')
+
     # Preserve the old NGUI art/layout while keeping anchored controls clear of
     # notches and display cutouts on modern Android devices.
     if path.name == 'UIAnchor.cs':
@@ -605,7 +669,7 @@ def migrate(project: Path):
         '- Original APK UI orientation preserved as portrait; autorotation to landscape is disabled.\n'
         '- Android minimum raised from API 21 to API 25, required by Unity 6.3 (Android 7.1+).\n'
         '- Android backend: IL2CPP, ARMv7 + ARM64; managed stripping kept Minimal and Assembly-CSharp preserved for LitJson/RMI reflection.\n'
-        '- NGUI anchors respect Screen.safeArea on modern cutout/notch devices while preserving the recovered scene UIRoot scale (GameClient uses fixed manualHeight 1136).\n',encoding='utf-8')
+        '- NGUI anchors respect Screen.safeArea; the recovered 640x1136 UIRoot also fits width on tall 20:9/21:9 phones to prevent horizontal UI cropping.\n',encoding='utf-8')
     print(f'merged={merged} extra={extra} patched_files={changed} case_collisions_renamed={len(collisions)}')
 
 if __name__=='__main__':
