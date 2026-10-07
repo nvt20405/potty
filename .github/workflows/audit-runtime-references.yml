@@ -1,0 +1,55 @@
+name: Audit Recovered Runtime References
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - ".github/workflows/audit-runtime-references.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Audit missing-resource call sites
+        run: |
+          set -euo pipefail
+          META="unity-project/Assets/Scripts/Assembly-CSharp/PopupNopNienThuLenh.cs.meta"
+          GUID="$(awk '/^guid:/{print $2; exit}' "$META")"
+          echo "PopupNopNienThuLenh script guid=$GUID" | tee runtime-reference-audit.txt
+
+          grep -RIl --exclude='*.meta' "$GUID" unity-project/Assets > popup-guid-refs.txt || true
+          grep -RIl --include='*.cs' --exclude='PopupNopNienThuLenh.cs' 'PopupNopNienThuLenh' unity-project/Assets > popup-code-refs.txt || true
+          grep -RIn --include='*.cs' -E 'new NGUIDevice|NGUIDevice\(' unity-project/Assets/Scripts > ngui-html-refs.txt || true
+          grep -RIn --include='*.cs' -E 'Unity3DImage|new Unity3DDevice|Unity3DDevice\(' unity-project/Assets/Scripts > unity3d-html-refs.txt || true
+
+          {
+            echo "serialized_popup_refs=$(wc -l < popup-guid-refs.txt)"
+            echo "code_popup_refs=$(wc -l < popup-code-refs.txt)"
+            echo "ngui_html_refs=$(wc -l < ngui-html-refs.txt)"
+            echo "unity3d_html_refs=$(wc -l < unity3d-html-refs.txt)"
+            echo "--- serialized popup refs ---"
+            cat popup-guid-refs.txt
+            echo "--- code popup refs ---"
+            cat popup-code-refs.txt
+            echo "--- NGUI HTML refs ---"
+            cat ngui-html-refs.txt
+            echo "--- Unity3D HTML refs ---"
+            cat unity3d-html-refs.txt
+          } | tee -a runtime-reference-audit.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: runtime-reference-audit
+          path: |
+            runtime-reference-audit.txt
+            popup-guid-refs.txt
+            popup-code-refs.txt
+            ngui-html-refs.txt
+            unity3d-html-refs.txt
+          retention-days: 7
