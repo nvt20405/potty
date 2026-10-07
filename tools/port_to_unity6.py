@@ -156,6 +156,65 @@ def patch_cs(path: Path):
 \t\t\t}
 \t\t}''')
 
+    if path.name == 'InjectionDetector.cs':
+        s=s.replace(
+'''\t\t\tif (allowedAssemblies == null)
+\t\t\t{
+\t\t\t\tLoadAndParseAllowedAssemblies();
+\t\t\t}
+\t\t\tif (signaturesAreNotGenuine)''',
+'''\t\t\tif (allowedAssemblies == null)
+\t\t\t{
+\t\t\t\tLoadAndParseAllowedAssemblies();
+\t\t\t}
+\t\t\tif (!base.enabled)
+\t\t\t{
+\t\t\t\treturn;
+\t\t\t}
+\t\t\tif (signaturesAreNotGenuine)''')
+        s=s.replace(
+'''\t\t\tif (textAsset == null)
+\t\t\t{
+\t\t\t\tsignaturesAreNotGenuine = true;
+\t\t\t\treturn;
+\t\t\t}''',
+'''\t\t\tif (textAsset == null)
+\t\t\t{
+\t\t\t\tDebug.LogWarning("[MVL] InjectionDetector disabled: legacy fndid signatures are unavailable/incompatible with the Unity 6 rebuilt assemblies.");
+\t\t\t\tbase.enabled = false;
+\t\t\t\treturn;
+\t\t\t}''')
+
+    if path.name == 'NGUIDevice.cs':
+        s=s.replace(
+'''\t\t\t\tGameObject gameObject = new GameObject("fill", typeof(UISlicedSprite));
+\t\t\t\tgameObject.layer = transform.gameObject.layer;
+\t\t\t\tgameObject.transform.parent = transform;
+\t\t\t\tgameObject.transform.localPosition = new Vector3(rect.X + rect.Width / 2, -rect.Y - rect.Height / 2 - 2, -1f);
+\t\t\t\tgameObject.transform.localScale = new Vector3(rect.Width, rect.Height, 1f);
+\t\t\t\tUISlicedSprite component = gameObject.GetComponent<UISlicedSprite>();
+\t\t\t\tcomponent.pivot = UIWidget.Pivot.Center;
+\t\t\t\tcomponent.atlas = Resources.Load("atlases/white", typeof(UIAtlas)) as UIAtlas;
+\t\t\t\tcomponent.spriteName = "white";
+\t\t\t\tcomponent.color = new Color32(color.R, color.G, color.B, color.A);
+\t\t\t\tcomponent.MakePixelPerfect();''',
+'''\t\t\t\tif (whiteTex == null)
+\t\t\t\t{
+\t\t\t\t\twhiteTex = new Texture2D(1, 1, TextureFormat.RGBA32, false);
+\t\t\t\t\twhiteTex.name = "HTMLEngineWhite";
+\t\t\t\t\twhiteTex.SetPixel(0, 0, Color.white);
+\t\t\t\t\twhiteTex.Apply(false, true);
+\t\t\t\t}
+\t\t\t\tGameObject gameObject = new GameObject("fill", typeof(UITexture));
+\t\t\t\tgameObject.layer = transform.gameObject.layer;
+\t\t\t\tgameObject.transform.parent = transform;
+\t\t\t\tgameObject.transform.localPosition = new Vector3(rect.X + rect.Width / 2, -rect.Y - rect.Height / 2 - 2, -1f);
+\t\t\t\tgameObject.transform.localScale = new Vector3(rect.Width, rect.Height, 1f);
+\t\t\t\tUITexture component = gameObject.GetComponent<UITexture>();
+\t\t\t\tcomponent.pivot = UIWidget.Pivot.Center;
+\t\t\t\tcomponent.mainTexture = whiteTex;
+\t\t\t\tcomponent.color = new Color32(color.R, color.G, color.B, color.A);''')
+
     # Preserve the old NGUI art/layout while keeping anchored controls clear of
     # notches and display cutouts on modern Android devices.
     if path.name == 'UIAnchor.cs':
