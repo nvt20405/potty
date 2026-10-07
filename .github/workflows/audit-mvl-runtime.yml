@@ -1,0 +1,25 @@
+name: Audit MVL Runtime References
+
+on:
+  push:
+    branches: [mvl-unity6-recovery]
+    paths:
+      - ".github/workflows/audit-mvl-runtime.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Locate Nien Thu popup call sites
+        run: |
+          set -euo pipefail
+          echo "=== PopupNopNienThuLenh refs ==="
+          grep -RIn --exclude='*.meta' 'PopupNopNienThuLenh' unity-project/Assets || true
+          echo "=== RequestNopLenhBaiNienThu refs ==="
+          grep -RIn --exclude='*.meta' 'RequestNopLenhBaiNienThu' unity-project/Assets || true
+          echo "=== NopLenh button/event refs ==="
+          grep -RIn --exclude='*.meta' -E 'NopLenh|Nop.*NienThu|ThanVuongLenh' unity-project/Assets/Resources unity-project/Assets/Scripts | head -500 || true
