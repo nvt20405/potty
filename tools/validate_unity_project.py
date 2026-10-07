@@ -50,7 +50,35 @@ def main(project: Path):
     missing_weapon=check_keys('TrangBi.json','vukhi',lambda k:k.startswith('VK_'))
     if missing_nv: issues.append(f'character model prefabs missing: {len(missing_nv)}')
     if missing_costume: issues.append(f'costume model prefabs missing: {len(missing_costume)}')
-    if missing_weapon: warnings.append(f'weapon config entries using hidden/default fallback rather than same-name prefab: {len(missing_weapon)}')
+
+    # Some ranged/hidden weapons intentionally have no held prefab (NV_AmKhi).
+    # Other missing weapon prefabs are safe only when the game's own animation-class
+    # fallback exists, matching ConfigManager.GetVuKhiMacDinhTheoAnim().
+    weapon_cfg=load_json(cfg/'TrangBi.json')
+    fallback_by_anim={
+        'NV_Thuong':'VK_PHUONG_THIEN_KICH',
+        'NV_PhuRiu':'VK_KHAI_SON_PHU',
+        'NV_Phien':'VK_DAP_NGUYET_PHIEN',
+        'NV_Kiem':'VK_QUAN_TU_KIEM',
+        'NV_Hoan':'VK_LONG_PHUNG_SONG_HOAN',
+        'NV_Dao':'VK_LANH_NGUYET_BAO_DAO',
+        'NV_ConBong':'VK_DA_CAU_BONG',
+        'NV_ButTieu':'VK_BICH_NGOC_DICH',
+        'NV_AmKhi':'VK_BICH_NGOC_DICH',
+    }
+    intentional_hidden=[]; fallback_weapon=[]; broken_weapon=[]
+    for key in missing_weapon:
+        anim=(weapon_cfg.get(key) or {}).get('Anim','')
+        if anim == 'NV_AmKhi':
+            intentional_hidden.append(key)
+            continue
+        fb=fallback_by_anim.get(anim,'')
+        if fb and (res/'vukhi'/(fb+'.prefab')).exists():
+            fallback_weapon.append((key,fb))
+        else:
+            broken_weapon.append((key,fb))
+    if broken_weapon:
+        issues.append(f'weapon model prefabs missing without usable fallback: {len(broken_weapon)}')
 
     resource_paths=set(); resource_exact={}
     for p in res.rglob('*'):
@@ -81,6 +109,11 @@ def main(project: Path):
     for name,folder,ne,na,missing,extra in checks:
         print(f'{name}: expected={ne} local_prefabs={na} missing={len(missing)} extra={len(extra)}')
         if missing: print('  missing:',', '.join(missing[:30]))
+    if missing_weapon:
+        print('weapon missing classification: hidden=',len(intentional_hidden),'fallback=',len(fallback_weapon),'broken=',len(broken_weapon))
+        if intentional_hidden: print('  intentional-hidden:',', '.join(intentional_hidden))
+        if fallback_weapon: print('  fallback:',', '.join(f'{a}->{b}' for a,b in fallback_weapon))
+        if broken_weapon: print('  broken:',', '.join(f'{a}->{b or "<none>"}' for a,b in broken_weapon))
     print('literal resource loads:',len(literals),'case_mismatches:',len(case_mismatch_literals),'missing:',len(missing_literals))
     if case_mismatch_literals:
         for f,got,want in case_mismatch_literals[:40]: print('  resource-case:',f,'=>',got,'expected',want)
