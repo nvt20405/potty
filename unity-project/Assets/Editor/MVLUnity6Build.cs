@@ -16,8 +16,14 @@ public static class MVLUnity6Build
         PlayerSettings.companyName = "HikerGames";
         PlayerSettings.productName = "Mộng Võ Lâm";
         PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android, "vn.shg.mobi.mongvolam");
-        PlayerSettings.bundleVersion = "6.0.0";
-        PlayerSettings.Android.bundleVersionCode = Math.Max(PlayerSettings.Android.bundleVersionCode, 600000);
+        // Preserve the source APK identity/UI behavior while meeting Unity 6 requirements.
+        PlayerSettings.bundleVersion = "10.0.0";
+        PlayerSettings.Android.bundleVersionCode = Math.Max(PlayerSettings.Android.bundleVersionCode, 101);
+        PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
+        PlayerSettings.allowedAutorotateToPortrait = true;
+        PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
+        PlayerSettings.allowedAutorotateToLandscapeLeft = false;
+        PlayerSettings.allowedAutorotateToLandscapeRight = false;
         PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel23;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
